@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from jobportal-recruitment-theme.netlify.app/post-job by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Jul 2026 17:26:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Post a job on Hiregramm – reach millions of qualified candidates. Simple pricing, company branding, and AI‑matched applicants." />
+  <title>Hiregramm – Post a Job</title>
+
+  <!-- Google Fonts: Clash Display + DM Sans (same as homepage) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=Sora:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet" />
+
+  <!-- AOS – Animate On Scroll (optional, but kept for consistency) -->
+  <link rel="stylesheet" href="assets/css/aos.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- PRELOADER (same) -->
+  <div id="preloader" role="status" aria-label="Loading">
+    <div class="preloader-logo">
+      <div class="logo-mark">T</div>
+      <span class="logo-name">Hiregramm</span>
+    </div>
+    <div class="preloader-spinner"></div>
+  </div>
+
+  <!-- STICKY HEADER (identical) -->
+  <header id="header" role="banner">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <!-- Logo -->
+        <a aria-label='Hiregramm home' class='logo' href='index.html'>
+          <div class="logo-mark" aria-hidden="true">T</div>
+          <span class="logo-name">Talent<span>Hub</span></span>
+        </a>
+        <!-- Desktop nav links -->
+        <ul class="nav-links" role="list">
+          <li class="active" ><a href='index.html'>Home</a></li>
+          <li><a href='browse-jobs.html'>Jobs</a></li>
+          <li><a href='index.html#categories'>Categories</a></li>
+          <li><a href='index.html#companies'>Companies</a></li>
+          <li><a href='index.html#about'>About</a></li>
+          <li><a href='index.html#contact'>Contact</a></li>
+        </ul>
+        <!-- CTA -->
+        <div class="nav-cta">
+          <a class='btn btn-outline' href='browse-jobs.html'>Browse Jobs</a>
+          <a class='btn btn-primary' href='post-job.html'>Post a Job</a>
+        </div>
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false"
+          aria-controls="mobile-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+      <a href='index.html'>Home</a>
+      <a href='browse-jobs.html'>Jobs</a>
+      <a href='index.html#categories'>Categories</a>
+      <a href='index.html#companies'>Companies</a>
+      <a href='index.html#about'>About</a>
+      <a href='index.html#contact'>Contact</a>
+      <a class='btn btn-primary' href='post-job.html'>Post a Job</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT – POST A JOB PAGE -->
+  <main>
+    <section id="post-job" style="padding: calc(var(--nav-height) + var(--sp-12)) 0 var(--sp-16); background: var(--off-white);">
+      <div class="container">
+
+        <!-- header -->
+        <div class="section-header">
+          <div class="section-label" data-aos="fade-up">Employer Dashboard</div>
+          <h1 class="section-title" data-aos="fade-up" data-aos-delay="50">Post a New Job</h1>
+          <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Reach top talent instantly. Fill out the details below and get qualified applicants in hours.</p>
+        </div>
+
+        <!-- main grid -->
+        <div class="post-job-grid" data-aos="fade-up" data-aos-delay="150">
+          <!-- left column – form -->
+          <div class="post-job-main">
+            <form id="postJobForm">
+              <!-- job details -->
+              <h3 style="margin-bottom: var(--sp-4); font-size: 1.2rem;">Job information</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="jobTitle">Job title *</label>
+                  <input type="text" id="jobTitle" placeholder="e.g. Senior Frontend Engineer" required>
+                </div>
+                <div class="form-group">
+                  <label for="department">Department (optional)</label>
+                  <input type="text" id="department" placeholder="e.g. Engineering, Marketing">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="employmentType">Employment type *</label>
+                  <select id="employmentType" required>
+                    <option value="">Select type</option>
+                    <option>Full-time</option>
+                    <option>Part-time</option>
+                    <option>Contract</option>
+                    <option>Internship</option>
+                    <option>Temporary</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="workplace">Workplace *</label>
+                  <select id="workplace" required>
+                    <option value="">Select</option>
+                    <option>On-site</option>
+                    <option>Remote</option>
+                    <option>Hybrid</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="location">Location *</label>
+                <input type="text" id="location" placeholder="e.g. New York, NY / Remote" required>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="salaryMin">Salary min ($) *</label>
+                  <input type="number" id="salaryMin" placeholder="80000" required>
+                </div>
+                <div class="form-group">
+                  <label for="salaryMax">Salary max ($) *</label>
+                  <input type="number" id="salaryMax" placeholder="120000" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="description">Job description *</label>
+                <textarea id="description" rows="8" placeholder="Describe the role, responsibilities, requirements, benefits..." required></textarea>
+                <div class="form-hint">Minimum 100 characters. Include key skills and qualifications.</div>
+              </div>
+
+              <div class="divider"></div>
+
+              <!-- company details -->
+              <h3 style="margin-bottom: var(--sp-4); font-size: 1.2rem;">Company information</h3>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="companyName">Company name *</label>
+                  <input type="text" id="companyName" placeholder="e.g. Stripe" required>
+                </div>
+                <div class="form-group">
+                  <label for="companyLogo">Logo URL (optional)</label>
+                  <input type="url" id="companyLogo" placeholder="https://.../">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="companyWebsite">Company website (optional)</label>
+                <input type="url" id="companyWebsite" placeholder="https://company.com/">
+              </div>
+
+              <div class="form-group">
+                <label for="contactEmail">Recruitment contact email *</label>
+                <input type="email" id="contactEmail" placeholder="hr@company.com" required>
+                <div class="form-hint">Candidates will use this to apply.</div>
+              </div>
+
+              <div class="form-group">
+                <label for="expiry">Job expiry date (optional)</label>
+                <input type="date" id="expiry">
+              </div>
+
+              <!-- tags / categories (similar to homepage categories) -->
+              <div class="form-group">
+                <label for="category">Job category *</label>
+                <select id="category" required>
+                  <option value="">Select category</option>
+                  <option>Technology</option>
+                  <option>Design & Creative</option>
+                  <option>Marketing</option>
+                  <option>Finance</option>
+                  <option>Healthcare</option>
+                  <option>Education</option>
+                  <option>Engineering</option>
+                  <option>Sales</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Required skills (comma separated)</label>
+                <input type="text" placeholder="e.g. React, TypeScript, Node.js">
+              </div>
+
+              <div style="display: flex; gap: var(--sp-4); margin-top: var(--sp-8); flex-wrap: wrap;">
+                <button type="submit" class="btn btn-primary" style="min-width: 180px;">Publish job</button>
+                <button type="reset" class="btn btn-outline">Reset draft</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- right column – pricing / tips / preview -->
+          <div class="post-job-sidebar">
+            <span class="pricing-badge">✨ starts at $199</span>
+            <h3 style="font-size: 1.3rem; margin: var(--sp-4) 0 var(--sp-2);">Reach millions</h3>
+            <p style="color: var(--text-muted); margin-bottom: var(--sp-6);">Your job will be seen by 2.3M+ active job seekers and matched using AI.</p>
+
+            <ul class="feature-list">
+              <li>30 days listing on homepage</li>
+              <li>AI candidate matching</li>
+              <li>Company branding & logo</li>
+              <li>Applicant tracking dashboard</li>
+              <li>Social media promotion</li>
+              <li>Dedicated support</li>
+            </ul>
+
+            <div class="divider" style="margin: var(--sp-6) 0;"></div>
+
+            <h4 style="margin-bottom: var(--sp-3);">Job preview</h4>
+            <div style="background: var(--off-white); border-radius: var(--radius-lg); padding: var(--sp-4); border: 1px solid var(--border);">
+              <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+                <div style="width: 44px; height: 44px; background: var(--surface); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">🏢</div>
+                <div>
+                  <div style="font-weight: 700; color: var(--text-dark);">Your company name</div>
+                  <div style="font-size: 0.8rem; color: var(--text-muted);">Job title will appear here</div>
+                </div>
+              </div>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.75rem;">
+                <span class="badge badge-green">Full-time</span>
+                <span class="badge badge-purple">Remote</span>
+              </div>
+              <div style="font-size: 0.9rem; color: var(--text-body);">$80K – $120K / year · San Francisco</div>
+            </div>
+
+            <div style="margin-top: var(--sp-6); background: rgba(249,115,22,0.05); border-radius: var(--radius-lg); padding: var(--sp-4); border: 1px dashed var(--accent);">
+              <p style="font-size: 0.85rem; color: var(--text-dark);"><span style="font-weight: 700;">📢 Pro tip</span> – Adding a salary range increases applications by 35%.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (identical) -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div>
+          <div class="footer-brand-logo">
+            <div class="logo-mark" aria-hidden="true">T</div>
+            <span class="logo-name">Talent<span>Hub</span></span>
+          </div>
+          <p class="footer-desc">Connecting ambitious professionals with world-class companies. Your career journey
+            starts here.</p>
+          <div class="social-links" aria-label="Social media links">
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="Facebook">f</a>
+            <a href="#" class="social-link" aria-label="Instagram">◉</a>
+          </div>
+        </div>
+        <!-- Quick Links -->
+        <div>
+          <h3 class="footer-col-title">For Job Seekers</h3>
+          <ul class="footer-links" role="list">
+            <li><a href='browse-jobs.html'>Browse Jobs</a></li>
+            <li><a href='index.html#categories'>Job Categories</a></li>
+            <li><a href='career-advice.html'>Career Advice</a></li>
+            <li><a href='resume-builder.html'>Resume Builder</a></li>
+            <li><a href='salary-guide.html'>Salary Guide</a></li>
+          </ul>
+        </div>
+        <!-- Employers -->
+        <div>
+          <h3 class="footer-col-title">For Employers</h3>
+          <ul class="footer-links" role="list">
+            <li><a href='post-job.html'>Post a Job</a></li>
+            <li><a href='talent-search.html'>Talent Search</a></li>
+            <li><a href='plan.html'>Pricing Plans</a></li>
+            <li><a href='employer-branding.html'>Employer Branding</a></li>
+            <li><a href='recruitment-api.html'>Recruitment API</a></li>
+          </ul>
+        </div>
+        <!-- Company -->
+        <div>
+          <h3 class="footer-col-title">Company</h3>
+          <ul class="footer-links" role="list">
+            <li><a href='index.html#about'>About Us</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href='dashboard.html'>Dashboard</a></li>
+            <li><a href='index.html#contact'>Contact</a></li>
+            <li><a href='blog.html'>Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 <a href="#">Hiregramm</a>. All rights reserved. Built with ♥ for ambitious people.
+        </p>
+        <div class="footer-bottom-links">
+          <a href='privacy-policy.html'>Privacy Policy</a>
+          <a href='terms-of-service.html'>Terms of Service</a>
+          <a href='faq.html'>FAQs</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top -->
+  <button id="scroll-top" aria-label="Scroll back to top" title="Scroll to top">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- AOS Library -->
+  <script src="assets/js/aos.js"></script>
+
+  <script>
+    (function() {
+      // Init AOS
+      AOS.init({ duration: 680, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+      // Preloader
+      window.addEventListener('load', function () {
+        const preloader = document.getElementById('preloader');
+        setTimeout(function () {
+          preloader.classList.add('hidden');
+          setTimeout(function () { preloader.remove(); }, 700);
+        }, 900);
+      });
+
+      // Sticky header
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+
+      // Mobile menu
+      const hamburger = document.getElementById('hamburger');
+      const mobileNav = document.getElementById('mobile-nav');
+      hamburger.addEventListener('click', function () {
+        const isOpen = mobileNav.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+          mobileNav.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+      document.addEventListener('click', function (e) {
+        if (!header.contains(e.target) && mobileNav.classList.contains('open')) {
+          mobileNav.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (!target) return;
+          e.preventDefault();
+          const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height'));
+          const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        });
+      });
+
+      // Scroll top button
+      const scrollTopBtn = document.getElementById('scroll-top');
+      window.addEventListener('scroll', function () {
+        scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      scrollTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Post job form submit simulation (identical style to contact form)
+      const postForm = document.getElementById('postJobForm');
+      postForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const submitBtn = this.querySelector('[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Publishing…</span>';
+        setTimeout(function () {
+          submitBtn.innerHTML = '<span>✓ Job Published!</span>';
+          submitBtn.style.background = '#16a34a';
+          postForm.reset();
+          setTimeout(function () {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+            submitBtn.style.background = '';
+          }, 3000);
+        }, 1600);
+      });
+
+    })();
+  </script>
+</body>
+
+<!-- Mirrored from jobportal-recruitment-theme.netlify.app/post-job by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Jul 2026 17:26:28 GMT -->
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from jobportal-recruitment-theme.netlify.app/resume-builder by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Jul 2026 17:26:28 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Build a professional resume with Hiregramm's free resume builder – easy, fast, and effective." />
+  <title>Hiregramm – Resume Builder</title>
+
+    <link rel="shortcut icon" href="assets/images/job-search.png">
+  <!-- Google Fonts (same as homepage) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=Sora:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet" />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="assets/css/aos.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- PRELOADER -->
+  <div id="preloader" role="status" aria-label="Loading">
+    <div class="preloader-logo">
+      <div class="logo-mark">T</div>
+      <span class="logo-name">Hiregramm</span>
+    </div>
+    <div class="preloader-spinner"></div>
+  </div>
+
+  <!-- STICKY HEADER (add Resume Builder link) -->
+  <header id="header" role="banner">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <!-- Logo -->
+        <a aria-label='Hiregramm home' class='logo' href='index.html'>
+          <div class="logo-mark" aria-hidden="true">T</div>
+          <span class="logo-name">Talent<span>Hub</span></span>
+        </a>
+        <!-- Desktop nav links -->
+        <ul class="nav-links" role="list">
+          <li class="active" ><a href='index.html'>Home</a></li>
+          <li><a href='browse-jobs.html'>Jobs</a></li>
+          <li><a href='index.html#categories'>Categories</a></li>
+          <li><a href='index.html#companies'>Companies</a></li>
+          <li><a href='index.html#about'>About</a></li>
+          <li><a href='index.html#contact'>Contact</a></li>
+        </ul>
+        <!-- CTA -->
+        <div class="nav-cta">
+          <a class='btn btn-outline' href='browse-jobs.html'>Browse Jobs</a>
+          <a class='btn btn-primary' href='post-job.html'>Post a Job</a>
+        </div>
+        <!-- Hamburger -->
+        <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false"
+          aria-controls="mobile-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </nav>
+    </div>
+    <!-- Mobile Nav -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+      <a href='index.html'>Home</a>
+      <a href='browse-jobs.html'>Jobs</a>
+      <a href='index.html#categories'>Categories</a>
+      <a href='index.html#companies'>Companies</a>
+      <a href='index.html#about'>About</a>
+      <a href='index.html#contact'>Contact</a>
+      <a class='btn btn-primary' href='post-job.html'>Post a Job</a>
+    </nav>
+  </header>
+
+  <!-- RESUME BUILDER SECTION -->
+  <main>
+    <section id="resume-builder-section">
+      <div class="container">
+        <!-- Header -->
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-label">Create Your Professional Resume</div>
+          <h1 class="section-title">Resume Builder</h1>
+          <p class="section-subtitle">Fill in your details below and see a live preview. Download when you're done.</p>
+        </div>
+
+        <!-- Builder layout -->
+        <div class="builder-layout">
+          <!-- Form card -->
+          <div class="builder-form-card" data-aos="fade-right">
+            <form id="resumeForm">
+              <!-- Personal Details -->
+              <div class="form-section">
+                <h3 class="section-heading"><span>👤</span> Personal Details</h3>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" placeholder="John Doe" value="Alex Johnson">
+                  </div>
+                  <div class="form-group">
+                    <label>Job Title</label>
+                    <input type="text" id="jobTitle" placeholder="e.g. Marketing Manager" value="Product Designer">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" placeholder="john@example.com" value="alex.j@example.com">
+                  </div>
+                  <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" id="phone" placeholder="+1 555 1234" value="+1 415 555 9876">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Location</label>
+                  <input type="text" id="location" placeholder="City, State" value="San Francisco, CA">
+                </div>
+              </div>
+
+              <!-- Professional Summary -->
+              <div class="form-section">
+                <h3 class="section-heading"><span>📄</span> Professional Summary</h3>
+                <div class="form-group">
+                  <textarea id="summary" rows="3" placeholder="Brief overview of your career...">Creative Product Designer with 5+ years of experience in SaaS and fintech. Passionate about user-centered design and cross-functional collaboration.</textarea>
+                </div>
+              </div>
+
+              <!-- Work Experience -->
+              <div class="form-section">
+                <h3 class="section-heading"><span>💼</span> Work Experience</h3>
+                <div id="experienceContainer">
+                  <div class="entry-item">
+                    <div class="entry-header">
+                      <span class="entry-title">Product Designer</span>
+                      <span class="entry-remove" onclick="removeEntry(this)">✕</span>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label>Company</label>
+                        <input type="text" value="Designify" placeholder="Company name">
+                      </div>
+                      <div class="form-group">
+                        <label>Years</label>
+                        <input type="text" value="2022 – Present" placeholder="e.g. 2020–2023">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="entry-item">
+                    <div class="entry-header">
+                      <span class="entry-title">Junior Designer</span>
+                      <span class="entry-remove" onclick="removeEntry(this)">✕</span>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label>Company</label>
+                        <input type="text" value="Creative Studio" placeholder="Company name">
+                      </div>
+                      <div class="form-group">
+                        <label>Years</label>
+                        <input type="text" value="2019–2022" placeholder="e.g. 2020–2023">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="add-btn" onclick="addExperience()">
+                  <span>➕</span> Add another experience
+                </div>
+              </div>
+
+              <!-- Education -->
+              <div class="form-section">
+                <h3 class="section-heading"><span>🎓</span> Education</h3>
+                <div id="educationContainer">
+                  <div class="entry-item">
+                    <div class="entry-header">
+                      <span class="entry-title">Bachelor of Fine Arts</span>
+                      <span class="entry-remove" onclick="removeEntry(this)">✕</span>
+                    </div>
+                    <div class="form-row">
+                      <div class="form-group">
+                        <label>Institution</label>
+                        <input type="text" value="California College of the Arts" placeholder="School name">
+                      </div>
+                      <div class="form-group">
+                        <label>Year</label>
+                        <input type="text" value="2019" placeholder="Graduation year">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="add-btn" onclick="addEducation()">
+                  <span>➕</span> Add another education
+                </div>
+              </div>
+
+              <!-- Skills -->
+              <div class="form-section">
+                <h3 class="section-heading"><span>🔧</span> Skills</h3>
+                <div class="form-group">
+                  <input type="text" id="skills" value="Figma, Sketch, Adobe XD, UI Research, Prototyping, User Testing" placeholder="e.g. Figma, JavaScript, Project Management">
+                </div>
+                <p class="form-hint">Separate skills with commas</p>
+              </div>
+
+              <div style="display: flex; gap: var(--sp-4); margin-top: var(--sp-6);">
+                <button type="submit" class="btn btn-primary">Save Resume</button>
+                <button type="button" class="btn btn-outline">Export PDF</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Preview card -->
+          <div class="preview-card" data-aos="fade-left">
+            <h3 style="margin-bottom: var(--sp-4);">📋 Live Preview</h3>
+            <div class="preview-header">
+              <div class="preview-avatar" id="previewInitials">AJ</div>
+              <div class="preview-name">
+                <h3 id="previewName">Alex Johnson</h3>
+                <p id="previewTitle">Product Designer</p>
+              </div>
+            </div>
+
+            <div class="preview-section">
+              <div class="preview-section-title">Summary</div>
+              <p id="previewSummary" style="font-size:0.9rem;">Creative Product Designer with 5+ years of experience in SaaS and fintech. Passionate about user-centered design and cross-functional collaboration.</p>
+            </div>
+
+            <div class="preview-section">
+              <div class="preview-section-title">Experience</div>
+              <div class="preview-item">
+                <div class="preview-item-title">Product Designer</div>
+                <div class="preview-item-meta">Designify · 2022 – Present</div>
+              </div>
+              <div class="preview-item">
+                <div class="preview-item-title">Junior Designer</div>
+                <div class="preview-item-meta">Creative Studio · 2019–2022</div>
+              </div>
+            </div>
+
+            <div class="preview-section">
+              <div class="preview-section-title">Education</div>
+              <div class="preview-item">
+                <div class="preview-item-title">Bachelor of Fine Arts</div>
+                <div class="preview-item-meta">California College of the Arts · 2019</div>
+              </div>
+            </div>
+
+            <div class="preview-section">
+              <div class="preview-section-title">Skills</div>
+              <p id="previewSkills" style="font-size:0.9rem;">Figma, Sketch, Adobe XD, UI Research, Prototyping, User Testing</p>
+            </div>
+
+            <div class="progress-indicator">
+              <div style="display: flex; justify-content: space-between; font-size:0.8rem;">
+                <span>Profile strength</span>
+                <span>65%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width:65%"></div>
+              </div>
+              <p style="font-size:0.8rem; margin-top: var(--sp-2);">Add a photo and more skills to improve</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div>
+          <div class="footer-brand-logo">
+            <div class="logo-mark" aria-hidden="true">T</div>
+            <span class="logo-name">Talent<span>Hub</span></span>
+          </div>
+          <p class="footer-desc">Connecting ambitious professionals with world-class companies. Your career journey
+            starts here.</p>
+          <div class="social-links" aria-label="Social media links">
+            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+            <a href="#" class="social-link" aria-label="Facebook">f</a>
+            <a href="#" class="social-link" aria-label="Instagram">◉</a>
+          </div>
+        </div>
+        <!-- Quick Links -->
+        <div>
+          <h3 class="footer-col-title">For Job Seekers</h3>
+          <ul class="footer-links" role="list">
+            <li><a href='browse-jobs.html'>Browse Jobs</a></li>
+            <li><a href='index.html#categories'>Job Categories</a></li>
+            <li><a href='career-advice.html'>Career Advice</a></li>
+            <li><a href='resume-builder.html'>Resume Builder</a></li>
+            <li><a href='salary-guide.html'>Salary Guide</a></li>
+          </ul>
+        </div>
+        <!-- Employers -->
+        <div>
+          <h3 class="footer-col-title">For Employers</h3>
+          <ul class="footer-links" role="list">
+            <li><a href='post-job.html'>Post a Job</a></li>
+            <li><a href='talent-search.html'>Talent Search</a></li>
+            <li><a href='plan.html'>Pricing Plans</a></li>
+            <li><a href='employer-branding.html'>Employer Branding</a></li>
+            <li><a href='recruitment-api.html'>Recruitment API</a></li>
+          </ul>
+        </div>
+        <!-- Company -->
+        <div>
+          <h3 class="footer-col-title">Company</h3>
+          <ul class="footer-links" role="list">
+            <li><a href='index.html#about'>About Us</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href='dashboard.html'>Dashboard</a></li>
+            <li><a href='index.html#contact'>Contact</a></li>
+            <li><a href='blog.html'>Blog</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 <a href="#">Hiregramm</a>. All rights reserved. Built with ♥ for ambitious people.
+        </p>
+        <div class="footer-bottom-links">
+          <a href='privacy-policy.html'>Privacy Policy</a>
+          <a href='terms-of-service.html'>Terms of Service</a>
+          <a href='faq.html'>FAQs</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll To Top -->
+  <button id="scroll-top" aria-label="Scroll back to top" title="Scroll to top">
+    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- AOS Library -->
+  <script src="assets/js/aos.js"></script>
+  <script>
+    (function() {
+      // Init AOS
+      AOS.init({ duration: 680, easing: 'ease-out-cubic', once: true, offset: 60 });
+
+      // Preloader
+      window.addEventListener('load', function () {
+        const preloader = document.getElementById('preloader');
+        setTimeout(function () {
+          preloader.classList.add('hidden');
+          setTimeout(function () { preloader.remove(); }, 700);
+        }, 900);
+      });
+
+      // Sticky header
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', function () {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+
+      // Mobile menu
+      const hamburger = document.getElementById('hamburger');
+      const mobileNav = document.getElementById('mobile-nav');
+      hamburger.addEventListener('click', function () {
+        const isOpen = mobileNav.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        hamburger.setAttribute('aria-expanded', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+      });
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function () {
+          mobileNav.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+      document.addEventListener('click', function (e) {
+        if (!header.contains(e.target) && mobileNav.classList.contains('open')) {
+          mobileNav.classList.remove('open');
+          hamburger.classList.remove('open');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const target = document.querySelector(this.getAttribute('href'));
+          if (!target) return;
+          e.preventDefault();
+          const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height'));
+          const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        });
+      });
+
+      // Scroll top button
+      const scrollTopBtn = document.getElementById('scroll-top');
+      window.addEventListener('scroll', function () {
+        scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      scrollTopBtn.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Live preview update
+      const fullName = document.getElementById('fullName');
+      const jobTitle = document.getElementById('jobTitle');
+      const summary = document.getElementById('summary');
+      const skills = document.getElementById('skills');
+      const previewName = document.getElementById('previewName');
+      const previewTitle = document.getElementById('previewTitle');
+      const previewSummary = document.getElementById('previewSummary');
+      const previewSkills = document.getElementById('previewSkills');
+      const previewInitials = document.getElementById('previewInitials');
+
+      function updatePreview() {
+        previewName.innerText = fullName.value || 'Alex Johnson';
+        previewTitle.innerText = jobTitle.value || 'Product Designer';
+        previewSummary.innerText = summary.value || 'Creative Product Designer with 5+ years of experience...';
+        previewSkills.innerText = skills.value || 'Figma, Sketch, Adobe XD, UI Research, Prototyping, User Testing';
+        const names = fullName.value.split(' ');
+        if (names.length >= 2) {
+          previewInitials.innerText = (names[0][0] + names[1][0]).toUpperCase();
+        } else if (names.length === 1) {
+          previewInitials.innerText = names[0].substring(0,2).toUpperCase();
+        } else {
+          previewInitials.innerText = 'AJ';
+        }
+      }
+
+      fullName.addEventListener('input', updatePreview);
+      jobTitle.addEventListener('input', updatePreview);
+      summary.addEventListener('input', updatePreview);
+      skills.addEventListener('input', updatePreview);
+
+      // Add/remove experience/education (simplified demo)
+      window.addExperience = function() {
+        alert('Demo: This would add a new experience field. In a real app, you can dynamically add entries.');
+      };
+      window.addEducation = function() {
+        alert('Demo: This would add a new education field.');
+      };
+      window.removeEntry = function(el) {
+        if (confirm('Remove this entry?')) {
+          el.closest('.entry-item').remove();
+        }
+      };
+
+      // Form submit
+      document.getElementById('resumeForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Resume saved (demo). In a real app, this would be stored in your account.');
+      });
+
+      // Export PDF demo
+      document.querySelector('.btn-outline').addEventListener('click', function() {
+        alert('Demo: PDF generation would start here.');
+      });
+
+      // Initial update
+      updatePreview();
+    })();
+  </script>
+</body>
+
+<!-- Mirrored from jobportal-recruitment-theme.netlify.app/resume-builder by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Jul 2026 17:26:28 GMT -->
+</html>
