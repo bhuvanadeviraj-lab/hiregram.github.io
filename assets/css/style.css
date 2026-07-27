@@ -500,7 +500,7 @@ h4 {
   padding-bottom: var(--sp-20);
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #ef3824 0%, #b02a6b 45%, #17479e 100%);
+  background: radial-gradient(circle at 85% 15%, #ef2424 0%, transparent 35%), radial-gradient(circle at 15% 85%, rgba(239, 56, 36, 0.25) 0%, transparent 30%), #0F2447;
   display: flex;
   align-items: center;
 }
@@ -582,7 +582,7 @@ h4 {
 
 .hero-title em {
   font-style: normal;
-  color: var(--accent);
+  color: var(--accent-light);
   position: relative;
 }
 
@@ -593,7 +593,8 @@ h4 {
   bottom: -4px;
   width: 100%;
   height: 4px;
-  background: linear-gradient(30deg, var(--primary-dark), var(--accent));
+  background: linear-gradient(90deg, #EF3824 0%, #0F2447 100%);
+  ;
   border-radius: 2px;
 }
 
@@ -719,7 +720,8 @@ h4 {
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); */
   gap: var(--sp-4);
 }
 
@@ -999,7 +1001,7 @@ h4 {
   transition: transform var(--transition-base),
     box-shadow var(--transition-base), background var(--transition-base);
   cursor: pointer;
-  width:200px;
+  width: 200px;
 }
 
 .company-card:hover {
@@ -1732,6 +1734,7 @@ h4 {
 }
 
 @media (max-width: 768px) {
+
   .hero-content {
     margin-top: 25%;
   }
@@ -1778,7 +1781,7 @@ h4 {
   }
 
   .categories-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .companies-grid {
@@ -5663,26 +5666,37 @@ body {
 }
 
 .tab-box {
-  background: white;
+  background: #fff;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .1);
+  overflow: hidden;
 }
 
 /* Main Tabs */
-
-.tabs {
+.tabs,
+.sub-tabs {
   display: flex;
   gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar,
+.sub-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .tabs button {
+  flex: 1;
+  min-width: 150px;
   padding: 15px 25px;
   border: none;
   background: #e9ecef;
   cursor: pointer;
   border-radius: 6px 6px 0 0;
-  width: 100%;
+  white-space: nowrap;
 }
 
 .tabs button.active {
@@ -5690,8 +5704,8 @@ body {
   color: white;
 }
 
-/* Main Content */
 
+/* Main Content */
 .content {
   display: none;
   padding: 20px;
@@ -5704,21 +5718,21 @@ body {
   display: block;
 }
 
-/* Sub Tabs */
 
+/* Sub Tabs */
 .sub-tabs {
-  display: flex;
-  gap: 8px;
   margin-bottom: 15px;
 }
 
 .sub-tabs button {
+  flex: 1;
+  min-width: 130px;
   padding: 14px 18px;
   border: none;
   background: #e2e3e5;
   border-radius: 20px;
   cursor: pointer;
-  width: 100%;
+  white-space: nowrap;
 }
 
 .sub-tabs button.active {
@@ -5726,6 +5740,8 @@ body {
   color: white;
 }
 
+
+/* Sub Content */
 .sub-content {
   display: none;
   padding: 15px;
@@ -5738,27 +5754,22 @@ body {
   display: block;
 }
 
-@media (max-width: 600px) {
 
-  .tabs,
-  .sub-tabs {
-    flex-wrap: wrap;
-  }
-}
-
+/* Job Button */
 .jobbtn {
-  background-color: var(--primary-light);
+  background: var(--primary-light);
   color: var(--white);
   border: none;
-  padding: 3px 5px;
+  padding: 5px 10px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
   margin: 3px;
+  white-space: nowrap;
 }
 
 .jobbtn:hover {
-  background-color: #0b5ed7;
+  background: #0b5ed7;
 }
 
 .jobicon {
@@ -5768,50 +5779,73 @@ body {
 
 .joblocation {
   border: 2px solid var(--accent);
-  padding: 0.2rem 0.6rem;
+  padding: .2rem .6rem;
   border-radius: var(--radius-full);
-  font-size: 0.8rem;
+  font-size: .8rem;
   display: inline-block;
-  width: fit-content;
   color: var(--primary-dark);
   font-weight: 400;
   margin-bottom: 8px;
 }
 
+
+/* Keep same design on all screen sizes */
+@media (max-width: 600px) {
+  .tab-box {
+    padding: 12px;
+  }
+
+  .tabs button,
+  .sub-tabs button {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .content {
+    padding: 15px;
+  }
+}
+
 .marquee {
-    width:100%;
-    overflow:hidden;
-    background:#f8f9fa;
-    padding:20px 0;
+  width: 100%;
+  overflow: hidden;
+  background: #f8f9fa;
+  padding: 20px 0;
 }
 
 
 /* Moving area */
 .marquee-content {
-    display:flex;
-    width:max-content;
-    animation:scroll 25s linear infinite;
+  display: flex;
+  width: max-content;
+  animation: scroll 25s linear infinite;
 }
 
 
 /* Change grid to flex only inside marquee */
 .marquee .companies-grid {
-    display:flex;
-    grid-template-columns:none;
-    gap:20px;
+  display: flex;
+  grid-template-columns: none;
+  gap: 20px;
 }
 
 /* Animation */
 @keyframes scroll {
-    from {
-        transform: translateX(0%);
-    }
-    to {
-        transform: translateX(-50%);
-    }
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 /* Stop on hover */
 .marquee:hover .marquee-content {
-    animation-play-state:paused;
+  animation-play-state: paused;
+}
+
+.viewmorebycity {
+  width: auto;
+  height: auto;
 }
