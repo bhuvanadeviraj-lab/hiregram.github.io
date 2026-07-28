@@ -1843,7 +1843,7 @@ h4 {
 
   .categories-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 8px;
   }
 
   .category-card {
@@ -1865,7 +1865,7 @@ h4 {
 
   .categories-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
+    gap: 5px;
   }
 
   .category-card {
@@ -5817,7 +5817,7 @@ body {
 /* Sub Content */
 .sub-content {
   display: none;
-  padding: 15px;
+  /* padding: 15px; */
   background: white;
   border-radius: 8px;
   border: 1px solid #ddd;
