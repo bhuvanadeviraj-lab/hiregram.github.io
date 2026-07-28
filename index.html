@@ -151,7 +151,7 @@
               <div class="search-field">
                 <span class="field-icon" aria-hidden="true">🔍</span>
                 <input
-                  disabled
+                  readonly
                   type="text"
                   placeholder="Job title or keyword"
                   aria-label="Job title or keyword"
@@ -485,40 +485,36 @@
               </div>
 
               <div id="city" class="sub-content">
-                <div>
-                  <div class="joblocation">Chennai</div>
-                  <div class="joblocation">Bangalore</div>
-                  <div class="joblocation">Madurai</div>
-                  <div class="joblocation">Tirumangalam</div>
-                  <div class="joblocation">Rajapalayam</div>
-                  <div class="joblocation">Tirunelveli</div>
-                  <div class="joblocation">Virudhunagar</div>
-                  <div class="joblocation">Coimbatore</div>
-                  <div class="joblocation">Ooty</div>
-                  <div class="joblocation">Tiruppur</div>
-                  <div class="joblocation">Villupuram</div>
-                  <div class="joblocation">Hyderabed</div>
+                <div class="city-container">
+                  <button class="city-btn">Chennai</button>
+                  <button class="city-btn">Bangalore</button>
+                  <button class="city-btn">Madurai</button>
+                  <button class="city-btn">Tirumangalam</button>
+                  <button class="city-btn">Rajapalayam</button>
+                  <button class="city-btn">Tirunelveli</button>
+                  <button class="city-btn">Virudhunagar</button>
+                  <button class="city-btn">Coimbatore</button>
+                  <button class="city-btn">Ooty</button>
+                  <button class="city-btn">Tiruppur</button>
+                  <button class="city-btn">Villupuram</button>
+                  <button class="city-btn">Hyderabad</button>
                 </div>
 
-                <button type="button" class="jobbtn">
-                  IT Software Engineer <span class="jobicon">🔔</span>
-                </button>
+                <div class="job-container">
+                  <button class="job-btn">IT Software Engineer</button>
+                  <button class="job-btn">Sales / Marketing Executive</button>
+                  <button class="job-btn">Accountant</button>
+                  <button class="job-btn">
+                    Customer Service / Tech Support
+                  </button>
+                  <button class="job-btn">Healthcare / Nurse</button>
+                </div>
 
-                <button type="button" class="jobbtn">
-                  Sales / Marketing Executive<span class="jobicon">🔔</span>
-                </button>
-
-                <button type="button" class="jobbtn">
-                  Accountant<span class="jobicon">🔔</span>
-                </button>
-
-                <button type="button" class="jobbtn">
-                  Customer Service / Tech Support<span class="jobicon">🔔</span>
-                </button>
-
-                <button type="button" class="jobbtn">
-                  Healthcare / Nurse<span class="jobicon">🔔</span>
-                </button>
+                <div class="selected-area">
+                  <button class="selected-btn" id="selectedButton">
+                    View All Chennai Openings
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -1847,6 +1843,22 @@
 
         event.currentTarget.classList.add("active");
       }
+
+      const cityButtons = document.querySelectorAll(".city-btn");
+
+      const selectedButton = document.getElementById("selectedButton");
+
+      cityButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          cityButtons.forEach((btn) => {
+            btn.classList.remove("active");
+          });
+
+          button.classList.add("active");
+
+          selectedButton.innerHTML = "View All " + button.innerHTML + " Openings";
+        });
+      });
     </script>
   </body>
 
