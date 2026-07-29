@@ -30,6 +30,12 @@
     <!-- AOS – Animate On Scroll -->
     <link rel="stylesheet" href="assets/css/aos.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
   </head>
   <body>
     <!-- ════════════════════════════════════════════
@@ -59,11 +65,21 @@
             <!-- Desktop nav links -->
             <ul class="nav-links" role="list">
               <li class="active"><a href="#home">Home</a></li>
-              <li><a href="#jobs">Jobs</a></li>
-              <li><a href="#categories">Categories</a></li>
-              <li><a href="#companies">Companies</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li class="dropdown">
+                <a href="#jobs">Employers Zone</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#post-job">Post Job for Free</a></li>
+                  <li>
+                    <a href="#campus-recruitment">End to End Recruitment</a>
+                  </li>
+                  <li><a href="#campus-recruitment">Campus Recruitment</a></li>
+                  <li><a href="#resume-search">Resume Search</a></li>
+                </ul>
+              </li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="#companies">Testimonials</a></li>
+              <li><a href="#contact">Contact Us</a></li>
             </ul>
             <!-- CTA -->
             <div class="nav-cta">
@@ -94,11 +110,21 @@
             aria-label="Mobile navigation"
           >
             <a href="#home">Home</a>
-            <a href="#jobs">Jobs</a>
-            <a href="#categories">Categories</a>
-            <a href="#companies">Companies</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <a href="#about">About Us</a>
+            <div class="mobile-dropdown">
+              <button class="mobile-dropdown-btn">
+                Employers Zone <span>▼</span>
+              </button>
+
+              <div class="mobile-dropdown-content">
+                <a href="post-job.html">Post a Job</a>
+                <a href="campus-recruitment.html">Campus Recruitment</a>
+                <a href="resume-search.html">Resume Search</a>
+              </div>
+            </div>
+            <a href="blog.html">Blog</a>
+            <a href="#companies">Testimonials</a>
+            <a href="#contact">Contact Us</a>
             <a class="btn btn-primary" href="post-job.html">Post a Job</a>
           </nav>
         </div>
@@ -620,7 +646,7 @@
               data-aos="fade-up"
               data-aos-delay="50"
             >
-              Latest Jobs
+              Trending Jobs
             </h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
               Handpicked roles from leading companies. Apply today before
@@ -1013,6 +1039,80 @@
         </div>
       </section>
 
+      <section id="popularjobs" aria-labelledby="popularjobs-title">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-label" data-aos="fade-up">Popular Jobs</div>
+            <h2
+              class="section-title"
+              id="popularjobs-title"
+              data-aos="fade-up"
+              data-aos-delay="50"
+            >
+              Popular Searches On Hiregramm
+            </h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+              Real people, real results. Here's how Hiregramm changed their
+              careers.
+            </p>
+          </div>
+
+          <div class="jobadv-container">
+            <div class="jobadv-card jobadvorange">
+              <a href="browse-jobs.html" target="_blank">
+                <span class="jobadvtag">TRENDING AT #1</span>
+                <h2>Jobs for Freshers</h2>
+                <h3>Jobs for Freshers</h3>
+                <a href="browse-jobs.html" class="jobadvbtn">View all →</a>
+                <img src="assets/images/freshers-jobs.webp" alt="Freshers" />
+              </a>
+            </div>
+
+            <div class="jobadv-card jobadvpurple">
+              <a href="browse-jobs.html" target="_blank">
+                <span class="jobadvtag">TRENDING AT #2</span>
+                <h2>Work From Home Jobs</h2>
+                <h3>Work From Home Jobs</h3>
+                <a href="browse-jobs.html" class="jobadvbtn purple-btn"
+                  >View all →</a
+                >
+                <img
+                  src="assets/images/work-from-home-jobs.webp"
+                  alt="Work Home"
+                />
+              </a>
+            </div>
+
+            <div class="jobadv-card jobadvgreen">
+              <a href="browse-jobs.html" target="_blank">
+                <span class="jobadvtag">TRENDING AT #3</span>
+                <h2>Full Time Jobs</h2>
+                <h3>Full Time Jobs</h3>
+                <a href="browse-jobs.html" class="jobadvbtn green-btn"
+                  >View all →</a
+                >
+                <img
+                  src="assets/images/Full_time_banner_home_page.webp"
+                  alt="Full Time"
+                />
+              </a>
+            </div>
+
+            <div class="jobadv-card jobadvblue">
+              <a href="browse-jobs.html" target="_blank">
+                <span class="jobadvtag">TRENDING AT #4</span>
+                <h2>Part Time Jobs</h2>
+                <h3>Part Time Jobs</h3>
+                <a href="browse-jobs.html" class="jobadvbtn blue-btn"
+                  >View all →</a
+                >
+                <img src="assets/images/part-time-jobs.webp" alt="Part Time" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ════════════════════════════════════════════
        HOW IT WORKS
   ════════════════════════════════════════════ -->
@@ -1183,6 +1283,67 @@
                   >Explore Jobs →</a
                 >
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="latest-jobs" aria-labelledby="how-title">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-label" data-aos="fade-up">Simple Process</div>
+            <h2
+              class="section-title"
+              id="how-title"
+              data-aos="fade-up"
+              data-aos-delay="50"
+            >
+              How Hiregramm Works
+            </h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+              Your path from job seeker to hired — in four simple steps.
+            </p>
+          </div>
+
+          <div class="steps-grid">
+            <div class="step-card" data-aos="fade-up" data-aos-delay="0">
+              <div class="step-number">01</div>
+              <div class="step-icon">👤</div>
+              <div class="step-title">Create Your Account</div>
+              <p class="step-desc">
+                Sign up in under 2 minutes. Build a professional profile that
+                showcases your skills, experience, and aspirations.
+              </p>
+            </div>
+
+            <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+              <div class="step-number">02</div>
+              <div class="step-icon">🔎</div>
+              <div class="step-title">Search Jobs</div>
+              <p class="step-desc">
+                Use smart filters to find roles that match your skills, location
+                preferences, and salary expectations.
+              </p>
+            </div>
+
+            <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+              <div class="step-number">03</div>
+              <div class="step-icon">📋</div>
+              <div class="step-title">Apply with Ease</div>
+              <p class="step-desc">
+                One-click apply using your saved profile. Track all applications
+                from your personal dashboard in real time.
+              </p>
+            </div>
+
+            <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+              <div class="step-number">04</div>
+              <div class="step-icon">🎉</div>
+              <div class="step-title">Get Hired</div>
+              <p class="step-desc">
+                Receive interview invitations, negotiate offers, and land the
+                job you've always wanted — faster than ever.
+              </p>
             </div>
           </div>
         </div>
@@ -1856,8 +2017,15 @@
 
           button.classList.add("active");
 
-          selectedButton.innerHTML = "View All " + button.innerHTML + " Openings";
+          selectedButton.innerHTML =
+            "View All " + button.innerHTML + " Openings";
         });
+      });
+
+      const dropdownBtn = document.querySelector(".mobile-dropdown-btn");
+
+      dropdownBtn.addEventListener("click", function () {
+        this.parentElement.classList.toggle("active");
       });
     </script>
   </body>
