@@ -1878,6 +1878,12 @@ h4 {
   }
 }
 
+/* Mobile 480px */
+@media (max-width: 600px) {
+  .category-name {
+    font-size: 0.57rem;
+  }
+}
 
 /* Mobile 480px */
 @media (max-width: 480px) {
@@ -1909,7 +1915,7 @@ h4 {
   }
 
   .category-count {
-    font-size: 0.5rem;
+    font-size: 0.42rem;
     padding: 2px 5px;
   }
 }
@@ -5874,6 +5880,7 @@ body {
     flex: 1 1 auto;
     min-width: auto;
     overflow: auto;
+    font-size: 1rem !important;
   }
 
   .category-icon {
@@ -5891,7 +5898,8 @@ body {
     font-size: 0.5rem;
   }
 
-  .tabs button, .sub-tabs button {
+  .tabs button,
+  .sub-tabs button {
     font-size: 0.5rem;
   }
 }
