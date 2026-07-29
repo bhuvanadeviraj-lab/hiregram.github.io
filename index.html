@@ -34,8 +34,288 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="./style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Courgette&family=Noto+Serif+Vithkuqi:wght@500&family=Quicksand:wght@300&family=Satisfy&family=Shadows+Into+Light&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Chonburi&display=swap");
+
+      #latest-jobs .latestjobsection ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      #latest-jobs .latestjobsection {
+        position: relative;
+        width: calc(min(47rem, 90%));
+        margin: 0 auto;
+        column-gap: 3rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      #latest-jobs .latestjobsection h2 {
+        letter-spacing: 0.8px;
+        font-weight: 700;
+        font-size: 2.6rem;
+        line-height: 1.2;
+      }
+
+      #latest-jobs .latestjobsection p {
+        font-size: 0.9rem;
+        max-width: 680px;
+        line-height: 1.6;
+        margin-inline: auto;
+        margin-top: 10px;
+      }
+
+      .swiper-container {
+        position: relative;
+      }
+
+      .swiper {
+        width: 100%;
+        padding: 60px 0 95px 0;
+      }
+
+      .swiper-slide {
+        width: 10rem;
+        height: 22rem;
+        display: flex;
+        flex-direction: column;
+        align-items: self-start;
+        position: relative;
+        border-radius: 12px;
+        box-shadow: -1px 5px 15px #0000001f;
+      }
+
+      .swiper-slide h3 {
+        color: #fff;
+        font-size: 12px;
+        line-height: 1.4;
+        margin-bottom: 0.625rem;
+        letter-spacing: 0.8px;
+        position: relative;
+      }
+
+      .swiper-slide p {
+        color: #fff;
+        line-height: 1.6;
+        font-size: 0.8rem;
+      }
+
+      .swiper-slide .slide-content {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -45%);
+        width: 90%;
+      }
+
+      .swiper-slide .author {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        position: absolute;
+        bottom: -90px;
+        width: 100%;
+        display: none;
+        opacity: 0;
+      }
+
+      .swiper-slide .author span {
+        color: #111;
+        display: block;
+        margin: 5px 0 10px 0;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .swiper-slide .author img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 3.5px solid white;
+      }
+
+      .swiper-slide .author ul {
+        display: flex;
+        align-items: center;
+      }
+
+      .swiper-slide .author ul li svg {
+        width: 20px;
+        color: orange;
+      }
+
+      .swiper-slide-active .author {
+        display: grid;
+        opacity: 1;
+      }
+
+      .swiper-slide--one {
+        background: #0575e6;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #021b79, #0575e6);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #021b79, #0575e6);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
+
+      .swiper-slide--one h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 600;
+      }
+
+      .swiper-slide--two {
+        background: #23074d;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #cc5333, #23074d);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #cc5333, #23074d);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
+
+      .swiper-slide--two h3 {
+        font-family: "Quicksand", sans-serif;
+      }
+
+      .swiper-slide--three {
+        background: #159957;
+      }
+
+      .swiper-slide--three h3 {
+        font-family: "Satisfy", cursive;
+        font-weight: 300;
+      }
+
+      .swiper-slide--four {
+        background: #b06ab3;
+      }
+
+      .swiper-slide--four h3 {
+        font-family: "Courgette", cursive;
+        font-weight: 300;
+      }
+
+      .swiper-slide--five {
+        background: #093028;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #237a57, #093028);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #237a57, #093028);
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
+
+      .swiper-slide--five h3 {
+        font-family: "Noto Serif Vithkuqi", serif;
+        font-weight: 300;
+      }
+
+      .swiper-slide--six {
+        background: #b9f;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to bottom, #b9f, #3b2421);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to bottom, #b9f, #3b2421);
+      }
+
+      .swiper-slide--six h3 {
+        font-family: "Chonburi", cursive;
+        font-weight: 400;
+      }
+
+      .swiper-button-prev {
+        background: white;
+        border-radius: 50%;
+        top: 47%;
+        left: -30px;
+        width: 50px;
+        height: 50px;
+        box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.17);
+      }
+
+      .swiper-button-prev::after {
+        font-size: 1.4rem;
+        content: "";
+      }
+
+      .swiper-button-prev svg {
+        width: 25px;
+      }
+
+      .swiper-button-next {
+        background: white;
+        border-radius: 50%;
+        top: 47%;
+        right: -30px;
+        width: 50px;
+        height: 50px;
+        box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.17);
+      }
+
+      .swiper-button-next::after {
+        font-size: 1.4rem;
+        content: "";
+      }
+
+      .swiper-button-next svg {
+        width: 25px;
+      }
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        display: none;
+      }
+      @media screen and (max-width: 300px) {
+        .latestjobsection {
+          width: 100%;
+          padding: 30px 0;
+          overflow: hidden;
+        }
+
+        .swiper-container {
+          width: 100%;
+          overflow: hidden;
+        }
+
+        .swiper {
+          width: 100%;
+          padding: 35px 0 80px;
+        }
+
+        .swiper-wrapper {
+          align-items: center;
+        }
+
+        .swiper-slide {
+          width: 200px !important;
+          height: 300px;
+          border-radius: 12px;
+        }
+
+        .swiper-slide .slide-content {
+          width: 88%;
+        }
+
+        .swiper-slide h3 {
+          font-size: 20px;
+        }
+
+        .swiper-slide p {
+          font-size: 12px;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          display: none !important;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- ════════════════════════════════════════════
@@ -1291,59 +1571,487 @@
       <section id="latest-jobs" aria-labelledby="how-title">
         <div class="container">
           <div class="section-header">
-            <div class="section-label" data-aos="fade-up">Simple Process</div>
+            <div class="section-label" data-aos="fade-up">Trend Level Jobs</div>
             <h2
               class="section-title"
               id="how-title"
               data-aos="fade-up"
               data-aos-delay="50"
             >
-              How Hiregramm Works
+              Latest Jobs
             </h2>
             <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
               Your path from job seeker to hired — in four simple steps.
             </p>
           </div>
+          <div class="latestjobsection">
+            <div class="swiper-container">
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide swiper-slide--one">
+                    <div class="slide-content">
+                      <!-- <h3>Jane Eyre</h3>
+                      <p>
+                        Jane Eyre is divided into 38 chapters. It was originally
+                        published in three volumes in the 19th century...
+                      </p> -->
+                      <article data-aos="fade-up" data-aos-delay="0">
+                        <div class="job-card-header">
+                          <div style="flex: 1">
+                            <div class="company-name">Stripe Inc.</div>
+                            <h3 class="job-title">Senior Frontend Engineer</h3>
+                          </div>
+                          <div
+                            class="company-logo-wrap"
+                            aria-label="Stripe logo"
+                          >
+                            <img
+                              src="data:image/png;base64,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"
+                            />
+                          </div>
+                        </div>
+                        <div class="job-meta">
+                          <span class="meta-item">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                            >
+                              <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                              />
+                            </svg>
+                            San Francisco, CA
+                          </span>
+                          <span class="meta-item">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                            >
+                              <circle cx="12" cy="12" r="10" />
+                              <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            3 days ago
+                          </span>
+                        </div>
+                        <div
+                          style="
+                            display: flex;
+                            gap: 0.5rem;
+                            flex-wrap: wrap;
+                            margin-bottom: 1rem;
+                          "
+                        >
+                          <span class="badge badge-green">Full Time</span>
+                          <span class="badge badge-blue">React</span>
+                          <span class="badge badge-blue">TypeScript</span>
+                        </div>
+                        <div class="job-card-footer">
+                          <div class="job-salary">
+                            $140K–$180K <span>/ year</span>
+                          </div>
+                          <a class="apply-btn" href="apply-job.html"
+                            >Apply Now</a
+                          >
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="swiper-slide swiper-slide--two">
+                    <div class="slide-content">
+                      <!-- <h3>The Lord of the Rings</h3>
+                      <p>
+                        epic high-fantasy novel by the English author and
+                        scholar J. R. R. Tolkien
+                      </p> -->
+                      <article data-aos="fade-up" data-aos-delay="80">
+                        <div class="job-card-header">
+                          <div style="flex: 1">
+                            <div class="company-name">Airbnb</div>
+                            <h3 class="job-title">Product Design Lead</h3>
+                          </div>
+                          <div
+                            class="company-logo-wrap"
+                            aria-label="Airbnb logo"
+                          >
+                            <img
+                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4PFUhw1RE2PoU0PS5SQshKWtDBS14_6UwEMAEDGz0Dw&s=10"
+                            />
+                          </div>
+                        </div>
+                        <div class="job-meta">
+                          <span class="meta-item">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                            >
+                              <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                              />
+                            </svg>
+                            Remote (Global) <br />
+                          </span>
+                          <br />
+                          <span class="meta-item">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                            >
+                              <circle cx="12" cy="12" r="10" />
+                              <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            1 day ago
+                          </span>
+                        </div>
+                        <div
+                          style="
+                            display: flex;
+                            gap: 0.5rem;
+                            flex-wrap: wrap;
+                            margin-bottom: 1rem;
+                          "
+                        >
+                          <span class="badge badge-purple">Remote</span>
+                          <span class="badge badge-blue">Figma</span>
+                          <span class="badge badge-blue">UX Research</span>
+                        </div>
+                        <div class="job-card-footer">
+                          <div class="job-salary">
+                            $120K–$155K <span>/ year</span>
+                          </div>
+                          <a class="apply-btn" href="apply-job.html"
+                            >Apply Now</a
+                          >
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="swiper-slide swiper-slide--three">
+                    <div class="slide-content">
+                      <!-- <h3>All Quiet on the Western Front</h3>
+                      <p>
+                        The book describes the German soldiers' extreme physical
+                        and mental trauma during the war
+                      </p> -->
+                      <article data-aos="fade-up" data-aos-delay="160">
+                        <div class="job-card-header">
+                          <div style="flex: 1">
+                            <div class="company-name">Netflix</div>
+                            <h3 class="job-title">Data Science Manager</h3>
+                          </div>
+                          <div
+                            class="company-logo-wrap"
+                            aria-label="Netflix logo"
+                          >
+                            <img
+                              src="data:image/jpeg;base64,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"
+                            />
+                          </div>
+                        </div>
+                        <div class="job-meta">
+                          <span class="meta-item">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                            >
+                              <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                              />
+                            </svg>
+                            Los Angeles, CA
+                          </span>
+                          <span class="meta-item">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                            >
+                              <circle cx="12" cy="12" r="10" />
+                              <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            5 days ago
+                          </span>
+                        </div>
+                        <div
+                          style="
+                            display: flex;
+                            gap: 0.5rem;
+                            flex-wrap: wrap;
+                            margin-bottom: 1rem;
+                          "
+                        >
+                          <span class="badge badge-green">Full Time</span>
+                          <span class="badge badge-orange">Python</span>
+                          <span class="badge badge-blue">ML</span>
+                        </div>
+                        <div class="job-card-footer">
+                          <div class="job-salary">
+                            $160K–$220K <span>/ year</span>
+                          </div>
+                          <a class="apply-btn" href="apply-job.html"
+                            >Apply Now</a
+                          >
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="swiper-slide swiper-slide--four">
+                    <div class="slide-content">
+                      <!-- <h3>Romeo and Juliet</h3>
+                      <p>a tragedy between two youths from feuding families</p>-->
+                      <article data-aos="fade-up" data-aos-delay="160">
+                        <div class="job-card-header">
+                          <div style="flex: 1">
+                            <div class="company-name">Netflix</div>
+                            <h3 class="job-title">Data Science Manager</h3>
+                          </div>
+                          <div
+                            class="company-logo-wrap"
+                            aria-label="Netflix logo"
+                          >
+                            <img
+                              src="data:image/jpeg;base64,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"
+                            />
+                          </div>
+                        </div>
+                        <div class="job-meta">
+                          <span class="meta-item">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                            >
+                              <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                              />
+                            </svg>
+                            Los Angeles, CA
+                          </span>
+                          <span class="meta-item">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                            >
+                              <circle cx="12" cy="12" r="10" />
+                              <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            5 days ago
+                          </span>
+                        </div>
+                        <div
+                          style="
+                            display: flex;
+                            gap: 0.5rem;
+                            flex-wrap: wrap;
+                            margin-bottom: 1rem;
+                          "
+                        >
+                          <span class="badge badge-green">Full Time</span>
+                          <span class="badge badge-orange">Python</span>
+                          <span class="badge badge-blue">ML</span>
+                        </div>
+                        <div class="job-card-footer">
+                          <div class="job-salary">
+                            $160K–$220K <span>/ year</span>
+                          </div>
+                          <a class="apply-btn" href="apply-job.html"
+                            >Apply Now</a
+                          >
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="swiper-slide swiper-slide--five">
+                    <div class="slide-content">
+                      <!-- <h3>Of Mice and Men</h3>
+                      <p>a novell</p> -->
+                      <article data-aos="fade-up" data-aos-delay="0">
+                        <div class="job-card-header">
+                          <div style="flex: 1">
+                            <div class="company-name">Shopify</div>
+                            <h3 class="job-title">DevOps Engineer</h3>
+                          </div>
+                          <div
+                            class="company-logo-wrap"
+                            aria-label="Shopify logo"
+                          >
+                            <img
+                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZQvT_ostw_TK7p_Ik6XB-P4LhbDTjYRtVK0LQlEBuHA&s=10"
+                            />
+                          </div>
+                        </div>
+                        <div class="job-meta">
+                          <span class="meta-item">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                            >
+                              <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                              />
+                            </svg>
+                            Toronto, Canada
+                          </span>
+                          <span class="meta-item">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                            >
+                              <circle cx="12" cy="12" r="10" />
+                              <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            2 days ago
+                          </span>
+                        </div>
+                        <div
+                          style="
+                            display: flex;
+                            gap: 0.5rem;
+                            flex-wrap: wrap;
+                            margin-bottom: 1rem;
+                          "
+                        >
+                          <span class="badge badge-green">Full Time</span>
+                          <span class="badge badge-blue">Kubernetes</span>
+                          <span class="badge badge-blue">AWS</span>
+                        </div>
+                        <div class="job-card-footer">
+                          <div class="job-salary">
+                            $115K–$145K <span>/ year</span>
+                          </div>
+                          <a class="apply-btn" href="apply-job.html"
+                            >Apply Now</a
+                          >
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                  <div class="swiper-slide swiper-slide--six">
+                    <div class="slide-content">
+                      <!-- <h3>Harry Potter</h3>
+                      <p>
+                        The novels chronicle the lives of a young wizard, Harry
+                        Potter, and his friends Hermione Granger and Ron Weasley
+                      </p> -->
 
-          <div class="steps-grid">
-            <div class="step-card" data-aos="fade-up" data-aos-delay="0">
-              <div class="step-number">01</div>
-              <div class="step-icon">👤</div>
-              <div class="step-title">Create Your Account</div>
-              <p class="step-desc">
-                Sign up in under 2 minutes. Build a professional profile that
-                showcases your skills, experience, and aspirations.
-              </p>
-            </div>
+                      <article data-aos="fade-up" data-aos-delay="80">
+                        <div class="job-card-header">
+                          <div style="flex: 1">
+                            <div class="company-name">HubSpot</div>
+                            <h3 class="job-title">Marketing Strategist</h3>
+                          </div>
+                          <div
+                            class="company-logo-wrap"
+                            aria-label="HubSpot logo"
+                          >
+                            <img
+                              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8TYJJ01EQXciFyLhqPOzIqz-lgDyLL9zeigh3wsC6ig&s"
+                            />
+                          </div>
+                        </div>
+                        <div class="job-meta">
+                          <span class="meta-item">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                            >
+                              <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                              />
+                            </svg>
+                            Boston, MA / Remote
+                          </span>
+                          <span class="meta-item">
+                            <svg
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                            >
+                              <circle cx="12" cy="12" r="10" />
+                              <polyline points="12 6 12 12 16 14" />
+                            </svg>
+                            Today
+                          </span>
+                        </div>
+                        <div
+                          style="
+                            display: flex;
+                            gap: 0.5rem;
+                            flex-wrap: wrap;
+                            margin-bottom: 1rem;
+                          "
+                        >
+                          <span class="badge badge-purple">Hybrid</span>
+                          <span class="badge badge-blue">SEO</span>
+                          <span class="badge badge-blue">Analytics</span>
+                        </div>
+                        <div class="job-card-footer">
+                          <div class="job-salary">
+                            $80K–$105K <span>/ year</span>
+                          </div>
+                          <a class="apply-btn" href="apply-job.html"
+                            >Apply Now</a
+                          >
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-            <div class="step-card" data-aos="fade-up" data-aos-delay="100">
-              <div class="step-number">02</div>
-              <div class="step-icon">🔎</div>
-              <div class="step-title">Search Jobs</div>
-              <p class="step-desc">
-                Use smart filters to find roles that match your skills, location
-                preferences, and salary expectations.
-              </p>
-            </div>
-
-            <div class="step-card" data-aos="fade-up" data-aos-delay="200">
-              <div class="step-number">03</div>
-              <div class="step-icon">📋</div>
-              <div class="step-title">Apply with Ease</div>
-              <p class="step-desc">
-                One-click apply using your saved profile. Track all applications
-                from your personal dashboard in real time.
-              </p>
-            </div>
-
-            <div class="step-card" data-aos="fade-up" data-aos-delay="300">
-              <div class="step-number">04</div>
-              <div class="step-icon">🎉</div>
-              <div class="step-title">Get Hired</div>
-              <p class="step-desc">
-                Receive interview invitations, negotiate offers, and land the
-                job you've always wanted — faster than ever.
-              </p>
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+                  />
+                </svg>
+              </div>
+              <div class="swiper-button-next">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-6 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -1519,6 +2227,127 @@
               <div class="cta-buttons">
                 <a href="#jobs" class="btn btn-accent">Browse All Jobs</a>
                 <a href="#contact" class="btn btn-outline-white">Post a Job</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="citylist" aria-labelledby="how-title">
+        <div class="container">
+          <div class="section-header">
+            <h2
+              class="section-title"
+              id="how-title"
+              data-aos="fade-up"
+              data-aos-delay="50"
+            >
+              Explore Jobs in cities
+            </h2>
+          </div>
+          <div class="marquee">
+            <div class="marquee-content">
+              <div class="companies-grid">
+                <div class="company-card" data-aos="fade-up" data-aos-delay="0">
+                  <div class="company-logo-icon">🏙️</div>
+                  <div class="company-card-name">Chennai</div>
+                </div>
+                <div
+                  class="company-card"
+                  data-aos="fade-up"
+                  data-aos-delay="60"
+                >
+                  <div class="company-logo-icon">🏙️</div>
+                  <div class="company-card-name">Coimbatore</div>
+                </div>
+                <div
+                  class="company-card"
+                  data-aos="fade-up"
+                  data-aos-delay="120"
+                >
+                  <div class="company-logo-icon">🏙️</div>
+                  <div class="company-card-name">Madurai</div>
+                </div>
+                <div
+                  class="company-card"
+                  data-aos="fade-up"
+                  data-aos-delay="180"
+                >
+                  <div class="company-logo-icon">🏙️</div>
+                  <div class="company-card-name">Trichy</div>
+                </div>
+                <div
+                  class="company-card"
+                  data-aos="fade-up"
+                  data-aos-delay="240"
+                >
+                  <div class="company-logo-icon">🏙️</div>
+                  <div class="company-card-name">Salem</div>
+                </div>
+                <div
+                  class="company-card"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <div class="company-logo-icon">🏙️</div>
+                  <div class="company-card-name">Tirunelveli</div>
+                </div>
+                <div
+                  class="company-card"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <div class="company-logo-icon">🏙️</div>
+                  <div class="company-card-name">Tiruppur</div>
+                </div>
+                <div
+                  class="company-card"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <div class="company-logo-icon">🏙️</div>
+                  <div class="company-card-name">Erode</div>
+                </div>
+                <div
+                  class="company-card"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <div class="company-logo-icon">🏙️</div>
+                  <div class="company-card-name">Vellore</div>
+                </div>
+                <div
+                  class="company-card"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <div class="company-logo-icon">🏙️</div>
+                  <div class="company-card-name">Thoothukudi</div>
+                </div>
+                <div
+                  class="company-card"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <div class="company-logo-icon">🏙️</div>
+                  <div class="company-card-name">Thanjavur</div>
+                </div>
+                <div
+                  class="company-card"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <div class="company-logo-icon">🏙️</div>
+                  <div class="company-card-name">Dindigul</div>
+                </div>
+                <div
+                  class="company-card"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <div class="company-logo-icon">🏙️</div>
+                  <div class="company-card-name">Kanchipuram</div>
+                </div>
               </div>
             </div>
           </div>
@@ -2026,6 +2855,38 @@
 
       dropdownBtn.addEventListener("click", function () {
         this.parentElement.classList.toggle("active");
+      });
+
+      var swiper = new Swiper(".swiper", {
+        effect: "coverflow",
+        centeredSlides: true,
+        grabCursor: true,
+        loop: true,
+
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 1.8,
+          scale: 0.9,
+          slideShadows: false,
+        },
+        centeredSlides: true,
+
+        breakpoints: {
+          0: {
+            slidesPerView: 1.5,
+            spaceBetween: 15,
+          },
+          481: {
+            slidesPerView: 2.2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 25,
+          },
+        },
       });
     </script>
   </body>
