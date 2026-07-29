@@ -1885,6 +1885,12 @@ h4 {
   }
 }
 
+@media (max-width: 480px) {
+  .logo-name {
+    font-size: 0.8rem;
+  }
+}
+
 /* Mobile 480px */
 @media (max-width: 480px) {
   .sub-content {
@@ -1910,7 +1916,7 @@ h4 {
   }
 
   .category-name {
-    font-size: 0.35rem;
+    font-size: 0.39rem;
     line-height: 1.2;
   }
 
@@ -5900,7 +5906,7 @@ body {
 
   .tabs button,
   .sub-tabs button {
-    font-size: 0.5rem;
+    font-size: 0.75rem !important;
   }
 }
 
