@@ -1,0 +1,1085 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jobs — apnaHire</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+      :root {
+        --ink: #14181f;
+        --muted: #6b7280;
+        --line: #e5e7eb;
+        --panel: #ffffff;
+        --page: #f4f5f7;
+        --brand: #0f1e4d;
+        --brand-2: #12b886;
+        --brand-2-dark: #0ea472;
+        --danger: #e0453b;
+        --radius: 12px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          "Inter",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: var(--page);
+        color: var(--ink);
+        min-height: 100vh;
+      }
+      .wizard-shell {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 28px 24px 100px;
+      }
+
+      /* ---- Step tracker ---- */
+      .step-tracker {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 26px;
+        padding: 0 4px;
+        flex-wrap: wrap;
+        row-gap: 14px;
+      }
+      .step-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: 1;
+        min-width: 150px;
+      }
+      .step-circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 700;
+        background: #e6e8ee;
+        color: #9aa0ad;
+        flex-shrink: 0;
+        transition: all 0.25s ease;
+      }
+      .step-label {
+        font-size: 14.5px;
+        font-weight: 600;
+        color: #9aa0ad;
+        white-space: nowrap;
+        transition: color 0.25s ease;
+      }
+      .step-item.done .step-circle {
+        background: var(--brand-2);
+        color: #fff;
+      }
+      .step-item.done .step-label {
+        color: var(--ink);
+      }
+      .step-item.active .step-circle {
+        background: var(--brand);
+        color: #fff;
+      }
+      .step-item.active .step-label {
+        color: var(--brand);
+      }
+      .step-connector {
+        flex: 0 0 auto;
+        width: clamp(20px, 6vw, 64px);
+        height: 2px;
+        background: var(--line);
+        margin: 0 6px;
+      }
+
+      /* ---- Panel ---- */
+      .panel {
+        background: var(--panel);
+        border-radius: var(--radius);
+        box-shadow:
+          0 1px 2px rgba(20, 24, 31, 0.04),
+          0 1px 12px rgba(20, 24, 31, 0.05);
+        padding: 34px 36px;
+      }
+      .panel-title {
+        font-size: 19px;
+        font-weight: 700;
+        margin-bottom: 22px;
+      }
+      .step-pane {
+        display: none;
+      }
+      .step-pane.active {
+        display: block;
+        animation: fadeIn 0.25s ease;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(4px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .field-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 8px;
+        display: block;
+      }
+      .field-hint {
+        font-size: 12.5px;
+        color: var(--muted);
+        font-weight: 400;
+        margin-left: 4px;
+      }
+      .form-control,
+      .form-select {
+        border: 1px solid var(--line);
+        border-radius: 9px;
+        padding: 11px 14px;
+        font-size: 14.5px;
+        color: var(--ink);
+        background: #fff;
+      }
+      .form-control::placeholder {
+        color: #9aa0ad;
+      }
+      .form-control:focus,
+      .form-select:focus {
+        border-color: var(--brand);
+        box-shadow: 0 0 0 3px rgba(15, 30, 77, 0.1);
+      }
+      textarea.form-control {
+        resize: vertical;
+        min-height: 120px;
+      }
+      .row-gap {
+        row-gap: 22px;
+      }
+      .split-input {
+        display: flex;
+        gap: 12px;
+      }
+
+      .chip-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .chip {
+        border: 1px solid var(--line);
+        background: #fff;
+        padding: 9px 16px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--ink);
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.15s ease;
+      }
+      .chip:hover {
+        border-color: var(--brand);
+      }
+      .chip.selected {
+        background: var(--brand);
+        border-color: var(--brand);
+        color: #fff;
+      }
+      .chip-group.single .chip.selected {
+        background: var(--brand-2);
+        border-color: var(--brand-2);
+      }
+
+      .helper-error {
+        font-size: 12.5px;
+        color: var(--danger);
+        margin-top: 6px;
+        display: none;
+      }
+      .is-invalid ~ .helper-error,
+      .invalid .helper-error {
+        display: block;
+      }
+      .invalid .form-control,
+      .invalid .form-select {
+        border-color: var(--danger);
+      }
+
+      /* ---- Footer bar ---- */
+      .footer-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        border-top: 1px solid var(--line);
+        padding: 16px 24px;
+        z-index: 20;
+      }
+      .footer-inner {
+        max-width: 1120px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .btn-app {
+        font-weight: 700;
+        font-size: 14.5px;
+        padding: 11px 26px;
+        border-radius: 9px;
+        border: 1px solid var(--line);
+      }
+      .btn-back {
+        background: #fff;
+        color: var(--ink);
+      }
+      .btn-back:hover {
+        background: #f7f7f8;
+        color: var(--ink);
+      }
+      .btn-draft {
+        background: #fff;
+        color: var(--ink);
+        border: 1px solid var(--line);
+      }
+      .btn-draft:hover {
+        background: #f7f7f8;
+        color: var(--ink);
+      }
+      .btn-continue {
+        background: var(--brand-2);
+        color: #fff;
+        border: 1px solid var(--brand-2);
+      }
+      .btn-continue:hover {
+        background: var(--brand-2-dark);
+        color: #fff;
+      }
+      .footer-right {
+        display: flex;
+        gap: 12px;
+      }
+
+      /* ---- Review step ---- */
+      .review-card {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 20px 22px;
+        margin-bottom: 16px;
+      }
+      .review-card-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 14px;
+      }
+      .review-card-head h3 {
+        font-size: 15.5px;
+        font-weight: 700;
+        margin: 0;
+      }
+      .edit-link {
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--brand);
+        background: none;
+        border: none;
+        padding: 0;
+        text-decoration: underline;
+      }
+      .review-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px 24px;
+      }
+      .review-item dt {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+        color: var(--muted);
+        font-weight: 700;
+        margin-bottom: 3px;
+      }
+      .review-item dd {
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--ink);
+        margin: 0;
+      }
+      .review-item dd.empty {
+        color: #b3b7c0;
+        font-weight: 500;
+        font-style: italic;
+      }
+      .review-desc {
+        font-size: 14px;
+        color: var(--ink);
+        white-space: pre-wrap;
+        line-height: 1.55;
+      }
+
+      .toast-success {
+        position: fixed;
+        top: 22px;
+        right: 22px;
+        background: var(--ink);
+        color: #fff;
+        padding: 13px 20px;
+        border-radius: 9px;
+        font-size: 14px;
+        font-weight: 600;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        z-index: 60;
+        transform: translateY(-12px);
+        opacity: 0;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+      .toast-success.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      @media (max-width: 720px) {
+        .panel {
+          padding: 24px 18px;
+        }
+        .split-input {
+          flex-direction: column;
+        }
+        .step-label {
+          display: none;
+        }
+        .step-item.active .step-label {
+          display: inline;
+          position: absolute;
+          margin-top: 38px;
+          font-size: 12px;
+        }
+        .step-item {
+          position: relative;
+          justify-content: center;
+          flex: 0 0 auto;
+        }
+        .step-connector {
+          width: auto;
+          flex: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <button
+        class="hamburger-btn d-lg-none"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#sidebarOffcanvas"
+      >
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="brand">
+        <span class="apna">apna</span><span class="hire">Hire</span>
+      </div>
+      <div class="spacer"></div>
+      <div class="dropdown">
+        <button class="avatar-btn" data-bs-toggle="dropdown">u</button>
+        <ul
+          class="dropdown-menu dropdown-menu-end p-3"
+          style="
+            min-width: 230px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+          "
+        >
+          <li class="d-flex align-items-center gap-2 mb-2">
+            <span
+              class="avatar-btn"
+              style="width: 34px; height: 34px; font-size: 13px"
+              >u</span
+            >
+            <div>
+              <div style="font-weight: 700; font-size: 14px">udhayasabari</div>
+              <div class="job-meta mb-0">7871539343</div>
+            </div>
+          </li>
+          <li><hr class="dropdown-divider" /></li>
+          <li>
+            <a
+              class="dropdown-item d-flex align-items-center gap-2 py-2"
+              href="viewprofile.html"
+              ><i class="bi bi-person"></i> View profile</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger"
+              href="login.html"
+              ><i class="bi bi-box-arrow-right"></i> Sign out</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="layout">
+      <aside class="sidebar d-none d-lg-flex">
+        <div class="company-card">
+          <div class="company-logo"></div>
+          <div class="flex-grow-1">
+            <div class="name">HDB Financial<br />Services Limited</div>
+            <div class="type">Company</div>
+          </div>
+          <div class="chev">
+            <i class="bi bi-chevron-up d-block"></i
+            ><i class="bi bi-chevron-down d-block"></i>
+          </div>
+        </div>
+        <a href="index.html" class="side-link active"
+          ><i class="bi bi-briefcase-fill"></i> Jobs</a
+        >
+        <a href="reports.html" class="side-link"
+          ><i class="bi bi-bar-chart-fill"></i> Reports</a
+        >
+
+        <div class="support-card">
+          <button class="close-x"><i class="bi bi-x-lg"></i></button>
+          <div class="role">Customer Support Manager</div>
+          <div class="cs-name">Bhanupratap Rana</div>
+          <div class="phone">
+            <i class="bi bi-telephone-fill"></i> 8178433825
+          </div>
+        </div>
+        <a href="#" class="help-link"
+          ><i class="bi bi-question-circle"></i> Help &amp; Support</a
+        >
+      </aside>
+      <div class="wizard-shell">
+        <!-- Step tracker -->
+        <div class="step-tracker" id="stepTracker">
+          <div class="step-item" data-step="1">
+            <div class="step-circle">1</div>
+            <div class="step-label">Job basics</div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item" data-step="2">
+            <div class="step-circle">2</div>
+            <div class="step-label">Job details</div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item" data-step="3">
+            <div class="step-circle">3</div>
+            <div class="step-label">Candidate criteria</div>
+          </div>
+          <div class="step-connector"></div>
+          <div class="step-item" data-step="4">
+            <div class="step-circle">4</div>
+            <div class="step-label">Review &amp; post</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <!-- STEP 1: Job basics -->
+          <div class="step-pane" data-pane="1">
+            <div class="panel-title">Job basics</div>
+            <div class="row row-gap">
+              <div class="col-md-6" id="grp-companyName">
+                <label class="field-label">Company name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="e.g. Horizon Retail Pvt Ltd"
+                  data-field="companyName"
+                />
+                <div class="helper-error">Enter the hiring company's name</div>
+              </div>
+              <div class="col-md-6" id="grp-industry">
+                <label class="field-label">Industry</label>
+                <select class="form-select" data-field="industry">
+                  <option value="" selected disabled>Select industry</option>
+                  <option>Retail</option>
+                  <option>BPO / Customer support</option>
+                  <option>Banking &amp; Finance</option>
+                  <option>Logistics &amp; Delivery</option>
+                  <option>Manufacturing</option>
+                  <option>Hospitality</option>
+                  <option>IT / Software</option>
+                  <option>Other</option>
+                </select>
+                <div class="helper-error">Select an industry</div>
+              </div>
+              <div class="col-md-6" id="grp-hiringFor">
+                <label class="field-label">Hiring for</label>
+                <div class="chip-group single" data-field="hiringFor">
+                  <div class="chip" data-value="Own company">Own company</div>
+                  <div class="chip" data-value="Client company">
+                    Client / consultancy
+                  </div>
+                </div>
+                <div class="helper-error">Choose who you're hiring for</div>
+              </div>
+              <div class="col-md-6" id="grp-contactPerson">
+                <label class="field-label">Contact person</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="e.g. Priya Sharma"
+                  data-field="contactPerson"
+                />
+                <div class="helper-error">Enter a contact person's name</div>
+              </div>
+              <div class="col-md-6" id="grp-contactNumber">
+                <label class="field-label">Contact number</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  placeholder="10-digit mobile number"
+                  data-field="contactNumber"
+                />
+                <div class="helper-error">Enter a valid 10-digit number</div>
+              </div>
+              <div class="col-md-6">
+                <label class="field-label"
+                  >Alternate email
+                  <span class="field-hint">(optional)</span></label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="you@company.com"
+                  data-field="contactEmail"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: Job details -->
+          <div class="step-pane" data-pane="2">
+            <div class="panel-title">Job details</div>
+            <div class="row row-gap">
+              <div class="col-md-6" id="grp-jobTitle">
+                <label class="field-label">Job title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="e.g. Banking Sales Manager"
+                  data-field="jobTitle"
+                />
+                <div class="helper-error">Enter the job title</div>
+              </div>
+              <div class="col-md-6" id="grp-department">
+                <label class="field-label">Department</label>
+                <select class="form-select" data-field="department">
+                  <option value="" disabled>Select department</option>
+                  <option selected>Sales</option>
+                  <option>Customer Support</option>
+                  <option>Operations</option>
+                  <option>Delivery / Field</option>
+                  <option>HR &amp; Admin</option>
+                  <option>IT</option>
+                </select>
+              </div>
+              <div class="col-md-6" id="grp-location">
+                <label class="field-label">Location</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="City / area"
+                  data-field="location"
+                />
+                <div class="helper-error">Enter a job location</div>
+              </div>
+              <div class="col-md-6" id="grp-jobType">
+                <label class="field-label">Job type</label>
+                <select class="form-select" data-field="jobType">
+                  <option selected>Full-time</option>
+                  <option>Part-time</option>
+                  <option>Contract</option>
+                  <option>Internship</option>
+                </select>
+              </div>
+              <div class="col-md-6" id="grp-salary">
+                <label class="field-label">Monthly salary range</label>
+                <div class="split-input">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Min ₹"
+                    data-field="salaryMin"
+                  />
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Max ₹"
+                    data-field="salaryMax"
+                  />
+                </div>
+                <div class="helper-error">Enter a valid salary range</div>
+              </div>
+              <div class="col-md-6" id="grp-openings">
+                <label class="field-label">Number of openings</label>
+                <input
+                  type="number"
+                  min="1"
+                  class="form-control"
+                  placeholder="e.g. 5"
+                  data-field="openings"
+                />
+                <div class="helper-error">Enter number of openings</div>
+              </div>
+              <div class="col-12" id="grp-description">
+                <label class="field-label">Job description</label>
+                <textarea
+                  class="form-control"
+                  placeholder="Responsibilities, requirements, perks..."
+                  data-field="description"
+                ></textarea>
+                <div class="helper-error">Add a short job description</div>
+              </div>
+              <div class="col-md-6">
+                <label class="field-label">Minimum qualification</label>
+                <select class="form-select" data-field="qualification">
+                  <option selected>10th pass</option>
+                  <option>12th pass</option>
+                  <option>Diploma</option>
+                  <option>Graduate</option>
+                  <option>Post-graduate</option>
+                  <option>Any graduate</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: Candidate criteria -->
+          <div class="step-pane" data-pane="3">
+            <div class="panel-title">Candidate criteria</div>
+            <div class="row row-gap">
+              <div class="col-md-6" id="grp-experience">
+                <label class="field-label">Work experience</label>
+                <select class="form-select" data-field="experience">
+                  <option value="" disabled selected>Select experience</option>
+                  <option>Fresher</option>
+                  <option>Less than 1 year</option>
+                  <option>1–3 years</option>
+                  <option>3–5 years</option>
+                  <option>5+ years</option>
+                </select>
+                <div class="helper-error">Select an experience level</div>
+              </div>
+              <div class="col-md-6">
+                <label class="field-label"
+                  >Age range <span class="field-hint">(optional)</span></label
+                >
+                <div class="split-input">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Min age"
+                    data-field="ageMin"
+                  />
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Max age"
+                    data-field="ageMax"
+                  />
+                </div>
+              </div>
+              <div class="col-12" id="grp-gender">
+                <label class="field-label">Preferred gender</label>
+                <div class="chip-group single" data-field="gender">
+                  <div class="chip selected" data-value="Any">Any</div>
+                  <div class="chip" data-value="Male">Male</div>
+                  <div class="chip" data-value="Female">Female</div>
+                </div>
+              </div>
+              <div class="col-12" id="grp-english">
+                <label class="field-label">English proficiency</label>
+                <div class="chip-group single" data-field="english">
+                  <div class="chip selected" data-value="No English needed">
+                    No English needed
+                  </div>
+                  <div class="chip" data-value="Basic English">
+                    Basic English
+                  </div>
+                  <div class="chip" data-value="Fluent English">
+                    Fluent English
+                  </div>
+                </div>
+              </div>
+              <div class="col-12" id="grp-skills">
+                <label class="field-label"
+                  >Key skills
+                  <span class="field-hint">select all that apply</span></label
+                >
+                <div class="chip-group" data-field="skills">
+                  <div class="chip" data-value="Communication">
+                    Communication
+                  </div>
+                  <div class="chip" data-value="Two-wheeler license">
+                    Two-wheeler license
+                  </div>
+                  <div class="chip" data-value="MS Office">MS Office</div>
+                  <div class="chip" data-value="Tally">Tally</div>
+                  <div class="chip" data-value="Negotiation">Negotiation</div>
+                  <div class="chip" data-value="Team handling">
+                    Team handling
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="field-label"
+                  >Other requirements
+                  <span class="field-hint">(optional)</span></label
+                >
+                <textarea
+                  class="form-control"
+                  style="min-height: 90px"
+                  placeholder="Any additional must-haves for this role..."
+                  data-field="otherReq"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: Review & post -->
+          <div class="step-pane" data-pane="4">
+            <div class="panel-title">Review &amp; post</div>
+
+            <div class="review-card">
+              <div class="review-card-head">
+                <h3>Job basics</h3>
+                <button class="edit-link" data-goto="1">Edit</button>
+              </div>
+              <dl class="review-grid" id="review-1"></dl>
+            </div>
+
+            <div class="review-card">
+              <div class="review-card-head">
+                <h3>Job details</h3>
+                <button class="edit-link" data-goto="2">Edit</button>
+              </div>
+              <dl class="review-grid" id="review-2"></dl>
+              <div style="margin-top: 14px">
+                <dt
+                  style="
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    letter-spacing: 0.03em;
+                    color: var(--muted);
+                    font-weight: 700;
+                    margin-bottom: 6px;
+                  "
+                >
+                  Job description
+                </dt>
+                <p class="review-desc" id="review-desc">—</p>
+              </div>
+            </div>
+
+            <div class="review-card">
+              <div class="review-card-head">
+                <h3>Candidate criteria</h3>
+                <button class="edit-link" data-goto="3">Edit</button>
+              </div>
+              <dl class="review-grid" id="review-3"></dl>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer bar -->
+      <div class="footer-bar">
+        <div class="footer-inner">
+          <button class="btn-app btn-back" id="btnBack">Back</button>
+          <div class="footer-right">
+            <button class="btn-app btn-draft" id="btnDraft">
+              Save as draft
+            </button>
+            <button class="btn-app btn-continue" id="btnContinue">
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="toast-success" id="toast">Saved as draft</div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (function () {
+        const state = { skills: [] };
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        const panes = document.querySelectorAll(".step-pane");
+        const steps = document.querySelectorAll(".step-item");
+        const btnBack = document.getElementById("btnBack");
+        const btnContinue = document.getElementById("btnContinue");
+        const btnDraft = document.getElementById("btnDraft");
+        const toast = document.getElementById("toast");
+
+        // ---- Chip logic ----
+        document.querySelectorAll(".chip-group").forEach((group) => {
+          const field = group.dataset.field;
+          const isSingle = group.classList.contains("single");
+          group.querySelectorAll(".chip").forEach((chip) => {
+            chip.addEventListener("click", () => {
+              if (isSingle) {
+                group
+                  .querySelectorAll(".chip")
+                  .forEach((c) => c.classList.remove("selected"));
+                chip.classList.add("selected");
+                state[field] = chip.dataset.value;
+              } else {
+                chip.classList.toggle("selected");
+                const values = Array.from(
+                  group.querySelectorAll(".chip.selected"),
+                ).map((c) => c.dataset.value);
+                state[field] = values;
+              }
+              clearError(group.closest('[id^="grp-"]'));
+            });
+          });
+          // seed defaults already marked selected in HTML
+          const preselected = group.querySelector(".chip.selected");
+          if (preselected && isSingle) state[field] = preselected.dataset.value;
+        });
+
+        // ---- Text/select/textarea inputs ----
+        document.querySelectorAll("[data-field]").forEach((el) => {
+          if (el.classList.contains("chip")) return;
+          el.addEventListener("input", () => {
+            state[el.dataset.field] = el.value;
+            clearError(el.closest('[id^="grp-"]'));
+          });
+          el.addEventListener("change", () => {
+            state[el.dataset.field] = el.value;
+            clearError(el.closest('[id^="grp-"]'));
+          });
+        });
+
+        function clearError(group) {
+          if (group) group.classList.remove("invalid");
+        }
+
+        function markError(group) {
+          if (group) group.classList.add("invalid");
+        }
+
+        // ---- Required fields per step ----
+        const requiredByStep = {
+          1: [
+            "grp-companyName",
+            "grp-industry",
+            "grp-hiringFor",
+            "grp-contactPerson",
+            "grp-contactNumber",
+          ],
+          2: [
+            "grp-jobTitle",
+            "grp-location",
+            "grp-salary",
+            "grp-openings",
+            "grp-description",
+          ],
+          3: ["grp-experience"],
+          4: [],
+        };
+
+        function validateStep(step) {
+          let valid = true;
+          (requiredByStep[step] || []).forEach((id) => {
+            const group = document.getElementById(id);
+            if (!group) return;
+            let filled = true;
+
+            if (
+              id === "grp-hiringFor" ||
+              id === "grp-gender" ||
+              id === "grp-english"
+            ) {
+              filled =
+                !!state[group.querySelector("[data-field]").dataset.field];
+            } else if (id === "grp-salary") {
+              const min = document.querySelector(
+                '[data-field="salaryMin"]',
+              ).value;
+              const max = document.querySelector(
+                '[data-field="salaryMax"]',
+              ).value;
+              filled = min !== "" && max !== "" && Number(max) >= Number(min);
+            } else if (id === "grp-contactNumber") {
+              const val = document
+                .querySelector('[data-field="contactNumber"]')
+                .value.trim();
+              filled = /^\d{10}$/.test(val);
+            } else {
+              const input = group.querySelector("input, select, textarea");
+              filled = input && input.value.trim() !== "";
+            }
+
+            if (!filled) {
+              markError(group);
+              valid = false;
+            } else {
+              clearError(group);
+            }
+          });
+          return valid;
+        }
+
+        function updateTracker() {
+          steps.forEach((item) => {
+            const n = Number(item.dataset.step);
+            item.classList.remove("done", "active");
+            if (n < currentStep) item.classList.add("done");
+            else if (n === currentStep) item.classList.add("active");
+          });
+        }
+
+        function showStep(step) {
+          panes.forEach((p) =>
+            p.classList.toggle("active", Number(p.dataset.pane) === step),
+          );
+          updateTracker();
+          btnBack.style.visibility = step === 1 ? "hidden" : "visible";
+          btnContinue.textContent =
+            step === totalSteps ? "Post job" : "Continue";
+          if (step === totalSteps) buildReview();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        btnContinue.addEventListener("click", () => {
+          if (currentStep < totalSteps) {
+            if (!validateStep(currentStep)) return;
+            currentStep++;
+            showStep(currentStep);
+          } else {
+            if (!validateStep(3)) {
+              currentStep = 3;
+              showStep(3);
+              return;
+            }
+            showToast("Job posted successfully");
+          }
+        });
+
+        btnBack.addEventListener("click", () => {
+          if (currentStep > 1) {
+            currentStep--;
+            showStep(currentStep);
+          }
+        });
+
+        btnDraft.addEventListener("click", () => showToast("Saved as draft"));
+
+        document.querySelectorAll(".edit-link").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            currentStep = Number(btn.dataset.goto);
+            showStep(currentStep);
+          });
+        });
+
+        document.querySelectorAll(".step-item").forEach((item) => {
+          item.style.cursor = "pointer";
+          item.addEventListener("click", () => {
+            const n = Number(item.dataset.step);
+            if (n < currentStep) {
+              currentStep = n;
+              showStep(currentStep);
+            }
+          });
+        });
+
+        function showToast(msg) {
+          toast.textContent = msg;
+          toast.classList.add("show");
+          setTimeout(() => toast.classList.remove("show"), 2200);
+        }
+
+        function fmt(val, suffix) {
+          if (val === undefined || val === null || val === "") return null;
+          return suffix ? `${val}${suffix}` : val;
+        }
+
+        function reviewItem(label, value) {
+          const empty = value === null || value === undefined || value === "";
+          return `<div class="review-item"><dt>${label}</dt><dd class="${empty ? "empty" : ""}">${empty ? "Not provided" : value}</dd></div>`;
+        }
+
+        function buildReview() {
+          document.getElementById("review-1").innerHTML = [
+            reviewItem("Company name", state.companyName),
+            reviewItem("Industry", state.industry),
+            reviewItem("Hiring for", state.hiringFor),
+            reviewItem("Contact person", state.contactPerson),
+            reviewItem("Contact number", state.contactNumber),
+            reviewItem("Alternate email", state.contactEmail),
+          ].join("");
+
+          const salary =
+            state.salaryMin && state.salaryMax
+              ? `₹${state.salaryMin} – ₹${state.salaryMax} / month`
+              : null;
+
+          document.getElementById("review-2").innerHTML = [
+            reviewItem("Job title", state.jobTitle),
+            reviewItem("Department", state.department),
+            reviewItem("Location", state.location),
+            reviewItem("Job type", state.jobType),
+            reviewItem("Salary range", salary),
+            reviewItem("Number of openings", state.openings),
+            reviewItem("Minimum qualification", state.qualification),
+          ].join("");
+          document.getElementById("review-desc").textContent =
+            state.description || "No description added.";
+
+          const age =
+            state.ageMin && state.ageMax
+              ? `${state.ageMin} – ${state.ageMax} yrs`
+              : null;
+          const skills =
+            Array.isArray(state.skills) && state.skills.length
+              ? state.skills.join(", ")
+              : null;
+
+          document.getElementById("review-3").innerHTML = [
+            reviewItem("Work experience", state.experience),
+            reviewItem("Age range", age),
+            reviewItem("Preferred gender", state.gender),
+            reviewItem("English proficiency", state.english),
+            reviewItem("Key skills", skills),
+            reviewItem("Other requirements", state.otherReq),
+          ].join("");
+        }
+
+        showStep(currentStep);
+      })();
+    </script>
+  </body>
+</html>
