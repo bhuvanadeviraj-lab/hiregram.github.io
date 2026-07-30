@@ -1,489 +1,647 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <!-- Mirrored from jobportal-recruitment-theme.netlify.app/talent-search by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Jul 2026 17:26:30 GMT -->
+  <!--   --><meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Search top talent on Hiregramm – find developers, designers, marketers and more."
+    />
+    <title>Hiregramm – Talent Search</title>
 
-<!-- Mirrored from jobportal-recruitment-theme.netlify.app/talent-search by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Jul 2026 17:26:30 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Search top talent on Hiregramm – find developers, designers, marketers and more." />
-  <title>Hiregramm – Talent Search</title>
+    <link rel="shortcut icon" href="assets/images/job-search.png" />
+    <!-- Google Fonts (same as homepage) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=Sora:wght@300;400;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
 
-    <link rel="shortcut icon" href="assets/images/job-search.png">
-  <!-- Google Fonts (same as homepage) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com/" />
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=Sora:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet" />
-
-  <!-- AOS -->
-  <link rel="stylesheet" href="assets/css/aos.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-<body>
-
-  <!-- PRELOADER -->
-  <div id="preloader" role="status" aria-label="Loading">
-    <div class="preloader-logo">
-      <div class="logo-mark">T</div>
-      <span class="logo-name">Hiregramm</span>
+    <!-- AOS -->
+    <link rel="stylesheet" href="assets/css/aos.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <!-- PRELOADER -->
+    <div id="preloader" role="status" aria-label="Loading">
+      <div class="preloader-logo">
+        <div class="logo-mark">T</div>
+        <span class="logo-name">Hiregramm</span>
+      </div>
+      <div class="preloader-spinner"></div>
     </div>
-    <div class="preloader-spinner"></div>
-  </div>
 
-  <!-- STICKY HEADER (add Talent Search link) -->
-  <header id="header" role="banner">
+    <!-- STICKY HEADER (add Talent Search link) -->
     <div class="container">
-      <nav class="nav-inner" aria-label="Main navigation">
-        <!-- Logo -->
-        <a aria-label='Hiregramm home' class='logo' href='index.html'>
-          <div class="logo-mark" aria-hidden="true">T</div>
-          <span class="logo-name">Talent<span>Hub</span></span>
-        </a>
-        <!-- Desktop nav links -->
-        <ul class="nav-links" role="list">
-          <li class="active" ><a href='index.html'>Home</a></li>
-          <li><a href='browse-jobs.html'>Jobs</a></li>
-          <li><a href='index.html#categories'>Categories</a></li>
-          <li><a href='index.html#companies'>Companies</a></li>
-          <li><a href='index.html#about'>About</a></li>
-          <li><a href='index.html#contact'>Contact</a></li>
-        </ul>
-        <!-- CTA -->
-        <div class="nav-cta">
-          <a class='btn btn-outline' href='browse-jobs.html'>Browse Jobs</a>
-          <a class='btn btn-primary' href='post-job.html'>Post a Job</a>
-        </div>
-        <!-- Hamburger -->
-        <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false"
-          aria-controls="mobile-nav">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
-    </div>
-    <!-- Mobile Nav -->
-    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-      <a href='index.html'>Home</a>
-      <a href='browse-jobs.html'>Jobs</a>
-      <a href='index.html#categories'>Categories</a>
-      <a href='index.html#companies'>Companies</a>
-      <a href='index.html#about'>About</a>
-      <a href='index.html#contact'>Contact</a>
-      <a class='btn btn-primary' href='post-job.html'>Post a Job</a>
-    </nav>
-  </header>
+      <header id="header" role="banner">
+        <div class="container">
+          <nav class="nav-inner" aria-label="Main navigation">
+            <a href="index.html#home" class="logo" aria-label="Hiregramm home">
+              <div class="logo-mark" aria-hidden="true">H</div>
+              <span class="logo-name">Hire<span>gramm</span></span>
+            </a>
+            <ul class="nav-links" role="list">
+              <li class="active"><a href="index.html#home">Home</a></li>
+              <li><a href="index.html#about">About Us</a></li>
+              <li class="dropdown">
+                <a href="index.html#jobs">Employers Zone</a>
+                <ul class="dropdown-menu">
+                  <li><a href="post-job.html">Post Job for Free</a></li>
+                  <li>
+                    <a href="index.html#campus-recruitment"
+                      >End to End Recruitment</a
+                    >
+                  </li>
+                  <li>
+                    <a href="index.html#campus-recruitment"
+                      >Campus Recruitment</a
+                    >
+                  </li>
+                  <li><a href="index.html#resume-search">Resume Search</a></li>
+                </ul>
+              </li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="index.html#testimonials">Testimonials</a></li>
+              <li><a href="index.html#contact">Contact Us</a></li>
+            </ul>
+            <div class="nav-cta">
+              <a class="btn btn-outline" href="browse-jobs.html">Browse Jobs</a>
+              <a class="btn btn-primary" href="post-job.html"
+                >Login / Register</a
+              >
+            </div>
+            <button
+              class="hamburger"
+              id="hamburger"
+              aria-label="Toggle mobile menu"
+              aria-expanded="false"
+              aria-controls="mobile-nav"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </nav>
 
-  <!-- TALENT SEARCH SECTION -->
-  <main>
-    <section id="talent-section">
+          <nav
+            class="mobile-nav"
+            id="mobile-nav"
+            aria-label="Mobile navigation"
+          >
+            <a href="index.html#home">Home</a>
+            <a href="index.html#about">About Us</a>
+            <div class="mobile-dropdown">
+              <button class="mobile-dropdown-btn">
+                Employers Zone <span>▼</span>
+              </button>
+
+              <div class="mobile-dropdown-content">
+                <a href="post-job.html">Post a Job</a>
+                <a href="campus-recruitment.html">Campus Recruitment</a>
+                <a href="resume-search.html">Resume Search</a>
+              </div>
+            </div>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#testimonials">Testimonials</a>
+            <a href="index.html#contact">Contact Us</a>
+            <a class="btn btn-primary" href="post-job.html">Post a Job</a>
+          </nav>
+        </div>
+      </header>
+    </div>
+
+    <!-- TALENT SEARCH SECTION -->
+    <main>
+      <section id="talent-section">
+        <div class="container">
+          <!-- Header -->
+          <div class="section-header" data-aos="fade-up">
+            <div class="section-label">Hire smarter</div>
+            <h1 class="section-title">Talent Search</h1>
+            <p class="section-subtitle">
+              Find top‑quality candidates – developers, designers, marketers and
+              more.
+            </p>
+          </div>
+
+          <!-- Hero search -->
+          <div class="talent-hero" data-aos="fade-up">
+            <h2>🔍 Search candidates</h2>
+            <p>Get instant access to thousands of vetted professionals.</p>
+            <div class="talent-search-bar">
+              <input
+                type="text"
+                placeholder="Job title, skills or keywords (e.g. React, Product Manager)"
+              />
+              <input type="text" placeholder="Location (city or remote)" />
+              <button class="btn btn-accent">Search</button>
+            </div>
+          </div>
+
+          <!-- Main layout with filter sidebar + results -->
+          <div class="talent-layout">
+            <!-- Filter sidebar -->
+            <aside class="filter-sidebar" data-aos="fade-right">
+              <div class="filter-title">
+                <span>Filter candidates</span>
+                <span class="filter-clear" id="clearFilters">Clear all</span>
+              </div>
+
+              <div class="filter-group">
+                <h4>💼 Experience level</h4>
+                <label class="filter-checkbox"
+                  ><input type="checkbox" class="filter-check" /> Entry level
+                  <span class="count">(132)</span></label
+                >
+                <label class="filter-checkbox"
+                  ><input type="checkbox" class="filter-check" /> Mid level
+                  <span class="count">(456)</span></label
+                >
+                <label class="filter-checkbox"
+                  ><input type="checkbox" class="filter-check" /> Senior
+                  <span class="count">(621)</span></label
+                >
+                <label class="filter-checkbox"
+                  ><input type="checkbox" class="filter-check" /> Lead / manager
+                  <span class="count">(210)</span></label
+                >
+              </div>
+
+              <div class="filter-group">
+                <h4>🔧 Skills</h4>
+                <label class="filter-checkbox"
+                  ><input type="checkbox" class="filter-check" /> React
+                  <span class="count">(384)</span></label
+                >
+                <label class="filter-checkbox"
+                  ><input type="checkbox" class="filter-check" /> Python
+                  <span class="count">(298)</span></label
+                >
+                <label class="filter-checkbox"
+                  ><input type="checkbox" class="filter-check" /> Figma
+                  <span class="count">(176)</span></label
+                >
+                <label class="filter-checkbox"
+                  ><input type="checkbox" class="filter-check" /> Product
+                  Management <span class="count">(205)</span></label
+                >
+                <label class="filter-checkbox"
+                  ><input type="checkbox" class="filter-check" /> SQL
+                  <span class="count">(267)</span></label
+                >
+              </div>
+
+              <div class="filter-group">
+                <h4>📍 Availability</h4>
+                <label class="filter-checkbox"
+                  ><input type="checkbox" class="filter-check" /> Remote only
+                  <span class="count">(520)</span></label
+                >
+                <label class="filter-checkbox"
+                  ><input type="checkbox" class="filter-check" /> Hybrid
+                  <span class="count">(410)</span></label
+                >
+                <label class="filter-checkbox"
+                  ><input type="checkbox" class="filter-check" /> On‑site
+                  <span class="count">(380)</span></label
+                >
+                <label class="filter-checkbox"
+                  ><input type="checkbox" class="filter-check" /> Open to
+                  relocate <span class="count">(290)</span></label
+                >
+              </div>
+
+              <div class="filter-group">
+                <h4>📅 Years of experience</h4>
+                <div class="range-inputs">
+                  <select>
+                    <option>Min</option>
+                    <option>0</option>
+                    <option>2</option>
+                    <option>4</option>
+                    <option>6</option>
+                    <option>8</option>
+                    <option>10+</option>
+                  </select>
+                  <select>
+                    <option>Max</option>
+                    <option>2</option>
+                    <option>4</option>
+                    <option>6</option>
+                    <option>8</option>
+                    <option>10</option>
+                    <option>15+</option>
+                  </select>
+                </div>
+              </div>
+
+              <button
+                class="btn btn-primary"
+                style="width: 100%"
+                id="applyFilters"
+              >
+                Apply filters
+              </button>
+            </aside>
+
+            <!-- Candidate grid -->
+            <div class="candidates-main" data-aos="fade-left">
+              <div class="candidates-header">
+                <div class="candidates-count">
+                  <strong>247</strong> candidates found
+                </div>
+                <div class="sort-select">
+                  <label for="sort">Sort by:</label>
+                  <select id="sort">
+                    <option>Most relevant</option>
+                    <option>Newest</option>
+                    <option>Experience: high to low</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="candidates-grid">
+                <!-- Candidate 1 -->
+                <div class="candidate-card">
+                  <div class="candidate-header">
+                    <div class="candidate-avatar">JD</div>
+                    <div class="candidate-info">
+                      <h3>Jessica Du</h3>
+                      <div class="candidate-title">
+                        Senior Frontend Engineer
+                      </div>
+                    </div>
+                  </div>
+                  <div class="candidate-location">
+                    <span>📍 San Francisco, CA (Remote)</span>
+                  </div>
+                  <div class="candidate-skills">
+                    <span class="badge badge-blue">React</span>
+                    <span class="badge badge-blue">TypeScript</span>
+                    <span class="badge badge-blue">Next.js</span>
+                  </div>
+                  <p class="candidate-bio">
+                    6+ years of experience building scalable web apps.
+                    Previously at Stripe.
+                  </p>
+                  <div class="candidate-footer">
+                    <span class="candidate-exp">⭐ 8 yrs experience</span>
+                    <a href="#" class="contact-btn">Contact</a>
+                  </div>
+                </div>
+
+                <!-- Candidate 2 -->
+                <div class="candidate-card">
+                  <div class="candidate-header">
+                    <div class="candidate-avatar">MK</div>
+                    <div class="candidate-info">
+                      <h3>Michael K.</h3>
+                      <div class="candidate-title">Product Designer</div>
+                    </div>
+                  </div>
+                  <div class="candidate-location">
+                    <span>📍 New York, NY</span>
+                  </div>
+                  <div class="candidate-skills">
+                    <span class="badge badge-purple">Figma</span>
+                    <span class="badge badge-purple">UX Research</span>
+                    <span class="badge badge-blue">Design Systems</span>
+                  </div>
+                  <p class="candidate-bio">
+                    4+ years in fintech and B2B SaaS. Portfolio includes
+                    award‑winning apps.
+                  </p>
+                  <div class="candidate-footer">
+                    <span class="candidate-exp">⭐ 5 yrs experience</span>
+                    <a href="#" class="contact-btn">Contact</a>
+                  </div>
+                </div>
+
+                <!-- Candidate 3 -->
+                <div class="candidate-card">
+                  <div class="candidate-header">
+                    <div class="candidate-avatar">SR</div>
+                    <div class="candidate-info">
+                      <h3>Sarah R.</h3>
+                      <div class="candidate-title">Product Manager</div>
+                    </div>
+                  </div>
+                  <div class="candidate-location">
+                    <span>📍 Seattle, WA (Hybrid)</span>
+                  </div>
+                  <div class="candidate-skills">
+                    <span class="badge badge-green">Agile</span>
+                    <span class="badge badge-green">Analytics</span>
+                    <span class="badge badge-orange">Strategy</span>
+                  </div>
+                  <p class="candidate-bio">
+                    Pragmatic certified, led 0→1 products with 200k+ users.
+                  </p>
+                  <div class="candidate-footer">
+                    <span class="candidate-exp">⭐ 7 yrs experience</span>
+                    <a href="#" class="contact-btn">Contact</a>
+                  </div>
+                </div>
+
+                <!-- Candidate 4 -->
+                <div class="candidate-card">
+                  <div class="candidate-header">
+                    <div class="candidate-avatar">AL</div>
+                    <div class="candidate-info">
+                      <h3>Alex Liu</h3>
+                      <div class="candidate-title">
+                        Backend Engineer (Python)
+                      </div>
+                    </div>
+                  </div>
+                  <div class="candidate-location">
+                    <span>📍 Austin, TX</span>
+                  </div>
+                  <div class="candidate-skills">
+                    <span class="badge badge-orange">Python</span>
+                    <span class="badge badge-blue">Django</span>
+                    <span class="badge badge-blue">AWS</span>
+                  </div>
+                  <p class="candidate-bio">
+                    Ex‑Amazon, built scalable microservices. Open to remote.
+                  </p>
+                  <div class="candidate-footer">
+                    <span class="candidate-exp">⭐ 6 yrs experience</span>
+                    <a href="#" class="contact-btn">Contact</a>
+                  </div>
+                </div>
+
+                <!-- Candidate 5 -->
+                <div class="candidate-card">
+                  <div class="candidate-header">
+                    <div class="candidate-avatar">MP</div>
+                    <div class="candidate-info">
+                      <h3>Maria P.</h3>
+                      <div class="candidate-title">Marketing Manager</div>
+                    </div>
+                  </div>
+                  <div class="candidate-location">
+                    <span>📍 Remote</span>
+                  </div>
+                  <div class="candidate-skills">
+                    <span class="badge badge-yellow">SEO</span>
+                    <span class="badge badge-green">Content Strategy</span>
+                    <span class="badge badge-purple">Analytics</span>
+                  </div>
+                  <p class="candidate-bio">
+                    Grew organic traffic by 200% in last role. B2B SaaS expert.
+                  </p>
+                  <div class="candidate-footer">
+                    <span class="candidate-exp">⭐ 8 yrs experience</span>
+                    <a href="#" class="contact-btn">Contact</a>
+                  </div>
+                </div>
+
+                <!-- Candidate 6 -->
+                <div class="candidate-card">
+                  <div class="candidate-header">
+                    <div class="candidate-avatar">TC</div>
+                    <div class="candidate-info">
+                      <h3>Tom Chen</h3>
+                      <div class="candidate-title">DevOps Engineer</div>
+                    </div>
+                  </div>
+                  <div class="candidate-location">
+                    <span>📍 Boston, MA</span>
+                  </div>
+                  <div class="candidate-skills">
+                    <span class="badge badge-blue">Kubernetes</span>
+                    <span class="badge badge-blue">Terraform</span>
+                    <span class="badge badge-orange">AWS</span>
+                  </div>
+                  <p class="candidate-bio">
+                    Certified AWS Solutions Architect, 5 years in cloud
+                    infrastructure.
+                  </p>
+                  <div class="candidate-footer">
+                    <span class="candidate-exp">⭐ 5 yrs experience</span>
+                    <a href="#" class="contact-btn">Contact</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pagination -->
+              <div class="pagination">
+                <span class="page-item active">1</span>
+                <span class="page-item">2</span>
+                <span class="page-item">3</span>
+                <span class="page-item">4</span>
+                <span class="page-item">5</span>
+                <span class="page-item">...</span>
+                <span class="page-item">12</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer" role="contentinfo">
       <div class="container">
-        <!-- Header -->
-        <div class="section-header" data-aos="fade-up">
-          <div class="section-label">Hire smarter</div>
-          <h1 class="section-title">Talent Search</h1>
-          <p class="section-subtitle">Find top‑quality candidates – developers, designers, marketers and more.</p>
-        </div>
-
-        <!-- Hero search -->
-        <div class="talent-hero" data-aos="fade-up">
-          <h2>🔍 Search candidates</h2>
-          <p>Get instant access to thousands of vetted professionals.</p>
-          <div class="talent-search-bar">
-            <input type="text" placeholder="Job title, skills or keywords (e.g. React, Product Manager)">
-            <input type="text" placeholder="Location (city or remote)">
-            <button class="btn btn-accent">Search</button>
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand-logo">
+              <div class="logo-mark" aria-hidden="true">H</div>
+              <span class="logo-name">Hire<span>gramm</span></span>
+            </div>
+            <p class="footer-desc">
+              Connecting ambitious professionals with world-class companies.
+              Your career journey starts here.
+            </p>
+            <div class="social-links" aria-label="Social media links">
+              <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+              <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+              <a href="#" class="social-link" aria-label="Facebook">f</a>
+              <a href="#" class="social-link" aria-label="Instagram">◉</a>
+            </div>
+          </div>
+          <div>
+            <h3 class="footer-col-title">For Job Seekers</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="browse-jobs.html">Browse Jobs</a></li>
+              <li><a href="index.html#categories">Job Categories</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">For Employers</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="post-job.html">Post a Job</a></li>
+              <li><a href="talent-search.html">Talent Search</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">Company</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
           </div>
         </div>
-
-        <!-- Main layout with filter sidebar + results -->
-        <div class="talent-layout">
-          <!-- Filter sidebar -->
-          <aside class="filter-sidebar" data-aos="fade-right">
-            <div class="filter-title">
-              <span>Filter candidates</span>
-              <span class="filter-clear" id="clearFilters">Clear all</span>
-            </div>
-
-            <div class="filter-group">
-              <h4>💼 Experience level</h4>
-              <label class="filter-checkbox"><input type="checkbox" class="filter-check"> Entry level <span class="count">(132)</span></label>
-              <label class="filter-checkbox"><input type="checkbox" class="filter-check"> Mid level <span class="count">(456)</span></label>
-              <label class="filter-checkbox"><input type="checkbox" class="filter-check"> Senior <span class="count">(621)</span></label>
-              <label class="filter-checkbox"><input type="checkbox" class="filter-check"> Lead / manager <span class="count">(210)</span></label>
-            </div>
-
-            <div class="filter-group">
-              <h4>🔧 Skills</h4>
-              <label class="filter-checkbox"><input type="checkbox" class="filter-check"> React <span class="count">(384)</span></label>
-              <label class="filter-checkbox"><input type="checkbox" class="filter-check"> Python <span class="count">(298)</span></label>
-              <label class="filter-checkbox"><input type="checkbox" class="filter-check"> Figma <span class="count">(176)</span></label>
-              <label class="filter-checkbox"><input type="checkbox" class="filter-check"> Product Management <span class="count">(205)</span></label>
-              <label class="filter-checkbox"><input type="checkbox" class="filter-check"> SQL <span class="count">(267)</span></label>
-            </div>
-
-            <div class="filter-group">
-              <h4>📍 Availability</h4>
-              <label class="filter-checkbox"><input type="checkbox" class="filter-check"> Remote only <span class="count">(520)</span></label>
-              <label class="filter-checkbox"><input type="checkbox" class="filter-check"> Hybrid <span class="count">(410)</span></label>
-              <label class="filter-checkbox"><input type="checkbox" class="filter-check"> On‑site <span class="count">(380)</span></label>
-              <label class="filter-checkbox"><input type="checkbox" class="filter-check"> Open to relocate <span class="count">(290)</span></label>
-            </div>
-
-            <div class="filter-group">
-              <h4>📅 Years of experience</h4>
-              <div class="range-inputs">
-                <select>
-                  <option>Min</option><option>0</option><option>2</option><option>4</option><option>6</option><option>8</option><option>10+</option>
-                </select>
-                <select>
-                  <option>Max</option><option>2</option><option>4</option><option>6</option><option>8</option><option>10</option><option>15+</option>
-                </select>
-              </div>
-            </div>
-
-            <button class="btn btn-primary" style="width:100%;" id="applyFilters">Apply filters</button>
-          </aside>
-
-          <!-- Candidate grid -->
-          <div class="candidates-main" data-aos="fade-left">
-            <div class="candidates-header">
-              <div class="candidates-count"><strong>247</strong> candidates found</div>
-              <div class="sort-select">
-                <label for="sort">Sort by:</label>
-                <select id="sort">
-                  <option>Most relevant</option>
-                  <option>Newest</option>
-                  <option>Experience: high to low</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="candidates-grid">
-              <!-- Candidate 1 -->
-              <div class="candidate-card">
-                <div class="candidate-header">
-                  <div class="candidate-avatar">JD</div>
-                  <div class="candidate-info">
-                    <h3>Jessica Du</h3>
-                    <div class="candidate-title">Senior Frontend Engineer</div>
-                  </div>
-                </div>
-                <div class="candidate-location">
-                  <span>📍 San Francisco, CA (Remote)</span>
-                </div>
-                <div class="candidate-skills">
-                  <span class="badge badge-blue">React</span>
-                  <span class="badge badge-blue">TypeScript</span>
-                  <span class="badge badge-blue">Next.js</span>
-                </div>
-                <p class="candidate-bio">6+ years of experience building scalable web apps. Previously at Stripe.</p>
-                <div class="candidate-footer">
-                  <span class="candidate-exp">⭐ 8 yrs experience</span>
-                  <a href="#" class="contact-btn">Contact</a>
-                </div>
-              </div>
-
-              <!-- Candidate 2 -->
-              <div class="candidate-card">
-                <div class="candidate-header">
-                  <div class="candidate-avatar">MK</div>
-                  <div class="candidate-info">
-                    <h3>Michael K.</h3>
-                    <div class="candidate-title">Product Designer</div>
-                  </div>
-                </div>
-                <div class="candidate-location">
-                  <span>📍 New York, NY</span>
-                </div>
-                <div class="candidate-skills">
-                  <span class="badge badge-purple">Figma</span>
-                  <span class="badge badge-purple">UX Research</span>
-                  <span class="badge badge-blue">Design Systems</span>
-                </div>
-                <p class="candidate-bio">4+ years in fintech and B2B SaaS. Portfolio includes award‑winning apps.</p>
-                <div class="candidate-footer">
-                  <span class="candidate-exp">⭐ 5 yrs experience</span>
-                  <a href="#" class="contact-btn">Contact</a>
-                </div>
-              </div>
-
-              <!-- Candidate 3 -->
-              <div class="candidate-card">
-                <div class="candidate-header">
-                  <div class="candidate-avatar">SR</div>
-                  <div class="candidate-info">
-                    <h3>Sarah R.</h3>
-                    <div class="candidate-title">Product Manager</div>
-                  </div>
-                </div>
-                <div class="candidate-location">
-                  <span>📍 Seattle, WA (Hybrid)</span>
-                </div>
-                <div class="candidate-skills">
-                  <span class="badge badge-green">Agile</span>
-                  <span class="badge badge-green">Analytics</span>
-                  <span class="badge badge-orange">Strategy</span>
-                </div>
-                <p class="candidate-bio">Pragmatic certified, led 0→1 products with 200k+ users.</p>
-                <div class="candidate-footer">
-                  <span class="candidate-exp">⭐ 7 yrs experience</span>
-                  <a href="#" class="contact-btn">Contact</a>
-                </div>
-              </div>
-
-              <!-- Candidate 4 -->
-              <div class="candidate-card">
-                <div class="candidate-header">
-                  <div class="candidate-avatar">AL</div>
-                  <div class="candidate-info">
-                    <h3>Alex Liu</h3>
-                    <div class="candidate-title">Backend Engineer (Python)</div>
-                  </div>
-                </div>
-                <div class="candidate-location">
-                  <span>📍 Austin, TX</span>
-                </div>
-                <div class="candidate-skills">
-                  <span class="badge badge-orange">Python</span>
-                  <span class="badge badge-blue">Django</span>
-                  <span class="badge badge-blue">AWS</span>
-                </div>
-                <p class="candidate-bio">Ex‑Amazon, built scalable microservices. Open to remote.</p>
-                <div class="candidate-footer">
-                  <span class="candidate-exp">⭐ 6 yrs experience</span>
-                  <a href="#" class="contact-btn">Contact</a>
-                </div>
-              </div>
-
-              <!-- Candidate 5 -->
-              <div class="candidate-card">
-                <div class="candidate-header">
-                  <div class="candidate-avatar">MP</div>
-                  <div class="candidate-info">
-                    <h3>Maria P.</h3>
-                    <div class="candidate-title">Marketing Manager</div>
-                  </div>
-                </div>
-                <div class="candidate-location">
-                  <span>📍 Remote</span>
-                </div>
-                <div class="candidate-skills">
-                  <span class="badge badge-yellow">SEO</span>
-                  <span class="badge badge-green">Content Strategy</span>
-                  <span class="badge badge-purple">Analytics</span>
-                </div>
-                <p class="candidate-bio">Grew organic traffic by 200% in last role. B2B SaaS expert.</p>
-                <div class="candidate-footer">
-                  <span class="candidate-exp">⭐ 8 yrs experience</span>
-                  <a href="#" class="contact-btn">Contact</a>
-                </div>
-              </div>
-
-              <!-- Candidate 6 -->
-              <div class="candidate-card">
-                <div class="candidate-header">
-                  <div class="candidate-avatar">TC</div>
-                  <div class="candidate-info">
-                    <h3>Tom Chen</h3>
-                    <div class="candidate-title">DevOps Engineer</div>
-                  </div>
-                </div>
-                <div class="candidate-location">
-                  <span>📍 Boston, MA</span>
-                </div>
-                <div class="candidate-skills">
-                  <span class="badge badge-blue">Kubernetes</span>
-                  <span class="badge badge-blue">Terraform</span>
-                  <span class="badge badge-orange">AWS</span>
-                </div>
-                <p class="candidate-bio">Certified AWS Solutions Architect, 5 years in cloud infrastructure.</p>
-                <div class="candidate-footer">
-                  <span class="candidate-exp">⭐ 5 yrs experience</span>
-                  <a href="#" class="contact-btn">Contact</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pagination -->
-            <div class="pagination">
-              <span class="page-item active">1</span>
-              <span class="page-item">2</span>
-              <span class="page-item">3</span>
-              <span class="page-item">4</span>
-              <span class="page-item">5</span>
-              <span class="page-item">...</span>
-              <span class="page-item">12</span>
-            </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">
+            © 2026 <a href="#">Hiregramm</a>. All rights reserved. Built with ♥
+            for ambitious people.
+          </p>
+          <div class="footer-bottom-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="faq.html">FAQs</a>
           </div>
         </div>
       </div>
-    </section>
-  </main>
+    </footer>
 
-  <!-- FOOTER -->
-  <footer id="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer-grid">
-        <!-- Brand -->
-        <div>
-          <div class="footer-brand-logo">
-            <div class="logo-mark" aria-hidden="true">T</div>
-            <span class="logo-name">Talent<span>Hub</span></span>
-          </div>
-          <p class="footer-desc">Connecting ambitious professionals with world-class companies. Your career journey
-            starts here.</p>
-          <div class="social-links" aria-label="Social media links">
-            <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
-            <a href="#" class="social-link" aria-label="LinkedIn">in</a>
-            <a href="#" class="social-link" aria-label="Facebook">f</a>
-            <a href="#" class="social-link" aria-label="Instagram">◉</a>
-          </div>
-        </div>
-        <!-- Quick Links -->
-        <div>
-          <h3 class="footer-col-title">For Job Seekers</h3>
-          <ul class="footer-links" role="list">
-            <li><a href='browse-jobs.html'>Browse Jobs</a></li>
-            <li><a href='index.html#categories'>Job Categories</a></li>
-            <li><a href='career-advice.html'>Career Advice</a></li>
-            <li><a href='resume-builder.html'>Resume Builder</a></li>
-            <li><a href='salary-guide.html'>Salary Guide</a></li>
-          </ul>
-        </div>
-        <!-- Employers -->
-        <div>
-          <h3 class="footer-col-title">For Employers</h3>
-          <ul class="footer-links" role="list">
-            <li><a href='post-job.html'>Post a Job</a></li>
-            <li><a href='talent-search.html'>Talent Search</a></li>
-            <li><a href='plan.html'>Pricing Plans</a></li>
-            <li><a href='employer-branding.html'>Employer Branding</a></li>
-            <li><a href='recruitment-api.html'>Recruitment API</a></li>
-          </ul>
-        </div>
-        <!-- Company -->
-        <div>
-          <h3 class="footer-col-title">Company</h3>
-          <ul class="footer-links" role="list">
-            <li><a href='index.html#about'>About Us</a></li>
-            <li><a href="login.html">Login</a></li>
-            <li><a href='dashboard.html'>Dashboard</a></li>
-            <li><a href='index.html#contact'>Contact</a></li>
-            <li><a href='blog.html'>Blog</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 <a href="#">Hiregramm</a>. All rights reserved. Built with ♥ for ambitious people.
-        </p>
-        <div class="footer-bottom-links">
-          <a href='privacy-policy.html'>Privacy Policy</a>
-          <a href='terms-of-service.html'>Terms of Service</a>
-          <a href='faq.html'>FAQs</a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <!-- Scroll To Top -->
+    <button
+      id="scroll-top"
+      aria-label="Scroll back to top"
+      title="Scroll to top"
+    >
+      <svg
+        width="18"
+        height="18"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        stroke-width="2.5"
+        aria-hidden="true"
+      >
+        <polyline points="18 15 12 9 6 15" />
+      </svg>
+    </button>
 
-  <!-- Scroll To Top -->
-  <button id="scroll-top" aria-label="Scroll back to top" title="Scroll to top">
-    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5" aria-hidden="true">
-      <polyline points="18 15 12 9 6 15"/>
-    </svg>
-  </button>
+    <!-- AOS Library -->
+    <script src="assets/js/aos.js"></script>
 
-  <!-- AOS Library -->
-  <script src="assets/js/aos.js"></script>
-
-  <script>
-    (function() {
-      // Init AOS
-      AOS.init({ duration: 680, easing: 'ease-out-cubic', once: true, offset: 60 });
-
-      // Preloader
-      window.addEventListener('load', function () {
-        const preloader = document.getElementById('preloader');
-        setTimeout(function () {
-          preloader.classList.add('hidden');
-          setTimeout(function () { preloader.remove(); }, 700);
-        }, 900);
-      });
-
-      // Sticky header
-      const header = document.getElementById('header');
-      window.addEventListener('scroll', function () {
-        header.classList.toggle('scrolled', window.scrollY > 40);
-      }, { passive: true });
-
-      // Mobile menu
-      const hamburger = document.getElementById('hamburger');
-      const mobileNav = document.getElementById('mobile-nav');
-      hamburger.addEventListener('click', function () {
-        const isOpen = mobileNav.classList.toggle('open');
-        hamburger.classList.toggle('open', isOpen);
-        hamburger.setAttribute('aria-expanded', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
-      });
-      mobileNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function () {
-          mobileNav.classList.remove('open');
-          hamburger.classList.remove('open');
-          hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
+    <script>
+      (function () {
+        // Init AOS
+        AOS.init({
+          duration: 680,
+          easing: "ease-out-cubic",
+          once: true,
+          offset: 60,
         });
-      });
-      document.addEventListener('click', function (e) {
-        if (!header.contains(e.target) && mobileNav.classList.contains('open')) {
-          mobileNav.classList.remove('open');
-          hamburger.classList.remove('open');
-          hamburger.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        }
-      });
 
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          const target = document.querySelector(this.getAttribute('href'));
-          if (!target) return;
-          e.preventDefault();
-          const navHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-height'));
-          const offsetTop = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-          window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        // Preloader
+        window.addEventListener("load", function () {
+          const preloader = document.getElementById("preloader");
+          setTimeout(function () {
+            preloader.classList.add("hidden");
+            setTimeout(function () {
+              preloader.remove();
+            }, 700);
+          }, 900);
         });
-      });
 
-      // Scroll top button
-      const scrollTopBtn = document.getElementById('scroll-top');
-      window.addEventListener('scroll', function () {
-        scrollTopBtn.classList.toggle('visible', window.scrollY > 400);
-      }, { passive: true });
-      scrollTopBtn.addEventListener('click', function () {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+        // Sticky header
+        const header = document.getElementById("header");
+        window.addEventListener(
+          "scroll",
+          function () {
+            header.classList.toggle("scrolled", window.scrollY > 40);
+          },
+          { passive: true },
+        );
 
-      // Filter clear demo
-      document.getElementById('clearFilters')?.addEventListener('click', function() {
-        document.querySelectorAll('.filter-check').forEach(cb => cb.checked = false);
-        alert('Filters cleared (demo)');
-      });
-
-      // Apply filters demo
-      document.getElementById('applyFilters')?.addEventListener('click', function() {
-        alert('Filters applied (demo) – candidate list would update.');
-      });
-
-      // Contact button demo
-      document.querySelectorAll('.contact-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          e.preventDefault();
-          alert('Demo: This would open a contact/message form.');
+        // Mobile menu
+        const hamburger = document.getElementById("hamburger");
+        const mobileNav = document.getElementById("mobile-nav");
+        hamburger.addEventListener("click", function () {
+          const isOpen = mobileNav.classList.toggle("open");
+          hamburger.classList.toggle("open", isOpen);
+          hamburger.setAttribute("aria-expanded", isOpen);
+          document.body.style.overflow = isOpen ? "hidden" : "";
         });
-      });
-    })();
-  </script>
-</body>
+        mobileNav.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", function () {
+            mobileNav.classList.remove("open");
+            hamburger.classList.remove("open");
+            hamburger.setAttribute("aria-expanded", "false");
+            document.body.style.overflow = "";
+          });
+        });
+        document.addEventListener("click", function (e) {
+          if (
+            !header.contains(e.target) &&
+            mobileNav.classList.contains("open")
+          ) {
+            mobileNav.classList.remove("open");
+            hamburger.classList.remove("open");
+            hamburger.setAttribute("aria-expanded", "false");
+            document.body.style.overflow = "";
+          }
+        });
 
-<!-- Mirrored from jobportal-recruitment-theme.netlify.app/talent-search by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Jul 2026 17:26:30 GMT -->
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            const target = document.querySelector(this.getAttribute("href"));
+            if (!target) return;
+            e.preventDefault();
+            const navHeight = parseInt(
+              getComputedStyle(document.documentElement).getPropertyValue(
+                "--nav-height",
+              ),
+            );
+            const offsetTop =
+              target.getBoundingClientRect().top +
+              window.pageYOffset -
+              navHeight;
+            window.scrollTo({ top: offsetTop, behavior: "smooth" });
+          });
+        });
+
+        // Scroll top button
+        const scrollTopBtn = document.getElementById("scroll-top");
+        window.addEventListener(
+          "scroll",
+          function () {
+            scrollTopBtn.classList.toggle("visible", window.scrollY > 400);
+          },
+          { passive: true },
+        );
+        scrollTopBtn.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // Filter clear demo
+        document
+          .getElementById("clearFilters")
+          ?.addEventListener("click", function () {
+            document
+              .querySelectorAll(".filter-check")
+              .forEach((cb) => (cb.checked = false));
+            alert("Filters cleared (demo)");
+          });
+
+        // Apply filters demo
+        document
+          .getElementById("applyFilters")
+          ?.addEventListener("click", function () {
+            alert("Filters applied (demo) – candidate list would update.");
+          });
+
+        // Contact button demo
+        document.querySelectorAll(".contact-btn").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            alert("Demo: This would open a contact/message form.");
+          });
+        });
+      })();
+    </script>
+  </body>
+
+  <!-- Mirrored from jobportal-recruitment-theme.netlify.app/talent-search by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Jul 2026 17:26:30 GMT -->
 </html>
