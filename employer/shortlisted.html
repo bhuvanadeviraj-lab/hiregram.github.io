@@ -64,10 +64,9 @@
         cursor: pointer;
         width: fit-content;
       }
-      .dash-grid {
+      .dash-grid-shortlist {
         display: grid;
-        grid-template-columns: 280px 1fr;
-        gap: 20px;
+        grid-template-columns: auto 1fr;
         align-items: start;
       }
       @media (max-width: 860px) {
@@ -596,7 +595,8 @@
           ><i class="bi bi-briefcase-fill"></i> Jobs</a
         >
         <a href="shortlisted.html" class="side-link"
-          ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted Candidates</a
+          ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted
+          Candidates</a
         >
         <a href="reports.html" class="side-link"
           ><i class="bi bi-bar-chart-fill"></i> Reports</a
@@ -619,102 +619,9 @@
       </aside>
 
       <div class="view" id="view-dashboard">
-        <div class="back-row" id="btnBackToJob">
-          &larr; Banking Sales Manager · Madurai
-        </div>
-
-        <div class="dash-grid">
-          <!-- Filters sidebar -->
-          <div class="filters-panel">
-            <div class="filters-title">&#9660;&#65039; Filters</div>
-
-            <div class="filter-section-head">
-              <span>Show candidates who</span>
-              <span>&#9650;</span>
-            </div>
-            <label class="filter-check">
-              <input type="checkbox" data-filter="matched" />
-              Matched to job requirements <span class="count">(114)</span>
-            </label>
-            <label class="filter-check">
-              <input type="checkbox" data-filter="resume" />
-              Have Resume Attached <span class="count">(128)</span>
-            </label>
-            <label class="filter-check">
-              <input type="checkbox" data-filter="contacted" />
-              Tried contacting you <span class="count">(65)</span>
-              <span class="badge-new">NEW</span>
-            </label>
-
-            <hr class="filter-divider" />
-            <div class="filter-collapsed-row">
-              Whatsapp Connect <span>&#9660;</span>
-            </div>
-
-            <hr class="filter-divider" />
-            <div class="filter-section-head" id="appliedInToggle">
-              <span>Applied in</span>
-              <span id="appliedInChevron">&#9660;</span>
-            </div>
-            <div id="appliedInBody" style="display: none">
-              <label class="filter-check"
-                ><input type="checkbox" />Last 24 hours</label
-              >
-              <label class="filter-check"
-                ><input type="checkbox" />Last 7 days</label
-              >
-              <label class="filter-check"
-                ><input type="checkbox" />Last 30 days</label
-              >
-            </div>
-
-            <div class="see-more-link">See more &#9660;</div>
-          </div>
-
+        <div class="dash-grid-shortlist">
           <!-- Candidate results -->
           <div>
-            <div class="dash-head">
-              <h2>Applied to job</h2>
-              <select class="sort-select">
-                <option>Sort By: Relevance</option>
-                <option>Sort By: Most recent</option>
-                <option>Sort By: Experience</option>
-              </select>
-            </div>
-
-            <div class="stat-tabs" id="statTabs">
-              <div class="stat-tab" data-tab="all">
-                <div class="num">139</div>
-                <div class="lbl">All candidates</div>
-              </div>
-              <div class="stat-tab active" data-tab="pending">
-                <div class="num">139</div>
-                <div class="lbl">Action Pending</div>
-              </div>
-              <div class="stat-tab" data-tab="viewed">
-                <div class="num">0</div>
-                <div class="lbl">Viewed Number</div>
-              </div>
-              <div class="stat-tab" data-tab="shortlisted">
-                <div class="num" id="shortlistedCount">0</div>
-                <div class="lbl">Shortlisted</div>
-              </div>
-              <div class="stat-tab" data-tab="rejected">
-                <div class="num" id="rejectedCount">0</div>
-                <div class="lbl">Rejected</div>
-              </div>
-            </div>
-
-            <div class="results-bar">
-              <div class="results-count">Showing 20 candidates</div>
-              <div class="results-actions"></div>
-            </div>
-
-            <div class="high-match-sub">
-              Candidates matching all your key requirements. Connect with them
-              before someone else does!
-            </div>
-
             <!-- Candidate 1: high match -->
             <div class="candidate-card" data-candidate="1">
               <div class="candidate-top">
@@ -730,19 +637,6 @@
                       <span>&#128205; Vadipatti, Madurai, TN</span>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              <div class="match-box">
-                <div class="match-box-head">&#10022; Matching:</div>
-                <div class="match-pills">
-                  <span class="match-pill">&#10003; Skills</span>
-                  <span class="match-pill">&#10003; Education</span>
-                  <span class="match-pill">&#10003; Age</span>
-                  <span class="match-pill">&#10003; Salary</span>
-                  <span class="match-pill">&#10003; Work Experience</span>
-                  <span class="match-pill">&#10003; Industry Experience</span>
-                  <span class="match-more">›</span>
                 </div>
               </div>
 
@@ -770,23 +664,6 @@
                 </dd>
               </dl>
 
-              <div class="candidate-actions">
-                <div class="action-left">
-                  <button class="btn-view-number">&#128222; View Number</button>
-                </div>
-                <div class="action-right">
-                  <button class="btn-reject" data-action="reject">
-                    &#10005; Reject
-                  </button>
-                  <button class="btn-shortlist" data-action="shortlist">
-                    &#10003; Shortlist
-                  </button>
-                </div>
-              </div>
-
-              <div class="candidate-footer">
-                <span>Applied 2 days ago | Active 2 days ago</span>
-              </div>
             </div>
 
             <!-- Candidate 2: regular -->
@@ -826,24 +703,6 @@
                 <dt>&#127760; Language</dt>
                 <dd>English (Fluent) <span class="sep">|</span> Tamil</dd>
               </dl>
-
-              <div class="candidate-actions">
-                <div class="action-left">
-                  <button class="btn-view-number">&#128222; View Number</button>
-                </div>
-                <div class="action-right">
-                  <button class="btn-reject" data-action="reject">
-                    &#10005; Reject
-                  </button>
-                  <button class="btn-shortlist" data-action="shortlist">
-                    &#10003; Shortlist
-                  </button>
-                </div>
-              </div>
-
-              <div class="candidate-footer">
-                <span>Applied 3 days ago | Active 1 day ago</span>
-              </div>
             </div>
           </div>
         </div>

@@ -1,122 +1,287 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reports — apnaHire</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
-<link rel="stylesheet" href="assets/style.css">
-
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reports — Hiregramm</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
     <div class="topbar">
-      <button class="hamburger-btn d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas"><i class="bi bi-list"></i></button>
-      <div class="brand"><span class="apna">apna</span><span class="hire">Hire</span></div>
+      <button
+        class="hamburger-btn d-lg-none"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#sidebarOffcanvas"
+      >
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="brand">
+        <span class="hire">Hire</span><span class="gramm">gramm</span>
+      </div>
       <div class="spacer"></div>
-      <a href='employer/login.html' target="_blank" class="btn btn-teal d-none d-sm-inline-flex align-items-center gap-2"><i class="bi bi-plus-lg"></i> Post a job</a>
+      <a
+        href="post-job.html"
+        target="_blank"
+        class="btn btn-teal d-none d-sm-inline-flex align-items-center gap-2"
+        ><i class="bi bi-plus-lg"></i> Post a job</a
+      >
       <div class="dropdown">
         <button class="avatar-btn" data-bs-toggle="dropdown">u</button>
-        <ul class="dropdown-menu dropdown-menu-end p-3" style="min-width:230px; border-radius:12px; border:1px solid var(--border);">
+        <ul
+          class="dropdown-menu dropdown-menu-end p-3"
+          style="
+            min-width: 230px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+          "
+        >
           <li class="d-flex align-items-center gap-2 mb-2">
-            <span class="avatar-btn" style="width:34px;height:34px;font-size:13px;">u</span>
-            <div><div style="font-weight:700; font-size:14px;">udhayasabari</div><div class="job-meta mb-0">7871539343</div></div>
+            <span
+              class="avatar-btn"
+              style="width: 34px; height: 34px; font-size: 13px"
+              >u</span
+            >
+            <div>
+              <div style="font-weight: 700; font-size: 14px">udhayasabari</div>
+              <div class="job-meta mb-0">7871539343</div>
+            </div>
           </li>
-          <li><hr class="dropdown-divider"></li>
-          <li><a class="dropdown-item d-flex align-items-center gap-2 py-2" href="viewprofile.html"><i class="bi bi-person"></i> View profile</a></li>
-          <li><a class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger" href="login.html"><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li>
+            <a
+              class="dropdown-item d-flex align-items-center gap-2 py-2"
+              href="viewprofile.html"
+              ><i class="bi bi-person"></i> View profile</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger"
+              href="login.html"
+              ><i class="bi bi-box-arrow-right"></i> Sign out</a
+            >
+          </li>
         </ul>
       </div>
     </div>
-    
-<div class="layout">
-  <aside class="sidebar d-none d-lg-flex">
-    <div class="company-card">
-      <div class="company-logo"></div>
-      <div class="flex-grow-1">
-        <div class="name">HDB Financial<br>Services Limited</div>
-        <div class="type">Company</div>
-      </div>
-      <div class="chev"><i class="bi bi-chevron-up d-block"></i><i class="bi bi-chevron-down d-block"></i></div>
-    </div>
-    <a href="index.html" class="side-link"><i class="bi bi-briefcase-fill"></i> Jobs</a>
-<a href="reports.html" class="side-link active"><i class="bi bi-bar-chart-fill"></i> Reports</a>
 
-    <div class="support-card">
-      <button class="close-x"><i class="bi bi-x-lg"></i></button>
-      <div class="role">Customer Support Manager</div>
-      <div class="cs-name">Bhanupratap Rana</div>
-      <div class="phone"><i class="bi bi-telephone-fill"></i> 8178433825</div>
-    </div>
-    <a href="#" class="help-link"><i class="bi bi-question-circle"></i> Help &amp; Support</a>
-    </aside>
+    <div class="layout">
+      <aside class="sidebar d-none d-lg-flex">
+        <div class="company-card">
+          <div class="company-logo"></div>
+          <div class="flex-grow-1">
+            <div class="name">HDB Financial<br />Services Limited</div>
+            <div class="type">Company</div>
+          </div>
+          <div class="chev">
+            <i class="bi bi-chevron-up d-block"></i
+            ><i class="bi bi-chevron-down d-block"></i>
+          </div>
+        </div>
+        <a href="index.html" class="side-link"
+          ><i class="bi bi-briefcase-fill"></i> Jobs</a
+        >
+        <a href="shortlisted.html" class="side-link"
+          ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted Candidates</a
+        >
+        <a href="reports.html" class="side-link active"
+          ><i class="bi bi-bar-chart-fill"></i> Reports</a
+        >
+        <a href="viewprofile.html" class="side-link"
+          ><i class="bi bi-person"></i> Company Profile</a
+        >
 
-  <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarOffcanvas" style="width:280px;">
-    <div class="offcanvas-header border-bottom">
-      <div class="brand"><span class="apna">apna</span><span class="hire">Hire</span></div>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-    </div>
-    <div class="offcanvas-body">
-      <div class="sidebar" style="height:auto; border-right:none; padding:0;">
-    <div class="company-card">
-      <div class="company-logo"></div>
-      <div class="flex-grow-1">
-        <div class="name">HDB Financial<br>Services Limited</div>
-        <div class="type">Company</div>
-      </div>
-      <div class="chev"><i class="bi bi-chevron-up d-block"></i><i class="bi bi-chevron-down d-block"></i></div>
-    </div>
-    <a href="index.html" class="side-link"><i class="bi bi-briefcase-fill"></i> Jobs</a>
-<a href="candidates.html" class="side-link"><i class="bi bi-people-fill"></i> Database</a>
-<a href="invite-centre.html" class="side-link"><i class="bi bi-envelope-open-fill"></i> Invite Centre</a>
-<a href="reports.html" class="side-link active"><i class="bi bi-bar-chart-fill"></i> Reports</a>
+        <div class="support-card">
+          <button class="close-x"><i class="bi bi-x-lg"></i></button>
+          <div class="role">Customer Support Manager</div>
+          <div class="cs-name">Bhanupratap Rana</div>
+          <div class="phone">
+            <i class="bi bi-telephone-fill"></i> 8178433825
+          </div>
+        </div>
+        <a href="#" class="help-link"
+          ><i class="bi bi-question-circle"></i> Help &amp; Support</a
+        >
+      </aside>
 
-    <div class="support-card">
-      <button class="close-x"><i class="bi bi-x-lg"></i></button>
-      <div class="role">Customer Support Manager</div>
-      <div class="cs-name">Bhanupratap Rana</div>
-      <div class="phone"><i class="bi bi-telephone-fill"></i> 8178433825</div>
-    </div>
-    <a href="#" class="help-link"><i class="bi bi-question-circle"></i> Help &amp; Support</a>
-    </div>
-    </div>
-  </div>
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="sidebarOffcanvas"
+        style="width: 280px"
+      >
+        <div class="offcanvas-header border-bottom">
+          <div class="brand">
+            <span class="hire">Hire</span><span class="gramm">gramm</span>
+          </div>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div
+            class="sidebar"
+            style="height: auto; border-right: none; padding: 0"
+          >
+            <div class="company-card">
+              <div class="company-logo"></div>
+              <div class="flex-grow-1">
+                <div class="name">HDB Financial<br />Services Limited</div>
+                <div class="type">Company</div>
+              </div>
+              <div class="chev">
+                <i class="bi bi-chevron-up d-block"></i
+                ><i class="bi bi-chevron-down d-block"></i>
+              </div>
+            </div>
+            <a href="index.html" class="side-link"
+              ><i class="bi bi-briefcase-fill"></i> Jobs</a
+            >
+            <a href="shortlisted.html" class="side-link"
+              ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted Candidates</a
+            >
+            <a href="reports.html" class="side-link active"
+              ><i class="bi bi-bar-chart-fill"></i> Reports</a
+            >
+            <a href="viewprofile.html" class="side-link"
+              ><i class="bi bi-person"></i> Company Profile</a
+            >
 
-  <main class="main">
-
-      <div class="mb-4">
-        <h1 class="page-title mb-0">Reports</h1>
-        <div class="page-sub">Hiring performance across all your job posts</div>
-      </div>
-
-      <div class="row g-3 mb-4">
-        <div class="col-6 col-lg-3"><div class="stat-card"><div class="stat-icon" style="background:var(--mint-bg); color:var(--teal-dk);"><i class="bi bi-eye-fill"></i></div><div class="stat-num">18,940</div><div class="stat-label">Total job views (30d)</div></div></div>
-        <div class="col-6 col-lg-3"><div class="stat-card"><div class="stat-icon" style="background:var(--amber-bg); color:var(--amber-text);"><i class="bi bi-cursor-fill"></i></div><div class="stat-num">6.1%</div><div class="stat-label">View-to-apply rate</div></div></div>
-        <div class="col-6 col-lg-3"><div class="stat-card"><div class="stat-icon" style="background:#E9F1FB; color:#2D6FB0;"><i class="bi bi-clock-fill"></i></div><div class="stat-num">2.1 days</div><div class="stat-label">Avg. time to shortlist</div></div></div>
-        <div class="col-6 col-lg-3"><div class="stat-card"><div class="stat-icon" style="background:#FBEAEA; color:#B2483A;"><i class="bi bi-person-check-fill"></i></div><div class="stat-num">38</div><div class="stat-label">Hires this month</div></div></div>
-      </div>
-
-      <div class="panel">
-        <div class="panel-head"><h2 class="h6 mb-0">Top performing jobs</h2></div>
-        <div class="table-responsive">
-          <table class="table table-admin mb-0">
-            <thead><tr><th>Job</th><th>Views</th><th>Applications</th><th>Conversion</th></tr></thead>
-            <tbody>
-              <tr><td class="job-title">Banking Sales Manager</td><td class="job-meta">3,120</td><td class="job-meta">131</td><td><span class="status-pill status-active">4.2%</span></td></tr>
-              <tr><td class="job-title">Banking Sales Officer</td><td class="job-meta">2,640</td><td class="job-meta">45</td><td><span class="status-pill status-active">1.7%</span></td></tr>
-              <tr><td class="job-title">Urgent Hiring — Diploma passed</td><td class="job-meta">2,010</td><td class="job-meta">31</td><td><span class="status-pill status-review">1.5%</span></td></tr>
-              <tr><td class="job-title">Urgent Hiring — Tirunelveli</td><td class="job-meta">1,340</td><td class="job-meta">19</td><td><span class="status-pill status-review">1.4%</span></td></tr>
-            </tbody>
-          </table>
+            <div class="support-card">
+              <button class="close-x"><i class="bi bi-x-lg"></i></button>
+              <div class="role">Customer Support Manager</div>
+              <div class="cs-name">Bhanupratap Rana</div>
+              <div class="phone">
+                <i class="bi bi-telephone-fill"></i> 8178433825
+              </div>
+            </div>
+            <a href="#" class="help-link"
+              ><i class="bi bi-question-circle"></i> Help &amp; Support</a
+            >
+          </div>
         </div>
       </div>
 
-  </main>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/app.js"></script>
-</body>
+      <main class="main">
+        <div class="mb-4">
+          <h1 class="page-title mb-0">Reports</h1>
+          <div class="page-sub">
+            Hiring performance across all your job posts
+          </div>
+        </div>
+
+        <div class="row g-3 mb-4">
+          <div class="col-6 col-lg-3">
+            <div class="stat-card">
+              <div
+                class="stat-icon"
+                style="background: var(--mint-bg); color: var(--teal-dk)"
+              >
+                <i class="bi bi-eye-fill"></i>
+              </div>
+              <div class="stat-num">18,940</div>
+              <div class="stat-label">Total job views (30d)</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="stat-card">
+              <div
+                class="stat-icon"
+                style="background: var(--amber-bg); color: var(--amber-text)"
+              >
+                <i class="bi bi-cursor-fill"></i>
+              </div>
+              <div class="stat-num">6.1%</div>
+              <div class="stat-label">View-to-apply rate</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="stat-card">
+              <div
+                class="stat-icon"
+                style="background: #e9f1fb; color: #2d6fb0"
+              >
+                <i class="bi bi-clock-fill"></i>
+              </div>
+              <div class="stat-num">2.1 days</div>
+              <div class="stat-label">Avg. time to shortlist</div>
+            </div>
+          </div>
+          <div class="col-6 col-lg-3">
+            <div class="stat-card">
+              <div
+                class="stat-icon"
+                style="background: #fbeaea; color: #b2483a"
+              >
+                <i class="bi bi-person-check-fill"></i>
+              </div>
+              <div class="stat-num">38</div>
+              <div class="stat-label">Hiregramm this month</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <h2 class="h6 mb-0">Top performing jobs</h2>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-admin mb-0">
+              <thead>
+                <tr>
+                  <th>Job</th>
+                  <th>Views</th>
+                  <th>Applications</th>
+                  <th>Conversion</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="job-title">Banking Sales Manager</td>
+                  <td class="job-meta">3,120</td>
+                  <td class="job-meta">131</td>
+                  <td><span class="status-pill status-active">4.2%</span></td>
+                </tr>
+                <tr>
+                  <td class="job-title">Banking Sales Officer</td>
+                  <td class="job-meta">2,640</td>
+                  <td class="job-meta">45</td>
+                  <td><span class="status-pill status-active">1.7%</span></td>
+                </tr>
+                <tr>
+                  <td class="job-title">Urgent Hiring — Diploma passed</td>
+                  <td class="job-meta">2,010</td>
+                  <td class="job-meta">31</td>
+                  <td><span class="status-pill status-review">1.5%</span></td>
+                </tr>
+                <tr>
+                  <td class="job-title">Urgent Hiring — Tirunelveli</td>
+                  <td class="job-meta">1,340</td>
+                  <td class="job-meta">19</td>
+                  <td><span class="status-pill status-review">1.4%</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
 </html>
