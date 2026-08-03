@@ -18,12 +18,44 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
+    <style>
+      .google-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 12px 20px;
+        width: 100%;
+        background: #fff;
+        border: 1px solid #dadce0;
+        border-radius: 10px;
+        color: #3c4043;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .google-btn img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .google-btn:hover {
+        background: #f8f9fa;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .google-btn:active {
+        transform: scale(0.98);
+      }
+    </style>
   </head>
   <body>
     <div class="auth-shell">
       <div class="auth-side">
         <div class="brand">
-          <span class="hire">Hire</span><span class="gramm">gramm</span>
+          <span class="text-white">Hire</span><span class="gramm">gramm</span>
         </div>
         <div>
           <div class="headline">
@@ -154,14 +186,29 @@
           </form>
 
           <div class="divider-or">or</div>
+
+          <a
+            href="#"
+            class="d-flex gap-2"
+            >🏟️<u>Click here for Enterprise Login</u></a
+          >
+
           <a
             href="#"
             id="loginwithEmailPass"
-            class="btn btn-navy-outline w-100 d-flex align-items-center justify-content-center gap-2"
+            class="mt-3 btn btn-navy-outline w-100 d-flex align-items-center justify-content-center gap-2"
             ><i class="bi bi-envelope"></i> Login with email &amp; password</a
           >
 
-          <div class="text-center mt-4 small">
+          <button class="google-btn mt-2">
+            <img
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              alt="Google"
+            />
+            <span>Continue with Google</span>
+          </button>
+
+          <div class="text-center mt-4 small mb-4">
             New to Hiregramm?
             <a
               href="register.html"
@@ -169,6 +216,12 @@
               >Create an account</a
             >
           </div>
+
+          <span class="mt-4">
+            By clicking continue, you agree to the hiregram 
+            <a href="#" style="color: rgb(26, 182, 221);"><u><b>Terms of service</b></u></a> &
+            <a href="#" style="color: rgb(26, 182, 221);"><u><b>Privacy Policy</b></u></a>
+          </span>
         </div>
       </div>
     </div>
