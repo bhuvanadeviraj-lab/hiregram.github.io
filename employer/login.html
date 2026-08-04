@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login — Hiregramm</title>
+    <title>Login — Hiregram</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -53,13 +53,13 @@
   </head>
   <body>
     <div class="auth-shell">
-      <div class="auth-side">
+      <div class="auth-side" id="auth-side">
         <div class="brand">
-          <span class="text-white">Hire</span><span class="gramm">gramm</span>
+          <span class="text-white">HIRE</span><span class="gramm">GRAM</span>
         </div>
         <div>
           <div class="headline">
-            Hiregramm faster with India's largest hiring network.
+            Hiregram faster with India's largest hiring network.
           </div>
           <div class="sub">
             Post jobs, search candidates and manage your entire hiring pipeline
@@ -80,9 +80,16 @@
             <div class="l">Daily job posts</div>
           </div>
         </div>
+        <a id="mob-login">
+          <div class="mobile-employer-login" style="display: none">
+            <button type="button" class="btn btn-mob-login w-100 mb-3">
+              Register / Login
+            </button>
+          </div>
+        </a>
       </div>
 
-      <div class="auth-form-wrap">
+      <div class="auth-form-wrap" id="auth-form-wrap">
         <div class="auth-card">
           <h1>Employer Login</h1>
           <div class="sub">Login with your registered email & mobile</div>
@@ -188,9 +195,12 @@
           <div class="divider-or">or</div>
 
           <a
-            href="#"
+            href="https://chat.whatsapp.com/IrpmN6QtMXW0LxUlPHr9it?s=cl&p=a&ilr=4&amv=0"
             class="d-flex gap-2"
-            >🏟️<u>Click here for Enterprise Login</u></a
+            ><img
+              src="../assets/images/whatsapp.png"
+              id="fixedWhatsAppIcon"
+            /><u> Hiregram Support is here to help you</u></a
           >
 
           <a
@@ -209,7 +219,7 @@
           </button>
 
           <div class="text-center mt-4 small mb-4">
-            New to Hiregramm?
+            New to Hiregram?
             <a
               href="register.html"
               style="color: var(--teal-dk); font-weight: 700"
@@ -218,9 +228,14 @@
           </div>
 
           <span class="mt-4">
-            By clicking continue, you agree to the hiregram 
-            <a href="#" style="color: rgb(26, 182, 221);"><u><b>Terms of service</b></u></a> &
-            <a href="#" style="color: rgb(26, 182, 221);"><u><b>Privacy Policy</b></u></a>
+            By clicking continue, you agree to the hiregram
+            <a href="#" style="color: rgb(26, 182, 221)"
+              ><u><b>Terms of service</b></u></a
+            >
+            &
+            <a href="#" style="color: rgb(26, 182, 221)"
+              ><u><b>Privacy Policy</b></u></a
+            >
           </span>
         </div>
       </div>
@@ -240,6 +255,11 @@
           document.getElementById("passwordBlock").style.display = "block";
           document.getElementById("emailLoginBlock").style.display = "block";
         });
+
+      document.getElementById("mob-login").addEventListener("click", () => {
+        document.getElementById("auth-side").style.display = "none";
+        document.getElementById("auth-form-wrap").style.display = "block";
+      });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

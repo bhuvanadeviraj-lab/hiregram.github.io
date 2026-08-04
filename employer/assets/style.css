@@ -749,6 +749,7 @@ a {
   justify-content: space-between;
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .auth-side::after {
@@ -886,10 +887,6 @@ a {
     justify-content: flex-end;
   }
 
-  .auth-side {
-    display: none;
-  }
-
   .auth-form-wrap {
     flex: 1 1 100%;
   }
@@ -917,4 +914,102 @@ a {
     width: 40px;
     height: 46px;
   }
+}
+
+#fixedWhatsAppIcon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 900px) {
+  .auth-side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 40px;
+  }
+
+  .auth-shell {
+    min-height: auto;
+    display: block;
+  }
+
+  .mobile-employer-login {
+    display: block !important;
+  }
+
+  .auth-stat-row {
+    display: flex;
+    gap: 28px;
+    position: relative;
+    z-index: 1;
+    margin: 30px auto;
+  }
+
+  .auth-form-wrap {
+    display: none;
+    margin: 100px auto;
+  }
+
+  .auth-card {
+    max-width: none;
+  }
+}
+
+@media (min-width: 900px) {
+  .auth-card {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .auth-card {
+    max-width: none;
+  }
+
+  .auth-form-wrap {
+    display: none;
+    margin: 100px auto;
+  }
+
+  .auth-side {
+    line-height: 30px;
+  }
+
+  .auth-shell {
+    min-height: auto;
+    display: block;
+  }
+
+  .mobile-employer-login {
+    display: block !important;
+  }
+
+  .auth-stat-row {
+    display: block;
+    position: relative;
+    z-index: 1;
+    margin: 5px auto;
+  }
+}
+
+.btn-mob-login {
+  background: var(--teal-dk);
+  border-color: var(--teal);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 9px;
+  padding: 10px 50px;
+  margin: 10px auto;
+}
+
+.btn-mob-login:hover {
+  background: var(--teal);
+  border-color: var(--teal-dk);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 9px;
+  padding: 10px 50px;
+  margin: 10px auto;
 }
