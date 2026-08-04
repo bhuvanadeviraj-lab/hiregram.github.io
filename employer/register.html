@@ -31,11 +31,25 @@
         --danger: #ef4444;
         --success: #16a34a;
       }
-      * {
-        box-sizing: border-box;
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
       }
 
-      .auth-side-register {
+      /* Main wrapper */
+      .auth-shell {
+        height: 100vh;
+        display: flex;
+        overflow: hidden;
+      }
+
+      /* Left side - fixed, no scroll */
+      .auth-side-register.left {
+        flex: 0 0 36%;
+        height: 100vh;
         background: linear-gradient(
           160deg,
           var(--navy) 0%,
@@ -50,11 +64,19 @@
         overflow: hidden;
       }
 
-      .auth-side-register .left {
-        flex: 0 0 250px;
-      }
-      .right {
+      /* Right side - only this scrolls */
+      .auth-form-wrap.right {
         flex: 1;
+        height: 100vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        min-height: 0;
+        display: block;
+      }
+
+      /* Form content */
+      .register {
+        min-height: 100%;
       }
 
       .auth-side-register::after {
@@ -63,7 +85,8 @@
         right: -80px;
         bottom: -80px;
         width: 320px;
-        height: 320px;
+        height: 100vh;
+        display: flex;
         border-radius: 50%;
         background: radial-gradient(
           circle,
@@ -101,6 +124,83 @@
         line-height: 1.25;
         margin-top: 35%;
         max-width: 420px;
+      }
+
+      @media (max-width: 900px) {
+        html,
+        body {
+          overflow: auto;
+        }
+
+        .auth-shell {
+          height: auto;
+          display: block;
+          overflow: visible;
+        }
+
+        .auth-side-register.left {
+          height: auto;
+          min-height: 100vh;
+          overflow: hidden;
+        }
+
+        .auth-form-wrap.right {
+          height: auto;
+          overflow: visible;
+          display: none;
+        }
+
+        .mobile-employer-login {
+          display: block !important;
+        }
+
+        .auth-side-register .auth-stat-row {
+          position: unset;
+        }
+
+        .auth-form-wrap {
+          display: none;
+          margin: 100px auto;
+        }
+
+        .auth-card {
+          max-width: none;
+        }
+      }
+
+      @media (min-width: 900px) {
+        .auth-card {
+          margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .auth-card {
+          max-width: none;
+        }
+
+        .auth-form-wrap {
+          display: none;
+          margin: 100px auto;
+        }
+
+        .auth-side-register {
+          line-height: 30px;
+        }
+
+        .auth-shell {
+          min-height: auto;
+          display: block;
+        }
+
+        .mobile-employer-login {
+          display: block !important;
+        }
+
+        .auth-side-register .auth-stat-row {
+          position: unset;
+          gap: 50px;
+        }
       }
 
       .topbar-register {
@@ -596,9 +696,9 @@
   </head>
   <body>
     <div class="auth-shell">
-      <div class="auth-side-register left">
+      <div class="auth-side-register left" id="auth-side-register">
         <div class="brand">
-          <span class="text-white">Hire</span><span class="gramm">gram</span>
+          <span class="text-white">HIRE</span><span class="gramm">GRAM</span>
         </div>
         <div>
           <div class="headline-register">
@@ -623,17 +723,23 @@
             <div class="l">Support</div>
           </div>
         </div>
+        <a id="mob-login">
+          <div class="mobile-employer-login" style="display: none">
+            <button type="button" class="btn btn-mob-login w-100 mb-3">
+              Register / Login
+            </button>
+          </div>
+        </a>
       </div>
 
-      <div class="auth-form-wrap right">
+      <div class="auth-form-wrap right" id="auth-form-wrap">
         <div class="register">
           <div class="topbar-register">
-            <div class="brand"> HIREGRAM</div>
+            <div class="brand">HIREGRAM</div>
             <h1 class="text-white">Employer Registration</h1>
             <p>
               Register your company to post jobs, get verified as an employer,
-              and access Hiregram's hiring support — all in one
-              form.
+              and access Hiregram's hiring support — all in one form.
             </p>
           </div>
 
@@ -945,8 +1051,8 @@
 
                 <div class="field full" data-required="true">
                   <label
-                    >Do you need Hiregram Support for hiring
-                    candidates? <span class="req">*</span></label
+                    >Do you need Hiregram Support for hiring candidates?
+                    <span class="req">*</span></label
                   >
                   <div class="toggle-row">
                     <div class="toggle-btn yes" id="consultYes">✅ Yes</div>
@@ -1077,6 +1183,14 @@
                   Your details are safe with us. Hiregram will contact you
                   within 24 hours for verification.
                 </div>
+                <a
+                  href="https://chat.whatsapp.com/IrpmN6QtMXW0LxUlPHr9it?s=cl&p=a&ilr=4&amv=0"
+                  class="d-flex gap-2"
+                  ><img
+                    src="../assets/images/whatsapp.png"
+                    id="fixedWhatsAppIcon"
+                  /><u> Hiregram Support is here to help you</u></a
+                >
                 <div class="text-center mt-4 small">
                   Already have an account?
                   <a
@@ -1103,13 +1217,11 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/app.js"></script>
-    <a
-      href="https://chat.whatsapp.com/IrpmN6QtMXW0LxUlPHr9it?s=cl&p=a&ilr=4&amv=0"
-      id="fixedWhatsAppIcon"
-      class="wow zoomIn"
-      target="_blank"
-      ><img src="assets/images/whatsapp.png" />
-    </a>
-
+    <script>
+      document.getElementById("mob-login").addEventListener("click", () => {
+        document.getElementById("auth-side-register").style.display = "none";
+        document.getElementById("auth-form-wrap").style.display = "block";
+      });
+    </script>
   </body>
 </html>

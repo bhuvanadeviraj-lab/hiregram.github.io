@@ -175,30 +175,32 @@
             ><i class="bi bi-chevron-down d-block"></i>
           </div>
         </div>
-        <a href="index.html" class="side-link"
+        <a href="index.html" class="side-link active"
+          ><i class="bi bi-house"></i> Home</a
+        >
+        <a href="post-job.html" class="side-link"
           ><i class="bi bi-briefcase-fill"></i> Jobs</a
         >
         <a href="shortlisted.html" class="side-link"
-          ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted Candidates</a
+          ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted
+          Candidates</a
         >
         <a href="reports.html" class="side-link"
           ><i class="bi bi-bar-chart-fill"></i> Reports</a
         >
-        <a href="viewprofile.html" class="side-link active"
+        <a href="viewprofile.html" class="side-link"
           ><i class="bi bi-person"></i> Company Profile</a
         >
-
         <div class="support-card">
-          <button class="close-x"><i class="bi bi-x-lg"></i></button>
-          <div class="role">Customer Support Manager</div>
-          <div class="cs-name">Bhanupratap Rana</div>
-          <div class="phone">
-            <i class="bi bi-telephone-fill"></i> 8178433825
-          </div>
+          <a
+            href="https://chat.whatsapp.com/IrpmN6QtMXW0LxUlPHr9it?s=cl&p=a&ilr=4&amv=0"
+            class="d-flex gap-2 help-link"
+            ><img
+              src="../assets/images/whatsapp.png"
+              id="fixedWhatsAppIcon"
+            /><u> Help &amp; Support</u></a
+          >
         </div>
-        <a href="#" class="help-link"
-          ><i class="bi bi-question-circle"></i> Help &amp; Support</a
-        >
       </aside>
 
       <div
@@ -233,30 +235,33 @@
                 ><i class="bi bi-chevron-down d-block"></i>
               </div>
             </div>
-            <a href="index.html" class="side-link"
+            <a href="index.html" class="side-link active"
+              ><i class="bi bi-house"></i> Home</a
+            >
+            <a href="post-job.html" class="side-link"
               ><i class="bi bi-briefcase-fill"></i> Jobs</a
             >
             <a href="shortlisted.html" class="side-link"
-              ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted Candidates</a
+              ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted
+              Candidates</a
             >
             <a href="reports.html" class="side-link"
               ><i class="bi bi-bar-chart-fill"></i> Reports</a
             >
-            <a href="viewprofile.html" class="side-link active"
+            <a href="viewprofile.html" class="side-link"
               ><i class="bi bi-person"></i> Company Profile</a
             >
 
             <div class="support-card">
-              <button class="close-x"><i class="bi bi-x-lg"></i></button>
-              <div class="role">Customer Support Manager</div>
-              <div class="cs-name">Bhanupratap Rana</div>
-              <div class="phone">
-                <i class="bi bi-telephone-fill"></i> 8178433825
-              </div>
+              <a
+                href="https://chat.whatsapp.com/IrpmN6QtMXW0LxUlPHr9it?s=cl&p=a&ilr=4&amv=0"
+                class="d-flex gap-2 help-link"
+                ><img
+                  src="../assets/images/whatsapp.png"
+                  id="fixedWhatsAppIcon"
+                /><u> Help &amp; Support</u></a
+              >
             </div>
-            <a href="#" class="help-link"
-              ><i class="bi bi-question-circle"></i> Help &amp; Support</a
-            >
           </div>
         </div>
       </div>
@@ -267,7 +272,7 @@
             <!-- Header -->
             <div class="row align-items-center">
               <div class="col-md-8">
-                <h2 class="profile-title">Profile</h2>
+                <h2 class="profile-title">Edit Profile Details</h2>
               </div>
               <div class="col-md-4 text-md-end top-btn">
                 <button class="btn btn-edit">Edit</button>
@@ -275,8 +280,81 @@
             </div>
 
             <!-- Basic Details -->
-            <h4 class="section-title">Basic Details</h4>
+            <h4 class="section-title">Company Information</h4>
+            <hr />
+            <div class="row">
+              <!-- Left -->
+              <div class="col-lg-5">
+                <div class="mb-3">
+                  <label>Company name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="HDB Financial Services"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label>Industry / Business Type</label>
+                  <select id="industry" class="form-control">
+                    <option value="">Select industry</option>
+                    <option>IT / Software</option>
+                    <option>Manufacturing</option>
+                    <option>Banking / Finance / NBFC</option>
+                    <option>Healthcare</option>
+                    <option>Retail / E-commerce</option>
+                    <option>Education</option>
+                    <option>Construction / Real Estate</option>
+                    <option>Logistics / Transport</option>
+                    <option>BPO / KPO</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
 
+              <div class="col-lg-3">
+                <div class="mb-3">
+                  <label>Company Size</label>
+                  <select id="size" class="form-control">
+                    <option value="">Select Company Size</option>
+                    <option>1 - 10</option>
+                    <option>11 - 50</option>
+                    <option>51 - 200</option>
+                    <option>201 - 500</option>
+                    <option>500+</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Left -->
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label>Company Website</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="hr@hdb.com"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label>Company Description</label>
+                  <textarea type="text" class="form-control" readonly>
+Xyz</textarea
+                  >
+                </div>
+              </div>
+            </div>
+
+            <br />
+            <h4 class="section-title">Contact Person Details</h4>
+            <hr />
             <div class="row">
               <!-- Left -->
               <div class="col-lg-6">
@@ -286,26 +364,6 @@
                     type="text"
                     class="form-control"
                     value="udhayasabari"
-                    readonly
-                  />
-                </div>
-
-                <div class="mb-3">
-                  <label>Mobile</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="7871539343"
-                    readonly
-                  />
-                </div>
-
-                <div class="mb-3">
-                  <label>Reporting manager</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="Khushboo Gupta"
                     readonly
                   />
                 </div>
@@ -337,12 +395,154 @@
               </div>
             </div>
 
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label>Mobile Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="7871539343"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label>Designation</label>
+                  <input type="text" class="form-control" value="HR" readonly />
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label>Alternate Mobile Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="9837653892"
+                    readonly
+                  />
+                </div>
+              </div>
+            </div>
+            <br />
+            <h4 class="section-title">Company Address</h4>
+            <hr />
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label>Address Line</label>
+                  <textarea type="text" class="form-control" readonly>
+12/2, Car Street</textarea
+                  >
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="mb-3">
+                  <label>City</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="Madurai"
+                    readonly
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label>State</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="Tamilnadu"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label>Pincode</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="625134"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label>Country</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="India"
+                    readonly
+                  />
+                </div>
+              </div>
+            </div>
+            <br />
+            <h4 class="section-title">Hiring Requirements</h4>
+            <hr />
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label>Are you registering as?</label>
+                  <select id="size" class="form-control">
+                    <option>Employer</option>
+                    <option>HR</option>
+                    <option>Recruitment Agency</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label>Hiring Frequency</label>
+                  <select id="size" class="form-control">
+                    <option>One Time Hiring</option>
+                    <option>Regular Hiring</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label>Expected Number Of Openings</label>
+                  <select id="size" class="form-control">
+                    <option>1-5</option>
+                    <option>6-20</option>
+                    <option>21-50</option>
+                    <option>50+</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <br />
+            <h4 class="section-title">Hiring Support</h4>
+            <hr />
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="mb-3">
+                  <span
+                    ><label
+                      >Do you need Hiregram Support for hiring
+                      candidates?</label
+                    >
+                    <input type="radio" /><label>&nbsp;Yes</label>
+                    <input type="radio" /><label>&nbsp;No</label>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <br />
+            <h4 class="section-title">Verification</h4>
+            <hr />
             <!-- GST -->
             <div class="section-space">
-              <h4 class="section-title">GST / ISD-GST Details</h4>
-
               <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-4">
                   <div class="mb-3">
                     <label>GST / ISD-GST No.</label>
                     <input
@@ -353,7 +553,33 @@
                     />
                   </div>
                 </div>
+                <div class="col-lg-4">
+                  <div class="mb-3">
+                    <label>CIN / Company Registration Number</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      value="27AABCH8761M1Z1"
+                      readonly
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="mb-3">
+                    <label>LinkedIn Company Profile</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      value="https://linkedin.com"
+                      readonly
+                    />
+                  </div>
+                </div>
               </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-9"></div>
+              <div class="col-lg-3 d-flex justify-content-end"><button class="btn btn-danger btn-lg">Submit</button></div>
             </div>
           </div>
         </div>
