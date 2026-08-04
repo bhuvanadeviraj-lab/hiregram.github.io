@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — Hiregram</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+      .google-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 12px 20px;
+        width: 100%;
+        background: #fff;
+        border: 1px solid #dadce0;
+        border-radius: 10px;
+        color: #3c4043;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .google-btn img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .google-btn:hover {
+        background: #f8f9fa;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .google-btn:active {
+        transform: scale(0.98);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="auth-shell">
+      <div class="auth-side" id="auth-side">
+        <div class="brand">
+          <span class="text-white">HIRE</span><span class="gramm">GRAM</span>
+        </div>
+        <div>
+          <div class="headline">
+            Hiregram faster with India's largest hiring network.
+          </div>
+          <div class="sub">
+            Post jobs, search candidates and manage your entire hiring pipeline
+            from one dashboard.
+          </div>
+        </div>
+        <div class="auth-stat-row">
+          <div>
+            <div class="n">4L+</div>
+            <div class="l">Recruiters</div>
+          </div>
+          <div>
+            <div class="n">900+</div>
+            <div class="l">Cities</div>
+          </div>
+          <div>
+            <div class="n">5,000+</div>
+            <div class="l">Daily job posts</div>
+          </div>
+        </div>
+        <a id="mob-login">
+          <div class="mobile-candidate-login" style="display: none">
+            <button type="button" class="btn btn-mob-login w-100 mb-3">
+              Register / Login
+            </button>
+          </div>
+        </a>
+      </div>
+
+      <div class="auth-form-wrap" id="auth-form-wrap">
+        <div class="auth-card">
+          <h1>Candidate Login</h1>
+          <div class="sub">Login with your registered email & mobile</div>
+
+          <form data-demo-form>
+            <div class="mb-3">
+              <label class="form-label">Email Address</label>
+              <div class="input-group">
+                <span
+                  class="input-group-text"
+                  style="
+                    border-radius: 9px 0 0 9px;
+                    background: #fff;
+                    border-color: var(--border);
+                    color: var(--muted);
+                  "
+                  >📧</span
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="example@gmail.com"
+                  style="border-radius: 0 9px 9px 0"
+                />
+              </div>
+            </div>
+            <button
+              type="button"
+              class="btn btn-teal w-100 mb-3"
+              id="sendOtpBtn"
+            >
+              Send OTP
+            </button>
+
+            <div class="mb-3" style="display: none" id="mobileBlock">
+              <label class="form-label">Mobile number</label>
+              <div class="input-group">
+                <span
+                  class="input-group-text"
+                  style="
+                    border-radius: 9px 0 0 9px;
+                    background: #fff;
+                    border-color: var(--border);
+                    color: var(--muted);
+                  "
+                  >+91</span
+                >
+                <input
+                  type="tel"
+                  class="form-control"
+                  placeholder="98765 43210"
+                  style="border-radius: 0 9px 9px 0"
+                />
+              </div>
+            </div>
+
+            <div class="mb-3" style="display: none" id="passwordBlock">
+              <label class="form-label">password</label>
+              <div class="input-group">
+                <span
+                  class="input-group-text"
+                  style="
+                    border-radius: 9px 0 0 9px;
+                    background: #fff;
+                    border-color: var(--border);
+                    color: var(--muted);
+                  "
+                  >🔓</span
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  placeholder="Password"
+                  style="border-radius: 0 9px 9px 0"
+                />
+              </div>
+            </div>
+
+            <div id="otpBlock" style="display: none">
+              <label class="form-label">Enter OTP</label>
+              <div class="otp-inputs mb-2">
+                <input type="text" inputmode="numeric" maxlength="1" />
+                <input type="text" inputmode="numeric" maxlength="1" />
+                <input type="text" inputmode="numeric" maxlength="1" />
+                <input type="text" inputmode="numeric" maxlength="1" />
+              </div>
+              <div class="job-meta mb-3">
+                Didn't get the code?
+                <a href="#" style="color: var(--teal-dk); font-weight: 600"
+                  >Resend</a
+                >
+              </div>
+              <a href="index.html" class="btn btn-teal w-100"
+                >Verify &amp; Login</a
+              >
+            </div>
+
+            <div id="emailLoginBlock" style="display: none">
+              <a href="index.html" class="btn btn-teal w-100">Login</a>
+            </div>
+          </form>
+
+          <div class="divider-or">or</div>
+
+          <a
+            href="https://chat.whatsapp.com/IrpmN6QtMXW0LxUlPHr9it?s=cl&p=a&ilr=4&amv=0"
+            class="d-flex gap-2"
+            ><img
+              src="../assets/images/whatsapp.png"
+              id="fixedWhatsAppIcon"
+            /><u> Hiregram Support is here to help you</u></a
+          >
+
+          <a
+            href="#"
+            id="loginwithEmailPass"
+            class="mt-3 btn btn-navy-outline w-100 d-flex align-items-center justify-content-center gap-2"
+            ><i class="bi bi-envelope"></i> Login with email &amp; password</a
+          >
+
+          <button class="google-btn mt-2">
+            <img
+              src="https://www.svgrepo.com/show/475656/google-color.svg"
+              alt="Google"
+            />
+            <span>Continue with Google</span>
+          </button>
+
+          <div class="text-center mt-4 small mb-4">
+            New to Hiregram?
+            <a
+              href="register.html"
+              style="color: var(--teal-dk); font-weight: 700"
+              >Create an account</a
+            >
+          </div>
+
+          <span class="mt-4">
+            By clicking continue, you agree to the hiregram
+            <a href="#" style="color: rgb(26, 182, 221)"
+              ><u><b>Terms of service</b></u></a
+            >
+            &
+            <a href="#" style="color: rgb(26, 182, 221)"
+              ><u><b>Privacy Policy</b></u></a
+            >
+          </span>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.getElementById("sendOtpBtn").addEventListener("click", () => {
+        document.getElementById("otpBlock").style.display = "block";
+        document.getElementById("sendOtpBtn").style.display = "none";
+      });
+
+      document
+        .getElementById("loginwithEmailPass")
+        .addEventListener("click", () => {
+          document.getElementById("otpBlock").style.display = "none";
+          document.getElementById("sendOtpBtn").style.display = "none";
+          document.getElementById("mobileBlock").style.display = "block";
+          document.getElementById("passwordBlock").style.display = "block";
+          document.getElementById("emailLoginBlock").style.display = "block";
+        });
+
+      document.getElementById("mob-login").addEventListener("click", () => {
+        document.getElementById("auth-side").style.display = "none";
+        document.getElementById("auth-form-wrap").style.display = "block";
+      });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

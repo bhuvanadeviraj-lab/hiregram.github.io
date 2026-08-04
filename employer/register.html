@@ -290,7 +290,7 @@
         transition: all 0.2s;
       }
       .progress-step.done .progress-dot {
-        background: var(--success);
+        background: var(--teal);
         color: #fff;
       }
       .progress-step.active .progress-dot {
@@ -308,7 +308,7 @@
         min-width: 12px;
       }
       .progress-line.done {
-        background: var(--success);
+        background: var(--teal);
       }
 
       .card {
@@ -692,6 +692,9 @@
         max-width: 380px;
         margin: 0 auto;
       }
+      .text-white {
+        color: #fff;
+      }
     </style>
   </head>
   <body>
@@ -742,6 +745,8 @@
               and access Hiregram's hiring support — all in one form.
             </p>
           </div>
+
+          <div class="progress-wrap" id="progressWrap"></div>
 
           <div class="card" id="formCard">
             <form id="employerForm" novalidate>
@@ -1176,8 +1181,8 @@
 
               <!-- 8. Submit -->
               <div class="footer-actions">
-                <button type="submit" class="submit-btn">
-                  Register Employer
+                <button type="submit" class="submit-btn text-white">
+                  <a href="index.html"> Register Employer </a>
                 </button>
                 <div class="submit-note">
                   Your details are safe with us. Hiregram will contact you
@@ -1222,6 +1227,308 @@
         document.getElementById("auth-side-register").style.display = "none";
         document.getElementById("auth-form-wrap").style.display = "block";
       });
+
+      const SECTION_LABELS = [
+        "Company",
+        "Contact",
+        "Address",
+        "Hiring",
+        "Consultancy",
+        "Verification",
+        "Declaration",
+      ];
+
+      // ---------- Progress bar ----------
+      function renderProgress() {
+        const wrap = document.getElementById("progressWrap");
+        wrap.innerHTML = "";
+        SECTION_LABELS.forEach((label, i) => {
+          const step = document.createElement("div");
+          step.className = "progress-step done";
+          step.innerHTML = `<div class="progress-dot">${i + 1}</div><span>${label}</span>`;
+          wrap.appendChild(step);
+          if (i < SECTION_LABELS.length - 1) {
+            const line = document.createElement("div");
+            line.className = "progress-line done";
+            wrap.appendChild(line);
+          }
+        });
+      }
+      renderProgress();
+
+      // ---------- Single-select option cards ----------
+      /*function setupSingleSelect(containerId) {
+              const container = document.getElementById(containerId);
+              container.querySelectorAll(".option-card").forEach((card) => {
+                card.addEventListener("click", () => {
+                  container
+                    .querySelectorAll(".option-card")
+                    .forEach((c) => c.classList.remove("selected"));
+                  card.classList.add("selected");
+                  container.dataset.value = card.dataset.val;
+                  container.closest(".field")?.classList.remove("invalid");
+                });
+              });
+            }
+            setupSingleSelect("companySizeCards");
+            setupSingleSelect("registeringAsCards");
+            setupSingleSelect("openingsCards");
+
+            function getSelectedValue(containerId) {
+              return document.getElementById(containerId).dataset.value || "";
+            }
+
+            // ---------- Drag-to-reorder priority list ----------
+            const dragList = document.getElementById("hiringFreqList");
+            let dragSrc = null;
+
+            dragList.querySelectorAll(".drag-item").forEach((item) => {
+              item.addEventListener("dragstart", () => {
+                dragSrc = item;
+                item.classList.add("dragging");
+              });
+              item.addEventListener("dragend", () => {
+                item.classList.remove("dragging");
+                updateRanks();
+              });
+              item.addEventListener("dragover", (e) => {
+                e.preventDefault();
+                const dragging = dragList.querySelector(".dragging");
+                if (dragging && dragging !== item) {
+                  const rect = item.getBoundingClientRect();
+                  const next = (e.clientY - rect.top) / rect.height > 0.5;
+                  dragList.insertBefore(dragging, next ? item.nextSibling : item);
+                }
+              });
+            });
+            function updateRanks() {
+              dragList.querySelectorAll(".drag-item").forEach((item, i) => {
+                item.querySelector(".rank").textContent = i + 1;
+              });
+            }
+            function getHiringPriorityOrder() {
+              return Array.from(dragList.querySelectorAll(".drag-item")).map(
+                (i) => i.dataset.val,
+              );
+            }
+
+            // ---------- Consultancy toggle ----------
+            const consultYes = document.getElementById("consultYes");
+            const consultNo = document.getElementById("consultNo");
+            const consultancyBox = document.getElementById("consultancyBox");
+            let consultancyChoice = null;
+
+            consultYes.addEventListener("click", () => {
+              consultancyChoice = "Yes";
+              consultYes.classList.add("selected");
+              consultNo.classList.remove("selected");
+              consultancyBox.classList.add("show");
+            });
+            consultNo.addEventListener("click", () => {
+              consultancyChoice = "No";
+              consultNo.classList.add("selected");
+              consultYes.classList.remove("selected");
+              consultancyBox.classList.remove("show");
+            });
+
+            // ---------- Mobile number: digits only ----------
+            ["mobileNumber", "altMobileNumber", "pincode"].forEach((id) => {
+              document.getElementById(id).addEventListener("input", (e) => {
+                e.target.value = e.target.value.replace(/\D/g, "");
+              });
+            });
+
+            // ---------- Validation helpers ----------
+            function setInvalid(fieldEl, invalid) {
+              if (!fieldEl) return;
+              fieldEl.classList.toggle("invalid", invalid);
+            }
+            function isValidEmail(v) {
+              return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+            }
+            function isValidMobile(v) {
+              return /^[0-9]{10}$/.test(v);
+            }
+            function isValidPincode(v) {
+              return /^[0-9]{6}$/.test(v);
+            }
+
+            // ---------- Submit ----------
+            document
+              .getElementById("employerForm")
+              .addEventListener("submit", function (e) {
+                e.preventDefault();
+                let valid = true;
+                let firstInvalidEl = null;
+
+                function check(id, condition) {
+                  const input = document.getElementById(id);
+                  const fieldEl = input.closest(".field");
+                  const ok = condition;
+                  setInvalid(fieldEl, !ok);
+                  if (!ok) {
+                    valid = false;
+                    if (!firstInvalidEl) firstInvalidEl = fieldEl;
+                  }
+                }
+
+                check(
+                  "companyName",
+                  document.getElementById("companyName").value.trim().length > 0,
+                );
+                check("industry", document.getElementById("industry").value !== "");
+                check(
+                  "contactName",
+                  document.getElementById("contactName").value.trim().length > 0,
+                );
+                check(
+                  "designation",
+                  document.getElementById("designation").value.trim().length > 0,
+                );
+                check(
+                  "officialEmail",
+                  isValidEmail(document.getElementById("officialEmail").value.trim()),
+                );
+                check(
+                  "mobileNumber",
+                  isValidMobile(document.getElementById("mobileNumber").value.trim()),
+                );
+                check(
+                  "addressLine",
+                  document.getElementById("addressLine").value.trim().length > 0,
+                );
+                check(
+                  "city",
+                  document.getElementById("city").value.trim().length > 0,
+                );
+                check(
+                  "state",
+                  document.getElementById("state").value.trim().length > 0,
+                );
+                check(
+                  "pincode",
+                  isValidPincode(document.getElementById("pincode").value.trim()),
+                );
+
+                // Company size (option cards)
+                const sizeField = document
+                  .getElementById("companySizeCards")
+                  .closest(".field");
+                const sizeOk = getSelectedValue("companySizeCards") !== "";
+                setInvalid(sizeField, !sizeOk);
+                if (!sizeOk) {
+                  valid = false;
+                  if (!firstInvalidEl) firstInvalidEl = sizeField;
+                }
+
+                // Registering as (option cards)
+                const regField = document
+                  .getElementById("registeringAsCards")
+                  .closest(".field");
+                const regOk = getSelectedValue("registeringAsCards") !== "";
+                setInvalid(regField, !regOk);
+                if (!regOk) {
+                  valid = false;
+                  if (!firstInvalidEl) firstInvalidEl = regField;
+                }
+
+                // Consultancy choice
+                if (consultancyChoice === null) {
+                  valid = false;
+                  consultYes.style.boxShadow = "0 0 0 3px rgba(239,68,68,0.25)";
+                  consultNo.style.boxShadow = "0 0 0 3px rgba(239,68,68,0.25)";
+                  if (!firstInvalidEl) firstInvalidEl = consultYes;
+                } else {
+                  consultYes.style.boxShadow = "none";
+                  consultNo.style.boxShadow = "none";
+                }
+
+                // Declaration checkboxes
+                const declareAccurate =
+                  document.getElementById("declareAccurate").checked;
+                const declareTerms = document.getElementById("declareTerms").checked;
+                const declarationError = document.getElementById("declarationError");
+                if (!declareAccurate || !declareTerms) {
+                  valid = false;
+                  declarationError.style.display = "block";
+                  if (!firstInvalidEl) firstInvalidEl = declarationError;
+                } else {
+                  declarationError.style.display = "none";
+                }
+
+                if (!valid) {
+                  firstInvalidEl?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                  });
+                  return;
+                }
+
+                // ---------- Build data payload ----------
+                const data = {
+                  company: {
+                    name: document.getElementById("companyName").value.trim(),
+                    industry: document.getElementById("industry").value,
+                    website: document.getElementById("companyWebsite").value.trim(),
+                    description: document
+                      .getElementById("companyDescription")
+                      .value.trim(),
+                    size: getSelectedValue("companySizeCards"),
+                  },
+                  contact: {
+                    name: document.getElementById("contactName").value.trim(),
+                    designation: document.getElementById("designation").value.trim(),
+                    email: document.getElementById("officialEmail").value.trim(),
+                    mobile: document.getElementById("mobileNumber").value.trim(),
+                    altMobile: document
+                      .getElementById("altMobileNumber")
+                      .value.trim(),
+                  },
+                  address: {
+                    line: document.getElementById("addressLine").value.trim(),
+                    city: document.getElementById("city").value.trim(),
+                    state: document.getElementById("state").value.trim(),
+                    pincode: document.getElementById("pincode").value.trim(),
+                    country: document.getElementById("country").value,
+                  },
+                  hiring: {
+                    registeringAs: getSelectedValue("registeringAsCards"),
+                    frequencyPriority: getHiringPriorityOrder(),
+                    expectedOpenings: getSelectedValue("openingsCards"),
+                  },
+                  consultancy: {
+                    needed: consultancyChoice,
+                    positions: document
+                      .getElementById("positionsToHire")
+                      .value.trim(),
+                    timeline: document.getElementById("joiningTimeline").value,
+                    location: document
+                      .getElementById("candidateLocation")
+                      .value.trim(),
+                    additionalReq: document
+                      .getElementById("additionalHiringReq")
+                      .value.trim(),
+                  },
+                  verification: {
+                    gst: document.getElementById("gstNumber").value.trim(),
+                    cin: document.getElementById("cinNumber").value.trim(),
+                    linkedin: document.getElementById("linkedinProfile").value.trim(),
+                  },
+                };
+ 
+                console.log("Employer registration submitted:", data);
+
+                document.getElementById("employerForm").style.display = "none";
+                const successPanel = document.getElementById("successPanel");
+                document.getElementById("successMessage").textContent =
+                  `Thank you, ${data.contact.name}! ${data.company.name} has been registered. ` +
+                  (consultancyChoice === "Yes"
+                    ? "Our consultancy team will reach out about your hiring requirements shortly."
+                    : "Our team will verify your details and activate job posting access shortly.");
+                successPanel.classList.add("show");
+                successPanel.scrollIntoView({ behavior: "smooth" });
+              });
+                   */
     </script>
   </body>
 </html>

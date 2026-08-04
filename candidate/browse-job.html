@@ -509,7 +509,16 @@
       [data-step].active {
         display: block;
       }
+      #fixedWhatsAppIcon {
+        right: 0px !important;
+        bottom: 45px !important;
+        width: 20px !important;
+        height: 20px !important;
+        left: 17px !important;
+        position: unset !important;
+      }
     </style>
+    <link rel="stylesheet" href="../assets/css/style.css" />
   </head>
   <body>
     <div class="topbar">
@@ -565,7 +574,7 @@
     </div>
 
     <div class="layout">
-      <aside class="sidebar d-none d-lg-flex">
+       <aside class="sidebar d-none d-lg-flex">
         <div class="company-card">
           <div class="company-logo"></div>
           <div class="flex-grow-1">
@@ -577,33 +586,32 @@
             ><i class="bi bi-chevron-down d-block"></i>
           </div>
         </div>
-        <a href="index.html" class="side-link"
+        <a href="../index.html#home" class="side-link" target="_blank"
           ><i class="bi bi-house"></i> Home</a
         >
-        <a href="index.html" class="side-link active"
+        <a href="browse-job.html" class="side-link active"
           ><i class="bi bi-briefcase-fill"></i> Jobs</a
         >
-        <a href="shortlisted.html" class="side-link"
-          ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted
-          Candidates</a
+        <a href="applied-jobs.html" class="side-link"
+          ><i class="bi bi-cursor-fill"></i> Applied Jobs
+          </a
         >
-        <a href="reports.html" class="side-link"
-          ><i class="bi bi-bar-chart-fill"></i> Reports</a
+        <a href="job-alerts.html" class="side-link"
+          ><i class="bi bi-bell"></i> Free Job Alert On</a
         >
         <a href="viewprofile.html" class="side-link"
-          ><i class="bi bi-person"></i> Company Profile</a
+          ><i class="bi bi-person"></i> Profile</a
         >
         <div class="support-card">
-          <button class="close-x"><i class="bi bi-x-lg"></i></button>
-          <div class="role">Customer Support Manager</div>
-          <div class="cs-name">Bhanupratap Rana</div>
-          <div class="phone">
-            <i class="bi bi-telephone-fill"></i> 8178433825
-          </div>
+          <a
+            href="https://chat.whatsapp.com/IrpmN6QtMXW0LxUlPHr9it?s=cl&p=a&ilr=4&amv=0"
+            class="d-flex gap-2 help-link"
+            ><img
+              src="../assets/images/whatsapp.png"
+              id="fixedWhatsAppIcon"
+            /><u> Help &amp; Support</u></a
+          >
         </div>
-        <a href="#" class="help-link"
-          ><i class="bi bi-question-circle"></i> Help &amp; Support</a
-        >
       </aside>
 
       <div
@@ -638,21 +646,21 @@
                 ><i class="bi bi-chevron-down d-block"></i>
               </div>
             </div>
-            <a href="index.html" class="side-link"
+            <a href="../index.html#home" class="side-link" target="_blank"
               ><i class="bi bi-house"></i> Home</a
             >
-            <a href="index.html" class="side-link active"
+            <a href="browse-job.html" class="side-link active"
               ><i class="bi bi-briefcase-fill"></i> Jobs</a
             >
-            <a href="shortlisted.html" class="side-link"
-              ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted
-              Candidates</a
+            <a href="applied-jobs.html" class="side-link"
+              ><i class="bi bi-cursor-fill"></i> Applied Jobs
+              </a
             >
-            <a href="reports.html" class="side-link"
-              ><i class="bi bi-bar-chart-fill"></i> Reports</a
+            <a href="job-alerts.html" class="side-link"
+              ><i class="bi bi-bell"></i> Free Job Alert On</a
             >
             <a href="viewprofile.html" class="side-link"
-              ><i class="bi bi-person"></i> Company Profile</a
+              ><i class="bi bi-person"></i> Profile</a
             >
 
             <div class="support-card">
@@ -669,610 +677,587 @@
         </div>
       </div>
 
-      <main class="main">
-        <div class="page">
-          <div class="card">
-            <div class="header">Post a new job</div>
+      <main>
+        <!-- Simple hero for browse page -->
+        <section id="browse-hero">
+          <div class="container">
+            <h1 class="browse-hero-title" data-aos="fade-up">
+              Find your next opportunity
+            </h1>
+            <p class="browse-hero-desc" data-aos="fade-up" data-aos-delay="80">
+              Explore thousands of jobs from top companies. Use filters to
+              narrow down your search.
+            </p>
 
-            <div class="stepper" id="stepper"></div>
-
-            <div class="body">
-              <!-- STEP 0: Job Details -->
-              <div data-step="0" class="active">
-                <div class="section-title">Job details</div>
-                <div class="section-hint">
-                  We use this information to find the best candidates for the
-                  job.
-                  <span class="required-note"
-                    >* Marked fields are mandatory</span
-                  >
-                </div>
-
-                <div class="field">
-                  <label
-                    >Company you're hiring for <span class="req">*</span></label
-                  >
-                  <input
-                    type="text"
-                    id="company"
-                    value="HDB Financial Services Limited"
-                  />
-                </div>
-
-                <div class="field">
-                  <label
-                    >Job title / Designation <span class="req">*</span></label
-                  >
-                  <input type="text" id="jobTitle" value="Admin" />
-                  <div class="subnote">
-                    Only similar job title edits are allowed after publishing
-                  </div>
-                </div>
-
-                <div class="field">
-                  <label>Job Role / Category <span class="req">*</span></label>
-                  <select id="jobRole">
-                    <option>Admin</option>
-                    <option>Sales</option>
-                    <option>Operations</option>
-                    <option>Customer Support</option>
-                  </select>
-                  <div class="subnote">
-                    Job Role / Category can't be modified after publishing
-                  </div>
-                </div>
-
-                <div class="field">
-                  <label>Type of Job <span class="req">*</span></label>
-                  <div
-                    class="pill-group"
-                    id="jobTypeGroup"
-                    data-value="Full Time"
-                  >
-                    <button class="pill" data-val="Full Time">Full Time</button>
-                    <button class="pill" data-val="Part Time">Part Time</button>
-                    <button
-                      class="pill"
-                      data-val="Both (Full-Time and Part-Time)"
-                    >
-                      Both (Full-Time and Part-Time)
-                    </button>
-                  </div>
-                  <label class="checkbox-row" style="margin-top: 12px">
-                    <input type="checkbox" id="nightShift" /> This is a night
-                    shift job
-                  </label>
-                </div>
-
-                <div class="divider"></div>
-                <div class="section-title" style="font-size: 14px">
-                  Location
-                </div>
-                <div class="section-hint" style="margin-bottom: 14px">
-                  Let candidates know where they will be working from.
-                </div>
-
-                <div class="field">
-                  <label>Work location type <span class="req">*</span></label>
-                  <div
-                    class="pill-group"
-                    id="workLocGroup"
-                    data-value="Work From Office"
-                  >
-                    <button class="pill" data-val="Work From Office">
-                      Work From Office
-                    </button>
-                    <button class="pill" data-val="Work From Home">
-                      Work From Home
-                    </button>
-                    <button class="pill" data-val="Field Job">Field Job</button>
-                  </div>
-                </div>
-
-                <div class="field">
-                  <label
-                    >Office address / landmark <span class="req">*</span></label
-                  >
-                  <div class="addr-box">
-                    <span id="addressText">Madurai, Tamil Nadu, India</span>
-                    <button class="link-btn" onclick="changeAddress()">
-                      Change
-                    </button>
-                  </div>
-                  <button class="link-btn" style="margin-top: 6px">
-                    + Add Floor / Plot no. / Shop no. (optional)
-                  </button>
-                </div>
-
-                <div class="field">
-                  <label
-                    >Would you also like to receive candidate applications from
-                    anywhere in India if they are willing to move to Madurai
-                    Region for this job? <span class="req">*</span></label
-                  >
-                  <div class="pill-group" id="anywhereGroup" data-value="No">
-                    <button class="pill" data-val="Yes">Yes</button>
-                    <button class="pill" data-val="No">No</button>
-                  </div>
-                  <div class="info-box" id="anywhereInfo">
-                    You will be receiving applications from within Madurai
-                    Region
-                  </div>
-                </div>
-
-                <div class="divider"></div>
-                <div class="section-title" style="font-size: 14px">
-                  Compensation
-                </div>
-                <div class="section-hint" style="margin-bottom: 14px">
-                  Job postings with right salary &amp; incentives will help you
-                  find the right candidates.
-                </div>
-
-                <div class="field">
-                  <label
-                    >What is the pay type? <span class="req">*</span></label
-                  >
-                  <div
-                    class="pill-group"
-                    id="payTypeGroup"
-                    data-value="Fixed + Incentive"
-                  >
-                    <button class="pill" data-val="Fixed Only">
-                      Fixed Only
-                    </button>
-                    <button class="pill" data-val="Fixed + Incentive">
-                      Fixed + Incentive
-                    </button>
-                    <button class="pill" data-val="Incentive Only">
-                      Incentive Only
-                    </button>
-                  </div>
-                </div>
-
-                <div class="row-2">
-                  <div class="field">
-                    <label
-                      >Fixed salary / Month (excluding incentives)
-                      <span class="req">*</span></label
-                    >
-                    <div class="range-row">
-                      <input type="number" id="salaryMin" value="15000" />
-                      <span>to</span>
-                      <input type="number" id="salaryMax" value="18000" />
-                    </div>
-                  </div>
-                  <div class="field" id="incentiveField">
-                    <label
-                      >Average incentive / month
-                      <span class="req">*</span></label
-                    >
-                    <input type="number" id="incentive" value="2000" />
-                  </div>
-                </div>
-
-                <div class="amber-box">
-                  <div
-                    style="
-                      font-size: 12px;
-                      font-weight: 600;
-                      color: #475569;
-                      margin-bottom: 6px;
-                    "
-                  >
-                    Salary breakup shown to candidates
-                  </div>
-                  <div class="brow">
-                    <span>Fixed Salary / Month</span
-                    ><span id="breakupFixed"></span>
-                  </div>
-                  <div class="brow" id="breakupIncentiveRow">
-                    <span>Average Incentive / Month</span
-                    ><span id="breakupIncentive"></span>
-                  </div>
-                  <div class="brow total">
-                    <span>Earning Potential / Month</span
-                    ><span id="breakupTotal"></span>
-                  </div>
-                </div>
-
-                <div class="field">
-                  <label>Do you offer any additional perks?</label>
-                  <div class="pill-group" id="perksGroup"></div>
-                  <button class="link-btn" style="margin-top: 8px">
-                    + Add other perks
-                  </button>
-                </div>
-
-                <div class="field">
-                  <label
-                    >Is there any joining fee or deposit required from the
-                    candidate? <span class="req">*</span></label
-                  >
-                  <div class="pill-group" id="joiningFeeGroup" data-value="No">
-                    <button class="pill" data-val="Yes">Yes</button>
-                    <button class="pill" data-val="No">No</button>
-                  </div>
-                </div>
+            <!-- Quick search row -->
+            <div class="quick-search" data-aos="fade-up" data-aos-delay="150">
+              <div class="search-field">
+                <span class="field-icon">🔍</span>
+                <input
+                  type="text"
+                  placeholder="Job title or keyword"
+                  aria-label="Job title"
+                />
               </div>
+              <div class="search-field">
+                <span class="field-icon">📍</span>
+                <input
+                  type="text"
+                  placeholder="City or remote"
+                  aria-label="Location"
+                />
+              </div>
+              <div class="search-field">
+                <span class="field-icon">📂</span>
+                <select aria-label="Category">
+                  <option>All categories</option>
+                  <option>Technology</option>
+                  <option>Design</option>
+                  <option>Marketing</option>
+                  <option>Finance</option>
+                </select>
+              </div>
+              <button
+                class="btn btn-primary"
+                style="border-radius: var(--radius-md)"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+        </section>
 
-              <!-- STEP 1: Candidate requirements -->
-              <div data-step="1">
-                <div class="section-title">Basic Requirements</div>
-                <div class="section-hint">
-                  We'll use these requirement details to make your job visible
-                  to the right candidates.
+        <!-- Browse jobs section with filter sidebar -->
+        <section id="browse-jobs">
+          <div class="container">
+            <div class="browse-layout">
+              <!-- Filter sidebar -->
+              <aside class="filter-sidebar" data-aos="fade-right">
+                <div class="filter-title">
+                  <span>Filter jobs</span>
+                  <span class="filter-clear" id="clearFilters">Clear all</span>
                 </div>
 
-                <div class="field">
-                  <label>Minimum Education <span class="req">*</span></label>
-                  <div class="pill-group" id="eduGroup" data-value="12th Pass">
-                    <button class="pill" data-val="10th Or Below 10th">
-                      10th Or Below 10th
-                    </button>
-                    <button class="pill" data-val="12th Pass">12th Pass</button>
-                    <button class="pill" data-val="Diploma">Diploma</button>
-                    <button class="pill" data-val="Graduate">Graduate</button>
-                  </div>
-                </div>
-
-                <div class="field">
-                  <label
-                    >English level required <span class="req">*</span></label
-                  >
-                  <div
-                    class="pill-group"
-                    id="englishGroup"
-                    data-value="Basic English"
-                  >
-                    <button class="pill" data-val="No English">
-                      No English
-                    </button>
-                    <button class="pill" data-val="Basic English">
-                      Basic English
-                    </button>
-                    <button class="pill" data-val="Good English">
-                      Good English
-                    </button>
-                  </div>
-                </div>
-
-                <div class="field">
-                  <label
-                    >Total experience required <span class="req">*</span></label
-                  >
-                  <div class="pill-group" id="expGroup" data-value="Any">
-                    <button class="pill" data-val="Any">Any</button>
-                    <button class="pill" data-val="Experienced Only">
-                      Experienced Only
-                    </button>
-                    <button class="pill" data-val="Fresher Only">
-                      Fresher Only
-                    </button>
-                  </div>
-                  <div class="info-box" id="expInfo">
-                    Both fresher and experienced candidates will be able to
-                    apply
-                  </div>
-                </div>
-
-                <div class="divider"></div>
-                <div class="section-title" style="font-size: 14px">
-                  Additional Requirements (Optional)
-                </div>
-                <div class="section-hint" style="margin-bottom: 14px">
-                  Add additional requirements so that we can help you find the
-                  right candidates.
-                </div>
-
+                <!-- Active filters (dynamic, hidden initially) -->
                 <div
-                  class="field"
-                  id="additionalReqGroup"
-                  style="display: flex; flex-wrap: wrap; gap: 8px"
-                ></div>
-
-                <div class="field" id="langField">
-                  <label>Regional language required</label>
-                  <div class="pill-group" id="langGroup"></div>
-                </div>
-
-                <div class="field" id="ageField">
-                  <label>Age (in years) <span class="info-dot">i</span></label>
-                  <div class="range-row">
-                    <input type="number" id="ageMin" value="18" />
-                    <span>to</span>
-                    <input type="number" id="ageMax" value="60" />
-                  </div>
-                  <div class="subnote">Min. age must be above 18</div>
-                </div>
-
-                <div class="field" id="genderField">
-                  <label>Gender <span class="info-dot">i</span></label>
-                  <div class="pill-group" id="genderGroup" data-value="Both">
-                    <button class="pill" data-val="Both">Both</button>
-                    <button class="pill" data-val="Male">Male</button>
-                    <button class="pill" data-val="Female">Female</button>
-                  </div>
-                </div>
-
-                <div class="divider"></div>
-                <div class="section-title" style="font-size: 14px">
-                  Job Description
-                </div>
-                <div class="section-hint" style="margin-bottom: 14px">
-                  Describe the responsibilities of this job and other specific
-                  requirements here.
-                </div>
-                <textarea
-                  id="jobDescription"
-                  rows="5"
-                  placeholder="Enter the job description, including the main responsibility and tasks..."
-                ></textarea>
-              </div>
-
-              <!-- STEP 2: Interviewer information -->
-              <div data-step="2">
-                <div class="section-title">Interview method and address</div>
-                <div class="section-hint">
-                  Let candidates know how interview will be conducted for this
-                  job.
-                </div>
-
-                <div class="field">
-                  <label
-                    >Is this a walk-in interview?
-                    <span class="req">*</span></label
-                  >
-                  <div class="radio-col" style="flex-direction: row; gap: 24px">
-                    <label class="radio-item"
-                      ><input type="radio" name="walkIn" value="Yes" checked />
-                      Yes</label
-                    >
-                    <label class="radio-item"
-                      ><input type="radio" name="walkIn" value="No" /> No</label
-                    >
-                  </div>
-                </div>
-
-                <div id="walkInFields">
-                  <div class="field">
-                    <label
-                      >Walk-in Interview address
-                      <span class="req">*</span></label
-                    >
-                    <div class="addr-box">
-                      <span id="walkAddressText"
-                        >Madurai, Tamil Nadu, India</span
-                      >
-                      <button class="link-btn" onclick="changeWalkAddress()">
-                        Change
-                      </button>
-                    </div>
-                    <button class="link-btn" style="margin-top: 6px">
-                      + Add Floor / Plot no. / Shop no. (optional)
-                    </button>
-                  </div>
-
-                  <div class="row-2">
-                    <div class="field">
-                      <label
-                        >Walk-in Start date <span class="req">*</span></label
-                      >
-                      <input type="date" id="startDate" value="2026-08-03" />
-                    </div>
-                    <div class="field">
-                      <label>Walk-in End Date <span class="req">*</span></label>
-                      <input type="date" id="endDate" value="2026-08-17" />
-                    </div>
-                  </div>
-
-                  <label class="checkbox-row">
-                    <input type="checkbox" id="excludeDays" /> Don't include
-                    <a
-                      href="#"
-                      onclick="return false;"
-                      style="color: var(--green); font-weight: 500"
-                      >All Saturdays &amp; Sundays</a
-                    >
-                  </label>
-
-                  <div class="field">
-                    <label>Walk-in timings <span class="req">*</span></label>
-                    <div class="range-row">
-                      <select id="timeStart">
-                        <option>9:00 AM</option>
-                        <option selected>10:00 AM</option>
-                        <option>11:00 AM</option>
-                      </select>
-                      <span>-</span>
-                      <select id="timeEnd">
-                        <option>3:00 PM</option>
-                        <option selected>4:00 PM</option>
-                        <option>5:00 PM</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label>Other Instructions</label>
-                    <textarea
-                      id="otherInstructions"
-                      rows="3"
-                      maxlength="300"
-                      placeholder="e.g. Bring ID card, CV/Resume etc."
-                    ></textarea>
-                    <div class="subnote" style="text-align: right">
-                      <span id="instrCount">0</span>/300
-                    </div>
-                  </div>
-                </div>
-
-                <div class="divider"></div>
-                <div class="section-title" style="font-size: 14px">
-                  Communication Preferences
-                </div>
-                <div class="field" style="margin-top: 14px">
-                  <label
-                    >Do you want candidates to contact you via Call / Whatsapp
-                    after they apply? <span class="req">*</span></label
-                  >
-                  <div class="radio-col">
-                    <label class="radio-item"
-                      ><input
-                        type="radio"
-                        name="contactPref"
-                        value="Yes, to myself"
-                        checked
-                      />
-                      Yes, to myself</label
-                    >
-                    <label class="radio-item"
-                      ><input
-                        type="radio"
-                        name="contactPref"
-                        value="Yes, to other recruiter"
-                      />
-                      Yes, to other recruiter</label
-                    >
-                    <label class="radio-item"
-                      ><input
-                        type="radio"
-                        name="contactPref"
-                        id="contactPrefNo"
-                        value="No, I will contact candidates first"
-                      />
-                      No, I will contact candidates first</label
-                    >
-                  </div>
-                  <div class="info-box violet" id="contactInfo">
-                    This option is not available for walk-in interview
-                  </div>
-                </div>
-
-                <div class="divider"></div>
-                <div class="section-title" style="font-size: 14px">
-                  Notification Preferences
-                </div>
-                <div class="field" style="margin-top: 14px">
-                  <label
-                    >Every time you receive a candidate application, do you want
-                    🟢 Whatsapp Alerts from Apna?
-                    <span class="req">*</span></label
-                  >
-                  <div class="radio-col">
-                    <label class="radio-item"
-                      ><input
-                        type="radio"
-                        name="notifyPref"
-                        value="Yes, to myself"
-                      />
-                      Yes, to myself</label
-                    >
-                    <label class="radio-item"
-                      ><input
-                        type="radio"
-                        name="notifyPref"
-                        value="No, send me summary once a day"
-                        checked
-                      />
-                      No, send me summary once a day</label
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <!-- STEP 3: Job preview -->
-              <div data-step="3">
-                <div class="ai-box">
-                  <div class="ai-box-top">
-                    <span
-                      >Based on your job description, check our AI suggestions
-                      to help you attract relevant candidates</span
-                    >
-                    <span class="ai-badge">✦ Apna AI Suggestion</span>
-                  </div>
-                  <div class="ai-suggestion-row" id="aiSuggestionRow">
-                    <span class="txt">Job Title</span>
-                    <span class="txt"
-                      ><span id="aiOldTitle">Admin</span>
-                      <span class="arrow">→</span>
-                      <span class="new">Admin Manager</span></span
-                    >
-                    <button class="btn-update" onclick="acceptSuggestion()">
-                      Update
-                    </button>
-                  </div>
-                  <div class="ai-note">
-                    AI suggestions may not always be accurate. Please review
-                    before proceeding.
-                  </div>
-                </div>
-
-                <div class="preview-section">
-                  <div class="preview-head">
-                    <span>🧑‍💼 Job Details</span>
-                    <div class="actions">
-                      <button onclick="goToStep(0)">✎</button>
-                    </div>
-                  </div>
-                  <div class="preview-body" id="previewJobDetails"></div>
-                </div>
-
-                <div class="preview-section">
-                  <div class="preview-head">
-                    <span>🎖️ Candidate Requirements</span>
-                    <div class="actions">
-                      <button onclick="goToStep(1)">✎</button>
-                    </div>
-                  </div>
-                  <div class="preview-body" id="previewRequirements"></div>
-                </div>
-
-                <div class="preview-section">
-                  <div class="preview-head">
-                    <span>🗓️ Interviewer Information</span>
-                    <div class="actions">
-                      <button onclick="goToStep(2)">✎</button>
-                    </div>
-                  </div>
-                  <div class="preview-body" id="previewInterviewer"></div>
-                </div>
-              </div>
-
-              <!-- STEP 4: Publish -->
-              <div data-step="4">
-                <div class="publish-panel" id="publishPanel">
-                  <div class="section-title">Ready to publish</div>
-                  <p style="margin-top: 8px" id="publishBlurb"></p>
-                  <button
-                    class="btn btn-primary"
-                    style="margin-top: 20px; padding: 10px 32px"
-                    onclick="publishJob()"
-                  >
-                    Publish job
-                  </button>
-                </div>
-              </div>
-
-              <div class="nav-row">
-                <button
-                  class="btn btn-outline"
-                  id="backBtn"
-                  onclick="prevStep()"
+                  class="active-filters"
+                  id="activeFilters"
+                  style="display: none"
                 >
-                  Back
-                </button>
+                  <!-- will be populated by JS -->
+                </div>
+
+                <div class="filter-group">
+                  <h4>🏷️ Job type</h4>
+                  <label class="filter-checkbox"
+                    ><input
+                      type="checkbox"
+                      class="filter-check"
+                      data-filter="type"
+                      value="fulltime"
+                    />
+                    <span>Full-time</span>
+                    <span class="count">(124)</span></label
+                  >
+                  <label class="filter-checkbox"
+                    ><input
+                      type="checkbox"
+                      class="filter-check"
+                      data-filter="type"
+                      value="parttime"
+                    />
+                    <span>Part-time</span>
+                    <span class="count">(32)</span></label
+                  >
+                  <label class="filter-checkbox"
+                    ><input
+                      type="checkbox"
+                      class="filter-check"
+                      data-filter="type"
+                      value="remote"
+                    />
+                    <span>Remote</span> <span class="count">(210)</span></label
+                  >
+                  <label class="filter-checkbox"
+                    ><input
+                      type="checkbox"
+                      class="filter-check"
+                      data-filter="type"
+                      value="hybrid"
+                    />
+                    <span>Hybrid</span> <span class="count">(98)</span></label
+                  >
+                  <label class="filter-checkbox"
+                    ><input
+                      type="checkbox"
+                      class="filter-check"
+                      data-filter="type"
+                      value="internship"
+                    />
+                    <span>Internship</span>
+                    <span class="count">(15)</span></label
+                  >
+                </div>
+
+                <div class="filter-group">
+                  <h4>💼 Experience level</h4>
+                  <label class="filter-checkbox"
+                    ><input
+                      type="checkbox"
+                      class="filter-check"
+                      data-filter="level"
+                      value="entry"
+                    />
+                    <span>Entry level</span>
+                    <span class="count">(78)</span></label
+                  >
+                  <label class="filter-checkbox"
+                    ><input
+                      type="checkbox"
+                      class="filter-check"
+                      data-filter="level"
+                      value="mid"
+                    />
+                    <span>Mid level</span>
+                    <span class="count">(146)</span></label
+                  >
+                  <label class="filter-checkbox"
+                    ><input
+                      type="checkbox"
+                      class="filter-check"
+                      data-filter="level"
+                      value="senior"
+                    />
+                    <span>Senior</span> <span class="count">(112)</span></label
+                  >
+                  <label class="filter-checkbox"
+                    ><input
+                      type="checkbox"
+                      class="filter-check"
+                      data-filter="level"
+                      value="lead"
+                    />
+                    <span>Lead / manager</span>
+                    <span class="count">(43)</span></label
+                  >
+                </div>
+
+                <div class="filter-group salary-range">
+                  <h4>💰 Salary range (yearly)</h4>
+                  <div class="range-inputs">
+                    <select id="salaryMin">
+                      <option value="">Min</option>
+                      <option value="40">$40k</option>
+                      <option value="60">$60k</option>
+                      <option value="80">$80k</option>
+                      <option value="100">$100k</option>
+                      <option value="120">$120k</option>
+                      <option value="150">$150k</option>
+                    </select>
+                    <select id="salaryMax">
+                      <option value="">Max</option>
+                      <option value="80">$80k</option>
+                      <option value="100">$100k</option>
+                      <option value="120">$120k</option>
+                      <option value="150">$150k</option>
+                      <option value="200">$200k</option>
+                      <option value="250">$250k+</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="filter-group">
+                  <h4>📅 Date posted</h4>
+                  <label class="filter-checkbox"
+                    ><input type="radio" name="date" value="today" />
+                    <span>Today</span></label
+                  >
+                  <label class="filter-checkbox"
+                    ><input type="radio" name="date" value="3days" />
+                    <span>Last 3 days</span></label
+                  >
+                  <label class="filter-checkbox"
+                    ><input type="radio" name="date" value="week" />
+                    <span>This week</span></label
+                  >
+                  <label class="filter-checkbox"
+                    ><input type="radio" name="date" value="month" />
+                    <span>This month</span></label
+                  >
+                </div>
+
                 <button
                   class="btn btn-primary"
-                  id="nextBtn"
-                  onclick="nextStep()"
+                  style="width: 100%"
+                  id="applyFilters"
                 >
-                  Continue
+                  Apply filters
                 </button>
+              </aside>
+
+              <!-- Job listings -->
+              <div class="browse-main" data-aos="fade-left">
+                <!-- Header with result count and sort -->
+                <div class="browse-header">
+                  <div class="job-count"><strong>247</strong> jobs found</div>
+                  <div class="sort-select">
+                    <label for="sort">Sort by:</label>
+                    <select id="sort">
+                      <option>Most recent</option>
+                      <option>Salary: high to low</option>
+                      <option>Salary: low to high</option>
+                      <option>Relevance</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Jobs grid (reusing .jobs-grid and .job-card) -->
+                <div class="jobs-grid">
+                  <!-- card 1 -->
+                  <article class="job-card">
+                    <div class="job-card-header">
+                      <div style="flex: 1">
+                        <h3 class="job-title">Senior Frontend Engineer</h3>
+                        <div class="company-name">Stripe</div>
+                      </div>
+                      <div class="company-logo-wrap">💳</div>
+                    </div>
+                    <div class="job-meta">
+                      <span class="meta-item"
+                        ><svg
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                          />
+                        </svg>
+                        San Francisco, CA</span
+                      >
+                      <span class="meta-item"
+                        ><svg
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        2d ago</span
+                      >
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        gap: 0.5rem;
+                        flex-wrap: wrap;
+                        margin-bottom: 1rem;
+                      "
+                    >
+                      <span class="badge badge-green">Full Time</span>
+                      <span class="badge badge-blue">React</span>
+                    </div>
+                    <div class="job-card-footer">
+                      <div class="job-salary">
+                        $140K–$180K <span>/ year</span>
+                      </div>
+                      <a class="apply-btn" href="apply-job.html">Apply</a>
+                    </div>
+                  </article>
+
+                  <!-- card 2 -->
+                  <article class="job-card">
+                    <div class="job-card-header">
+                      <div style="flex: 1">
+                        <h3 class="job-title">Product Designer</h3>
+                        <div class="company-name">Airbnb</div>
+                      </div>
+                      <div class="company-logo-wrap">🏠</div>
+                    </div>
+                    <div class="job-meta">
+                      <span class="meta-item"
+                        ><svg
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                          />
+                        </svg>
+                        Remote</span
+                      >
+                      <span class="meta-item"
+                        ><svg
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        1d ago</span
+                      >
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        gap: 0.5rem;
+                        flex-wrap: wrap;
+                        margin-bottom: 1rem;
+                      "
+                    >
+                      <span class="badge badge-purple">Remote</span>
+                      <span class="badge badge-blue">Figma</span>
+                    </div>
+                    <div class="job-card-footer">
+                      <div class="job-salary">
+                        $120K–$150K <span>/ year</span>
+                      </div>
+                      <a class="apply-btn" href="apply-job.html">Apply</a>
+                    </div>
+                  </article>
+
+                  <!-- card 3 -->
+                  <article class="job-card">
+                    <div class="job-card-header">
+                      <div style="flex: 1">
+                        <h3 class="job-title">Data Scientist</h3>
+                        <div class="company-name">Netflix</div>
+                      </div>
+                      <div class="company-logo-wrap">🎬</div>
+                    </div>
+                    <div class="job-meta">
+                      <span class="meta-item"
+                        ><svg
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                          />
+                        </svg>
+                        Los Angeles, CA</span
+                      >
+                      <span class="meta-item"
+                        ><svg
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        5d ago</span
+                      >
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        gap: 0.5rem;
+                        flex-wrap: wrap;
+                        margin-bottom: 1rem;
+                      "
+                    >
+                      <span class="badge badge-green">Full Time</span>
+                      <span class="badge badge-orange">Python</span>
+                    </div>
+                    <div class="job-card-footer">
+                      <div class="job-salary">
+                        $160K–$220K <span>/ year</span>
+                      </div>
+                      <a class="apply-btn" href="apply-job.html">Apply</a>
+                    </div>
+                  </article>
+
+                  <!-- card 4 -->
+                  <article class="job-card">
+                    <div class="job-card-header">
+                      <div style="flex: 1">
+                        <h3 class="job-title">DevOps Engineer</h3>
+                        <div class="company-name">Shopify</div>
+                      </div>
+                      <div class="company-logo-wrap">🛒</div>
+                    </div>
+                    <div class="job-meta">
+                      <span class="meta-item"
+                        ><svg
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                          />
+                        </svg>
+                        Toronto, Canada</span
+                      >
+                      <span class="meta-item"
+                        ><svg
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        3d ago</span
+                      >
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        gap: 0.5rem;
+                        flex-wrap: wrap;
+                        margin-bottom: 1rem;
+                      "
+                    >
+                      <span class="badge badge-green">Full Time</span>
+                      <span class="badge badge-blue">AWS</span>
+                    </div>
+                    <div class="job-card-footer">
+                      <div class="job-salary">
+                        $115K–$145K <span>/ year</span>
+                      </div>
+                      <a class="apply-btn" href="apply-job.html">Apply</a>
+                    </div>
+                  </article>
+
+                  <!-- card 5 -->
+                  <article class="job-card">
+                    <div class="job-card-header">
+                      <div style="flex: 1">
+                        <h3 class="job-title">Marketing Manager</h3>
+                        <div class="company-name">HubSpot</div>
+                      </div>
+                      <div class="company-logo-wrap">🎯</div>
+                    </div>
+                    <div class="job-meta">
+                      <span class="meta-item"
+                        ><svg
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                          />
+                        </svg>
+                        Boston, MA</span
+                      >
+                      <span class="meta-item"
+                        ><svg
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        Today</span
+                      >
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        gap: 0.5rem;
+                        flex-wrap: wrap;
+                        margin-bottom: 1rem;
+                      "
+                    >
+                      <span class="badge badge-purple">Hybrid</span>
+                      <span class="badge badge-blue">SEO</span>
+                    </div>
+                    <div class="job-card-footer">
+                      <div class="job-salary">
+                        $90K–$115K <span>/ year</span>
+                      </div>
+                      <a class="apply-btn" href="apply-job.html">Apply</a>
+                    </div>
+                  </article>
+
+                  <!-- card 6 -->
+                  <article class="job-card">
+                    <div class="job-card-header">
+                      <div style="flex: 1">
+                        <h3 class="job-title">Backend Engineer (Go)</h3>
+                        <div class="company-name">Notion</div>
+                      </div>
+                      <div class="company-logo-wrap">📝</div>
+                    </div>
+                    <div class="job-meta">
+                      <span class="meta-item"
+                        ><svg
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                        >
+                          <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                          />
+                        </svg>
+                        New York, NY</span
+                      >
+                      <span class="meta-item"
+                        ><svg
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="2"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        4d ago</span
+                      >
+                    </div>
+                    <div
+                      style="
+                        display: flex;
+                        gap: 0.5rem;
+                        flex-wrap: wrap;
+                        margin-bottom: 1rem;
+                      "
+                    >
+                      <span class="badge badge-green">Full Time</span>
+                      <span class="badge badge-orange">Go</span>
+                    </div>
+                    <div class="job-card-footer">
+                      <div class="job-salary">
+                        $130K–$170K <span>/ year</span>
+                      </div>
+                      <a class="apply-btn" href="apply-job.html">Apply</a>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                  <span class="page-item active">1</span>
+                  <span class="page-item">2</span>
+                  <span class="page-item">3</span>
+                  <span class="page-item">4</span>
+                  <span class="page-item">5</span>
+                  <span class="page-item">...</span>
+                  <span class="page-item">12</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </main>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
