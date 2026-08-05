@@ -383,10 +383,6 @@
   margin: unset;
 }
 
-.browse-jobs-grid {
-  flex: 0;
-}
-
 .browse-layout {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -595,10 +591,16 @@
 }
 
 /* ===== Browse Jobs – Responsive ===== */
-@media (max-width: 992px) {
+@media (max-width: 992px) and (min-width: 280px){
   .browse-layout {
     grid-template-columns: 1fr;
+    display:block;
     /* stack filter & jobs */
+  }
+
+  .jobs-grid {
+    grid-template-columns: 1fr;
+    display:block !important;
   }
 
   .filter-sidebar {
@@ -1046,7 +1048,7 @@
 }
 
 /* Mobile (up to 479px) */
-@media (max-width: 479px) {
+@media (min-width: 390px) {
   .job-card-header {
     margin: unset !important;
   }
@@ -1065,6 +1067,7 @@
 .view-job-alert {
   flex: 1;
 }
+
 
 /* Large Mobile & Small Tablet (480px - 679px) */
 @media (min-width: 480px) and (max-width: 679px) {
@@ -1102,10 +1105,6 @@
   .browse-job-container {
     margin: unset;
   }
-
-  .browse-jobs-grid {
-    flex: 0;
-  }
 }
 
 /* Desktop (970px and above) */
@@ -1127,8 +1126,16 @@
   .browse-job-container {
     margin: unset;
   }
+}
 
-  .browse-jobs-grid {
-    flex: 0;
-  }
+@media (max-width: 480px) {
+    .browse-jobs-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+  .job-title {
+        font-size: 14px !important;
+        width:50%;
+    }
 }
