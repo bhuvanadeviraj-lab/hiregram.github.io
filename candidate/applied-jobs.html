@@ -18,6 +18,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="../assets/css/common.css" />
     <style>
       :root {
         --ink: #14181f;
@@ -512,6 +513,11 @@
         opacity: 1;
       }
 
+      #apply-job-section {
+        background: none !important;
+        padding: 5px !important;
+      }
+
       @media (max-width: 640px) {
         .stat-tabs {
           grid-template-columns: repeat(2, 1fr);
@@ -523,7 +529,135 @@
           grid-template-columns: 1fr;
         }
       }
+
+      #apply-job-section {
+        padding: 40px 15px;
+      }
+
+      /* Card */
+
+      .status-card {
+        max-width: 700px;
+        margin: auto;
+        background: #edf7f5;
+        border: 1px solid #2c8b79;
+        border-radius: 12px;
+        padding: 20px;
+      }
+
+      /* Timeline Item */
+
+      .status-item {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        padding-bottom: 5px;
+      }
+
+      .status-item:last-child {
+        padding-bottom: 0;
+      }
+
+      /* Vertical Line */
+
+      .status-item::after {
+        content: "";
+        position: absolute;
+        left: 10px;
+        top: 22px;
+        width: 2px;
+        height: 100%;
+        background: #2c8b79;
+      }
+
+      .status-item:last-child::after {
+        display: none;
+      }
+
+      /* Icon */
+
+      .status-icon {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: #2c8b79;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        font-size: 12px;
+        z-index: 2;
+      }
+
+      /* Pending Circle */
+
+      .pending {
+        background: #edf7f5;
+        border: 2px solid #2c8b79;
+      }
+
+      /* Text */
+
+      .status-text {
+        margin-left: 20px;
+        flex: 1;
+      }
+
+      .status-text h3 {
+        color: #06154d;
+        font-size: 12px;
+        line-height: 1.8;
+      }
+
+      /* Tablet */
+
+      @media (max-width: 768px) {
+        .status-card {
+          padding: 18px;
+        }
+
+        .status-text h3 {
+          font-size: 16px;
+        }
+      }
+
+      /* Mobile */
+
+      @media (max-width: 480px) {
+        #apply-job-section {
+          padding: 15px;
+        }
+
+        .status-card {
+          padding: 15px;
+        }
+
+        .status-text {
+          margin-left: 15px;
+        }
+
+        .status-text h3 {
+          font-size: 15px;
+          line-height: 1.4;
+        }
+
+        .status-icon {
+          width: 18px;
+          height: 18px;
+          font-size: 10px;
+        }
+
+        .status-item::after {
+          left: 8px;
+          top: 22px;
+        }
+      }
     </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
   </head>
   <body>
     <div class="topbar">
@@ -580,17 +714,6 @@
 
     <div class="layout">
       <aside class="sidebar d-none d-lg-flex">
-        <div class="company-card">
-          <div class="company-logo"></div>
-          <div class="flex-grow-1">
-            <div class="name">HDB Financial<br />Services Limited</div>
-            <div class="type">Company</div>
-          </div>
-          <div class="chev">
-            <i class="bi bi-chevron-up d-block"></i
-            ><i class="bi bi-chevron-down d-block"></i>
-          </div>
-        </div>
         <a href="../index.html#home" class="side-link" target="_blank"
           ><i class="bi bi-house"></i> Home</a
         >
@@ -599,8 +722,7 @@
         >
         <a href="applied-jobs.html" class="side-link active"
           ><i class="bi bi-cursor-fill"></i> Applied Jobs
-          </a
-        >
+        </a>
         <a href="job-alerts.html" class="side-link"
           ><i class="bi bi-bell"></i> Free Job Alert On</a
         >
@@ -640,17 +762,6 @@
             class="sidebar"
             style="height: auto; border-right: none; padding: 0"
           >
-            <div class="company-card">
-              <div class="company-logo"></div>
-              <div class="flex-grow-1">
-                <div class="name">HDB Financial<br />Services Limited</div>
-                <div class="type">Company</div>
-              </div>
-              <div class="chev">
-                <i class="bi bi-chevron-up d-block"></i
-                ><i class="bi bi-chevron-down d-block"></i>
-              </div>
-            </div>
             <a href="../index.html#home" class="side-link" target="_blank"
               ><i class="bi bi-house"></i> Home</a
             >
@@ -659,8 +770,7 @@
             >
             <a href="applied-jobs.html" class="side-link active"
               ><i class="bi bi-cursor-fill"></i> Applied Jobs
-              </a
-            >
+            </a>
             <a href="job-alerts.html" class="side-link"
               ><i class="bi bi-bell"></i> Free Job Alert On</a
             >
@@ -681,103 +791,451 @@
           </div>
         </div>
       </div>
+      <main class="job-container">
+        <section id="browse-jobs">
+          <div class="browse-job-container">
+            <div class="browse-jobs-grid">
+              <!-- card 1 -->
+              <article class="job-card">
+                <div class="job-card-header">
+                  <div class="company-logo-wrap">💳</div>
+                  <div style="flex: 1">
+                    <h3 class="job-title">Senior Frontend Engineer</h3>
+                    <div class="company-name">Stripe</div>
+                  </div>
 
-      <div class="view" id="view-dashboard">
-        <div class="dash-grid-shortlist">
-          <!-- Candidate results -->
-          <div>
-            <!-- Candidate 1: high match -->
-            <div class="candidate-card" data-candidate="1">
-              <div class="candidate-top">
-                <div class="candidate-id">
-                  <div class="avatar">SA</div>
-                  <div>
-                    <div class="candidate-name">
-                      Sangeetha Alagan <a href="#">View full profile ›</a>
-                    </div>
-                    <div class="candidate-sub">
-                      <span>F, 28 yr</span> · <span>3yrs 6mos</span> ·
-                      <span>Not disclosed</span> ·
-                      <span>&#128205; Vadipatti, Madurai, TN</span>
-                    </div>
+                  <div class="text text-center view-job-details">
+                    <a href="view-job.html" target="_blank"
+                      ><button class="btn btn-job-details">View Job</button>
+                    </a>
                   </div>
                 </div>
-              </div>
+                <div class="job-meta">
+                  <span class="meta-item"
+                    ><svg
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                      />
+                    </svg>
+                    San Francisco, CA</span
+                  >
+                  <span class="meta-item"
+                    ><svg
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    2d ago</span
+                  >
+                </div>
+                <div style="display: block">
+                  <span class="badge badge-green">Full Time</span>
+                  <span class="badge badge-blue">React</span>
+                </div>
+                <section id="apply-job-section">
+                  <div class="status-card">
+                    <!-- Step 1 -->
+                    <div class="status-item completed">
+                      <div class="status-icon">
+                        <i class="fa-solid fa-check"></i>
+                      </div>
 
-              <dl class="cand-detail-grid">
-                <dt>&#128188; Current / Latest</dt>
-                <dd>
-                  Sales Executive at Hdb Financial Services Limited · May 2024 -
-                  Oct 2025 | Role: Retail Banking, Digital Banking, Mortgage
-                  Sales, Corporate Banking | Industry: Lending/Loan
-                </dd>
-                <dt>&#127891; Education</dt>
-                <dd>
-                  B.Sc, Chemistry <span class="sep">|</span> Thiruvalluvar Arts
-                  and Science College <span class="sep">|</span> 2018 - 2018
-                </dd>
-                <dt>&#127942; Skills</dt>
-                <dd>
-                  Business Loans <span class="sep">|</span> Personal Loans
-                  <span class="sep">|</span> Two-Wheeler Loans
-                </dd>
-                <dt>&#127760; Language</dt>
-                <dd>
-                  English (Basic) <span class="sep">|</span> Tamil
-                  <span class="sep">|</span> Hindi
-                </dd>
-              </dl>
+                      <div class="status-text">
+                        <h3>Job Applied</h3>
+                      </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="status-item">
+                      <div class="status-icon pending"></div>
+
+                      <div class="status-text">
+                        <h3>Talk to HDB Financial Services Limited's HR</h3>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </article>
+
+              <!-- card 2 -->
+              <article class="job-card">
+                <div class="job-card-header">
+                  <div class="company-logo-wrap">🏠</div>
+                  <div style="flex: 1">
+                    <h3 class="job-title">Product Designer</h3>
+                    <div class="company-name">Airbnb</div>
+                  </div>
+                  <div class="text text-center view-job-details">
+                    <a href="view-job.html" target="_blank"
+                      ><button class="btn btn-job-details">View Job</button>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="job-meta">
+                  <span class="meta-item"
+                    ><svg
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                      />
+                    </svg>
+                    Remote</span
+                  >
+                  <span class="meta-item"
+                    ><svg
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    1d ago</span
+                  >
+                </div>
+                <div style="display: block">
+                  <span class="badge badge-purple">Remote</span>
+                  <span class="badge badge-blue">Figma</span>
+                </div>
+                <section id="apply-job-section">
+                  <div class="status-card">
+                    <!-- Step 1 -->
+                    <div class="status-item completed">
+                      <div class="status-icon">
+                        <i class="fa-solid fa-check"></i>
+                      </div>
+
+                      <div class="status-text">
+                        <h3>Job Applied</h3>
+                      </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="status-item">
+                      <div class="status-icon pending"></div>
+
+                      <div class="status-text">
+                        <h3>Rejected</h3>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </article>
+
+              <!-- card 3 -->
+              <article class="job-card">
+                <div class="job-card-header">
+                  <div class="company-logo-wrap">🎬</div>
+                  <div style="flex: 1">
+                    <h3 class="job-title">Data Scientist</h3>
+                    <div class="company-name">Netflix</div>
+                  </div>
+                  <div class="text text-center view-job-details">
+                    <a href="view-job.html" target="_blank"
+                      ><button class="btn btn-job-details">View Job</button>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="job-meta">
+                  <span class="meta-item"
+                    ><svg
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                      />
+                    </svg>
+                    Los Angeles, CA</span
+                  >
+                  <span class="meta-item"
+                    ><svg
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    5d ago</span
+                  >
+                </div>
+                <div style="display: block">
+                  <span class="badge badge-green">Full Time</span>
+                  <span class="badge badge-orange">Python</span>
+                </div>
+                <section id="apply-job-section">
+                  <div class="status-card">
+                    <!-- Step 1 -->
+                    <div class="status-item completed">
+                      <div class="status-icon">
+                        <i class="fa-solid fa-check"></i>
+                      </div>
+
+                      <div class="status-text">
+                        <h3>Job Applied</h3>
+                      </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="status-item">
+                      <div class="status-icon pending"></div>
+
+                      <div class="status-text">
+                        <h3>Interview Scheduled</h3>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </article>
+
+              <!-- card 4 -->
+              <article class="job-card">
+                <div class="job-card-header">
+                  <div class="company-logo-wrap">🛒</div>
+                  <div style="flex: 1">
+                    <h3 class="job-title">DevOps Engineer</h3>
+                    <div class="company-name">Shopify</div>
+                  </div>
+                  <div class="text text-center view-job-details">
+                    <a href="view-job.html" target="_blank"
+                      ><button class="btn btn-job-details">View Job</button>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="job-meta">
+                  <span class="meta-item"
+                    ><svg
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                      />
+                    </svg>
+                    Toronto, Canada</span
+                  >
+                  <span class="meta-item"
+                    ><svg
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    3d ago</span
+                  >
+                </div>
+                <div style="display: block">
+                  <span class="badge badge-green">Full Time</span>
+                  <span class="badge badge-blue">AWS</span>
+                </div>
+                <section id="apply-job-section">
+                  <div class="status-card">
+                    <!-- Step 1 -->
+                    <div class="status-item completed">
+                      <div class="status-icon">
+                        <i class="fa-solid fa-check"></i>
+                      </div>
+
+                      <div class="status-text">
+                        <h3>Job Applied</h3>
+                      </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="status-item">
+                      <div class="status-icon pending"></div>
+
+                      <div class="status-text">
+                        <h3>Not Matched</h3>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </article>
+
+              <!-- card 5 -->
+              <article class="job-card">
+                <div class="job-card-header">
+                  <div class="company-logo-wrap">🎯</div>
+                  <div style="flex: 1">
+                    <h3 class="job-title">Marketing Manager</h3>
+                    <div class="company-name">HubSpot</div>
+                  </div>
+                  <div class="text text-center view-job-details">
+                    <a href="view-job.html" target="_blank"
+                      ><button class="btn btn-job-details">View Job</button>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="job-meta">
+                  <span class="meta-item"
+                    ><svg
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                      />
+                    </svg>
+                    Boston, MA</span
+                  >
+                  <span class="meta-item"
+                    ><svg
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    Today</span
+                  >
+                </div>
+                <div style="display: block">
+                  <span class="badge badge-purple">Hybrid</span>
+                  <span class="badge badge-blue">SEO</span>
+                </div>
+                <section id="apply-job-section">
+                  <div class="status-card">
+                    <!-- Step 1 -->
+                    <div class="status-item completed">
+                      <div class="status-icon">
+                        <i class="fa-solid fa-check"></i>
+                      </div>
+
+                      <div class="status-text">
+                        <h3>Job Applied</h3>
+                      </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="status-item">
+                      <div class="status-icon pending"></div>
+
+                      <div class="status-text">
+                        <h3>Walk-in</h3>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </article>
+
+              <!-- card 6 -->
+              <article class="job-card">
+                <div class="job-card-header">
+                  <div class="company-logo-wrap">📝</div>
+                  <div style="flex: 1">
+                    <h3 class="job-title">Backend Engineer (Go)</h3>
+                    <div class="company-name">Notion</div>
+                  </div>
+                  <div class="text text-center view-job-details">
+                    <a href="view-job.html" target="_blank"
+                      ><button class="btn btn-job-details">View Job</button>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="job-meta">
+                  <span class="meta-item"
+                    ><svg
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                    >
+                      <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                      />
+                    </svg>
+                    New York, NY</span
+                  >
+                  <span class="meta-item"
+                    ><svg
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                    4d ago</span
+                  >
+                </div>
+                <div style="display: block">
+                  <span class="badge badge-green">Full Time</span>
+                  <span class="badge badge-orange">Go</span>
+                </div>
+                <section id="apply-job-section">
+                  <div class="status-card">
+                    <!-- Step 1 -->
+                    <div class="status-item completed">
+                      <div class="status-icon">
+                        <i class="fa-solid fa-check"></i>
+                      </div>
+
+                      <div class="status-text">
+                        <h3>Job Applied</h3>
+                      </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="status-item">
+                      <div class="status-icon pending"></div>
+
+                      <div class="status-text">
+                        <h3>Seen by Recruiter</h3>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </article>
             </div>
 
-            <!-- Candidate 2: regular -->
-            <div class="candidate-card" data-candidate="2">
-              <div class="candidate-top">
-                <div class="candidate-id">
-                  <div class="avatar" style="background: #374151">RK</div>
-                  <div>
-                    <div class="candidate-name">
-                      Ramkumar K <a href="#">View full profile ›</a>
-                    </div>
-                    <div class="candidate-sub">
-                      <span>M, 31 yr</span> · <span>5yrs 2mos</span> ·
-                      <span>₹28,000 / month</span> ·
-                      <span>&#128205; Anna Nagar, Madurai, TN</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <dl class="cand-detail-grid" style="margin-top: 16px">
-                <dt>&#128188; Current / Latest</dt>
-                <dd>
-                  Relationship Manager at Axis Bank · Jan 2022 - Present | Role:
-                  Banking Sales, Loan Sales | Industry: Banking
-                </dd>
-                <dt>&#127891; Education</dt>
-                <dd>
-                  B.Com <span class="sep">|</span> Madurai Kamaraj University
-                  <span class="sep">|</span> 2015 - 2018
-                </dd>
-                <dt>&#127942; Skills</dt>
-                <dd>
-                  Home Loans <span class="sep">|</span> Cross-selling
-                  <span class="sep">|</span> Team Handling
-                </dd>
-                <dt>&#127760; Language</dt>
-                <dd>English (Fluent) <span class="sep">|</span> Tamil</dd>
-              </dl>
-
-              <div class="candidate-footer">
-                <span>Applied 3 days ago | Active 1 day ago</span>
-              </div>
+            <!-- Pagination -->
+            <div class="pagination">
+              <span class="page-item active">1</span>
+              <span class="page-item">2</span>
+              <span class="page-item">3</span>
+              <span class="page-item">4</span>
+              <span class="page-item">5</span>
+              <span class="page-item">...</span>
+              <span class="page-item">12</span>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     </div>
-
-    <div class="toast-msg" id="toast">Saved</div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
       (function () {

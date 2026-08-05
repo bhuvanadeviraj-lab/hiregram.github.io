@@ -574,7 +574,7 @@
     </div>
 
     <div class="layout">
-      <aside class="sidebar d-none d-lg-flex">
+       <aside class="sidebar d-none d-lg-flex">
         <a href="../index.html#home" class="side-link" target="_blank"
           ><i class="bi bi-house"></i> Home</a
         >
@@ -583,7 +583,8 @@
         >
         <a href="applied-jobs.html" class="side-link"
           ><i class="bi bi-cursor-fill"></i> Applied Jobs
-        </a>
+          </a
+        >
         <a href="job-alerts.html" class="side-link"
           ><i class="bi bi-bell"></i> Free Job Alert On</a
         >
@@ -631,7 +632,8 @@
             >
             <a href="applied-jobs.html" class="side-link"
               ><i class="bi bi-cursor-fill"></i> Applied Jobs
-            </a>
+              </a
+            >
             <a href="job-alerts.html" class="side-link"
               ><i class="bi bi-bell"></i> Free Job Alert On</a
             >
@@ -653,543 +655,138 @@
         </div>
       </div>
 
-      <main class="job-container">
-        <!-- Simple hero for browse page -->
-        <section id="browse-hero">
-          <div class="container">
-           <!-- Quick search row -->
-            <div class="quick-search mt-4" data-aos="fade-up" data-aos-delay="150">
-              <div class="search-field">
-                <span class="field-icon">🔍</span>
-                <input
-                  type="text"
-                  placeholder="Job title or keyword"
-                  aria-label="Job title"
-                />
+      <main>
+        <section id="apply-job-section">
+      <div class="job-container">
+        <!-- Section header -->
+        <div class="section-header" data-aos="fade-up">
+          <div class="section-label">Start your application</div>
+          <h1 class="section-title">Apply for this job</h1>
+          <p class="section-subtitle">Fill out the form below. The company will get back to you within a few days.</p>
+        </div>
+
+        <!-- Apply grid -->
+        <div class="apply-grid">
+          <!-- Left: Job summary card -->
+          <div class="job-summary-card" data-aos="fade-right">
+            <div class="summary-header">
+              <div class="summary-logo">💳</div>
+              <div>
+                <div class="summary-title">Senior Frontend Engineer</div>
+                <div class="summary-company">Stripe</div>
               </div>
-              <div class="search-field">
-                <span class="field-icon">📍</span>
-                <input
-                  type="text"
-                  placeholder="City or remote"
-                  aria-label="Location"
-                />
+            </div>
+
+            <div class="summary-detail">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+              </svg>
+              <span>San Francisco, CA (Hybrid)</span>
+            </div>
+            <div class="summary-detail">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+              </svg>
+              <span>Posted 2 days ago · 45 applicants</span>
+            </div>
+            <div class="summary-detail">
+              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                <path d="M12 2v20M2 12h20"/>
+              </svg>
+              <span>$140,000 – $180,000 / year</span>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <h4 style="margin-bottom: var(--sp-3); font-size: 1rem;">Required skills</h4>
+            <div class="summary-badge-list">
+              <span class="badge badge-blue">React</span>
+              <span class="badge badge-blue">TypeScript</span>
+              <span class="badge badge-green">Full Time</span>
+              <span class="badge badge-orange">5+ years</span>
+            </div>
+
+            <div class="summary-divider"></div>
+
+            <p style="color: var(--text-muted); font-size: 0.9rem;">
+              <strong>About Stripe</strong> — Stripe builds economic infrastructure for the internet. We’re looking for a frontend engineer to help build the next generation of payment tools.
+            </p>
+          </div>
+
+          <!-- Right: Application form -->
+          <div class="apply-form-card" data-aos="fade-left">
+            <form id="applyForm">
+              <h3 style="margin-bottom: var(--sp-6); font-size: 1.2rem;">Your information</h3>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First name *</label>
+                  <input type="text" id="firstName" placeholder="John" required>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last name *</label>
+                  <input type="text" id="lastName" placeholder="Doe" required>
+                </div>
               </div>
-              <div class="search-field">
-                <span class="field-icon">📂</span>
-                <select aria-label="Category">
-                  <option>All categories</option>
-                  <option>Technology</option>
-                  <option>Design</option>
-                  <option>Marketing</option>
-                  <option>Finance</option>
+
+              <div class="form-group">
+                <label for="email">Email address *</label>
+                <input type="email" id="email" placeholder="john.doe@example.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone number (optional)</label>
+                <input type="tel" id="phone" placeholder="+1 555 123 4567">
+              </div>
+
+              <div class="form-group">
+                <label for="resume">Resume / CV *</label>
+                <div class="file-input-wrapper">
+                  <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
+                  <div class="file-input-label">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
+                      <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/>
+                    </svg>
+                    <span>Choose file (PDF, DOC) – max 5MB</span>
+                  </div>
+                </div>
+                <div class="form-hint">Accepted formats: .pdf, .doc, .docx</div>
+              </div>
+
+              <div class="form-group">
+                <label for="cover">Cover letter / message *</label>
+                <textarea id="cover" rows="5" placeholder="Tell the employer why you're a great fit for this role..." required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="source">How did you hear about this job? (optional)</label>
+                <select id="source">
+                  <option value="">Select option</option>
+                  <option>LinkedIn</option>
+                  <option>Indeed</option>
+                  <option>Company website</option>
+                  <option>Friend referral</option>
+                  <option>Other</option>
                 </select>
               </div>
-              <button
-                class="btn btn-primary"
-                style="border-radius: var(--radius-md)"
-              >
-                Search
-              </button>
-            </div>
-          </div>
-        </section>
 
-        <!-- Browse jobs section with filter sidebar -->
-        <section id="browse-jobs">
-          <div class="job-container">
-            <div class="browse-layout">
-              <!-- Filter sidebar -->
-              <aside class="filter-sidebar" data-aos="fade-right">
-                <div class="filter-title">
-                  <span>Filter jobs</span>
-                  <span class="filter-clear" id="clearFilters">Clear all</span>
-                </div>
-
-                <!-- Active filters (dynamic, hidden initially) -->
-                <div
-                  class="active-filters"
-                  id="activeFilters"
-                  style="display: none"
-                >
-                  <!-- will be populated by JS -->
-                </div>
-
-                <div class="filter-group">
-                  <h4>🏷️ Job type</h4>
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="type"
-                      value="fulltime"
-                    />
-                    <span>Full-time</span>
-                    <span class="count">(124)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="type"
-                      value="parttime"
-                    />
-                    <span>Part-time</span>
-                    <span class="count">(32)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="type"
-                      value="remote"
-                    />
-                    <span>Remote</span> <span class="count">(210)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="type"
-                      value="hybrid"
-                    />
-                    <span>Hybrid</span> <span class="count">(98)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="type"
-                      value="internship"
-                    />
-                    <span>Internship</span>
-                    <span class="count">(15)</span></label
-                  >
-                </div>
-
-                <div class="filter-group">
-                  <h4>💼 Experience level</h4>
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="level"
-                      value="entry"
-                    />
-                    <span>Entry level</span>
-                    <span class="count">(78)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="level"
-                      value="mid"
-                    />
-                    <span>Mid level</span>
-                    <span class="count">(146)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="level"
-                      value="senior"
-                    />
-                    <span>Senior</span> <span class="count">(112)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="level"
-                      value="lead"
-                    />
-                    <span>Lead / manager</span>
-                    <span class="count">(43)</span></label
-                  >
-                </div>
-
-                <div class="filter-group salary-range">
-                  <h4>💰 Salary range (yearly)</h4>
-                  <div class="range-inputs">
-                    <select id="salaryMin">
-                      <option value="">Min</option>
-                      <option value="40">$40k</option>
-                      <option value="60">$60k</option>
-                      <option value="80">$80k</option>
-                      <option value="100">$100k</option>
-                      <option value="120">$120k</option>
-                      <option value="150">$150k</option>
-                    </select>
-                    <select id="salaryMax">
-                      <option value="">Max</option>
-                      <option value="80">$80k</option>
-                      <option value="100">$100k</option>
-                      <option value="120">$120k</option>
-                      <option value="150">$150k</option>
-                      <option value="200">$200k</option>
-                      <option value="250">$250k+</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="filter-group">
-                  <h4>📅 Date posted</h4>
-                  <label class="filter-checkbox"
-                    ><input type="radio" name="date" value="today" />
-                    <span>Today</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input type="radio" name="date" value="3days" />
-                    <span>Last 3 days</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input type="radio" name="date" value="week" />
-                    <span>This week</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input type="radio" name="date" value="month" />
-                    <span>This month</span></label
-                  >
-                </div>
-
-                <button
-                  class="btn btn-primary"
-                  style="width: 100%"
-                  id="applyFilters"
-                >
-                  Apply filters
-                </button>
-              </aside>
-
-              <!-- Job listings -->
-              <div class="browse-main" data-aos="fade-left">
-                <!-- Header with result count and sort -->
-                <div class="browse-header">
-                  <div class="job-count"><strong>247</strong> jobs found</div>
-                  <div class="sort-select">
-                    <label for="sort">Sort by:</label>
-                    <select id="sort">
-                      <option>Most recent</option>
-                      <option>Salary: high to low</option>
-                      <option>Salary: low to high</option>
-                      <option>Relevance</option>
-                    </select>
-                  </div>
-                </div>
-
-                <!-- Jobs grid (reusing .jobs-grid and .job-card) -->
-                <div class="jobs-grid">
-                  <!-- card 1 -->
-                  <article class="job-card">
-                    <div class="job-card-header">
-                      <div class="company-logo-wrap">💳</div>
-                      <div style="flex: 1">
-                        <h3 class="job-title">Senior Frontend Engineer</h3>
-                        <div class="company-name">Stripe</div>
-                      </div>
-                    </div>
-                    <div class="text text-center view-job-details"></div>
-                    <div class="job-meta">
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                          />
-                        </svg>
-                        San Francisco, CA</span
-                      >
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        2d ago</span
-                      >
-                    </div>
-                    <div style="display: block">
-                      <span class="badge badge-green">Full Time</span>
-                      <span class="badge badge-blue">React</span>
-                    </div>
-                    <div class="job-card-browse-footer">
-                      <div class="job-salary">
-                        $140K–$180K <span>/ year</span>
-                      </div>
-                      <a class="apply-btn" href="apply-job.html">Apply</a>
-                    </div>
-                  </article>
-
-                  <!-- card 2 -->
-                  <article class="job-card">
-                    <div class="job-card-header">
-                      <div class="company-logo-wrap">🏠</div>
-                      <div style="flex: 1">
-                        <h3 class="job-title">Product Designer</h3>
-                        <div class="company-name">Airbnb</div>
-                      </div>
-                    </div>
-                    <div class="text text-center view-job-details"></div>
-                    <div class="job-meta">
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                          />
-                        </svg>
-                        Remote</span
-                      >
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        1d ago</span
-                      >
-                    </div>
-                    <div style="display: block">
-                      <span class="badge badge-purple">Remote</span>
-                      <span class="badge badge-blue">Figma</span>
-                    </div>
-                    <div class="job-card-browse-footer">
-                      <div class="job-salary">
-                        $120K–$150K <span>/ year</span>
-                      </div>
-                      <a class="apply-btn" href="apply-job.html">Apply</a>
-                    </div>
-                  </article>
-
-                  <!-- card 3 -->
-                  <article class="job-card">
-                    <div class="job-card-header">
-                      <div class="company-logo-wrap">🎬</div>
-                      <div style="flex: 1">
-                        <h3 class="job-title">Data Scientist</h3>
-                        <div class="company-name">Netflix</div>
-                      </div>
-                    </div>
-                    <div class="text text-center view-job-details"></div>
-                    <div class="job-meta">
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                          />
-                        </svg>
-                        Los Angeles, CA</span
-                      >
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        5d ago</span
-                      >
-                    </div>
-                    <div style="display: block">
-                      <span class="badge badge-green">Full Time</span>
-                      <span class="badge badge-orange">Python</span>
-                    </div>
-                    <div class="job-card-browse-footer">
-                      <div class="job-salary">
-                        $160K–$220K <span>/ year</span>
-                      </div>
-                      <a class="apply-btn" href="apply-job.html">Apply</a>
-                    </div>
-                  </article>
-
-                  <!-- card 4 -->
-                  <article class="job-card">
-                    <div class="job-card-header">
-                      <div class="company-logo-wrap">🛒</div>
-                      <div style="flex: 1">
-                        <h3 class="job-title">DevOps Engineer</h3>
-                        <div class="company-name">Shopify</div>
-                      </div>
-                    </div>
-                    <div class="text text-center view-job-details"></div>
-                    <div class="job-meta">
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                          />
-                        </svg>
-                        Toronto, Canada</span
-                      >
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        3d ago</span
-                      >
-                    </div>
-                    <div style="display: block">
-                      <span class="badge badge-green">Full Time</span>
-                      <span class="badge badge-blue">AWS</span>
-                    </div>
-                    <div class="job-card-browse-footer">
-                      <div class="job-salary">
-                        $115K–$145K <span>/ year</span>
-                      </div>
-                      <a class="apply-btn" href="apply-job.html">Apply</a>
-                    </div>
-                  </article>
-
-                  <!-- card 5 -->
-                  <article class="job-card">
-                    <div class="job-card-header">
-                      <div class="company-logo-wrap">🎯</div>
-                      <div style="flex: 1">
-                        <h3 class="job-title">Marketing Manager</h3>
-                        <div class="company-name">HubSpot</div>
-                      </div>
-                    </div>
-                    <div class="text text-center view-job-details"></div>
-                    <div class="job-meta">
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                          />
-                        </svg>
-                        Boston, MA</span
-                      >
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        Today</span
-                      >
-                    </div>
-                    <div style="display: block">
-                      <span class="badge badge-purple">Hybrid</span>
-                      <span class="badge badge-blue">SEO</span>
-                    </div>
-                    <div class="job-card-browse-footer">
-                      <div class="job-salary">
-                        $90K–$115K <span>/ year</span>
-                      </div>
-                      <a class="apply-btn" href="apply-job.html">Apply</a>
-                    </div>
-                  </article>
-
-                  <!-- card 6 -->
-                  <article class="job-card">
-                    <div class="job-card-header">
-                      <div class="company-logo-wrap">📝</div>
-                      <div style="flex: 1">
-                        <h3 class="job-title">Backend Engineer (Go)</h3>
-                        <div class="company-name">Notion</div>
-                      </div>
-                    </div>
-                    <div class="text text-center view-job-details"></div>
-                    <div class="job-meta">
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                          />
-                        </svg>
-                        New York, NY</span
-                      >
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        4d ago</span
-                      >
-                    </div>
-                    <div style="display: block">
-                      <span class="badge badge-green">Full Time</span>
-                      <span class="badge badge-orange">Go</span>
-                    </div>
-                    <div class="job-card-browse-footer">
-                      <div class="job-salary">
-                        $130K–$170K <span>/ year</span>
-                      </div>
-                      <a class="apply-btn" href="apply-job.html">Apply</a>
-                    </div>
-                  </article>
-                </div>
-
-                <!-- Pagination -->
-                <div class="pagination">
-                  <span class="page-item active">1</span>
-                  <span class="page-item">2</span>
-                  <span class="page-item">3</span>
-                  <span class="page-item">4</span>
-                  <span class="page-item">5</span>
-                  <span class="page-item">...</span>
-                  <span class="page-item">12</span>
-                </div>
+              <div class="form-group" style="display: flex; align-items: center; gap: var(--sp-2);">
+                <input type="checkbox" id="terms" style="width: auto;" required>
+                <label for="terms" style="margin-bottom: 0; font-weight: normal; font-size: 0.9rem;">I confirm that the information provided is accurate and I agree to the <a href="#" style="color: var(--accent); text-decoration: underline;">terms of application</a> *</label>
               </div>
-            </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem; margin-top: var(--sp-4);">
+                Submit application
+              </button>
+
+              <p style="text-align: center; margin-top: var(--sp-4); font-size: 0.8rem; color: var(--text-muted);">
+                Your data will be shared only with this employer.
+              </p>
+            </form>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
       </main>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>

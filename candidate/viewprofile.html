@@ -19,6 +19,10 @@
     />
     <link rel="stylesheet" href="assets/style.css" />
     <style>
+      svg {
+        width: 14px;
+        height: 14px;
+      }
       body {
         background: #f5f5f5;
       }
@@ -27,7 +31,7 @@
         background: #fff;
         border-radius: 12px;
         padding: 25px 25px;
-        margin: 20px 20px;
+        /* margin: 20px 20px; */
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
       }
 
@@ -107,6 +111,299 @@
           margin: 15px auto;
         }
       }
+
+      .title {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .title h1 {
+        font-size: 38px;
+        color: #0f172a;
+      }
+
+      .title p {
+        margin-top: 10px;
+        color: #64748b;
+        font-size: 16px;
+      }
+
+      .faq {
+        margin-bottom: 18px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        transition: 0.3s;
+      }
+
+      .faq.active {
+        border-left: 5px solid var(--navy);
+      }
+
+      .faq-question {
+        padding: 10px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .faq-question h3 {
+        font-size: 18px;
+        color: #1e293b;
+        font-weight: 600;
+      }
+
+      .icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        background: var(--navy);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        transition: 0.3s;
+      }
+
+      .faq.active .icon {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+
+      .faq-answer p {
+        padding: 0 25px 25px;
+        color: #64748b;
+        line-height: 1.8;
+        font-size: 15px;
+      }
+
+      @media (max-width: 768px) {
+        .title h1 {
+          font-size: 30px;
+        }
+
+        .faq-question h3 {
+          font-size: 16px;
+        }
+      }
+
+      label {
+        font-weight: 600;
+        color: #0f2c5c;
+        margin-bottom: 8px;
+        opacity: 0.5;
+      }
+
+      .details {
+        line-height: 1;
+        font-size: 14px;
+      }
+
+      p {
+        word-wrap: break-word;
+      }
+
+      .resume-section {
+        width: 100%;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 18px;
+      }
+
+      .header h2 {
+        font-size: 32px;
+        color: #14213d;
+        margin-bottom: 6px;
+      }
+
+      .header p {
+        color: #7d8597;
+        font-size: 15px;
+      }
+
+      .edit-btn {
+        text-decoration: none;
+        color: #0b8b73;
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      .upload-card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 18px;
+        padding: 35px 25px;
+        text-align: center;
+      }
+
+      .upload-icon {
+        width: 64px;
+        height: 64px;
+        background: #eda0a0;
+        color: #a00000;
+        border-radius: 50%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      .upload-card h3 {
+        font-size: 22px;
+        font-weight: 500;
+        color: #6f6f6f;
+      }
+
+      .upload-card span {
+        display: block;
+        margin-top: 10px;
+        color: #9b9b9b;
+        font-size: 17px;
+      }
+
+      .upload-btn {
+        width: 50%;
+        margin-top: 28px;
+        padding: 10px;
+        border: 2px solid #a00000;
+        background: #fff;
+        color: #a00000;
+        border-radius: 10px;
+        font-size: 22px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .upload-btn i {
+        margin-right: 8px;
+      }
+
+      .upload-btn:hover {
+        background: #a00000;
+        color: #fff;
+      }
+
+      .warning {
+        margin-top: 16px;
+        text-align: left;
+        color: #d93131;
+        font-size: 15px;
+        background: #fff7f7;
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      .warning i {
+        margin-right: 6px;
+      }
+
+      /* ===========================
+   Tablet
+=========================== */
+
+      @media (max-width: 768px) {
+        .header h2 {
+          font-size: 26px;
+        }
+
+        .edit-btn {
+          font-size: 16px;
+        }
+
+        .upload-card {
+          padding: 30px 20px;
+        }
+
+        .upload-card h3 {
+          font-size: 18px;
+        }
+
+        .upload-card span {
+          font-size: 15px;
+        }
+
+        .upload-btn {
+          font-size: 18px;
+          padding: 10px;
+        }
+
+        .upload-icon {
+          width: 58px;
+          height: 58px;
+          font-size: 24px;
+        }
+      }
+
+      /* ===========================
+   Mobile
+=========================== */
+
+      @media (max-width: 480px) {
+        body {
+          padding: 20px 12px;
+        }
+
+        .header {
+          flex-direction: row;
+          align-items: center;
+        }
+
+        .header h2 {
+          font-size: 22px;
+        }
+
+        .header p {
+          font-size: 13px;
+        }
+
+        .edit-btn {
+          font-size: 15px;
+        }
+
+        .upload-card {
+          padding: 24px 15px;
+          border-radius: 14px;
+        }
+
+        .upload-icon {
+          width: 52px;
+          height: 52px;
+          font-size: 20px;
+        }
+
+        .upload-card h3 {
+          font-size: 16px;
+          line-height: 24px;
+        }
+
+        .upload-card span {
+          font-size: 14px;
+        }
+
+        .upload-btn {
+          font-size: 16px;
+          padding: 10px;
+        }
+
+        .warning {
+          font-size: 13px;
+        }
+      }
     </style>
   </head>
 
@@ -166,18 +463,7 @@
     </div>
 
     <div class="layout">
-        <aside class="sidebar d-none d-lg-flex">
-        <div class="company-card">
-          <div class="company-logo"></div>
-          <div class="flex-grow-1">
-            <div class="name">HDB Financial<br />Services Limited</div>
-            <div class="type">Company</div>
-          </div>
-          <div class="chev">
-            <i class="bi bi-chevron-up d-block"></i
-            ><i class="bi bi-chevron-down d-block"></i>
-          </div>
-        </div>
+      <aside class="sidebar d-none d-lg-flex">
         <a href="../index.html#home" class="side-link" target="_blank"
           ><i class="bi bi-house"></i> Home</a
         >
@@ -186,8 +472,7 @@
         >
         <a href="applied-jobs.html" class="side-link"
           ><i class="bi bi-cursor-fill"></i> Applied Jobs
-          </a
-        >
+        </a>
         <a href="job-alerts.html" class="side-link"
           ><i class="bi bi-bell"></i> Free Job Alert On</a
         >
@@ -227,17 +512,6 @@
             class="sidebar"
             style="height: auto; border-right: none; padding: 0"
           >
-            <div class="company-card">
-              <div class="company-logo"></div>
-              <div class="flex-grow-1">
-                <div class="name">HDB Financial<br />Services Limited</div>
-                <div class="type">Company</div>
-              </div>
-              <div class="chev">
-                <i class="bi bi-chevron-up d-block"></i
-                ><i class="bi bi-chevron-down d-block"></i>
-              </div>
-            </div>
             <a href="../index.html#home" class="side-link" target="_blank"
               ><i class="bi bi-house"></i> Home</a
             >
@@ -246,8 +520,7 @@
             >
             <a href="applied-jobs.html" class="side-link"
               ><i class="bi bi-cursor-fill"></i> Applied Jobs
-              </a
-            >
+            </a>
             <a href="job-alerts.html" class="side-link"
               ><i class="bi bi-bell"></i> Free Job Alert On</a
             >
@@ -270,328 +543,430 @@
       </div>
 
       <main class="main">
-        <div class="container">
-          <div class="profile-card">
-            <!-- Header -->
-            <div class="row align-items-center">
-              <div class="col-md-8">
-                <h2 class="profile-title">Edit Profile Details</h2>
-              </div>
-              <div class="col-md-4 text-md-end top-btn">
-                <button class="btn btn-edit">Edit</button>
-              </div>
-            </div>
-
-            <!-- Basic Details -->
-            <br />
-            <h4 class="section-title">Company Information</h4>
-            <hr />
-            <div class="row">
-              <!-- Left -->
-              <div class="col-lg-5">
-                <div class="mb-3">
-                  <label>Company name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="HDB Financial Services"
-                    readonly
-                  />
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Industry / Business Type</label>
-                  <select id="industry" class="form-control">
-                    <option value="">Select industry</option>
-                    <option>IT / Software</option>
-                    <option>Manufacturing</option>
-                    <option>Banking / Finance / NBFC</option>
-                    <option>Healthcare</option>
-                    <option>Retail / E-commerce</option>
-                    <option>Education</option>
-                    <option>Construction / Real Estate</option>
-                    <option>Logistics / Transport</option>
-                    <option>BPO / KPO</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="col-lg-3">
-                <div class="mb-3">
-                  <label>Company Size</label>
-                  <select id="size" class="form-control">
-                    <option value="">Select Company Size</option>
-                    <option>1 - 10</option>
-                    <option>11 - 50</option>
-                    <option>51 - 200</option>
-                    <option>201 - 500</option>
-                    <option>500+</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <!-- Left -->
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label>Company Website</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="hr@hdb.com"
-                    readonly
-                  />
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label>Company Description</label>
-                  <textarea type="text" class="form-control" readonly>
-Xyz</textarea
-                  >
-                </div>
-              </div>
-            </div>
-
-            <br />
-            <h4 class="section-title">Contact Person Details</h4>
-            <hr />
-            <div class="row">
-              <!-- Left -->
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label>Full name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="udhayasabari"
-                    readonly
-                  />
-                </div>
-              </div>
-
-              <!-- Right -->
-              <div class="col-lg-6">
-                <label class="verify-text">
-                  Official email ID:
-                  <span>Not Verified</span>
-                </label>
-
-                <div class="row">
-                  <div class="col-md-9 mb-3">
-                    <input
-                      type="email"
-                      class="form-control"
-                      value="udhayasabari.r@hdbfs.com"
-                      readonly
-                    />
-                  </div>
-
-                  <div class="col-md-3 mb-3">
-                    <button class="btn btn-outline-secondary btn-verify">
-                      Verify
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Mobile Number</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="7871539343"
-                    readonly
-                  />
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Designation</label>
-                  <input type="text" class="form-control" value="HR" readonly />
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Alternate Mobile Number</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="9837653892"
-                    readonly
-                  />
-                </div>
-              </div>
-            </div>
-            <br />
-            <h4 class="section-title">Company Address</h4>
-            <hr />
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label>Address Line</label>
-                  <textarea type="text" class="form-control" readonly>
-12/2, Car Street</textarea
-                  >
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label>City</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="Madurai"
-                    readonly
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>State</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="Tamilnadu"
-                    readonly
-                  />
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Pincode</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="625134"
-                    readonly
-                  />
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Country</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="India"
-                    readonly
-                  />
-                </div>
-              </div>
-            </div>
-            <br />
-            <h4 class="section-title">Hiring Requirements</h4>
-            <hr />
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Are you registering as?</label>
-                  <select id="size" class="form-control">
-                    <option>Employer</option>
-                    <option>HR</option>
-                    <option>Recruitment Agency</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Hiring Frequency</label>
-                  <select id="size" class="form-control">
-                    <option>One Time Hiring</option>
-                    <option>Regular Hiring</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Expected Number Of Openings</label>
-                  <select id="size" class="form-control">
-                    <option>1-5</option>
-                    <option>6-20</option>
-                    <option>21-50</option>
-                    <option>50+</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <br />
-            <h4 class="section-title">Hiring Support</h4>
-            <hr />
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="mb-3">
-                  <span
-                    ><label
-                      >Do you need Hiregram Support for hiring
-                      candidates?</label
-                    >
-                    <input type="radio" /><label>&nbsp;Yes</label>
-                    <input type="radio" /><label>&nbsp;No</label>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <br />
-            <h4 class="section-title">Verification</h4>
-            <hr />
-            <!-- GST -->
-            <div class="section-space">
+        <div class="row">
+          <div class="container col-lg-4">
+            <div class="profile-card">
               <div class="row">
-                <div class="col-lg-4">
-                  <div class="mb-3">
-                    <label>GST / ISD-GST No.</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      value="27AABCH8761M1Z1"
-                      readonly
-                    />
-                  </div>
+                <div class="col-md-4">
+                  <img
+                    style="border-radius: 50%"
+                    src="../assets/images/work-from-home-jobs.webp"
+                    width="100%"
+                    height="100%"
+                  />
                 </div>
-                <div class="col-lg-4">
-                  <div class="mb-3">
-                    <label>CIN / Company Registration Number</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      value="27AABCH8761M1Z1"
-                      readonly
-                    />
+                <div class="col-md-8">
+                  <h6>UdhayaSabari R</h6>
+                  <div>
+                    <span
+                      ><i class="bi bi-briefcase-fill"></i>&nbsp;HDB Financial
+                      Services</span
+                    >
                   </div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="mb-3">
-                    <label>LinkedIn Profile</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      value="https://linkedin.com"
-                      readonly
-                    />
+                  <div>
+                    <span
+                      ><svg
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                        ></path>
+                      </svg>
+                      Madurai
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-lg-9"></div>
-              <div class="col-lg-3 d-flex justify-content-end">
-                <button class="btn btn-danger btn-lg">Submit</button>
+            <div class="profile-card mt-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="row">
+                    <div class="details">
+                      <label>Email Id</label>
+                      <p>udhayasabari@hdb.com</p>
+                    </div>
+                    <div class="details">
+                      <label>Date of Birth</label>
+                      <p>23/10/1999</p>
+                    </div>
+                    <div class="details">
+                      <label>Current Location</label>
+                      <p>Madurai</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="row">
+                    <div class="details">
+                      <label>Mobile Number</label>
+                      <p>8754673625</p>
+                    </div>
+                    <div class="details">
+                      <label>Gender</label>
+                      <p>Male</p>
+                    </div>
+                    <div class="details">
+                      <label>Home Town</label>
+                      <p>Madurai</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container col-lg-8">
+            <div class="faq active">
+              <div class="faq-question">
+                <h3>Basic Details</h3>
+                <div class="icon">+</div>
+              </div>
+
+              <div class="faq-answer">
+                <div class="row m-2">
+                  <!-- Left -->
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label>Full name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="udhayasabari"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label>Date Of Birth</label>
+                      <input type="date" class="form-control" value="" />
+                    </div>
+                    <div class="mb-3">
+                      <label>Mobile Number</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="9776378676"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label> Languages Known</label>
+                      <select class="form-control">
+                        <option>Tamil</option>
+                        <option>English</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label> What job title/role are you looking for? </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="Developer"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- Right -->
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label>Gender</label>
+                      <select class="form-control">
+                        <option>Female</option>
+                        <option>Male</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label>Email Id</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        value="udhayasabari@hdb.com"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label>Location (Hometown)</label>
+                      <input type="text" class="form-control" value="Madurai" />
+                    </div>
+                    <div class="mb-3">
+                      <label>Preferred Location</label>
+                      <input type="text" class="form-control" value="Madurai" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq">
+              <div class="faq-question">
+                <h3>Working Experience</h3>
+                <div class="icon">+</div>
+              </div>
+
+              <div class="faq-answer m-2">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label>Job Title</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="Software Engineer"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label>Skills</label>
+                      <input type="text" class="form-control" value="PHP" />
+                    </div>
+                    <div class="mb-3">
+                      <label>Company Industry</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="Software Product"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label>Employment Type</label>
+                      <select class="form-control">
+                        <option>Intern</option>
+                        <option>Part Time</option>
+                        <option>Full Time</option>
+                        <option>Contract</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label>End Date</label>
+                      <input type="month" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                      <label>Experience</label>
+                      <input type="number" class="form-control" value="2" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label>Job Role</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        value="Web Developer"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label>Company Name</label>
+                      <input type="text" class="form-control" value="HDB" />
+                    </div>
+                    <div class="mb-3">
+                      <label
+                        >Employment details<br />Are you currently working in
+                        this company?</label
+                      >
+                      <br /><input type="radio" value="Yes" />&nbsp; Yes
+                      <input type="radio" value="No" />&nbsp; No
+                    </div>
+                    <div class="mb-3">
+                      <label>Start Date</label>
+                      <input type="month" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                      <label>Salary</label>
+                      <input type="number" class="form-control" value="20000" />
+                    </div>
+                    <div class="mb-3">
+                      <label>Description</label>
+                      <textarea class="form-control"></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq">
+              <div class="faq-question">
+                <h3>Internship</h3>
+                <div class="icon">+</div>
+              </div>
+
+              <div class="faq-answer m-2">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label>Company Name</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                      <label>Start Date</label>
+                      <input type="month" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label>Intern Title</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                      <label>End Date</label>
+                      <input type="month" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq">
+              <div class="faq-question">
+                <h3>Education</h3>
+                <div class="icon">+</div>
+              </div>
+
+              <div class="faq-answer m-2">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label>Highest Education</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                      <label>College Name</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                      <label>College Name</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                      <label>Specialization</label>
+                      <input type="text" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                      <label>Start Date</label>
+                      <input type="month" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label>Medium</label>
+                      <select class="form-control">
+                        <option>Tamil</option>
+                        <option>English</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label>Degree</label>
+                      <select class="form-control">
+                        <option>MCA</option>
+                        <option>BE</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label>Education Type</label>
+                      <select class="form-control">
+                        <option>Full Time</option>
+                        <option>Part Time</option>
+                        <option>Correspondence</option>
+                      </select>
+                    </div>
+                    <div class="mb-3">
+                      <label>End Date</label>
+                      <input type="month" class="form-control" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq">
+              <div class="faq-question">
+                <h3>Course / Certifications</h3>
+                <div class="icon">+</div>
+              </div>
+
+              <div class="faq-answer m-2">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="resume-section">
+                      <div class="upload-card">
+                        <div class="upload-icon">
+                          <i class="bi bi-upload"></i>
+                        </div>
+
+                        <h3>Upload pdf, doc, or docx files only</h3>
+                        <span>Max file size 5MB</span>
+
+                        <button class="upload-btn">
+                          <i class="bi bi-upload"></i>
+                          Upload Certifications
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq">
+              <div class="faq-question">
+                <h3>Resume</h3>
+                <div class="icon">+</div>
+              </div>
+
+              <div class="faq-answer m-2">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="resume-section">
+                      <div class="upload-card">
+                        <div class="upload-icon">
+                          <i class="bi bi-upload"></i>
+                        </div>
+
+                        <h3>Upload pdf, doc, or docx files only</h3>
+                        <span>Max file size 5MB</span>
+
+                        <button class="upload-btn">
+                          <i class="bi bi-upload"></i>
+                          Upload Resume
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </main>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/app.js"></script>
+    <script>
+      const faqs = document.querySelectorAll(".faq");
+
+      faqs.forEach((faq) => {
+        if (faq.classList.contains("active")) {
+          faq.querySelector(".faq-answer").style.maxHeight =
+            faq.querySelector(".faq-answer").scrollHeight + "px";
+        }
+
+        faq.querySelector(".faq-question").addEventListener("click", () => {
+          faqs.forEach((item) => {
+            if (item !== faq) {
+              item.classList.remove("active");
+              item.querySelector(".faq-answer").style.maxHeight = null;
+            }
+          });
+
+          faq.classList.toggle("active");
+
+          const answer = faq.querySelector(".faq-answer");
+
+          if (faq.classList.contains("active")) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          } else {
+            answer.style.maxHeight = null;
+          }
+        });
+      });
+    </script>
   </body>
 </html>
