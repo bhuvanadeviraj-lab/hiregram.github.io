@@ -18,507 +18,790 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="../assets/css/common.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <style>
       :root {
-        --green: #16a34a;
-        --green-dark: #1a3c6e;
-        --text: #0f2447;
-        --muted: #94a3b8;
-        --border: #cbd5e1;
-        --bg: #f8fafc;
+        --bg: #f2f0f7;
+        --card: #ffffff;
+        --border: #e8e6f0;
+        --text-dark: #241f47;
+        --text-muted: #8b899e;
+        --text-faint: #a9a7ba;
+        --teal: #0a8a6c;
+        --teal-dark: #06694f;
+        --teal-pale: #eafaf3;
+        --peach: #fdf1e7;
+        --orange: #e8722c;
+        --chip-bg: #f2f1f6;
+        --chip-text: #5a5773;
+        --radius: 12px;
+        --shadow:
+          0 1px 3px rgba(36, 31, 71, 0.06), 0 1px 2px rgba(36, 31, 71, 0.04);
       }
+
       * {
         box-sizing: border-box;
       }
+
+      html,
       body {
         margin: 0;
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
-          sans-serif;
+        padding: 0;
         background: var(--bg);
-        color: var(--text);
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+        color: var(--text-dark);
       }
+
       .page {
-        max-width: auto;
-        margin: 24px auto;
-        padding: 0 16px;
+        margin: 0 auto;
+        margin: 2%;
       }
+
+      .viewjob-layout {
+        display: grid;
+        grid-template-columns: 4fr 2fr;
+        gap: 20px;
+      }
+
       .card {
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 12px;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 20px;
+        margin-bottom: 16px;
       }
-      .header {
-        padding: 16px 24px;
-        border-bottom: 1px solid #f1f5f9;
-        font-size: 18px;
+
+      .main-col {
+        min-width: 0;
+      }
+
+      /* ---------- Job header ---------- */
+      .job-header-top {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+      .company-logo {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        background: #0b6cb3;
+        color: #fff;
+        font-size: 9px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .job-header-main {
+        flex: 1;
+        min-width: 0;
+      }
+      .job-title {
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.4;
+        margin: 0 0 4px;
+        color: var(--text-dark);
+      }
+      .company-name {
+        font-size: 13.5px;
+        color: var(--text-muted);
+      }
+
+      .job-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+        font-size: 13.5px;
+        color: #4a4258;
+        margin-left: 10px;
+      }
+      .meta-row {
+        font-size: 13.5px;
+        color: var(--text-dark);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .meta-row.muted {
+        color: var(--text-muted);
+      }
+      .icon {
+        font-size: 13px;
+      }
+
+      .job-tags {
+        margin: 14px 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .tag {
+        background: var(--chip-bg);
+        color: var(--chip-text);
+        font-size: 12.5px;
+        font-weight: 600;
+        padding: 6px 10px;
+        border-radius: 7px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .tag-icon {
+        font-size: 12px;
+      }
+
+      .job-actions {
+        margin-top: 18px;
+        display: flex;
+        gap: 10px;
+      }
+      .apply-btn {
+        flex: 1;
+        background: var(--teal);
+        color: #fff;
+        border: none;
+        padding: 13px 16px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+      .apply-btn:hover {
+        background: var(--teal-dark);
+      }
+      .ext-icon {
+        font-size: 13px;
+      }
+      .share-btn {
+        background: #fff;
+        border: 1.5px solid var(--teal);
+        color: var(--teal-dark);
+        padding: 13px 20px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .share-btn:hover {
+        background: var(--teal-pale);
+      }
+      .share-icon {
+        font-size: 13px;
+      }
+
+      /* ---------- Section titles ---------- */
+      .section-title {
+        font-size: 15px;
+        font-weight: 700;
+        margin: 0 0 14px;
+      }
+      .section-title.no-margin {
+        margin: 0;
+      }
+      .section-title.with-top-border {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border);
+      }
+
+      /* ---------- Job description ---------- */
+      .jd-body {
+        font-size: 13.5px;
+        line-height: 1.7;
+        color: var(--text-dark);
+      }
+      .jd-body p {
+        margin: 0 0 8px;
+      }
+      .jd-heading {
         font-weight: 600;
       }
-      .stepper {
+      .jd-underline {
+        text-decoration: underline;
+      }
+      .jd-more {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+      .jd-more.open {
+        max-height: 600px;
+      }
+      .jd-more p {
+        color: var(--text-muted);
+      }
+
+      .show-more-btn {
+        background: none;
+        border: none;
+        color: var(--teal-dark);
+        font-weight: 700;
+        font-size: 13.5px;
+        cursor: pointer;
+        padding: 8px 0 0;
+        display: block;
+      }
+
+      /* ---------- Job role grid ---------- */
+      .role-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px 20px;
+      }
+      .role-grid.single {
+        grid-template-columns: 1fr;
+      }
+      .role-item {
         display: flex;
+        gap: 10px;
         align-items: flex-start;
-        padding: 20px 24px 8px;
-        overflow-x: auto;
+      }
+      .role-icon {
+        font-size: 15px;
+        color: var(--text-muted);
+        width: 20px;
+        flex-shrink: 0;
+        text-align: center;
+      }
+      .company-mini-logo {
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+        background: #1c2b4a;
+        color: #fff;
+        font-size: 9px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .role-label {
+        font-size: 11.5px;
+        color: var(--text-faint);
+        margin-bottom: 2px;
+      }
+      .role-value {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+
+      /* ---------- Posted by / FAQ ---------- */
+      .posted-by-card {
+        font-size: 13px;
+        color: var(--text-muted);
+        padding: 16px 20px;
+      }
+      .posted-by-card strong {
+        color: var(--text-dark);
+      }
+
+      .faq-card {
+        padding: 18px 20px;
+      }
+      .faq-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .show-all-btn {
+        background: none;
+        border: none;
+        color: var(--teal-dark);
+        font-weight: 700;
+        font-size: 13px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .chev {
+        font-size: 11px;
+      }
+
+      /* ---------- Right sidebar ---------- */
+      .right-col {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        position: sticky;
+        top: 20px;
+      }
+
+      .steps-card {
+        background: var(--peach);
+        border-color: #f5e2ce;
+      }
+      .steps-card h3 {
+        font-size: 14px;
+        font-weight: 700;
+        margin: 0 0 16px;
+        color: var(--text-dark);
+      }
+      .steps-row {
+        display: flex;
+        justify-content: space-between;
       }
       .step {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 6px;
-        flex-shrink: 0;
+        gap: 8px;
+        flex: 1;
+        text-align: center;
       }
-      .step-circle {
-        width: 28px;
-        height: 28px;
+      .step-icon {
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
-        display: grid;
-        place-items: center;
-        font-size: 12px;
-        font-weight: 600;
-        border: 1px solid var(--border);
         background: #fff;
-        color: var(--muted);
-      }
-      .step-circle.done {
-        background: var(--green);
-        border-color: var(--green);
-        color: #fff;
-      }
-      .step-circle.active {
-        background: #0f172a;
-        border-color: #0f172a;
-        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        box-shadow: 0 2px 6px rgba(232, 114, 44, 0.18);
       }
       .step-label {
-        font-size: 11px;
-        font-weight: 500;
-        color: var(--muted);
-        white-space: nowrap;
-      }
-      .step-label.active {
-        color: #0f172a;
-      }
-      .step-line {
-        height: 1px;
-        background: #e2e8f0;
-        flex: 1;
-        margin: 13px 6px 0;
-        min-width: 24px;
-      }
-      .step-line.done {
-        background: var(--green);
-      }
-
-      .body {
-        padding: 8px 24px 24px;
-      }
-
-      .section-title {
-        font-size: 16px;
+        font-size: 11.5px;
+        color: var(--text-muted);
         font-weight: 600;
-        margin-bottom: 2px;
-      }
-      .section-hint {
-        font-size: 13px;
-        color: var(--muted);
-        margin-bottom: 18px;
-      }
-      .required-note {
-        color: #f87171;
-        margin-left: 8px;
+        line-height: 1.3;
       }
 
-      .divider {
-        border-top: 1px solid #f1f5f9;
-        margin: 22px 0 18px;
+      .similar-jobs-card {
+        padding: 18px;
+      }
+      .similar-title {
+        font-size: 15px;
+        font-weight: 700;
+        margin: 0 0 14px;
+        color: var(--teal-dark);
       }
 
-      .field {
-        margin-bottom: 18px;
-      }
-      .field label {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 13px;
-        font-weight: 500;
-        margin-bottom: 6px;
-      }
-      .field .req {
-        color: #ef4444;
-      }
-      .field .info-dot {
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: #e2e8f0;
-        color: #64748b;
-        font-size: 9px;
-        display: grid;
-        place-items: center;
-      }
-      .field .subnote {
-        font-size: 11px;
-        color: var(--muted);
-        margin-top: 4px;
-      }
-
-      input[type="text"],
-      input[type="date"],
-      input[type="number"],
-      select,
-      textarea {
-        width: 100%;
-        padding: 8px 12px;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        font-size: 13px;
-        color: var(--text);
-        font-family: inherit;
-        outline: none;
-      }
-      input:focus,
-      select:focus,
-      textarea:focus {
-        border-color: var(--green);
-        box-shadow: 0 0 0 1px var(--green);
-      }
-      textarea {
-        resize: vertical;
-      }
-
-      .row-2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-      }
-      .range-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .range-row span {
-        font-size: 12px;
-        color: var(--muted);
-      }
-
-      .pill-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .pill {
-        border: 1px solid var(--border);
-        background: #fff;
-        color: #475569;
-        border-radius: 999px;
-        padding: 6px 16px;
-        font-size: 13px;
-        font-weight: 500;
-        cursor: pointer;
-      }
-      .pill.small {
-        padding: 4px 12px;
-        font-size: 12px;
-      }
-      .pill.active {
-        background: var(--text);
-        border-color: var(--text);
-        color: #fff;
-      }
-
-      .tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        border: 1px solid var(--green);
-        background: #ecfdf5;
-        color: var(--green-dark);
-        border-radius: 999px;
-        padding: 5px 12px;
-        font-size: 13px;
-        font-weight: 500;
-      }
-      .tag button {
-        border: none;
-        background: transparent;
-        color: var(--green-dark);
-        cursor: pointer;
-        font-size: 13px;
-        line-height: 1;
-        padding: 0;
-      }
-      .add-pill {
-        border: 1px dashed var(--border);
-        background: #fff;
-        color: #64748b;
-        border-radius: 999px;
-        padding: 5px 12px;
-        font-size: 13px;
-        cursor: pointer;
-      }
-
-      .addr-box {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        padding: 8px 12px;
-        font-size: 13px;
-      }
-      .link-btn {
-        background: none;
-        border: none;
-        color: var(--green);
-        font-weight: 500;
-        font-size: 12px;
-        cursor: pointer;
-        padding: 0;
-      }
-
-      .info-box {
-        background: #f0f9ff;
-        border-radius: 6px;
-        padding: 8px 12px;
-        font-size: 12px;
-        color: #475569;
-        margin-top: 8px;
-      }
-      .info-box.violet {
-        background: #f5f3ff;
-      }
-      .amber-box {
-        background: #fffbeb;
-        border-radius: 6px;
-        padding: 12px 16px;
-        margin-bottom: 18px;
-      }
-      .amber-box .brow {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        color: #64748b;
-        margin-bottom: 4px;
-      }
-      .amber-box .brow.total {
-        border-top: 1px solid #fde68a;
-        padding-top: 8px;
-        margin-top: 6px;
-        font-weight: 600;
-        color: #334155;
-      }
-
-      .checkbox-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        color: #475569;
-        margin-bottom: 18px;
-      }
-      .radio-col {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .radio-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        color: #334155;
-      }
-
-      .nav-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid #f1f5f9;
-        padding-top: 18px;
-        margin-top: 24px;
-      }
-      .btn {
-        border-radius: 6px;
-        padding: 9px 24px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        border: none;
-      }
-      .btn-primary {
-        background: var(--green);
-        color: #fff;
-      }
-      .btn-primary:hover {
-        background: var(--green-dark);
-      }
-      .btn-outline {
-        background: #fff;
-        border: 1px solid var(--border);
-        color: #475569;
-      }
-      .btn-outline:hidden {
-        visibility: hidden;
-      }
-
-      .preview-section {
-        border: 1px solid #e2e8f0;
-        border-radius: 8px;
-        margin-bottom: 14px;
-      }
-      .preview-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 16px;
-        font-size: 14px;
-        font-weight: 600;
-      }
-      .preview-head .actions {
+      .similar-job {
         display: flex;
         gap: 10px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
       }
-      .preview-head button {
-        border: none;
-        background: none;
-        cursor: pointer;
-        color: #94a3b8;
-        font-size: 14px;
+      .similar-job:first-of-type {
+        padding-top: 0;
       }
-      .preview-body {
-        border-top: 1px solid #f1f5f9;
-        padding: 12px 16px;
-      }
-      .p-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 8px;
-        font-size: 13px;
-        flex-wrap: wrap;
-      }
-      .p-row .k {
-        color: #fb923c;
-        font-size: 12px;
-        flex: 1 1 40%;
-      }
-      .p-row .v {
-        font-weight: 500;
-        color: #1e293b;
-        text-align: right;
-        flex: 1 1 55%;
-      }
-      .req-box {
-        background: #f0f9ff;
+      .sj-logo {
+        width: 30px;
+        height: 30px;
         border-radius: 6px;
-        padding: 8px 12px;
-        font-size: 12px;
-        color: #475569;
-        margin-bottom: 12px;
-      }
-
-      .ai-box {
-        background: #fffbeb;
-        border-radius: 6px;
-        padding: 12px 16px;
-        margin-bottom: 16px;
-      }
-      .ai-box-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 13px;
-        color: #334155;
-        margin-bottom: 8px;
-      }
-      .ai-badge {
-        background: #0f172a;
+        background: #0b6cb3;
         color: #fff;
-        border-radius: 999px;
-        padding: 4px 12px;
-        font-size: 11px;
-        font-weight: 600;
-        white-space: nowrap;
-        margin-left: 8px;
+        font-size: 8px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
       }
-      .ai-suggestion-row {
+      .sj-main {
+        flex: 1;
+        min-width: 0;
+      }
+      .sj-top {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        background: #fff;
-        border-radius: 6px;
-        padding: 10px 14px;
+        align-items: flex-start;
+        gap: 6px;
       }
-      .ai-suggestion-row .txt {
-        font-size: 13px;
+      .sj-title {
+        font-size: 13.5px;
+        font-weight: 700;
       }
-      .ai-suggestion-row .arrow {
-        color: #94a3b8;
-      }
-      .ai-suggestion-row .new {
-        color: #7c3aed;
-        font-weight: 600;
-      }
-      .btn-update {
-        border: 1px solid var(--green);
-        color: var(--green);
-        background: #fff;
-        border-radius: 6px;
-        padding: 5px 16px;
+      .sj-company {
         font-size: 12px;
-        font-weight: 600;
-        cursor: pointer;
+        color: var(--text-muted);
+        margin-top: 1px;
       }
-      .ai-note {
+      .chevron {
+        color: var(--text-faint);
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+      .sj-meta {
+        font-size: 12px;
+        color: var(--text-dark);
+        margin-top: 8px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .sj-meta.muted {
+        color: var(--text-muted);
+      }
+      .sj-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 8px;
+      }
+      .tag.small {
         font-size: 11px;
-        color: var(--muted);
-        margin-top: 6px;
+        padding: 4px 7px;
       }
 
-      .publish-panel {
-        text-align: center;
-        padding: 40px 10px;
-      }
-      .publish-panel .check {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background: #dcfce7;
-        color: var(--green);
-        display: grid;
-        place-items: center;
-        font-size: 22px;
-        margin: 0 auto 14px;
-      }
-      .publish-panel h3 {
-        margin: 0 0 8px;
-        font-size: 15px;
-      }
-      .publish-panel p {
-        max-width: 380px;
-        margin: 0 auto;
+      .show-more-link {
+        width: 100%;
+        background: var(--teal-pale);
+        border: none;
+        color: var(--teal-dark);
+        font-weight: 700;
         font-size: 13px;
-        color: #64748b;
+        padding: 10px;
+        border-radius: 7px;
+        cursor: pointer;
+        margin-top: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
       }
 
-      [data-step] {
+      .app-promo-card {
+        background: linear-gradient(135deg, #d7f5ec, #eafaf3);
+        border-color: #cdeee1;
+        margin-top: 16px;
+      }
+      .promo-text {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin: 0 0 14px;
+        line-height: 1.4;
+      }
+      .promo-art {
+        position: relative;
+        min-height: 70px;
+        margin-bottom: 14px;
+      }
+      .promo-bubble {
+        background: #fff;
+        border-radius: 8px;
+        padding: 8px 10px;
+        font-size: 10.5px;
+        color: var(--text-muted);
+        box-shadow: var(--shadow);
+        max-width: 78%;
+        line-height: 1.4;
+      }
+      .promo-bubble.b1 {
+        margin-bottom: 10px;
+      }
+      .promo-link {
+        color: var(--teal-dark);
+        font-weight: 700;
+      }
+      .playstore-badge {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: #000;
+        color: #fff;
+        font-size: 11.5px;
+        font-weight: 600;
+        padding: 8px 12px;
+        border-radius: 6px;
+        text-decoration: none;
+        width: fit-content;
+      }
+
+      /* ---------- Mobile sticky apply bar ---------- */
+      .mobile-apply-bar {
         display: none;
       }
-      [data-step].active {
-        display: block;
+
+      /* ================= RESPONSIVE ================= */
+      @media (max-width: 980px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr) 280px;
+        }
       }
-      #fixedWhatsAppIcon {
-        right: 0px !important;
-        bottom: 45px !important;
-        width: 20px !important;
-        height: 20px !important;
-        left: 17px !important;
-        position: unset !important;
+
+      @media (max-width: 780px) {
+        .viewjob-layout {
+          display: block;
+        }
+      }
+
+      @media (max-width: 860px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .right-col {
+          position: static;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          padding: 14px 12px 90px;
+        }
+        .card {
+          padding: 16px;
+          margin-bottom: 12px;
+        }
+        .job-title {
+          font-size: 15.5px;
+        }
+        .company-logo {
+          width: 34px;
+          height: 34px;
+        }
+        .role-grid {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        /* Hide the in-card apply/share row on mobile, use sticky bar instead */
+        .job-actions {
+          display: none;
+        }
+
+        .mobile-apply-bar {
+          display: flex;
+          gap: 10px;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: #fff;
+          border-top: 1px solid var(--border);
+          padding: 10px 14px;
+          z-index: 100;
+          box-shadow: 0 -2px 10px rgba(36, 31, 71, 0.08);
+        }
+        .apply-btn.small,
+        .share-btn.small {
+          padding: 12px;
+          font-size: 13.5px;
+        }
+        .share-btn.small {
+          flex: 0 0 52px;
+          justify-content: center;
+          padding: 12px 0;
+        }
+        .apply-btn.small {
+          flex: 1;
+        }
+
+        .steps-row {
+          flex-wrap: wrap;
+          gap: 12px;
+        }
+        .step {
+          flex: 1 1 30%;
+        }
+
+        .promo-bubble {
+          max-width: 100%;
+          font-size: 11px;
+        }
+      }
+
+      #footer {
+        background: var(--text-dark);
+        padding: var(--sp-16) 0 var(--sp-6);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: var(--sp-8);
+        margin-bottom: var(--sp-12);
+      }
+
+      .footer-brand-logo {
+        display: flex;
+        align-items: center;
+        gap: var(--sp-2);
+        margin-bottom: var(--sp-4);
+      }
+
+      .footer-brand-logo .logo-mark {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--accent)
+        );
+      }
+
+      .footer-brand-logo .logo-name {
+        color: var(--white);
+      }
+
+      .footer-brand-logo .logo-name span {
+        color: var(--accent);
+      }
+
+      .footer-desc {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.7;
+        margin-bottom: var(--sp-6);
+        max-width: 260px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: var(--sp-2);
+      }
+
+      .social-link {
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        transition: all var(--transition-base);
+        color: #fff;
+      }
+
+      .social-link:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+
+      .footer-col-title {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sp-2);
+      }
+
+      .footer-links a {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.5);
+        transition:
+          color var(--transition-fast),
+          transform var(--transition-fast);
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: var(--white);
+        transform: translateX(3px);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: var(--sp-6);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--sp-4);
+        flex-wrap: wrap;
+      }
+
+      .footer-copy {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.35);
+      }
+
+      .footer-copy a {
+        color: var(--accent);
+        transition: color var(--transition-fast);
+      }
+
+      .footer-copy a:hover {
+        color: var(--accent-light);
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        gap: var(--sp-4);
+      }
+
+      .footer-bottom-links a {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.35);
+        transition: color var(--transition-fast);
+      }
+
+      .footer-bottom-links a:hover {
+        color: var(--white);
+      }
+
+      .logo-mark {
+        width: 38px;
+        height: 38px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.1rem;
+        color: var(--white);
+      }
+
+      @media (max-width: 1024px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer-bottom-links {
+          justify-content: center;
+        }
       }
     </style>
-    <link rel="stylesheet" href="../assets/css/common.css" />
   </head>
   <body>
     <div class="topbar">
@@ -578,13 +861,13 @@
         <a href="../index.html#home" class="side-link" target="_blank"
           ><i class="bi bi-house"></i> Home</a
         >
-        <a href="browse-job.html" class="side-link"
+        <a href="browse-job.html" class="side-link active"
           ><i class="bi bi-briefcase-fill"></i> Jobs</a
         >
         <a href="applied-jobs.html" class="side-link"
           ><i class="bi bi-cursor-fill"></i> Applied Jobs
         </a>
-        <a href="job-alerts.html" class="side-link active"
+        <a href="job-alerts.html" class="side-link"
           ><i class="bi bi-bell"></i> Free Job Alert On</a
         >
         <a href="viewprofile.html" class="side-link"
@@ -626,13 +909,13 @@
             <a href="../index.html#home" class="side-link" target="_blank"
               ><i class="bi bi-house"></i> Home</a
             >
-            <a href="browse-job.html" class="side-link"
+            <a href="browse-job.html" class="side-link active"
               ><i class="bi bi-briefcase-fill"></i> Jobs</a
             >
             <a href="applied-jobs.html" class="side-link"
               ><i class="bi bi-cursor-fill"></i> Applied Jobs
             </a>
-            <a href="job-alerts.html" class="side-link active"
+            <a href="job-alerts.html" class="side-link"
               ><i class="bi bi-bell"></i> Free Job Alert On</a
             >
             <a href="viewprofile.html" class="side-link"
@@ -652,578 +935,435 @@
           </div>
         </div>
       </div>
+      <main class="page">
+        <div class="viewjob-layout">
+          <!-- LEFT / MAIN COLUMN -->
+          <section class="main-col">
+            <div class="card job-header-card">
+              <div class="job-header-top">
+                <div class="company-logo">IRBU</div>
+                <div class="job-header-main">
+                  <h1 class="job-title">
+                    Software Developer - Full stack (Python/React &amp; AWS) -
+                    Digital for Mass Properties &amp; Structure testing
+                  </h1>
+                  <div class="company-name">Airbus Group India Pvt Ltd</div>
+                </div>
+              </div>
 
-      <main class="job-container">
-        <section id="apply-job-section">
-            <!-- Apply grid -->
-              <!-- Left: Job summary card -->
-              <div class="job-summary-card" data-aos="fade-right">
-                <div class="summary-header">
-                  <div class="summary-logo">💳</div>
+              <div class="job-meta">
+                <div class="meta-row">
+                  <span class="icon">&#128205;</span> Bengaluru/Bangalore
+                </div>
+                <div class="meta-row muted">
+                  <span class="icon">&#128184;</span> Not disclosed
+                </div>
+              </div>
+
+              <div class="job-tags">
+                <span class="tag"
+                  ><span class="tag-icon">&#127970;</span> Work from
+                  Office</span
+                >
+                <span class="tag"
+                  ><span class="tag-icon">&#128188;</span> Full Time</span
+                >
+                <span class="tag"
+                  ><span class="tag-icon">&#128188;</span> Min. 3 years</span
+                >
+              </div>
+
+              <div class="job-actions">
+                <button class="apply-btn"><a href="apply-job.html">
+                  Apply on company website <span class="ext-icon">&#8599;</span>
+                </a></button>
+                <button class="share-btn">
+                  <span class="share-icon">&#8592;&#128172;</span> Share
+                </button>
+              </div>
+            </div>
+
+            <div class="card">
+              <h2 class="section-title">Job Description</h2>
+              <div class="jd-body" id="jdBody">
+                <p class="jd-heading">
+                  Software Developer - Full stack (Python/React &amp; AWS) -
+                  Digital for Mass Properties &amp; Structure testing
+                </p>
+                <p><strong>Job Description:</strong></p>
+                <p class="jd-underline"><strong>Job Description</strong></p>
+                <p><strong>Date:</strong> 10th July, 2025</p>
+                <p>
+                  <strong>Role :</strong> Full Stack Software Developer (Python,
+                  React, AWS)
+                </p>
+                <p><strong>Number of positions :</strong> 1</p>
+                <p class="jd-underline"><strong>Description:</strong></p>
+                <div class="jd-more" id="jdMore">
+                  <p>
+                    We are looking for an experienced Full Stack Software
+                    Developer to join our Digital team working on Mass
+                    Properties &amp; Structure testing applications. You will
+                    design, build, and maintain scalable web applications using
+                    Python on the backend and React on the frontend, deployed on
+                    AWS infrastructure.
+                  </p>
+                  <p>
+                    You'll collaborate closely with engineering, product, and QA
+                    teams to deliver reliable, high-performance tools used
+                    across the organization.
+                  </p>
+                </div>
+              </div>
+              <button class="show-more-btn" id="showMoreBtn">Show more</button>
+            </div>
+
+            <div class="card">
+              <h2 class="section-title">Job role</h2>
+              <div class="role-grid">
+                <div class="role-item">
+                  <span class="role-icon">&#127970;</span>
                   <div>
-                    <div class="summary-title">Senior Frontend Engineer</div>
-                    <div class="summary-company">Stripe</div>
+                    <div class="role-label">Work location</div>
+                    <div class="role-value">Bangalore Area</div>
                   </div>
                 </div>
-
-                <div class="summary-detail">
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.8"
-                  >
-                    <path
-                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                    />
-                  </svg>
-                  <span>San Francisco, CA (Hybrid)</span>
+                <div class="role-item">
+                  <span class="role-icon">&#128193;</span>
+                  <div>
+                    <div class="role-label">Department</div>
+                    <div class="role-value">Software Engineering</div>
+                  </div>
                 </div>
-                <div class="summary-detail">
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.8"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
-                  <span>Posted 2 days ago · 45 applicants</span>
+                <div class="role-item">
+                  <span class="role-icon">&#128101;</span>
+                  <div>
+                    <div class="role-label">Role / Category</div>
+                    <div class="role-value">Software Development</div>
+                  </div>
                 </div>
-                <div class="summary-detail">
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.8"
-                  >
-                    <path d="M12 2v20M2 12h20" />
-                  </svg>
-                  <span>$140,000 – $180,000 / year</span>
+                <div class="role-item">
+                  <span class="role-icon">&#128337;</span>
+                  <div>
+                    <div class="role-label">Employment type</div>
+                    <div class="role-value">Full Time</div>
+                  </div>
                 </div>
-
-                <div class="summary-divider"></div>
-
-                <h4 style="margin-bottom: var(--sp-3); font-size: 1rem">
-                  Required skills
-                </h4>
-                <div class="summary-badge-list">
-                  <span class="badge badge-blue">React</span>
-                  <span class="badge badge-blue">TypeScript</span>
-                  <span class="badge badge-green">Full Time</span>
-                  <span class="badge badge-orange">5+ years</span>
+                <div class="role-item">
+                  <span class="role-icon">&#9728;</span>
+                  <div>
+                    <div class="role-label">Shift</div>
+                    <div class="role-value">Day Shift</div>
+                  </div>
                 </div>
-
-                <div class="summary-divider"></div>
-
-                <p style="color: var(--text-muted); font-size: 0.9rem">
-                  <strong>About Stripe</strong> — Stripe builds economic
-                  infrastructure for the internet. We’re looking for a frontend
-                  engineer to help build the next generation of payment tools.
-                </p>
               </div>
-        </section>
+
+              <h2 class="section-title with-top-border">Job requirements</h2>
+              <div class="role-grid single">
+                <div class="role-item">
+                  <span class="role-icon">&#128188;</span>
+                  <div>
+                    <div class="role-label">Experience</div>
+                    <div class="role-value">Min. 3 years</div>
+                  </div>
+                </div>
+              </div>
+
+              <h2 class="section-title with-top-border">About company</h2>
+              <div class="role-grid single">
+                <div class="role-item">
+                  <span class="role-icon company-mini-logo">AG</span>
+                  <div>
+                    <div class="role-label">Name</div>
+                    <div class="role-value">Airbus Group India Pvt Ltd</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card posted-by-card">
+              Job posted by <strong>Airbus Group India Pvt Ltd</strong>
+            </div>
+
+            <div class="card faq-card">
+              <div class="faq-head">
+                <h2 class="section-title no-margin">FAQs about this job</h2>
+                <button class="show-all-btn">
+                  Show all <span class="chev">&#9662;</span>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- RIGHT SIDEBAR -->
+          <aside class="right-col">
+            <div class="card steps-card">
+              <h3>Get your dream job in 2 simple steps:</h3>
+              <div class="steps-row">
+                <div class="step">
+                  <div class="step-icon">&#128188;</div>
+                  <div class="step-label">Apply for job</div>
+                </div>
+                <div class="step">
+                  <div class="step-icon">&#128222;</div>
+                  <div class="step-label">Schedule interview</div>
+                </div>
+                <div class="step">
+                  <div class="step-icon">&#128640;</div>
+                  <div class="step-label">Get hired</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card similar-jobs-card">
+              <h3 class="similar-title">Similar jobs</h3>
+
+              <article class="similar-job">
+                <div class="sj-logo">iOS</div>
+                <div class="sj-main">
+                  <div class="sj-top">
+                    <div>
+                      <div class="sj-title">PHP Developer</div>
+                      <div class="sj-company">Infosys</div>
+                    </div>
+                    <span class="chevron">&#8250;</span>
+                  </div>
+                  <div class="sj-meta">
+                    <span class="icon">&#128205;</span> Bengaluru/Bangalore
+                  </div>
+                  <div class="sj-meta muted">
+                    <span class="icon">&#128184;</span> Not disclosed
+                  </div>
+                  <div class="sj-tags">
+                    <span class="tag small"
+                      ><span class="tag-icon">&#127970;</span> Work from
+                      Office</span
+                    >
+                    <span class="tag small"
+                      ><span class="tag-icon">&#128188;</span> Full Time</span
+                    >
+                    <span class="tag small">&#128188;</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="similar-job">
+                <div class="sj-logo">iOS</div>
+                <div class="sj-main">
+                  <div class="sj-top">
+                    <div>
+                      <div class="sj-title">Full Stack Developer</div>
+                      <div class="sj-company">Infosys</div>
+                    </div>
+                    <span class="chevron">&#8250;</span>
+                  </div>
+                  <div class="sj-meta">
+                    <span class="icon">&#128205;</span> Bengaluru/Bangalore
+                  </div>
+                  <div class="sj-meta muted">
+                    <span class="icon">&#128184;</span> Not disclosed
+                  </div>
+                  <div class="sj-tags">
+                    <span class="tag small"
+                      ><span class="tag-icon">&#127970;</span> Work from
+                      Office</span
+                    >
+                    <span class="tag small"
+                      ><span class="tag-icon">&#128188;</span> Full Time</span
+                    >
+                    <span class="tag small">&#128188;</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="similar-job">
+                <div class="sj-logo">iOS</div>
+                <div class="sj-main">
+                  <div class="sj-top">
+                    <div>
+                      <div class="sj-title">Senior Software Engineer</div>
+                      <div class="sj-company">Infosys</div>
+                    </div>
+                    <span class="chevron">&#8250;</span>
+                  </div>
+                  <div class="sj-meta">
+                    <span class="icon">&#128205;</span> Hyderabad
+                  </div>
+                  <div class="sj-meta muted">
+                    <span class="icon">&#128184;</span> Not disclosed
+                  </div>
+                  <div class="sj-tags">
+                    <span class="tag small"
+                      ><span class="tag-icon">&#127970;</span> Work from
+                      Office</span
+                    >
+                    <span class="tag small"
+                      ><span class="tag-icon">&#128188;</span> Full Time</span
+                    >
+                    <span class="tag small">&#128188;</span>
+                  </div>
+                </div>
+              </article>
+
+              <button class="show-more-link">
+                Show more <span class="chev">&#9662;</span>
+              </button>
+            </div>
+
+            <div class="card app-promo-card">
+              <p class="promo-text">
+                Track your applications, connect with HRs &amp; a lot more on
+                the app
+              </p>
+              <div class="promo-art">
+                <div class="promo-bubble b1">
+                  Your application is shortlisted by<br /><span
+                    class="promo-link"
+                    >Contact HR &#8250;</span
+                  >
+                </div>
+                <div class="promo-bubble b2">
+                  Your application is selected by HR<br /><span
+                    class="promo-link"
+                    >Contact HR &#8250;</span
+                  >
+                </div>
+              </div>
+              <a href="#" class="playstore-badge"
+                >&#9654; GET IT ON Google Play</a
+              >
+            </div>
+          </aside>
+        </div>
       </main>
+
+      <!-- Mobile sticky apply bar -->
+      <div class="mobile-apply-bar">
+        <button class="share-btn small">
+          <span class="share-icon">&#8592;&#128172;</span>
+        </button>
+        <button class="apply-btn small">Apply on company website</button>
+      </div>
     </div>
+
+    <footer id="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand-logo">
+              <div class="logo-mark" aria-hidden="true">H</div>
+              <span class="logo-name">Hire<span>gram</span></span>
+            </div>
+            <p class="footer-desc">
+              Connecting ambitious professionals with world-class companies.
+              Your career journey starts here.
+            </p>
+            <div class="social-links" aria-label="Social media links">
+              <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+              <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+              <a href="#" class="social-link" aria-label="Facebook">f</a>
+              <a href="#" class="social-link" aria-label="Instagram">◉</a>
+            </div>
+          </div>
+          <div>
+            <h3 class="footer-col-title">For Job Seekers</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="browse-jobs.html">Browse Jobs</a></li>
+              <li><a href="index.html#categories">Job Categories</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">For Employers</h3>
+            <ul class="footer-links" role="list">
+              <li>
+                <a href="employer/login.html" target="_blank">Post a Job</a>
+              </li>
+              <li><a href="talent-search.html">Talent Search</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">Company</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">
+            © 2026 <a href="#">Hiregram</a>. All rights reserved. Built with ♥
+            for ambitious people.
+          </p>
+          <div class="footer-bottom-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="faq.html">FAQs</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
-      const STEPS = [
-        "Job details",
-        "Candidate requirements",
-        "Interviewer information",
-        "Job preview",
-        "Publish",
-      ];
-      const PERKS = [
-        "Flexible Working Hours",
-        "Weekly Payout",
-        "Overtime Pay",
-        "Joining Bonus",
-        "Annual Bonus",
-        "PF",
-        "Travel Allowance (TA)",
-        "Petrol Allowance",
-        "Mobile Allowance",
-        "Internet Allowance",
-        "Laptop",
-        "Health Insurance",
-        "ESI (ESIC)",
-        "Food/Meals",
-        "Accommodation",
-        "5 Working Days",
-        "One-Way Cab",
-        "Two-Way Cab",
-      ];
-      const LANGUAGES = [
-        "Tamil",
-        "Assamese",
-        "Bengali",
-        "Gujarati",
-        "Hindi",
-        "Kannada",
-        "Malayalam",
-        "Marathi",
-        "Odia",
-        "Punjabi",
-        "Telugu",
-      ];
-      const ADD_REQS = [
-        "Industry",
-        "Gender",
-        "Age",
-        "Distance",
-        "Regional Languages",
-        "Assets",
-        "Skills",
-      ];
-
-      let currentStep = 0;
-      let selectedPerks = [];
-      let selectedAdditionalReqs = ["Gender", "Age", "Regional Languages"];
-      let selectedLangs = ["Tamil"];
-      let published = false;
-      let titleAccepted = false;
-
-      // ---------- Stepper ----------
-      function renderStepper() {
-        const el = document.getElementById("stepper");
-        el.innerHTML = "";
-        STEPS.forEach((label, i) => {
-          const wrap = document.createElement("div");
-          wrap.style.display = "flex";
-          wrap.style.alignItems = "flex-start";
-          wrap.style.flex = i < STEPS.length - 1 ? "1" : "0";
-
-          const stepDiv = document.createElement("div");
-          stepDiv.className = "step";
-          const circle = document.createElement("div");
-          circle.className =
-            "step-circle" +
-            (i < currentStep ? " done" : i === currentStep ? " active" : "");
-          circle.textContent = i < currentStep ? "✓" : i + 1;
-          const lbl = document.createElement("div");
-          lbl.className = "step-label" + (i === currentStep ? " active" : "");
-          lbl.textContent = label;
-          stepDiv.appendChild(circle);
-          stepDiv.appendChild(lbl);
-          wrap.appendChild(stepDiv);
-
-          if (i < STEPS.length - 1) {
-            const line = document.createElement("div");
-            line.className = "step-line" + (i < currentStep ? " done" : "");
-            wrap.appendChild(line);
-          }
-          el.appendChild(wrap);
-        });
-      }
-
-      // ---------- Pill groups (single-select) ----------
-      function setupPillGroup(id, onChange) {
-        const group = document.getElementById(id);
-        group.querySelectorAll(".pill").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            group.dataset.value = btn.dataset.val;
-            refreshPillGroup(id);
-            if (onChange) onChange(btn.dataset.val);
+      document.addEventListener("DOMContentLoaded", function () {
+        // --- Show more / less for job description ---
+        var showMoreBtn = document.getElementById("showMoreBtn");
+        var jdMore = document.getElementById("jdMore");
+        if (showMoreBtn && jdMore) {
+          showMoreBtn.addEventListener("click", function () {
+            var isOpen = jdMore.classList.toggle("open");
+            showMoreBtn.textContent = isOpen ? "Show less" : "Show more";
           });
-        });
-        refreshPillGroup(id);
-      }
-      function refreshPillGroup(id) {
-        const group = document.getElementById(id);
-        const val = group.dataset.value;
-        group.querySelectorAll(".pill").forEach((btn) => {
-          btn.classList.toggle("active", btn.dataset.val === val);
-        });
-      }
-      function getVal(id) {
-        return document.getElementById(id).dataset.value;
-      }
-
-      // ---------- Perks (multi-select tags) ----------
-      function renderPerks() {
-        const group = document.getElementById("perksGroup");
-        group.innerHTML = "";
-        PERKS.forEach((p) => {
-          if (selectedPerks.includes(p)) {
-            const tag = document.createElement("span");
-            tag.className = "tag";
-            tag.innerHTML = `${p} <button onclick="togglePerk('${p.replace(/'/g, "\\'")}')">×</button>`;
-            group.appendChild(tag);
-          } else {
-            const btn = document.createElement("button");
-            btn.className = "add-pill";
-            btn.textContent = p + " +";
-            btn.onclick = () => togglePerk(p);
-            group.appendChild(btn);
-          }
-        });
-      }
-      function togglePerk(p) {
-        selectedPerks = selectedPerks.includes(p)
-          ? selectedPerks.filter((x) => x !== p)
-          : [...selectedPerks, p];
-        renderPerks();
-      }
-
-      // ---------- Additional requirements ----------
-      function renderAdditionalReqs() {
-        const group = document.getElementById("additionalReqGroup");
-        group.innerHTML = "";
-        ADD_REQS.forEach((r) => {
-          if (selectedAdditionalReqs.includes(r)) {
-            const tag = document.createElement("span");
-            tag.className = "tag";
-            tag.innerHTML = `${r} <button onclick="toggleAddReq('${r}')">×</button>`;
-            group.appendChild(tag);
-          } else {
-            const btn = document.createElement("button");
-            btn.className = "add-pill";
-            btn.textContent = r + " +";
-            btn.onclick = () => toggleAddReq(r);
-            group.appendChild(btn);
-          }
-        });
-        updateAdditionalFieldVisibility();
-      }
-      function toggleAddReq(r) {
-        selectedAdditionalReqs = selectedAdditionalReqs.includes(r)
-          ? selectedAdditionalReqs.filter((x) => x !== r)
-          : [...selectedAdditionalReqs, r];
-        renderAdditionalReqs();
-      }
-      function updateAdditionalFieldVisibility() {
-        document.getElementById("langField").style.display =
-          selectedAdditionalReqs.includes("Regional Languages")
-            ? "block"
-            : "none";
-        document.getElementById("ageField").style.display =
-          selectedAdditionalReqs.includes("Age") ? "block" : "none";
-        document.getElementById("genderField").style.display =
-          selectedAdditionalReqs.includes("Gender") ? "block" : "none";
-      }
-
-      // ---------- Languages ----------
-      function renderLangs() {
-        const group = document.getElementById("langGroup");
-        group.innerHTML = "";
-        selectedLangs.forEach((l) => {
-          const tag = document.createElement("span");
-          tag.className = "tag";
-          tag.innerHTML = `${l} <button onclick="toggleLang('${l}')">×</button>`;
-          group.appendChild(tag);
-        });
-        LANGUAGES.filter((l) => !selectedLangs.includes(l)).forEach((l) => {
-          const btn = document.createElement("button");
-          btn.className = "add-pill";
-          btn.textContent = l + " +";
-          btn.onclick = () => toggleLang(l);
-          group.appendChild(btn);
-        });
-      }
-      function toggleLang(l) {
-        selectedLangs = selectedLangs.includes(l)
-          ? selectedLangs.filter((x) => x !== l)
-          : [...selectedLangs, l];
-        renderLangs();
-      }
-
-      // ---------- Address change ----------
-      function changeAddress() {
-        const cur = document.getElementById("addressText").textContent;
-        const next = prompt("Enter address", cur);
-        if (next) document.getElementById("addressText").textContent = next;
-      }
-      function changeWalkAddress() {
-        const cur = document.getElementById("walkAddressText").textContent;
-        const next = prompt("Enter address", cur);
-        if (next) document.getElementById("walkAddressText").textContent = next;
-      }
-
-      // ---------- Salary breakup ----------
-      function fmtINR(n) {
-        return "₹" + Number(n || 0).toLocaleString("en-IN");
-      }
-      function updateSalaryBreakup() {
-        const min = document.getElementById("salaryMin").value;
-        const max = document.getElementById("salaryMax").value;
-        const inc = document.getElementById("incentive").value;
-        const payType = getVal("payTypeGroup");
-        const showIncentive = payType !== "Fixed Only";
-
-        document.getElementById("incentiveField").style.display = showIncentive
-          ? "block"
-          : "none";
-        document.getElementById("breakupIncentiveRow").style.display =
-          showIncentive ? "flex" : "none";
-
-        document.getElementById("breakupFixed").textContent =
-          `${fmtINR(min)} - ${fmtINR(max)}`;
-        document.getElementById("breakupIncentive").textContent = fmtINR(inc);
-        const total = Number(max || 0) + (showIncentive ? Number(inc || 0) : 0);
-        document.getElementById("breakupTotal").textContent =
-          `${fmtINR(min)} - ${fmtINR(total)}`;
-      }
-
-      // ---------- Step 0 -> 1 dependent text ----------
-      function updateAnywhereInfo() {
-        const val = getVal("anywhereGroup");
-        const region = document
-          .getElementById("addressText")
-          .textContent.split(",")[0];
-        document.getElementById("anywhereInfo").textContent =
-          val === "Yes"
-            ? "You will be receiving applications from anywhere in India"
-            : `You will be receiving applications from within ${region} Region`;
-      }
-      function updateExpInfo() {
-        const val = getVal("expGroup");
-        const el = document.getElementById("expInfo");
-        el.textContent =
-          val === "Any"
-            ? "Both fresher and experienced candidates will be able to apply"
-            : val === "Experienced Only"
-              ? "Only experienced candidates will be able to apply"
-              : "Only fresher candidates will be able to apply";
-      }
-
-      // ---------- Walk-in dependent behavior ----------
-      function updateWalkInVisibility() {
-        const walkIn = document.querySelector(
-          'input[name="walkIn"]:checked',
-        ).value;
-        document.getElementById("walkInFields").style.display =
-          walkIn === "Yes" ? "block" : "none";
-        const noOption = document.getElementById("contactPrefNo");
-        noOption.disabled = walkIn === "Yes";
-        document.getElementById("contactInfo").style.display =
-          walkIn === "Yes" ? "block" : "none";
-        if (walkIn === "Yes" && noOption.checked) {
-          document.querySelector(
-            'input[name="contactPref"][value="Yes, to myself"]',
-          ).checked = true;
         }
-      }
 
-      // ---------- Navigation ----------
-      function showStep(i) {
-        document.querySelectorAll("[data-step]").forEach((el) => {
-          el.classList.toggle("active", Number(el.dataset.step) === i);
-        });
-        renderStepper();
-        document.getElementById("backBtn").style.visibility =
-          i === 0 ? "hidden" : "visible";
-        document.getElementById("nextBtn").style.display =
-          i === STEPS.length - 1 ? "none" : "inline-block";
-        if (i === 3) renderPreview();
-        if (i === 4) renderPublishPanel();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-      function nextStep() {
-        if (currentStep < STEPS.length - 1) {
-          currentStep++;
-          showStep(currentStep);
-        }
-      }
-      function prevStep() {
-        if (currentStep > 0) {
-          currentStep--;
-          showStep(currentStep);
-        }
-      }
-      function goToStep(i) {
-        currentStep = i;
-        showStep(currentStep);
-      }
-
-      // ---------- AI Suggestion ----------
-      function acceptSuggestion() {
-        document.getElementById("jobTitle").value = "Admin Manager";
-        titleAccepted = true;
-        document.getElementById("aiSuggestionRow").style.display = "none";
-      }
-
-      // ---------- Preview rendering ----------
-      function row(label, value) {
-        return `<div class="p-row"><span class="k">${label}</span><span class="v">${value}</span></div>`;
-      }
-      function renderPreview() {
-        const company = document.getElementById("company").value;
-        const jobTitle = document.getElementById("jobTitle").value;
-        const jobRole = document.getElementById("jobRole").value;
-        const jobType = getVal("jobTypeGroup");
-        const nightShift = document.getElementById("nightShift").checked;
-        const workLoc = getVal("workLocGroup");
-        const address = document.getElementById("addressText").textContent;
-        const region = address.split(",")[0];
-        const anywhere = getVal("anywhereGroup");
-        const payType = getVal("payTypeGroup");
-        const min = document.getElementById("salaryMin").value;
-        const max = document.getElementById("salaryMax").value;
-        const joiningFee = getVal("joiningFeeGroup");
-
-        document.getElementById("aiOldTitle").textContent = jobTitle;
-        if (titleAccepted)
-          document.getElementById("aiSuggestionRow").style.display = "none";
-
-        let html = "";
-        html += row("Company name", company);
-        html += row("Job title", jobTitle);
-        html += row("Job role/ category", jobRole);
-        html += row(
-          "Job type",
-          `${jobType} | ${nightShift ? "Night shift" : "Day shift"}`,
-        );
-        html += row("Work type", workLoc);
-        html += row("Job location", region);
-        html += `<div class="req-box" style="color:#059669; font-weight:500;">${anywhere === "Yes" ? "You will be receiving applications from anywhere in India" : `You will be receiving applications from ${region} Region`}</div>`;
-        html += row(
-          "Monthly Salary | Pay Type",
-          `${fmtINR(min)} - ${fmtINR(max)} per month (${payType})`,
-        );
-        html += row(
-          "Additional perks",
-          selectedPerks.length ? selectedPerks.join(", ") : "None",
-        );
-        html += row("Joining Fee", joiningFee);
-        document.getElementById("previewJobDetails").innerHTML = html;
-
-        const minEdu = getVal("eduGroup");
-        const exp = getVal("expGroup");
-        const eng = getVal("englishGroup");
-        const ageMin = document.getElementById("ageMin").value;
-        const ageMax = document.getElementById("ageMax").value;
-        const gender = getVal("genderGroup");
-
-        let html2 = `<div class="req-box">👤 <b>Eligible requirements.</b> Your job will only be visible to the candidates who meet these requirements.</div>`;
-        html2 += row("Minimum Education", minEdu);
-        html2 += row("Experience Required", exp);
-        html2 += row("English", eng);
-        if (selectedAdditionalReqs.includes("Regional Languages"))
-          html2 += row(
-            "Regional languages",
-            selectedLangs.join(", ") || "None",
-          );
-        html2 += `<div class="req-box" style="margin-top:14px;">💼 <b>Preferred requirements.</b> Your job will be promoted to the candidates meeting below requirements, but others can still apply.</div>`;
-        if (selectedAdditionalReqs.includes("Age"))
-          html2 += row("Age", `${ageMin} - ${ageMax} yrs`);
-        html2 += row(
-          "Prefer applications from",
-          anywhere === "Yes" ? "Anywhere in India" : `Entire ${region} Region`,
-        );
-        if (selectedAdditionalReqs.includes("Gender"))
-          html2 += row(
-            "Gender",
-            gender === "Both" ? "Both genders allowed" : gender,
-          );
-        html2 += row("Industry", "None");
-        document.getElementById("previewRequirements").innerHTML = html2;
-
-        const walkIn = document.querySelector(
-          'input[name="walkIn"]:checked',
-        ).value;
-        const contactPref = document.querySelector(
-          'input[name="contactPref"]:checked',
-        ).value;
-        const notifyPref = document.querySelector(
-          'input[name="notifyPref"]:checked',
-        ).value;
-        let html3 = row(
-          "Interview type",
-          walkIn === "Yes" ? "Walk-in interview" : "Scheduled interview",
-        );
-        if (walkIn === "Yes") {
-          html3 += row(
-            "Address",
-            document.getElementById("walkAddressText").textContent,
-          );
-          html3 += row(
-            "Dates",
-            `${document.getElementById("startDate").value} to ${document.getElementById("endDate").value}`,
-          );
-          html3 += row(
-            "Timings",
-            `${document.getElementById("timeStart").value} - ${document.getElementById("timeEnd").value}`,
-          );
-        }
-        html3 += row("Candidate contact", contactPref);
-        html3 += row("Whatsapp alerts", notifyPref);
-        document.getElementById("previewInterviewer").innerHTML = html3;
-      }
-
-      // ---------- Publish panel ----------
-      function renderPublishPanel() {
-        const company = document.getElementById("company").value;
-        const jobTitle = document.getElementById("jobTitle").value;
-        const anywhere = getVal("anywhereGroup");
-        const region = document
-          .getElementById("addressText")
-          .textContent.split(",")[0];
-        const notifyPref = document.querySelector(
-          'input[name="notifyPref"]:checked',
-        ).value;
-
-        const panel = document.getElementById("publishPanel");
-        if (!published) {
-          panel.innerHTML = `
-      <div class="section-title">Ready to publish</div>
-      <p style="margin-top:8px;">Your job for <b>${jobTitle}</b> at <b>${company}</b> is ready. Once published, candidates in ${anywhere === "Yes" ? "India" : `the ${region} region`} will start seeing it.</p>
-      <button class="btn btn-primary" style="margin-top:20px; padding:10px 32px;" onclick="publishJob()">Publish job</button>
-    `;
-        } else {
-          panel.innerHTML = `
-      <div class="check">✓</div>
-      <div class="section-title">Job published!</div>
-      <p style="margin-top:8px;">${jobTitle} at ${company} is now live. You'll get a Whatsapp alert${notifyPref === "Yes, to myself" ? "" : " summary"} as applications come in.</p>
-    `;
-        }
-      }
-      function publishJob() {
-        published = true;
-        renderPublishPanel();
-      }
-
-      // ---------- Init ----------
-      function init() {
-        setupPillGroup("jobTypeGroup");
-        setupPillGroup("workLocGroup");
-        setupPillGroup("anywhereGroup", updateAnywhereInfo);
-        setupPillGroup("payTypeGroup", updateSalaryBreakup);
-        setupPillGroup("joiningFeeGroup");
-        setupPillGroup("eduGroup");
-        setupPillGroup("englishGroup");
-        setupPillGroup("expGroup", updateExpInfo);
-        setupPillGroup("genderGroup");
-
-        renderPerks();
-        renderAdditionalReqs();
-        renderLangs();
-        updateAnywhereInfo();
-        updateExpInfo();
-        updateSalaryBreakup();
-
-        ["salaryMin", "salaryMax", "incentive"].forEach((id) => {
-          document
-            .getElementById(id)
-            .addEventListener("input", updateSalaryBreakup);
-        });
-
+        // --- Show more similar jobs (placeholder) ---
         document
-          .querySelectorAll('input[name="walkIn"]')
-          .forEach((r) => r.addEventListener("change", updateWalkInVisibility));
-        updateWalkInVisibility();
-
-        document
-          .getElementById("otherInstructions")
-          .addEventListener("input", (e) => {
-            document.getElementById("instrCount").textContent =
-              e.target.value.length;
+          .querySelectorAll(".show-more-link, .show-all-btn")
+          .forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              console.log("Loading more:", btn.textContent.trim());
+            });
           });
 
-        showStep(0);
-      }
-      init();
+        // --- Apply buttons (top card + mobile sticky bar) ---
+        document.querySelectorAll(".apply-btn").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            console.log("Apply on company website clicked");
+          });
+        });
+
+        // --- Share buttons ---
+        document.querySelectorAll(".share-btn").forEach(function (btn) {
+          btn.addEventListener("click", async function () {
+            var shareData = {
+              title: document.title,
+              text: "Check out this job opportunity",
+              url: window.location.href,
+            };
+            if (navigator.share) {
+              try {
+                await navigator.share(shareData);
+              } catch (e) {
+                /* user cancelled */
+              }
+            } else {
+              console.log(
+                "Web Share API not supported — fallback to copy link",
+              );
+            }
+          });
+        });
+
+        // --- Similar job card navigation (placeholder) ---
+        document.querySelectorAll(".similar-job").forEach(function (job) {
+          job.style.cursor = "pointer";
+          job.addEventListener("click", function () {
+            var title = job.querySelector(".sj-title").textContent;
+            console.log("Opening similar job:", title);
+          });
+        });
+      });
     </script>
   </body>
 </html>

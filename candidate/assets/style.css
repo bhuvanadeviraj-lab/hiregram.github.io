@@ -407,9 +407,27 @@ a {
   padding: 18px 20px;
   margin-bottom: 14px;
   display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.job-alert-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  display: flex;
   align-items: center;
   gap: 18px;
   flex-wrap: wrap;
+}
+
+.job-alert-card .job-main {
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .job-card .job-main {
@@ -883,6 +901,11 @@ a {
     align-items: stretch;
   }
 
+   .job-alert-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .job-actions {
     justify-content: flex-end;
   }
@@ -903,6 +926,10 @@ a {
   }
 
   .job-card {
+    padding: 14px;
+  }
+
+  .job-alert-card {
     padding: 14px;
   }
 
@@ -1021,3 +1048,9 @@ a {
   padding: 10px 50px;
   margin: 10px auto;
 }
+
+.job-container {
+  width: 100%;
+  margin: 0 auto;
+}
+

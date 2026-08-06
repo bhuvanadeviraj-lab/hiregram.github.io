@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Applicants — Hiregram</title>
+    <title>Jobs — Hiregram</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -18,395 +18,764 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="../assets/css/common.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <style>
-      svg {
-        width: 14px;
-        height: 14px;
+      :root {
+        --bg: #f2f0f7;
+        --card: #ffffff;
+        --border: #e8e6f0;
+        --text-dark: #241f47;
+        --text-muted: #8b899e;
+        --text-faint: #a9a7ba;
+        --teal: #0a8a6c;
+        --teal-dark: #06694f;
+        --maroon: #7a2e3a;
+        --purple: #6c4fd8;
+        --chip-bg: #f2f1f6;
+        --chip-text: #5a5773;
+        --radius: 12px;
+        --shadow:
+          0 1px 3px rgba(36, 31, 71, 0.06), 0 1px 2px rgba(36, 31, 71, 0.04);
       }
-      body {
-        background: #f5f5f5;
+
+      .page {
+        margin: 0 auto;
+        margin: 2%;
+      }
+
+      .view-layout {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        gap: 20px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
+
+      /* ---------- LEFT COLUMN ---------- */
+      .left-col {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        position: sticky;
+        top: 20px;
       }
 
       .profile-card {
-        background: #fff;
-        border-radius: 12px;
-        padding: 25px 25px;
-        /* margin: 20px 20px; */
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        padding: 18px;
       }
-
-      .profile-title {
-        font-size: 25px;
-        font-weight: 700;
-        color: #1f2d3d;
-        margin-bottom: 25px;
+      .profile-top {
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 16px;
       }
-
-      .section-title {
-        font-size: 20px;
-        font-weight: 700;
-        color: #0f2c5c;
-        margin-bottom: 25px;
-      }
-
-      label {
-        font-weight: 600;
-        color: #0f2c5c;
-        margin-bottom: 8px;
-      }
-
-      .form-control {
-        border-radius: 4px;
-        background: #f8f8f8;
-      }
-
-      .btn-edit {
-        background: #0f2c5c;
+      .avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #3a3358;
         color: #fff;
-        padding: 10px 28px;
-        font-weight: 600;
-      }
-
-      .btn-edit:hover {
-        background: #d22222;
-        color: #fff;
-      }
-
-      .btn-verify {
-        height: 50px;
-        width: 100%;
-      }
-
-      .verify-text {
-        font-weight: 600;
-        margin-bottom: 8px;
-      }
-
-      .verify-text span {
-        color: #d22222;
-      }
-
-      .section-space {
-        margin-top: 15px;
-      }
-
-      @media (max-width: 768px) {
-        .profile-card {
-          padding: 20px;
-        }
-
-        .profile-title {
-          font-size: 30px;
-        }
-
-        .section-title {
-          font-size: 24px;
-        }
-
-        .top-btn {
-          text-align: left !important;
-        }
-
-        .profile-card {
-          margin: 15px auto;
-        }
-      }
-
-      .title {
-        text-align: center;
-        margin-bottom: 40px;
-      }
-
-      .title h1 {
-        font-size: 38px;
-        color: #0f172a;
-      }
-
-      .title p {
-        margin-top: 10px;
-        color: #64748b;
+        font-weight: 700;
         font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .profile-name {
+        font-weight: 700;
+        font-size: 15px;
+      }
+      .profile-sub {
+        font-size: 12.5px;
+        color: var(--text-muted);
+        margin-top: 3px;
+      }
+      .link {
+        color: var(--purple);
+      }
+      .profile-loc {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-top: 6px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .pin {
+        font-size: 11px;
       }
 
-      .faq {
-        margin-bottom: 18px;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      .profile-details-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 10px;
+      }
+      .detail-label {
+        font-size: 11px;
+        color: var(--text-faint);
+        margin-bottom: 3px;
+      }
+      .detail-value {
+        font-size: 13px;
+        color: var(--text-dark);
+        font-weight: 500;
+      }
+      .detail-value.truncate {
         overflow: hidden;
-        transition: 0.3s;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
-      .faq.active {
-        border-left: 5px solid var(--navy);
+      .section-label {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text-dark);
+        padding-left: 4px;
+        background-color: unset;
       }
 
-      .faq-question {
-        padding: 10px 10px;
+      .activity-card {
+        padding: 14px 16px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .activity-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        background: #eafaf3;
+        color: var(--teal-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        flex-shrink: 0;
+      }
+      .activity-text {
+        flex: 1;
+      }
+      .activity-title {
+        font-size: 13.5px;
+        font-weight: 700;
+      }
+      .activity-sub {
+        font-size: 11.5px;
+        color: var(--text-muted);
+        margin-top: 2px;
+        line-height: 1.4;
+      }
+      .chevron {
+        color: var(--text-faint);
+        font-size: 18px;
+      }
+
+      /* ---------- RIGHT COLUMN ---------- */
+      .right-col {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        min-width: 0;
+      }
+
+      .card-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding: 16px 18px;
+        border-bottom: 1px solid var(--border);
+      }
+      .card-header h2 {
+        font-size: 15px;
+        font-weight: 700;
+        margin: 0;
+      }
+      .link-btn {
+        background: none;
+        border: none;
+        color: var(--teal-dark);
+        font-weight: 700;
+        font-size: 13px;
+        cursor: pointer;
+      }
+      .link-btn:hover {
+        text-decoration: underline;
+      }
+
+      /* Work experience */
+      .experience-block {
+        padding: 16px 18px;
+        border-bottom: 1px solid var(--border);
+      }
+      .exp-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .exp-logo {
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+        background: var(--chip-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+      .exp-main {
+        flex: 1;
+      }
+      .exp-title {
+        font-size: 14.5px;
+        font-weight: 700;
+      }
+      .exp-company {
+        font-size: 12.5px;
+        color: var(--text-muted);
+        margin-top: 2px;
+      }
+      .edit-btn {
+        background: none;
+        border: none;
+        color: var(--teal-dark);
+        font-size: 12.5px;
+        font-weight: 700;
         cursor: pointer;
       }
 
-      .faq-question h3 {
-        font-size: 18px;
-        color: #1e293b;
-        font-weight: 600;
+      .exp-sub-row {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 10px 0 0 40px;
+        font-size: 12.5px;
+      }
+      .exp-sub-label {
+        color: var(--text-faint);
+        font-size: 11.5px;
+      }
+      .exp-sub-value {
+        color: var(--text-dark);
+        font-weight: 500;
       }
 
-      .icon {
+      .skill-hint-row {
+        width: calc(100% - 40px);
+        margin-left: 40px;
+        margin-top: 10px;
+        background: var(--chip-bg);
+        border: none;
+        border-radius: 8px;
+        padding: 10px 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 12px;
+        color: var(--text-muted);
+        cursor: pointer;
+      }
+
+      .exp-date-badge {
+        margin: 12px 0 0 40px;
+        display: inline-block;
+        background: var(--chip-bg);
+        color: var(--chip-text);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 5px 10px;
+        border-radius: 6px;
+      }
+
+      .row-toggle {
+        width: 100%;
+        background: #fff;
+        border: none;
+        border-bottom: 1px solid var(--border);
+        padding: 15px 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13.5px;
+        color: var(--text-dark);
+        cursor: pointer;
+        text-align: left;
+      }
+      .row-toggle:last-child {
+        border-bottom: none;
+      }
+      .row-toggle-sub {
+        font-size: 11px;
+        color: var(--text-faint);
+        font-weight: 400;
+        margin-top: 2px;
+      }
+      .row-value {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--text-dark);
+        font-weight: 600;
+      }
+      .add-row {
+        color: var(--teal-dark);
+        font-weight: 700;
+      }
+
+      .row-toggle.stacked {
+        flex-direction: row;
+        padding-bottom: 6px;
+      }
+      .row-toggle-title {
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .row-toggle-title.pad {
+        padding: 16px 18px 0;
+      }
+      .row-toggle-desc {
+        font-size: 12.5px;
+        color: var(--text-muted);
+        padding: 0 18px 16px;
+        line-height: 1.5;
+      }
+      .row-toggle-desc.pad {
+        padding: 6px 18px 14px;
+      }
+
+      /* Education */
+      .education-block {
+        padding: 16px 18px;
+      }
+      .edu-row {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .edu-logo {
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+        background: var(--chip-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+      .edu-title {
+        font-size: 13.5px;
+        font-weight: 700;
+        line-height: 1.4;
+      }
+      .edu-sub {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-top: 3px;
+      }
+      .edu-year-badge {
+        display: inline-block;
+        background: var(--chip-bg);
+        color: var(--chip-text);
+        font-size: 11.5px;
+        font-weight: 600;
+        padding: 4px 9px;
+        border-radius: 6px;
+        margin-top: 8px;
+      }
+
+      /* Chips */
+      .chip-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 16px 18px;
+      }
+      .chip {
+        background: var(--chip-bg);
+        color: var(--chip-text);
+        font-size: 12.5px;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 16px;
+      }
+
+      .empty-note {
+        padding: 16px 18px;
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+
+      /* Spoken English & Resume cards */
+      .spoken-english-card,
+      .resume-card {
+        padding: 18px;
+      }
+      .spoken-english-card h2,
+      .resume-card h2 {
+        font-size: 15px;
+        margin: 0 0 4px;
+      }
+      .sub-note {
+        font-size: 11.5px;
+        color: var(--text-faint);
+        margin-bottom: 10px;
+      }
+      .spoken-desc {
+        font-size: 12.5px;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin: 0 0 14px;
+      }
+      .outline-btn {
+        width: 100%;
+        background: #fff;
+        border: 1.5px solid var(--teal-dark);
+        color: var(--teal-dark);
+        font-weight: 700;
+        font-size: 13.5px;
+        padding: 11px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .outline-btn:hover {
+        background: #f0faf7;
+      }
+
+      .resume-card .card-header {
+        padding: 18px 0 4px;
+        border-bottom: none;
+      }
+      .resume-drop {
+        border: 1.5px dashed #d6d3e3;
+        border-radius: 10px;
+        padding: 26px 16px;
+        text-align: center;
+        margin-bottom: 14px;
+      }
+      .upload-icon {
         width: 34px;
         height: 34px;
         border-radius: 50%;
-        background: var(--navy);
-        color: #fff;
+        background: #eafaf3;
+        color: var(--teal-dark);
         display: flex;
-        justify-content: center;
         align-items: center;
-        font-size: 22px;
-        transition: 0.3s;
-      }
-
-      .faq.active .icon {
-        transform: rotate(45deg);
-      }
-
-      .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-      }
-
-      .faq-answer p {
-        padding: 0 25px 25px;
-        color: #64748b;
-        line-height: 1.8;
-        font-size: 15px;
-      }
-
-      @media (max-width: 768px) {
-        .title h1 {
-          font-size: 30px;
-        }
-
-        .faq-question h3 {
-          font-size: 16px;
-        }
-      }
-
-      label {
-        font-weight: 600;
-        color: #0f2c5c;
-        margin-bottom: 8px;
-        opacity: 0.5;
-      }
-
-      .details {
-        line-height: 1;
-        font-size: 14px;
-      }
-
-      p {
-        word-wrap: break-word;
-      }
-
-      .resume-section {
-        width: 100%;
-      }
-
-      .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 18px;
-      }
-
-      .header h2 {
-        font-size: 32px;
-        color: #14213d;
-        margin-bottom: 6px;
-      }
-
-      .header p {
-        color: #7d8597;
-        font-size: 15px;
-      }
-
-      .edit-btn {
-        text-decoration: none;
-        color: #0b8b73;
-        font-weight: 600;
-        font-size: 18px;
-      }
-
-      .upload-card {
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 18px;
-        padding: 35px 25px;
-        text-align: center;
-      }
-
-      .upload-icon {
-        width: 64px;
-        height: 64px;
-        background: #eda0a0;
-        color: #a00000;
-        border-radius: 50%;
-        margin: auto;
-        display: flex;
         justify-content: center;
-        align-items: center;
-        font-size: 28px;
-        margin-bottom: 20px;
+        margin: 0 auto 10px;
+        font-size: 16px;
       }
-
-      .upload-card h3 {
-        font-size: 22px;
-        font-weight: 500;
-        color: #6f6f6f;
+      .upload-text {
+        font-size: 12.5px;
+        color: var(--text-muted);
+        line-height: 1.6;
       }
-
-      .upload-card span {
-        display: block;
+      .resume-warning {
         margin-top: 10px;
-        color: #9b9b9b;
+        font-size: 12px;
+        color: #b3492f;
+        background: #fdf1ee;
+        padding: 8px 10px;
+        border-radius: 6px;
+      }
+
+      /* Other details section */
+      .section-block {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .section-heading {
         font-size: 17px;
+        font-weight: 800;
+        margin: 6px 0 0;
+      }
+      .section-block .card {
+        overflow: hidden;
+      }
+      .section-block .outline-btn {
+        margin: 0 18px 16px;
+        width: calc(100% - 36px);
       }
 
-      .upload-btn {
-        width: 100%;
-        margin-top: 28px;
-        padding: 10px;
-        border: 2px solid #a00000;
-        background: #fff;
-        color: #a00000;
-        border-radius: 10px;
-        font-size: 22px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: 0.3s;
-      }
-
-      .upload-btn i {
-        margin-right: 8px;
-      }
-
-      .upload-btn:hover {
-        background: #a00000;
-        color: #fff;
-      }
-
-      .warning {
-        margin-top: 16px;
-        text-align: left;
-        color: #d93131;
-        font-size: 15px;
-        background: #fff7f7;
-        padding: 10px;
-        border-radius: 8px;
-      }
-
-      .warning i {
-        margin-right: 6px;
-      }
-
-      /* ===========================
-   Tablet
-=========================== */
-
-      @media (max-width: 768px) {
-        .header h2 {
-          font-size: 26px;
+      /* ================= RESPONSIVE ================= */
+      @media (max-width: 900px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr);
         }
-
-        .edit-btn {
-          font-size: 16px;
-        }
-
-        .upload-card {
-          padding: 30px 20px;
-        }
-
-        .upload-card h3 {
-          font-size: 18px;
-        }
-
-        .upload-card span {
-          font-size: 15px;
-        }
-
-        .upload-btn {
-          font-size: 18px;
-          padding: 10px;
-        }
-
-        .upload-icon {
-          width: 58px;
-          height: 58px;
-          font-size: 24px;
-        }
-      }
-
-      /* ===========================
-   Mobile
-=========================== */
-
-      @media (max-width: 480px) {
-        body {
-          padding: 20px 12px;
-        }
-
-        .header {
+        .left-col {
+          position: static;
           flex-direction: row;
-          align-items: center;
+          flex-wrap: wrap;
         }
-
-        .header h2 {
-          font-size: 22px;
+        .profile-card {
+          flex: 1 1 100%;
         }
-
-        .header p {
-          font-size: 13px;
+        .section-label {
+          flex: 1 1 100%;
         }
-
-        .edit-btn {
-          font-size: 15px;
+        .activity-card {
+          flex: 1 1 100%;
         }
-
-        .upload-card {
-          padding: 24px 15px;
-          border-radius: 14px;
+      }
+      @media (max-width: 780px) {
+        .view-layout {
+          display: block !important;
         }
-
-        .upload-icon {
-          width: 52px;
-          height: 52px;
-          font-size: 20px;
+      }
+      
+      @media (max-width: 640px) {
+        .page {
+          padding: 16px 12px 50px;
         }
-
-        .upload-card h3 {
-          font-size: 16px;
-          line-height: 24px;
+        .profile-details-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 12px 8px;
         }
-
-        .upload-card span {
+        .card-header {
+          padding: 14px 14px;
+        }
+        .row-toggle {
+          padding: 13px 14px;
+        }
+        .row-toggle-title.pad {
+          padding: 14px 14px 0;
+        }
+        .row-toggle-desc {
+          padding: 0 14px 14px;
+        }
+        .row-toggle-desc.pad {
+          padding: 6px 14px 12px;
+        }
+        .experience-block {
+          padding: 14px;
+        }
+        .exp-sub-row,
+        .skill-hint-row,
+        .exp-date-badge {
+          margin-left: 0;
+          padding-left: 0;
+          width: 100%;
+        }
+        .skill-hint-row {
+          margin-left: 0;
+          width: 100%;
+        }
+        .chip-row,
+        .empty-note {
+          padding: 14px;
+        }
+        .spoken-english-card,
+        .resume-card {
+          padding: 14px;
+        }
+        .section-block .outline-btn {
+          margin: 0 14px 14px;
+          width: calc(100% - 28px);
+        }
+        .avatar {
+          width: 42px;
+          height: 42px;
           font-size: 14px;
         }
+        .profile-name {
+          font-size: 14px;
+        }
+      }
 
-        .upload-btn {
-          font-size: 16px;
-          padding: 10px;
+      #footer {
+        background: var(--text-dark);
+        padding: var(--sp-16) 0 var(--sp-6);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: var(--sp-8);
+        margin-bottom: var(--sp-12);
+      }
+
+      .footer-brand-logo {
+        display: flex;
+        align-items: center;
+        gap: var(--sp-2);
+        margin-bottom: var(--sp-4);
+      }
+
+      .footer-brand-logo .logo-mark {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--accent)
+        );
+      }
+
+      .footer-brand-logo .logo-name {
+        color: var(--white);
+      }
+
+      .footer-brand-logo .logo-name span {
+        color: var(--accent);
+      }
+
+      .footer-desc {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.7;
+        margin-bottom: var(--sp-6);
+        max-width: 260px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: var(--sp-2);
+      }
+
+      .social-link {
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        transition: all var(--transition-base);
+        color: #fff;
+      }
+
+      .social-link:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+
+      .footer-col-title {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sp-2);
+      }
+
+      .footer-links a {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.5);
+        transition:
+          color var(--transition-fast),
+          transform var(--transition-fast);
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: var(--white);
+        transform: translateX(3px);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: var(--sp-6);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--sp-4);
+        flex-wrap: wrap;
+      }
+
+      .footer-copy {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.35);
+      }
+
+      .footer-copy a {
+        color: var(--accent);
+        transition: color var(--transition-fast);
+      }
+
+      .footer-copy a:hover {
+        color: var(--accent-light);
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        gap: var(--sp-4);
+      }
+
+      .footer-bottom-links a {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.35);
+        transition: color var(--transition-fast);
+      }
+
+      .footer-bottom-links a:hover {
+        color: var(--white);
+      }
+
+      .logo-mark {
+        width: 38px;
+        height: 38px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.1rem;
+        color: var(--white);
+      }
+
+      @media (max-width: 1024px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
         }
 
-        .warning {
-          font-size: 13px;
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer-bottom-links {
+          justify-content: center;
         }
       }
     </style>
   </head>
-
   <body>
     <div class="topbar">
       <button
@@ -441,9 +810,7 @@
               <div class="job-meta mb-0">7871539343</div>
             </div>
           </li>
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
+          <li><hr class="dropdown-divider" /></li>
           <li>
             <a
               class="dropdown-item d-flex align-items-center gap-2 py-2"
@@ -525,7 +892,7 @@
               ><i class="bi bi-bell"></i> Free Job Alert On</a
             >
             <a href="viewprofile.html" class="side-link active"
-              ><i class="bi bi-person"></i>Profile</a
+              ><i class="bi bi-person"></i> Profile</a
             >
 
             <div class="support-card">
@@ -541,431 +908,403 @@
           </div>
         </div>
       </div>
-
-      <main class="main">
-        <div class="row">
-          <div class="container col-lg-4">
-            <div class="profile-card">
-              <div class="row">
-                <div class="col-md-4">
-                  <img
-                    style="border-radius: 50%"
-                    src="../assets/images/work-from-home-jobs.webp"
-                    width="100%"
-                    height="100%"
-                  />
-                </div>
-                <div class="col-md-8">
-                  <h6>UdhayaSabari R</h6>
-                  <div>
-                    <span
-                      ><i class="bi bi-briefcase-fill"></i>&nbsp;HDB Financial
-                      Services</span
-                    >
+      <main class="page">
+        <div class="view-layout">
+          <!-- LEFT COLUMN -->
+          <aside class="left-col">
+            <div class="card profile-card">
+              <div class="profile-top">
+                <div class="avatar">BD</div>
+                <div>
+                  <div class="profile-name">Bhuvana Devi R</div>
+                  <div class="profile-sub">
+                    Software Engineer at
+                    <span class="link">Matrimonydotcom</span>
                   </div>
-                  <div>
-                    <span
-                      ><svg
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        stroke-width="2"
-                      >
-                        <path
-                          d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                        ></path>
-                      </svg>
-                      Madurai
-                    </span>
+                  <div class="profile-loc">
+                    <span class="pin">&#128205;</span> Sivakasi, Virudhunagar,
+                    TN
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="profile-card mt-4">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="row">
-                    <div class="details">
-                      <label>Email Id</label>
-                      <p>udhayasabari@hdb.com</p>
-                    </div>
-                    <div class="details">
-                      <label>Date of Birth</label>
-                      <p>23/10/1999</p>
-                    </div>
-                    <div class="details">
-                      <label>Current Location</label>
-                      <p>Madurai</p>
-                    </div>
+
+              <div class="profile-details-grid">
+                <div class="detail-block">
+                  <div class="detail-label">Email ID</div>
+                  <div class="detail-value truncate">
+                    bhuvanadevirr@gmail.com
                   </div>
                 </div>
-                <div class="col-lg-6">
-                  <div class="row">
-                    <div class="details">
-                      <label>Mobile Number</label>
-                      <p>8754673625</p>
-                    </div>
-                    <div class="details">
-                      <label>Gender</label>
-                      <p>Male</p>
-                    </div>
-                    <div class="details">
-                      <label>Home Town</label>
-                      <p>Madurai</p>
-                    </div>
-                  </div>
+                <div class="detail-block">
+                  <div class="detail-label">Mobile Number</div>
+                  <div class="detail-value">8667154165</div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="container col-lg-8">
-            <div class="faq active">
-              <div class="faq-question">
-                <h3>Basic Details</h3>
-                <div class="icon">+</div>
-              </div>
-
-              <div class="faq-answer">
-                <div class="row m-2">
-                  <!-- Left -->
-                  <div class="col-lg-6">
-                    <div class="mb-3">
-                      <label>Full name</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        value="udhayasabari"
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label>Date Of Birth</label>
-                      <input type="date" class="form-control" value="" />
-                    </div>
-                    <div class="mb-3">
-                      <label>Mobile Number</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        value="9776378676"
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label> Languages Known</label>
-                      <select class="form-control">
-                        <option>Tamil</option>
-                        <option>English</option>
-                      </select>
-                    </div>
-                    <div class="mb-3">
-                      <label> What job title/role are you looking for? </label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        value="Developer"
-                      />
-                    </div>
-                  </div>
-
-                  <!-- Right -->
-                  <div class="col-lg-6">
-                    <div class="mb-3">
-                      <label>Gender</label>
-                      <select class="form-control">
-                        <option>Female</option>
-                        <option>Male</option>
-                      </select>
-                    </div>
-                    <div class="mb-3">
-                      <label>Email Id</label>
-                      <input
-                        type="email"
-                        class="form-control"
-                        value="udhayasabari@hdb.com"
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label>Location (Hometown)</label>
-                      <input type="text" class="form-control" value="Madurai" />
-                    </div>
-                    <div class="mb-3">
-                      <label>Preferred Location</label>
-                      <input type="text" class="form-control" value="Madurai" />
-                    </div>
-                  </div>
+                <div class="detail-block">
+                  <div class="detail-label">Date of Birth</div>
+                  <div class="detail-value">16th Feb 1998</div>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Gender</div>
+                  <div class="detail-value">Female</div>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Current Location</div>
+                  <div class="detail-value">N/A</div>
+                </div>
+                <div class="detail-block">
+                  <div class="detail-label">Home Town</div>
+                  <div class="detail-value">Add Home Town</div>
                 </div>
               </div>
             </div>
 
-            <div class="faq">
-              <div class="faq-question">
-                <h3>Working Experience</h3>
-                <div class="icon">+</div>
+            <div class="section-label">My Activities</div>
+
+            <div class="card activity-card">
+              <div class="activity-icon">&#128196;</div>
+              <div class="activity-text">
+                <div class="activity-title">My Applications</div>
+                <div class="activity-sub">
+                  Check all your jobs applied and interview invites here
+                </div>
+              </div>
+              <span class="chevron">&#8250;</span>
+            </div>
+          </aside>
+
+          <!-- RIGHT COLUMN -->
+          <section class="right-col">
+            <div class="card">
+              <div class="card-header">
+                <h2>Work Experience</h2>
+                <button class="link-btn">+ Add</button>
               </div>
 
-              <div class="faq-answer m-2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="mb-3">
-                      <label>Job Title</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        value="Software Engineer"
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label>Skills</label>
-                      <input type="text" class="form-control" value="PHP" />
-                    </div>
-                    <div class="mb-3">
-                      <label>Company Industry</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        value="Software Product"
-                      />
-                    </div>
-                    <div class="mb-3">
-                      <label>Employment Type</label>
-                      <select class="form-control">
-                        <option>Intern</option>
-                        <option>Part Time</option>
-                        <option>Full Time</option>
-                        <option>Contract</option>
-                      </select>
-                    </div>
-                    <div class="mb-3">
-                      <label>End Date</label>
-                      <input type="month" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                      <label>Experience</label>
-                      <input type="number" class="form-control" value="2" />
-                    </div>
+              <div class="experience-block">
+                <div class="exp-row">
+                  <div class="exp-logo">&#128188;</div>
+                  <div class="exp-main">
+                    <div class="exp-title">Software Engineer</div>
+                    <div class="exp-company">Matrimonydotcom</div>
                   </div>
-                  <div class="col-lg-6">
-                    <div class="mb-3">
-                      <label>Job Role</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        value="Web Developer"
-                      />
+                  <button class="edit-btn">&#9998; Edit</button>
+                </div>
+
+                <div class="exp-sub-row">
+                  <span class="exp-sub-label">Job Role</span>
+                  <span class="exp-sub-value"
+                    >Backend Development &bull; Frontend Development</span
+                  >
+                </div>
+                <div class="exp-sub-row">
+                  <span class="exp-sub-label">Industry</span>
+                  <span class="exp-sub-value">Software Product</span>
+                </div>
+
+                <button class="skill-hint-row">
+                  <span
+                    >Add a description of your role and responsibilities</span
+                  >
+                  <span class="chevron">&#8250;</span>
+                </button>
+
+                <div class="exp-sub-row">
+                  <span class="exp-sub-label">Skills</span>
+                  <span class="exp-sub-value">Php developer</span>
+                </div>
+
+                <div class="exp-date-badge">May 2024 - Jun 2026</div>
+              </div>
+
+              <button class="row-toggle">
+                <span>Total Years of Experience</span>
+                <span class="chevron">&#8250;</span>
+              </button>
+
+              <button class="row-toggle">
+                <span>
+                  Current Monthly Salary
+                  <div class="row-toggle-sub">only visible to you</div>
+                </span>
+                <span class="row-value"
+                  >&#8377; 30,000 <span class="chevron">&#8250;</span></span
+                >
+              </button>
+
+              <button class="row-toggle add-row">
+                <span>+ Add</span>
+                <span class="chevron">&#8250;</span>
+              </button>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h2>Education</h2>
+                <button class="link-btn">+ Add</button>
+              </div>
+
+              <button class="row-toggle">
+                <span>Highest education</span>
+                <span class="row-value"
+                  >Post Graduate <span class="chevron">&#8250;</span></span
+                >
+              </button>
+
+              <button class="row-toggle">
+                <span>School medium</span>
+                <span class="chevron">&#8250;</span>
+              </button>
+
+              <div class="education-block">
+                <div class="edu-row">
+                  <div class="edu-logo">&#127891;</div>
+                  <div class="edu-main">
+                    <div class="edu-title">
+                      MCA , Mobile Application and Web Technology
                     </div>
-                    <div class="mb-3">
-                      <label>Company Name</label>
-                      <input type="text" class="form-control" value="HDB" />
+                    <div class="edu-sub">
+                      Arya Nadar Janaki Ammal College &bull; Post Graduate
                     </div>
-                    <div class="mb-3">
-                      <label
-                        >Employment details<br />Are you currently working in
-                        this company?</label
-                      >
-                      <br /><input type="radio" value="Yes" />&nbsp; Yes
-                      <input type="radio" value="No" />&nbsp; No
-                    </div>
-                    <div class="mb-3">
-                      <label>Start Date</label>
-                      <input type="month" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                      <label>Salary</label>
-                      <input type="number" class="form-control" value="20000" />
-                    </div>
-                    <div class="mb-3">
-                      <label>Description</label>
-                      <textarea class="form-control"></textarea>
-                    </div>
+                    <div class="edu-year-badge">Batch of 2026</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="faq">
-              <div class="faq-question">
-                <h3>Internship</h3>
-                <div class="icon">+</div>
+            <div class="card">
+              <div class="card-header">
+                <h2>Skills</h2>
+                <button class="link-btn">+ Add</button>
               </div>
-
-              <div class="faq-answer m-2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="mb-3">
-                      <label>Company Name</label>
-                      <input type="text" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                      <label>Start Date</label>
-                      <input type="month" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="mb-3">
-                      <label>Intern Title</label>
-                      <input type="text" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                      <label>End Date</label>
-                      <input type="month" class="form-control" />
-                    </div>
-                  </div>
-                </div>
+              <div class="chip-row">
+                <span class="chip">Php developer</span>
               </div>
             </div>
 
-            <div class="faq">
-              <div class="faq-question">
-                <h3>Education</h3>
-                <div class="icon">+</div>
-              </div>
-
-              <div class="faq-answer m-2">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="mb-3">
-                      <label>Highest Education</label>
-                      <input type="text" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                      <label>College Name</label>
-                      <input type="text" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                      <label>College Name</label>
-                      <input type="text" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                      <label>Specialization</label>
-                      <input type="text" class="form-control" />
-                    </div>
-                    <div class="mb-3">
-                      <label>Start Date</label>
-                      <input type="month" class="form-control" />
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="mb-3">
-                      <label>Medium</label>
-                      <select class="form-control">
-                        <option>Tamil</option>
-                        <option>English</option>
-                      </select>
-                    </div>
-                    <div class="mb-3">
-                      <label>Degree</label>
-                      <select class="form-control">
-                        <option>MCA</option>
-                        <option>BE</option>
-                      </select>
-                    </div>
-                    <div class="mb-3">
-                      <label>Education Type</label>
-                      <select class="form-control">
-                        <option>Full Time</option>
-                        <option>Part Time</option>
-                        <option>Correspondence</option>
-                      </select>
-                    </div>
-                    <div class="mb-3">
-                      <label>End Date</label>
-                      <input type="month" class="form-control" />
-                    </div>
-                  </div>
-                </div>
+            <div class="card">
+              <div class="card-header">
+                <h2>Further Education Preferences</h2>
+                <button class="link-btn">+ Add</button>
               </div>
             </div>
 
-            <div class="faq">
-              <div class="faq-question">
-                <h3>Course / Certifications</h3>
-                <div class="icon">+</div>
+            <div class="card">
+              <div class="card-header">
+                <h2>Certifications</h2>
+                <button class="link-btn">+ Add</button>
               </div>
+              <div class="empty-note">No certification added</div>
+            </div>
 
-              <div class="faq-answer m-2">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="resume-section">
-                      <div class="upload-card">
-                        <div class="upload-icon">
-                          <i class="bi bi-upload"></i>
-                        </div>
-
-                        <h3>Upload pdf, doc, or docx files only</h3>
-                        <span>Max file size 5MB</span>
-
-                        <button class="upload-btn">
-                          <i class="bi bi-upload"></i>
-                          Upload Certifications
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div class="card">
+              <div class="card-header">
+                <h2>Languages known</h2>
+                <button class="link-btn">&#9998; Edit</button>
+              </div>
+              <div class="chip-row">
+                <span class="chip">English</span>
+                <span class="chip">&#10003; Kannada</span>
               </div>
             </div>
 
-            <div class="faq">
-              <div class="faq-question">
-                <h3>Resume</h3>
-                <div class="icon">+</div>
+            <div class="card spoken-english-card">
+              <h2>Spoken English</h2>
+              <div class="sub-note">Only visible to HRs</div>
+              <p class="spoken-desc">
+                Sharing the required level of English speaking proficiency will
+                help you find jobs at top companies
+              </p>
+              <button class="outline-btn">&#9989; Verify now</button>
+            </div>
+
+            <div class="card resume-card">
+              <div class="card-header">
+                <h2>Resume</h2>
+                <button class="link-btn">&#9998; Add</button>
+              </div>
+              <div class="sub-note">Only visible to HRs</div>
+
+              <div class="resume-drop">
+                <div class="upload-icon">&#8593;</div>
+                <div class="upload-text">
+                  Upload pdf, doc, or docx files only<br />Max file size 5MB
+                </div>
               </div>
 
-              <div class="faq-answer m-2">
-                <div class="row">
-                  <div class="col-lg-12">
-                    <div class="resume-section">
-                      <div class="upload-card">
-                        <div class="upload-icon">
-                          <i class="bi bi-upload"></i>
-                        </div>
+              <button class="outline-btn">+ Upload resume</button>
+              <div class="resume-warning">
+                &#9888; Get noticed for your applied job interest
+              </div>
+            </div>
 
-                        <h3>Upload pdf, doc, or docx files only</h3>
-                        <span>Max file size 5MB</span>
+            <div class="section-block">
+              <h2 class="section-heading">Other details</h2>
+              <div class="sub-note">Only visible to HRs</div>
 
-                        <button class="upload-btn">
-                          <i class="bi bi-upload"></i>
-                          Upload Resume
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+              <div class="card">
+                <button class="row-toggle stacked">
+                  <span class="row-toggle-title">Preferred job title/role</span>
+                  <span class="chevron">&#8250;</span>
+                </button>
+                <div class="row-toggle-desc">
+                  Software Architect, DevOps Engineer, Product Owner, Full Stack
+                  Engineer
+                </div>
+              </div>
+
+              <div class="card">
+                <button class="row-toggle stacked">
+                  <span class="row-toggle-title">Location</span>
+                  <span class="chevron">&#8250;</span>
+                </button>
+                <div class="row-toggle-desc">
+                  Add Hometown &bull; Current Location &bull; Preferred Location
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="row-toggle-title pad">Job preference</div>
+                <div class="row-toggle-desc pad">
+                  No job preferences added. Add details to increase your chances
+                  of getting a job
+                </div>
+                <button class="outline-btn">+ Add job preference</button>
+              </div>
+
+              <div class="card">
+                <div class="row-toggle-title pad">Documents &amp; assets</div>
+                <div class="row-toggle-desc pad">
+                  Adding your documents and assets will increase your visibility
+                  with employers by 28%
+                </div>
+                <button class="outline-btn">+ Add documents and assets</button>
+              </div>
+
+              <div class="card">
+                <button class="row-toggle stacked">
+                  <span class="row-toggle-title">Basic details</span>
+                  <span class="chevron">&#8250;</span>
+                </button>
+                <div class="row-toggle-desc">
+                  Bhuvana Devi R &bull; Verify your email &bull; 8667154165
+                  &bull; Female &bull; +91 Field 1698
                 </div>
               </div>
             </div>
-          </div>
+          </section>
         </div>
       </main>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/app.js"></script>
+    <footer id="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand-logo">
+              <div class="logo-mark" aria-hidden="true">H</div>
+              <span class="logo-name">Hire<span>gram</span></span>
+            </div>
+            <p class="footer-desc">
+              Connecting ambitious professionals with world-class companies.
+              Your career journey starts here.
+            </p>
+            <div class="social-links" aria-label="Social media links">
+              <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+              <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+              <a href="#" class="social-link" aria-label="Facebook">f</a>
+              <a href="#" class="social-link" aria-label="Instagram">◉</a>
+            </div>
+          </div>
+          <div>
+            <h3 class="footer-col-title">For Job Seekers</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="browse-jobs.html">Browse Jobs</a></li>
+              <li><a href="index.html#categories">Job Categories</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">For Employers</h3>
+            <ul class="footer-links" role="list">
+              <li>
+                <a href="employer/login.html" target="_blank">Post a Job</a>
+              </li>
+              <li><a href="talent-search.html">Talent Search</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">Company</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">
+            © 2026 <a href="#">Hiregram</a>. All rights reserved. Built with ♥
+            for ambitious people.
+          </p>
+          <div class="footer-bottom-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="faq.html">FAQs</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
-      const faqs = document.querySelectorAll(".faq");
-
-      faqs.forEach((faq) => {
-        if (faq.classList.contains("active")) {
-          faq.querySelector(".faq-answer").style.maxHeight =
-            faq.querySelector(".faq-answer").scrollHeight + "px";
-        }
-
-        faq.querySelector(".faq-question").addEventListener("click", () => {
-          faqs.forEach((item) => {
-            if (item !== faq) {
-              item.classList.remove("active");
-              item.querySelector(".faq-answer").style.maxHeight = null;
-            }
+      document.addEventListener("DOMContentLoaded", function () {
+        // Generic click feedback for edit/add buttons — placeholder for real navigation/modals
+        document
+          .querySelectorAll(".link-btn, .edit-btn, .outline-btn")
+          .forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              console.log("Action clicked:", btn.textContent.trim());
+            });
           });
 
-          faq.classList.toggle("active");
-
-          const answer = faq.querySelector(".faq-answer");
-
-          if (faq.classList.contains("active")) {
-            answer.style.maxHeight = answer.scrollHeight + "px";
-          } else {
-            answer.style.maxHeight = null;
-          }
+        // Row toggles expand/collapse feel (visual press state) — real app would open a modal/edit sheet
+        document.querySelectorAll(".row-toggle").forEach(function (row) {
+          row.addEventListener("click", function () {
+            row.classList.toggle("active");
+          });
         });
+
+        // Resume drop zone — drag over visual state
+        var dropZone = document.querySelector(".resume-drop");
+        if (dropZone) {
+          ["dragenter", "dragover"].forEach(function (evt) {
+            dropZone.addEventListener(evt, function (e) {
+              e.preventDefault();
+              dropZone.style.borderColor = "#0a8a6c";
+              dropZone.style.background = "#f0faf7";
+            });
+          });
+          ["dragleave", "drop"].forEach(function (evt) {
+            dropZone.addEventListener(evt, function (e) {
+              e.preventDefault();
+              dropZone.style.borderColor = "";
+              dropZone.style.background = "";
+            });
+          });
+          dropZone.addEventListener("drop", function (e) {
+            var files = e.dataTransfer.files;
+            if (files && files.length) {
+              console.log("File dropped:", files[0].name);
+            }
+          });
+        }
+
+        // Activity card click
+        var activityCard = document.querySelector(".activity-card");
+        if (activityCard) {
+          activityCard.addEventListener("click", function () {
+            console.log("Navigating to My Applications");
+          });
+        }
       });
     </script>
   </body>

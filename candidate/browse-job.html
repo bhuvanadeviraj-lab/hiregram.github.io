@@ -18,14 +18,26 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="../assets/css/common.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
     <style>
       :root {
-        --green: #16a34a;
-        --green-dark: #1a3c6e;
-        --text: #0f2447;
-        --muted: #94a3b8;
-        --border: #cbd5e1;
-        --bg: #f8fafc;
+        --bg: #f3f1f7;
+        --card: #ffffff;
+        --ink: #1a1330;
+        --sub: #6b6478;
+        --brand: #5b3fae;
+        --brand-dark: #402b82;
+        --green: #0f7a5c;
+        --green-dark: #0b5e46;
+        --chip-bg: #f1eef7;
+        --chip-ink: #5c5468;
+        --border: #e7e3ef;
+        --purple-soft: #f3ecff;
       }
       * {
         box-sizing: border-box;
@@ -33,492 +45,955 @@
       body {
         margin: 0;
         font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+          "Segoe UI",
+          system-ui,
+          -apple-system,
+          Roboto,
+          Arial,
           sans-serif;
         background: var(--bg);
-        color: var(--text);
+        color: var(--ink);
       }
-      .page {
-        max-width: auto;
-        margin: 24px auto;
-        padding: 0 16px;
+      a {
+        text-decoration: none;
+        color: inherit;
       }
-      .card {
+
+      /* Top bar */
+      .topbar {
         background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 12px;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-      }
-      .header {
-        padding: 16px 24px;
-        border-bottom: 1px solid #f1f5f9;
-        font-size: 18px;
-        font-weight: 600;
-      }
-      .stepper {
-        display: flex;
-        align-items: flex-start;
-        padding: 20px 24px 8px;
-        overflow-x: auto;
-      }
-      .step {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        flex-shrink: 0;
-      }
-      .step-circle {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        font-size: 12px;
-        font-weight: 600;
-        border: 1px solid var(--border);
-        background: #fff;
-        color: var(--muted);
-      }
-      .step-circle.done {
-        background: var(--green);
-        border-color: var(--green);
-        color: #fff;
-      }
-      .step-circle.active {
-        background: #0f172a;
-        border-color: #0f172a;
-        color: #fff;
-      }
-      .step-label {
-        font-size: 11px;
-        font-weight: 500;
-        color: var(--muted);
-        white-space: nowrap;
-      }
-      .step-label.active {
-        color: #0f172a;
-      }
-      .step-line {
-        height: 1px;
-        background: #e2e8f0;
-        flex: 1;
-        margin: 13px 6px 0;
-        min-width: 24px;
-      }
-      .step-line.done {
-        background: var(--green);
-      }
-
-      .body {
-        padding: 8px 24px 24px;
-      }
-
-      .section-title {
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 2px;
-      }
-      .section-hint {
-        font-size: 13px;
-        color: var(--muted);
-        margin-bottom: 18px;
-      }
-      .required-note {
-        color: #f87171;
-        margin-left: 8px;
-      }
-
-      .divider {
-        border-top: 1px solid #f1f5f9;
-        margin: 22px 0 18px;
-      }
-
-      .field {
-        margin-bottom: 18px;
-      }
-      .field label {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 13px;
-        font-weight: 500;
-        margin-bottom: 6px;
-      }
-      .field .req {
-        color: #ef4444;
-      }
-      .field .info-dot {
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: #e2e8f0;
-        color: #64748b;
-        font-size: 9px;
-        display: grid;
-        place-items: center;
-      }
-      .field .subnote {
-        font-size: 11px;
-        color: var(--muted);
-        margin-top: 4px;
-      }
-
-      input[type="text"],
-      input[type="date"],
-      input[type="number"],
-      select,
-      textarea {
-        width: 100%;
-        padding: 8px 12px;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        font-size: 13px;
-        color: var(--text);
-        font-family: inherit;
-        outline: none;
-      }
-      input:focus,
-      select:focus,
-      textarea:focus {
-        border-color: var(--green);
-        box-shadow: 0 0 0 1px var(--green);
-      }
-      textarea {
-        resize: vertical;
-      }
-
-      .row-2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-      }
-      .range-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .range-row span {
-        font-size: 12px;
-        color: var(--muted);
-      }
-
-      .pill-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .pill {
-        border: 1px solid var(--border);
-        background: #fff;
-        color: #475569;
-        border-radius: 999px;
-        padding: 6px 16px;
-        font-size: 13px;
-        font-weight: 500;
-        cursor: pointer;
-      }
-      .pill.small {
-        padding: 4px 12px;
-        font-size: 12px;
-      }
-      .pill.active {
-        background: var(--text);
-        border-color: var(--text);
-        color: #fff;
-      }
-
-      .tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        border: 1px solid var(--green);
-        background: #ecfdf5;
-        color: var(--green-dark);
-        border-radius: 999px;
-        padding: 5px 12px;
-        font-size: 13px;
-        font-weight: 500;
-      }
-      .tag button {
-        border: none;
-        background: transparent;
-        color: var(--green-dark);
-        cursor: pointer;
-        font-size: 13px;
-        line-height: 1;
-        padding: 0;
-      }
-      .add-pill {
-        border: 1px dashed var(--border);
-        background: #fff;
-        color: #64748b;
-        border-radius: 999px;
-        padding: 5px 12px;
-        font-size: 13px;
-        cursor: pointer;
-      }
-
-      .addr-box {
+        border-bottom: 1px solid var(--border);
+        padding: 14px 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        padding: 8px 12px;
-        font-size: 13px;
+        position: sticky;
+        top: 0;
+        z-index: 20;
       }
-      .link-btn {
-        background: none;
-        border: none;
+      .brand {
+        font-weight: 800;
+        font-size: 20px;
+        color: var(--brand);
+      }
+      .brand span {
         color: var(--green);
-        font-weight: 500;
-        font-size: 12px;
-        cursor: pointer;
-        padding: 0;
       }
 
-      .info-box {
-        background: #f0f9ff;
-        border-radius: 6px;
-        padding: 8px 12px;
-        font-size: 12px;
-        color: #475569;
-        margin-top: 8px;
+      .page {
+        max-width: 100vw;
+        margin: 0 auto;
+        padding: 20px;
       }
-      .info-box.violet {
-        background: #f5f3ff;
-      }
-      .amber-box {
-        background: #fffbeb;
-        border-radius: 6px;
-        padding: 12px 16px;
-        margin-bottom: 18px;
-      }
-      .amber-box .brow {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        color: #64748b;
-        margin-bottom: 4px;
-      }
-      .amber-box .brow.total {
-        border-top: 1px solid #fde68a;
-        padding-top: 8px;
-        margin-top: 6px;
-        font-weight: 600;
-        color: #334155;
+      h1.title {
+        font-size: 26px;
+        margin: 0 0 20px;
+        color: #241a3d;
       }
 
-      .checkbox-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        color: #475569;
-        margin-bottom: 18px;
-      }
-      .radio-col {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .radio-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        color: #334155;
+      .layout {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        /* gap: 20px; */
       }
 
-      .nav-row {
-        display: flex;
-        justify-content: space-between;
+      /* ===== Filter icon button (mobile trigger) ===== */
+      .filter-fab {
+        display: none;
         align-items: center;
-        border-top: 1px solid #f1f5f9;
-        padding-top: 18px;
-        margin-top: 24px;
-      }
-      .btn {
-        border-radius: 6px;
-        padding: 9px 24px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        border: none;
-      }
-      .btn-primary {
-        background: var(--green);
-        color: #fff;
-      }
-      .btn-primary:hover {
-        background: var(--green-dark);
-      }
-      .btn-outline {
+        gap: 8px;
         background: #fff;
         border: 1px solid var(--border);
-        color: #475569;
-      }
-      .btn-outline:hidden {
-        visibility: hidden;
-      }
-
-      .preview-section {
-        border: 1px solid #e2e8f0;
-        border-radius: 8px;
-        margin-bottom: 14px;
-      }
-      .preview-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 16px;
-        font-size: 14px;
+        color: var(--ink);
         font-weight: 600;
-      }
-      .preview-head .actions {
-        display: flex;
-        gap: 10px;
-      }
-      .preview-head button {
-        border: none;
-        background: none;
-        cursor: pointer;
-        color: #94a3b8;
         font-size: 14px;
-      }
-      .preview-body {
-        border-top: 1px solid #f1f5f9;
-        padding: 12px 16px;
-      }
-      .p-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 8px;
-        font-size: 13px;
-        flex-wrap: wrap;
-      }
-      .p-row .k {
-        color: #fb923c;
-        font-size: 12px;
-        flex: 1 1 40%;
-      }
-      .p-row .v {
-        font-weight: 500;
-        color: #1e293b;
-        text-align: right;
-        flex: 1 1 55%;
-      }
-      .req-box {
-        background: #f0f9ff;
-        border-radius: 6px;
-        padding: 8px 12px;
-        font-size: 12px;
-        color: #475569;
-        margin-bottom: 12px;
-      }
-
-      .ai-box {
-        background: #fffbeb;
-        border-radius: 6px;
-        padding: 12px 16px;
+        padding: 10px 16px;
+        border-radius: 24px;
+        box-shadow: 0 2px 10px rgba(20, 10, 50, 0.06);
+        cursor: pointer;
         margin-bottom: 16px;
       }
-      .ai-box-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 13px;
-        color: #334155;
-        margin-bottom: 8px;
+      .filter-fab svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
       }
-      .ai-badge {
-        background: #0f172a;
+      .filter-fab .count {
+        background: var(--brand);
         color: #fff;
-        border-radius: 999px;
-        padding: 4px 12px;
-        font-size: 11px;
-        font-weight: 600;
-        white-space: nowrap;
-        margin-left: 8px;
-      }
-      .ai-suggestion-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #fff;
-        border-radius: 6px;
-        padding: 10px 14px;
-      }
-      .ai-suggestion-row .txt {
-        font-size: 13px;
-      }
-      .ai-suggestion-row .arrow {
-        color: #94a3b8;
-      }
-      .ai-suggestion-row .new {
-        color: #7c3aed;
-        font-weight: 600;
-      }
-      .btn-update {
-        border: 1px solid var(--green);
-        color: var(--green);
-        background: #fff;
-        border-radius: 6px;
-        padding: 5px 16px;
-        font-size: 12px;
-        font-weight: 600;
-        cursor: pointer;
-      }
-      .ai-note {
-        font-size: 11px;
-        color: var(--muted);
-        margin-top: 6px;
-      }
-
-      .publish-panel {
-        text-align: center;
-        padding: 40px 10px;
-      }
-      .publish-panel .check {
-        width: 48px;
-        height: 48px;
         border-radius: 50%;
-        background: #dcfce7;
-        color: var(--green);
-        display: grid;
-        place-items: center;
-        font-size: 22px;
-        margin: 0 auto 14px;
+        width: 18px;
+        height: 18px;
+        font-size: 11px;
+        display: none;
+        align-items: center;
+        justify-content: center;
       }
-      .publish-panel h3 {
-        margin: 0 0 8px;
-        font-size: 15px;
-      }
-      .publish-panel p {
-        max-width: 380px;
-        margin: 0 auto;
-        font-size: 13px;
-        color: #64748b;
+      .filter-fab .count.show {
+        display: flex;
       }
 
-      [data-step] {
+      /* ===== Sidebar / filter panel content ===== */
+      .filters-card {
+        background: var(--card);
+        border-radius: 14px;
+        padding: 18px;
+        border: 1px solid var(--border);
+      }
+      .f-group {
+        border-bottom: 1px solid var(--border);
+        padding: 14px 0;
+      }
+      .f-group:first-child {
+        padding-top: 0;
+      }
+      .f-group:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .f-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 700;
+        font-size: 15px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .f-head svg {
+        width: 14px;
+        height: 14px;
+        transition: transform 0.2s;
+        color: var(--sub);
+      }
+      .f-group.collapsed .f-head svg {
+        transform: rotate(180deg);
+      }
+      .f-body {
+        margin-top: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .f-group.collapsed .f-body {
         display: none;
       }
-      [data-step].active {
+      .radio-row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+        color: #3a3350;
+        cursor: pointer;
+      }
+      .radio-row input {
+        accent-color: var(--brand);
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+      }
+      .salary-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 13px;
+        color: var(--sub);
+        margin-top: 4px;
+      }
+      input[type="range"] {
+        width: 100%;
+        accent-color: var(--green);
+      }
+
+      /* ===== Job list ===== */
+      .job-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .job-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 18px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        transition:
+          box-shadow 0.15s,
+          transform 0.15s;
+      }
+      .job-card:hover {
+        box-shadow: 0 8px 24px rgba(30, 15, 70, 0.08);
+        transform: translateY(-1px);
+      }
+      .job-top {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .job-logo {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 13px;
+        color: var(--brand);
+        flex-shrink: 0;
+        background: #fafafd;
+      }
+      .job-info {
+        flex: 1;
+        min-width: 0;
+      }
+      .job-info h3 {
+        margin: 0 0 2px;
+        font-size: 16.5px;
+        color: #231a3c;
+      }
+      .job-info .company {
+        color: var(--sub);
+        font-size: 13.5px;
+      }
+      .chev {
+        color: #b7b1c6;
+        flex-shrink: 0;
+        margin-top: 6px;
+        position: absolute;
+        right: 10px;
+      }
+      .job-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+        font-size: 13.5px;
+        color: #4a4258;
+        margin-left: 10px;
+      }
+
+      .job-meta .row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .job-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-left: 20px;
+        margin-top: 2px;
+      }
+      .tag {
+        background: var(--chip-bg);
+        color: var(--chip-ink);
+        font-size: 12.5px;
+        padding: 6px 10px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      /* ===== Right rail ===== */
+      .rail {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .profile-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 22px;
+        text-align: center;
+      }
+      .avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: #3d3452;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 12px;
+      }
+      .avatar svg {
+        width: 30px;
+        height: 30px;
+        color: #fff;
+      }
+      .profile-card h4 {
+        margin: 0;
+        font-size: 16px;
+      }
+      .profile-card p {
+        margin: 2px 0 14px;
+        color: var(--sub);
+        font-size: 13.5px;
+      }
+      .btn-outline {
+        border: 1.5px solid var(--green);
+        color: var(--green);
+        background: #fff;
+        padding: 10px 0;
+        width: 100%;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .track-card {
+        background: linear-gradient(180deg, #e4f7ee, #d9f3e6);
+        border-radius: 14px;
+        padding: 20px;
+      }
+      .track-card .row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .track-card .ic {
+        width: 34px;
+        height: 34px;
+        background: var(--green);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .track-card .ic svg {
+        width: 18px;
+        height: 18px;
+        color: #fff;
+      }
+      .track-card strong {
+        font-size: 15px;
+        color: #0d3f30;
+      }
+      .btn-green {
+        background: var(--green);
+        color: #fff;
+        border: none;
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .app-card {
+        background: linear-gradient(180deg, #f1e8ff, #e9dcff);
+        border-radius: 14px;
+        padding: 22px;
+        position: relative;
+        overflow: hidden;
+      }
+      .app-card h3 {
+        margin: 0 0 12px;
+        color: var(--brand);
+        font-size: 19px;
+      }
+      .app-card ul {
+        margin: 0;
+        padding-left: 18px;
+        font-size: 13.5px;
+        color: #4a4258;
+        line-height: 1.9;
+      }
+      .app-rating {
+        margin-top: 16px;
+        font-weight: 800;
+        font-size: 15px;
+        color: #241a3d;
+      }
+      .app-rating span {
+        display: block;
+        font-weight: 500;
+        color: var(--sub);
+        font-size: 12.5px;
+      }
+
+      /* ===== Filter overlay (mobile drawer) ===== */
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(20, 10, 40, 0.45);
+        display: none;
+        z-index: 100;
+      }
+      .overlay.open {
         display: block;
       }
-      #fixedWhatsAppIcon {
-        right: 0px !important;
-        bottom: 45px !important;
-        width: 20px !important;
-        height: 20px !important;
-        left: 17px !important;
-        position: unset !important;
+      .drawer {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        border-radius: 18px 18px 0 0;
+        max-height: 85vh;
+        overflow-y: auto;
+        transform: translateY(100%);
+        transition: transform 0.28s ease;
+        z-index: 101;
+        padding: 0;
+      }
+      .drawer.open {
+        transform: translateY(0);
+      }
+      .drawer-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        background: #fff;
+      }
+      .drawer-head h3 {
+        margin: 0;
+        font-size: 17px;
+      }
+      .drawer-close {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: var(--sub);
+        line-height: 1;
+        padding: 4px;
+      }
+      .drawer-body {
+        padding: 6px 20px 12px;
+      }
+      .drawer-footer {
+        position: sticky;
+        bottom: 0;
+        background: #fff;
+        border-top: 1px solid var(--border);
+        padding: 14px 20px;
+        display: flex;
+        gap: 12px;
+      }
+      .btn-reset {
+        flex: 1;
+        background: #fff;
+        border: 1.5px solid var(--border);
+        color: var(--ink);
+        font-weight: 700;
+        border-radius: 8px;
+        padding: 12px;
+        cursor: pointer;
+      }
+      .btn-apply {
+        flex: 2;
+        background: var(--brand);
+        border: none;
+        color: #fff;
+        font-weight: 700;
+        border-radius: 8px;
+        padding: 12px;
+        cursor: pointer;
+      }
+
+      /* ===== Search bar ===== */
+      .search-wrap {
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+      }
+      .search-wraps {
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+      }
+      .search-bar {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 18px 20px;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr auto;
+        gap: 12px;
+      }
+      .search-field {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #f1eef7;
+        border-radius: 10px;
+        padding: 0 14px;
+        height: 52px;
+        position: relative;
+      }
+      .search-field svg {
+        width: 18px;
+        height: 18px;
+        color: #847c98;
+        flex-shrink: 0;
+      }
+      .search-field input {
+        flex: 1;
+        border: none;
+        background: transparent;
+        outline: none;
+        font-size: 15px;
+        color: var(--ink);
+        height: 100%;
+      }
+      .search-field input::placeholder {
+        color: #8c849c;
+      }
+      .search-field.select {
+        cursor: pointer;
+      }
+      .search-field.select span {
+        flex: 1;
+        color: #8c849c;
+        font-size: 15px;
+      }
+      .search-field .chevron-ic {
+        width: 16px;
+        height: 16px;
+        color: #847c98;
+        flex-shrink: 0;
+        transition: transform 0.2s;
+      }
+      .search-field.select.open .chevron-ic {
+        transform: rotate(180deg);
+      }
+      .search-btn {
+        background: var(--green);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 0 28px;
+        height: 52px;
+        font-weight: 700;
+        font-size: 15px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+      .search-btn:hover {
+        background: var(--green-dark);
+      }
+
+      .exp-dropdown {
+        position: absolute;
+        top: 58px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(20, 10, 50, 0.12);
+        padding: 8px;
+        display: none;
+        z-index: 30;
+        max-height: 220px;
+        overflow-y: auto;
+      }
+      .exp-dropdown.open {
+        display: block;
+      }
+      .exp-dropdown .opt {
+        padding: 10px 12px;
+        border-radius: 8px;
+        font-size: 14.5px;
+        color: #3a3350;
+        cursor: pointer;
+      }
+      .exp-dropdown .opt:hover {
+        background: #f1eef7;
+      }
+      .exp-dropdown .opt.selected {
+        background: var(--purple-soft);
+        color: var(--brand);
+        font-weight: 600;
+      }
+
+      @media (max-width: 900px) {
+        .search-bar {
+          grid-template-columns: 1fr;
+        }
+        .search-btn {
+          width: 100%;
+        }
+      }
+
+      /* ===== Right-side search results panel ===== */
+      .panel-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(20, 10, 40, 0.45);
+        display: none;
+        z-index: 150;
+      }
+      .panel-overlay.open {
+        display: block;
+      }
+      .side-panel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: 92vw;
+        background: var(--bg);
+        z-index: 151;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        box-shadow: -8px 0 30px rgba(20, 10, 50, 0.15);
+      }
+      .side-panel.open {
+        transform: translateX(0);
+      }
+      .panel-head {
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: 0;
+      }
+      .panel-head-text h3 {
+        margin: 0 0 3px;
+        font-size: 16.5px;
+        color: #241a3d;
+      }
+      .panel-head-text p {
+        margin: 0;
+        font-size: 13px;
+        color: var(--sub);
+      }
+      .panel-close {
+        background: #f1eef7;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        font-size: 18px;
+        color: var(--sub);
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+      .panel-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 16px 18px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .panel-body .job-card {
+        padding: 16px 16px;
+      }
+      .panel-count {
+        font-size: 13px;
+        color: var(--sub);
+        padding: 2px 2px 4px;
+      }
+      .panel-empty {
+        text-align: center;
+        color: var(--sub);
+        font-size: 14px;
+        padding: 60px 20px;
+      }
+
+      @media (max-width: 560px) {
+        .side-panel {
+          width: 100vw;
+          max-width: 100vw;
+        }
+      }
+
+      /* Desktop-only sidebar visibility handled via media query */
+      .sidebar-desktop {
+        display: block;
+      }
+
+      @media (max-width: 980px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .sidebar-desktop {
+          display: none;
+        }
+        .filter-fab {
+          display: inline-flex;
+        }
+        .rail {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        .app-card {
+          grid-column: span 2;
+        }
+      }
+      @media (max-width: 560px) {
+        .page {
+          padding: 16px 14px 40px;
+        }
+        h1.title {
+          font-size: 20px;
+        }
+        .rail {
+          grid-template-columns: 1fr;
+        }
+        .app-card {
+          grid-column: span 1;
+        }
+        .job-meta,
+        .job-tags {
+          margin-left: 0;
+        }
+        .job-top {
+          gap: 10px;
+        }
+      }
+
+      #footer {
+        background: var(--text-dark);
+        padding: var(--sp-16) 0 var(--sp-6);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: var(--sp-8);
+        margin-bottom: var(--sp-12);
+      }
+
+      .footer-brand-logo {
+        display: flex;
+        align-items: center;
+        gap: var(--sp-2);
+        margin-bottom: var(--sp-4);
+      }
+
+      .footer-brand-logo .logo-mark {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--accent)
+        );
+      }
+
+      .footer-brand-logo .logo-name {
+        color: var(--white);
+      }
+
+      .footer-brand-logo .logo-name span {
+        color: var(--accent);
+      }
+
+      .footer-desc {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.7;
+        margin-bottom: var(--sp-6);
+        max-width: 260px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: var(--sp-2);
+      }
+
+      .social-link {
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        transition: all var(--transition-base);
+        color: #fff;
+      }
+
+      .social-link:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+
+      .footer-col-title {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sp-2);
+      }
+
+      .footer-links a {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.5);
+        transition:
+          color var(--transition-fast),
+          transform var(--transition-fast);
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: var(--white);
+        transform: translateX(3px);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: var(--sp-6);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--sp-4);
+        flex-wrap: wrap;
+      }
+
+      .footer-copy {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.35);
+      }
+
+      .footer-copy a {
+        color: var(--accent);
+        transition: color var(--transition-fast);
+      }
+
+      .footer-copy a:hover {
+        color: var(--accent-light);
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        gap: var(--sp-4);
+      }
+
+      .footer-bottom-links a {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.35);
+        transition: color var(--transition-fast);
+      }
+
+      .footer-bottom-links a:hover {
+        color: var(--white);
+      }
+
+      .logo-mark {
+        width: 38px;
+        height: 38px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.1rem;
+        color: var(--white);
+      }
+
+      @media (max-width: 1024px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer-bottom-links {
+          justify-content: center;
+        }
+      }
+
+      .job-layout {
+        display: grid;
+        gap: 10px;
+        align-items: start;
+        grid-template-columns: 1fr;
+      }
+
+      /* Mobile (≥576px) */
+      @media (max-width: 576px) and (min-width: 400px) {
+        .job-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Tablet (≥768px) */
+      @media (min-width: 780px) {
+        .job-layout {
+          grid-template-columns: 3fr 1fr;
+        }
+      }
+
+      /* Laptop (≥992px) */
+      @media (min-width: 980px) {
+        .job-layout {
+          grid-template-columns: 1fr 3fr 1fr;
+        }
+      }
+
+      /* Desktop (≥1200px) */
+      @media (min-width: 1200px) {
+        .job-layout {
+          grid-template-columns: 2fr 4fr 2fr;
+        }
+      }
+
+      #search-grp {
+        display: none;
+      }
+
+      @media (max-width: 780px) {
+        .search-wrap {
+          display: none;
+        }
+
+        #search-grp {
+          display: block;
+        }
       }
     </style>
-    <link rel="stylesheet" href="../assets/css/common.css" />
   </head>
   <body>
     <div class="topbar">
@@ -653,1043 +1128,647 @@
         </div>
       </div>
 
-      <main class="job-container">
-        <!-- Simple hero for browse page -->
-        <section id="browse-hero">
-          <div class="container">
-           <!-- Quick search row -->
-            <div class="quick-search mt-4" data-aos="fade-up" data-aos-delay="150">
-              <div class="search-field">
-                <span class="field-icon">🔍</span>
-                <input
-                  type="text"
-                  placeholder="Job title or keyword"
-                  aria-label="Job title"
-                />
-              </div>
-              <div class="search-field">
-                <span class="field-icon">📍</span>
-                <input
-                  type="text"
-                  placeholder="City or remote"
-                  aria-label="Location"
-                />
-              </div>
-              <div class="search-field">
-                <span class="field-icon">📂</span>
-                <select aria-label="Category">
-                  <option>All categories</option>
-                  <option>Technology</option>
-                  <option>Design</option>
-                  <option>Marketing</option>
-                  <option>Finance</option>
-                </select>
-              </div>
-              <button
-                class="btn btn-primary"
-                style="border-radius: var(--radius-md)"
+      <div class="page">
+        <div class="search-wrap">
+          <div class="search-bar">
+            <div class="search-field">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
               >
-                Search
+                <circle cx="11" cy="11" r="7" />
+                <path d="M21 21l-4.3-4.3" />
+              </svg>
+              <input
+                type="text"
+                id="searchTitle"
+                placeholder="Search jobs by 'title'"
+              />
+            </div>
+
+            <div class="search-field select" id="expField">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="3" y="7" width="18" height="13" rx="2" />
+                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+              </svg>
+              <span id="expLabel">Your Experience</span>
+              <svg
+                class="chevron-ic"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+              <div class="exp-dropdown" id="expDropdown">
+                <div class="opt selected" data-val="Your Experience">
+                  Fresher
+                </div>
+                <div class="opt" data-val="Less than 1 year">
+                  Less than 1 year
+                </div>
+                <div class="opt" data-val="1 year">1 year</div>
+                <div class="opt" data-val="2 years">2 years</div>
+                <div class="opt" data-val="3 years">3 years</div>
+                <div class="opt" data-val="5+ years">5+ years</div>
+                <div class="opt" data-val="10+ years">10+ years</div>
+              </div>
+            </div>
+
+            <div class="search-field">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+              <input
+                type="text"
+                id="searchLoc"
+                placeholder="Search for an area or city"
+              />
+            </div>
+
+            <button class="search-btn" id="searchJobsBtn">Search jobs</button>
+          </div>
+        </div>
+
+        <div class="search-wrap" id="search-grp">
+          <div class="search-bar">
+            <div class="search-field" id="search-field">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="M21 21l-4.3-4.3" />
+              </svg>
+              <input
+                type="text"
+                id="searchTitle"
+                placeholder="Search jobs by 'title'"
+              />
+            </div>
+          </div>
+        </div>
+
+        <h1 class="title mt-4">Jobs In Bhilai - 252 Verified Vacancies</h1>
+
+        <!-- Mobile filter trigger -->
+        <button class="filter-fab" id="filterFab">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M4 6h16M7 12h10M10 18h4" />
+          </svg>
+          Filters
+          <span class="count" id="filterCount">0</span>
+        </button>
+
+        <div class="job-layout">
+          <!-- Desktop sidebar -->
+          <aside class="sidebar-desktop">
+            <div class="filters-card" id="desktopFilters"></div>
+          </aside>
+
+          <!-- Job list -->
+          <main class="job-list" id="jobList"></main>
+
+          <!-- Right rail -->
+          <aside class="rail">
+            <div class="profile-card">
+              <div class="avatar">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 12c2.7 0 4.9-2.2 4.9-4.9S14.7 2.2 12 2.2 7.1 4.4 7.1 7.1 9.3 12 12 12zm0 2.5c-3.3 0-9.8 1.6-9.8 4.9v2.4h19.6v-2.4c0-3.3-6.5-4.9-9.8-4.9z"
+                  />
+                </svg>
+              </div>
+              <h4>Bhuvana Devi R</h4>
+              <p>Software Engineer<br />Matrimonydotcom</p>
+              <button class="btn-outline">Update profile</button>
+            </div>
+
+            <div class="track-card">
+              <div class="row">
+                <div class="ic">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 2h9l5 5v15H6V2zm8 1.5V8h4.5L14 3.5z" />
+                  </svg>
+                </div>
+                <strong>Track your Job Applications</strong>
+              </div>
+              <button class="btn-green">
+                Track
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="3"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
               </button>
             </div>
+
+            <div class="app-card">
+              <h3>Download Apna App</h3>
+              <ul>
+                <li>Unlimited job applications</li>
+                <li>Connect with HRs, directly</li>
+                <li>Track your Applications</li>
+              </ul>
+              <div class="app-rating">4.7 <span>7L reviews</span></div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- Mobile filter drawer -->
+      <div class="overlay" id="overlay"></div>
+      <div class="drawer" id="drawer">
+        <div class="drawer-head">
+          <h3>Filters</h3>
+          <button class="drawer-close" id="drawerClose">&times;</button>
+        </div>
+        <div class="drawer-body" id="drawerFilters"></div>
+        <div class="drawer-footer">
+          <button class="btn-reset" id="resetBtn">Reset</button>
+          <button class="btn-apply" id="applyBtn">Apply Filters</button>
+        </div>
+      </div>
+
+      <!-- Right-side search results panel -->
+      <div class="panel-overlay" id="panelOverlay"></div>
+      <div class="side-panel" id="sidePanel">
+        <div class="panel-head">
+          <div class="panel-head-text">
+            <h3 id="panelTitle">Search</h3>
+            <p id="panelSubtitle">Jobs Here</p>
           </div>
-        </section>
+          <button class="panel-close" id="panelClose">&times;</button>
+        </div>
+        <div class="panel-body" id="panelBody"></div>
+      </div>
+    </div>
 
-        <!-- Browse jobs section with filter sidebar -->
-        <section id="browse-jobs">
-          <div class="job-container">
-            <div class="browse-layout">
-              <!-- Filter sidebar -->
-              <aside class="filter-sidebar" data-aos="fade-right">
-                <div class="filter-title">
-                  <span>Filter jobs</span>
-                  <span class="filter-clear" id="clearFilters">Clear all</span>
-                </div>
-
-                <!-- Active filters (dynamic, hidden initially) -->
-                <div
-                  class="active-filters"
-                  id="activeFilters"
-                  style="display: none"
-                >
-                  <!-- will be populated by JS -->
-                </div>
-
-                <div class="filter-group">
-                  <h4>🏷️ Job type</h4>
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="type"
-                      value="fulltime"
-                    />
-                    <span>Full-time</span>
-                    <span class="count">(124)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="type"
-                      value="parttime"
-                    />
-                    <span>Part-time</span>
-                    <span class="count">(32)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="type"
-                      value="remote"
-                    />
-                    <span>Remote</span> <span class="count">(210)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="type"
-                      value="hybrid"
-                    />
-                    <span>Hybrid</span> <span class="count">(98)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="type"
-                      value="internship"
-                    />
-                    <span>Internship</span>
-                    <span class="count">(15)</span></label
-                  >
-                </div>
-
-                <div class="filter-group">
-                  <h4>💼 Experience level</h4>
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="level"
-                      value="entry"
-                    />
-                    <span>Entry level</span>
-                    <span class="count">(78)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="level"
-                      value="mid"
-                    />
-                    <span>Mid level</span>
-                    <span class="count">(146)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="level"
-                      value="senior"
-                    />
-                    <span>Senior</span> <span class="count">(112)</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input
-                      type="checkbox"
-                      class="filter-check"
-                      data-filter="level"
-                      value="lead"
-                    />
-                    <span>Lead / manager</span>
-                    <span class="count">(43)</span></label
-                  >
-                </div>
-
-                <div class="filter-group salary-range">
-                  <h4>💰 Salary range (yearly)</h4>
-                  <div class="range-inputs">
-                    <select id="salaryMin">
-                      <option value="">Min</option>
-                      <option value="40">$40k</option>
-                      <option value="60">$60k</option>
-                      <option value="80">$80k</option>
-                      <option value="100">$100k</option>
-                      <option value="120">$120k</option>
-                      <option value="150">$150k</option>
-                    </select>
-                    <select id="salaryMax">
-                      <option value="">Max</option>
-                      <option value="80">$80k</option>
-                      <option value="100">$100k</option>
-                      <option value="120">$120k</option>
-                      <option value="150">$150k</option>
-                      <option value="200">$200k</option>
-                      <option value="250">$250k+</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="filter-group">
-                  <h4>📅 Date posted</h4>
-                  <label class="filter-checkbox"
-                    ><input type="radio" name="date" value="today" />
-                    <span>Today</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input type="radio" name="date" value="3days" />
-                    <span>Last 3 days</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input type="radio" name="date" value="week" />
-                    <span>This week</span></label
-                  >
-                  <label class="filter-checkbox"
-                    ><input type="radio" name="date" value="month" />
-                    <span>This month</span></label
-                  >
-                </div>
-
-                <button
-                  class="btn btn-primary"
-                  style="width: 100%"
-                  id="applyFilters"
-                >
-                  Apply filters
-                </button>
-              </aside>
-
-              <!-- Job listings -->
-              <div class="browse-main" data-aos="fade-left">
-                <!-- Header with result count and sort -->
-                <div class="browse-header">
-                  <div class="job-count"><strong>247</strong> jobs found</div>
-                  <div class="sort-select">
-                    <label for="sort">Sort by:</label>
-                    <select id="sort">
-                      <option>Most recent</option>
-                      <option>Salary: high to low</option>
-                      <option>Salary: low to high</option>
-                      <option>Relevance</option>
-                    </select>
-                  </div>
-                </div>
-
-                <!-- Jobs grid (reusing .jobs-grid and .job-card) -->
-                <div class="jobs-grid">
-                  <!-- card 1 -->
-                  <article class="job-card">
-                    <div class="job-card-header">
-                      <div class="company-logo-wrap">💳</div>
-                      <div style="flex: 1">
-                        <h3 class="job-title">Senior Frontend Engineer</h3>
-                        <div class="company-name">Stripe</div>
-                      </div>
-                    </div>
-                    <div class="text text-center view-job-details"></div>
-                    <div class="job-meta">
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                          />
-                        </svg>
-                        San Francisco, CA</span
-                      >
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        2d ago</span
-                      >
-                    </div>
-                    <div style="display: block">
-                      <span class="badge badge-green">Full Time</span>
-                      <span class="badge badge-blue">React</span>
-                    </div>
-                    <div class="job-card-browse-footer">
-                      <div class="job-salary">
-                        $140K–$180K <span>/ year</span>
-                      </div>
-                      <a class="apply-btn" href="apply-job.html">Apply</a>
-                    </div>
-                  </article>
-
-                  <!-- card 2 -->
-                  <article class="job-card">
-                    <div class="job-card-header">
-                      <div class="company-logo-wrap">🏠</div>
-                      <div style="flex: 1">
-                        <h3 class="job-title">Product Designer</h3>
-                        <div class="company-name">Airbnb</div>
-                      </div>
-                    </div>
-                    <div class="text text-center view-job-details"></div>
-                    <div class="job-meta">
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                          />
-                        </svg>
-                        Remote</span
-                      >
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        1d ago</span
-                      >
-                    </div>
-                    <div style="display: block">
-                      <span class="badge badge-purple">Remote</span>
-                      <span class="badge badge-blue">Figma</span>
-                    </div>
-                    <div class="job-card-browse-footer">
-                      <div class="job-salary">
-                        $120K–$150K <span>/ year</span>
-                      </div>
-                      <a class="apply-btn" href="apply-job.html">Apply</a>
-                    </div>
-                  </article>
-
-                  <!-- card 3 -->
-                  <article class="job-card">
-                    <div class="job-card-header">
-                      <div class="company-logo-wrap">🎬</div>
-                      <div style="flex: 1">
-                        <h3 class="job-title">Data Scientist</h3>
-                        <div class="company-name">Netflix</div>
-                      </div>
-                    </div>
-                    <div class="text text-center view-job-details"></div>
-                    <div class="job-meta">
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                          />
-                        </svg>
-                        Los Angeles, CA</span
-                      >
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        5d ago</span
-                      >
-                    </div>
-                    <div style="display: block">
-                      <span class="badge badge-green">Full Time</span>
-                      <span class="badge badge-orange">Python</span>
-                    </div>
-                    <div class="job-card-browse-footer">
-                      <div class="job-salary">
-                        $160K–$220K <span>/ year</span>
-                      </div>
-                      <a class="apply-btn" href="apply-job.html">Apply</a>
-                    </div>
-                  </article>
-
-                  <!-- card 4 -->
-                  <article class="job-card">
-                    <div class="job-card-header">
-                      <div class="company-logo-wrap">🛒</div>
-                      <div style="flex: 1">
-                        <h3 class="job-title">DevOps Engineer</h3>
-                        <div class="company-name">Shopify</div>
-                      </div>
-                    </div>
-                    <div class="text text-center view-job-details"></div>
-                    <div class="job-meta">
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                          />
-                        </svg>
-                        Toronto, Canada</span
-                      >
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        3d ago</span
-                      >
-                    </div>
-                    <div style="display: block">
-                      <span class="badge badge-green">Full Time</span>
-                      <span class="badge badge-blue">AWS</span>
-                    </div>
-                    <div class="job-card-browse-footer">
-                      <div class="job-salary">
-                        $115K–$145K <span>/ year</span>
-                      </div>
-                      <a class="apply-btn" href="apply-job.html">Apply</a>
-                    </div>
-                  </article>
-
-                  <!-- card 5 -->
-                  <article class="job-card">
-                    <div class="job-card-header">
-                      <div class="company-logo-wrap">🎯</div>
-                      <div style="flex: 1">
-                        <h3 class="job-title">Marketing Manager</h3>
-                        <div class="company-name">HubSpot</div>
-                      </div>
-                    </div>
-                    <div class="text text-center view-job-details"></div>
-                    <div class="job-meta">
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                          />
-                        </svg>
-                        Boston, MA</span
-                      >
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        Today</span
-                      >
-                    </div>
-                    <div style="display: block">
-                      <span class="badge badge-purple">Hybrid</span>
-                      <span class="badge badge-blue">SEO</span>
-                    </div>
-                    <div class="job-card-browse-footer">
-                      <div class="job-salary">
-                        $90K–$115K <span>/ year</span>
-                      </div>
-                      <a class="apply-btn" href="apply-job.html">Apply</a>
-                    </div>
-                  </article>
-
-                  <!-- card 6 -->
-                  <article class="job-card">
-                    <div class="job-card-header">
-                      <div class="company-logo-wrap">📝</div>
-                      <div style="flex: 1">
-                        <h3 class="job-title">Backend Engineer (Go)</h3>
-                        <div class="company-name">Notion</div>
-                      </div>
-                    </div>
-                    <div class="text text-center view-job-details"></div>
-                    <div class="job-meta">
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                          />
-                        </svg>
-                        New York, NY</span
-                      >
-                      <span class="meta-item"
-                        ><svg
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                        >
-                          <circle cx="12" cy="12" r="10" />
-                          <polyline points="12 6 12 12 16 14" />
-                        </svg>
-                        4d ago</span
-                      >
-                    </div>
-                    <div style="display: block">
-                      <span class="badge badge-green">Full Time</span>
-                      <span class="badge badge-orange">Go</span>
-                    </div>
-                    <div class="job-card-browse-footer">
-                      <div class="job-salary">
-                        $130K–$170K <span>/ year</span>
-                      </div>
-                      <a class="apply-btn" href="apply-job.html">Apply</a>
-                    </div>
-                  </article>
-                </div>
-
-                <!-- Pagination -->
-                <div class="pagination">
-                  <span class="page-item active">1</span>
-                  <span class="page-item">2</span>
-                  <span class="page-item">3</span>
-                  <span class="page-item">4</span>
-                  <span class="page-item">5</span>
-                  <span class="page-item">...</span>
-                  <span class="page-item">12</span>
-                </div>
-              </div>
+    <footer id="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand-logo">
+              <div class="logo-mark" aria-hidden="true">H</div>
+              <span class="logo-name">Hire<span>gram</span></span>
+            </div>
+            <p class="footer-desc">
+              Connecting ambitious professionals with world-class companies.
+              Your career journey starts here.
+            </p>
+            <div class="social-links" aria-label="Social media links">
+              <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+              <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+              <a href="#" class="social-link" aria-label="Facebook">f</a>
+              <a href="#" class="social-link" aria-label="Instagram">◉</a>
             </div>
           </div>
-        </section>
-      </main>
-    </div>
+          <div>
+            <h3 class="footer-col-title">For Job Seekers</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="browse-jobs.html">Browse Jobs</a></li>
+              <li><a href="index.html#categories">Job Categories</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">For Employers</h3>
+            <ul class="footer-links" role="list">
+              <li>
+                <a href="employer/login.html" target="_blank">Post a Job</a>
+              </li>
+              <li><a href="talent-search.html">Talent Search</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">Company</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">
+            © 2026 <a href="#">Hiregram</a>. All rights reserved. Built with ♥
+            for ambitious people.
+          </p>
+          <div class="footer-bottom-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="faq.html">FAQs</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
-      const STEPS = [
-        "Job details",
-        "Candidate requirements",
-        "Interviewer information",
-        "Job preview",
-        "Publish",
+      /* ---------- Filter panel markup (shared, injected into desktop + drawer) ---------- */
+      function filterGroupsHTML(prefix) {
+        return `
+    <div class="f-group">
+      <div class="f-head" data-group>
+        <span>Date posted</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
+      </div>
+      <div class="f-body">
+        <label class="radio-row"><input type="radio" name="${prefix}date" value="all" checked> All</label>
+        <label class="radio-row"><input type="radio" name="${prefix}date" value="24h"> Last 24 hours</label>
+        <label class="radio-row"><input type="radio" name="${prefix}date" value="3d"> Last 3 days</label>
+        <label class="radio-row"><input type="radio" name="${prefix}date" value="7d"> Last 7 days</label>
+      </div>
+    </div>
+    <div class="f-group">
+      <div class="f-head" data-group>
+        <span>Distance</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
+      </div>
+      <div class="f-body">
+        <label class="radio-row"><input type="radio" name="${prefix}dist" value="all" checked> All</label>
+        <label class="radio-row"><input type="radio" name="${prefix}dist" value="5"> Within 5 km</label>
+        <label class="radio-row"><input type="radio" name="${prefix}dist" value="10"> Within 10 km</label>
+        <label class="radio-row"><input type="radio" name="${prefix}dist" value="20"> Within 20 km</label>
+        <label class="radio-row"><input type="radio" name="${prefix}dist" value="50"> Within 50 km</label>
+      </div>
+    </div>
+    <div class="f-group">
+      <div class="f-head" data-group>
+        <span>Salary</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
+      </div>
+      <div class="f-body">
+        <span style="font-size:13px;color:var(--sub);">Minimum monthly salary</span>
+        <input type="range" min="0" max="150000" value="0" step="5000" name="${prefix}salary">
+        <div class="salary-row"><span>0</span><span>1.5 Lakhs</span></div>
+      </div>
+    </div>
+    <div class="f-group collapsed">
+      <div class="f-head" data-group>
+        <span>Work mode</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
+      </div>
+      <div class="f-body">
+        <label class="radio-row"><input type="checkbox" name="${prefix}wm" value="office"> Work from office</label>
+        <label class="radio-row"><input type="checkbox" name="${prefix}wm" value="home"> Work from home</label>
+        <label class="radio-row"><input type="checkbox" name="${prefix}wm" value="field"> Field job</label>
+      </div>
+    </div>
+  `;
+      }
+
+      document.getElementById("desktopFilters").innerHTML =
+        filterGroupsHTML("d_");
+      document.getElementById("drawerFilters").innerHTML =
+        filterGroupsHTML("m_");
+
+      /* Collapsible groups (works for both panels) */
+      document.querySelectorAll("[data-group]").forEach((head) => {
+        head.addEventListener("click", () => {
+          head.parentElement.classList.toggle("collapsed");
+        });
+      });
+
+      /* ---------- Job data ---------- */
+      const jobs = [
+        {
+          logo: "IOS",
+          company: "Infosys",
+          role: "PHP Developer",
+          loc: "Bengaluru/Bangalore",
+          salary: "Not disclosed",
+          exp: 2,
+          tags: ["Work from Office", "Full Time", "Min. 2 years"],
+        },
+        {
+          logo: "IOS",
+          company: "Infosys",
+          role: "Full Stack Developer",
+          loc: "Bengaluru/Bangalore",
+          salary: "Not disclosed",
+          exp: 3,
+          tags: ["Work from Office", "Full Time", "Min. 3 years"],
+        },
+        {
+          logo: "IOS",
+          company: "Infosys",
+          role: "Senior Software Engineer",
+          loc: "Hyderabad",
+          salary: "Not disclosed",
+          exp: 3,
+          tags: ["Work from Office", "Full Time", "Min. 3 years"],
+        },
+        {
+          logo: "IRBU",
+          company: "Airbus Group India Pvt Ltd",
+          role: "Software Developer",
+          loc: "Bengaluru/Bangalore",
+          salary: "Not disclosed",
+          exp: 4,
+          tags: ["Work from Office", "Full Time", "Min. 4 years"],
+        },
+        {
+          logo: "TCS",
+          company: "Tata Consultancy Services",
+          role: "Frontend Developer",
+          loc: "Bhilai",
+          salary: "₹25,000 - ₹35,000",
+          exp: 1,
+          tags: ["Work from Office", "Full Time", "Min. 1 year"],
+        },
+        {
+          logo: "WPR",
+          company: "Wipro Ltd",
+          role: "Java Developer",
+          loc: "Bhilai",
+          salary: "Not disclosed",
+          exp: 2,
+          tags: ["Work from Home", "Full Time", "Min. 2 years"],
+        },
+        {
+          logo: "HCL",
+          company: "HCL Technologies",
+          role: "QA Engineer",
+          loc: "Raipur",
+          salary: "₹20,000 - ₹28,000",
+          exp: 0,
+          tags: ["Work from Office", "Full Time", "Fresher"],
+        },
+        {
+          logo: "TMS",
+          company: "Tech Mahindra",
+          role: "React Native Developer",
+          loc: "Bhilai",
+          salary: "Not disclosed",
+          exp: 3,
+          tags: ["Work from Office", "Full Time", "Min. 3 years"],
+        },
       ];
-      const PERKS = [
-        "Flexible Working Hours",
-        "Weekly Payout",
-        "Overtime Pay",
-        "Joining Bonus",
-        "Annual Bonus",
-        "PF",
-        "Travel Allowance (TA)",
-        "Petrol Allowance",
-        "Mobile Allowance",
-        "Internet Allowance",
-        "Laptop",
-        "Health Insurance",
-        "ESI (ESIC)",
-        "Food/Meals",
-        "Accommodation",
-        "5 Working Days",
-        "One-Way Cab",
-        "Two-Way Cab",
-      ];
-      const LANGUAGES = [
-        "Tamil",
-        "Assamese",
-        "Bengali",
-        "Gujarati",
-        "Hindi",
-        "Kannada",
-        "Malayalam",
-        "Marathi",
-        "Odia",
-        "Punjabi",
-        "Telugu",
-      ];
-      const ADD_REQS = [
-        "Industry",
-        "Gender",
-        "Age",
-        "Distance",
-        "Regional Languages",
-        "Assets",
-        "Skills",
-      ];
 
-      let currentStep = 0;
-      let selectedPerks = [];
-      let selectedAdditionalReqs = ["Gender", "Age", "Regional Languages"];
-      let selectedLangs = ["Tamil"];
-      let published = false;
-      let titleAccepted = false;
+      function jobCardHTML(j) {
+        return `
+  <div class="job-card">
+    <div class="job-top">
+      <div class="job-logo">${j.logo}</div>
+      <div class="job-info">
+        <h3>${j.role}</h3>
+        <div class="company">${j.company}</div>
+      </div><a href="view-job.html">
+      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="job-meta">
+      <div class="row">📍 ${j.loc}</div>
+      <div class="row">💼 ${j.salary}</div>
+    </div>
+    <div class="job-tags">
+      ${j.tags.map((t) => `<span class="tag">${t}</span>`).join("")}
+    </div>
+  </div>`;
+      }
 
-      // ---------- Stepper ----------
-      function renderStepper() {
-        const el = document.getElementById("stepper");
-        el.innerHTML = "";
-        STEPS.forEach((label, i) => {
-          const wrap = document.createElement("div");
-          wrap.style.display = "flex";
-          wrap.style.alignItems = "flex-start";
-          wrap.style.flex = i < STEPS.length - 1 ? "1" : "0";
+      const jobList = document.getElementById("jobList");
+      jobList.innerHTML = jobs.map(jobCardHTML).join("");
 
-          const stepDiv = document.createElement("div");
-          stepDiv.className = "step";
-          const circle = document.createElement("div");
-          circle.className =
-            "step-circle" +
-            (i < currentStep ? " done" : i === currentStep ? " active" : "");
-          circle.textContent = i < currentStep ? "✓" : i + 1;
-          const lbl = document.createElement("div");
-          lbl.className = "step-label" + (i === currentStep ? " active" : "");
-          lbl.textContent = label;
-          stepDiv.appendChild(circle);
-          stepDiv.appendChild(lbl);
-          wrap.appendChild(stepDiv);
+      /* ---------- Experience dropdown ---------- */
+      const expField = document.getElementById("expField");
+      const expDropdown = document.getElementById("expDropdown");
+      const expLabel = document.getElementById("expLabel");
 
-          if (i < STEPS.length - 1) {
-            const line = document.createElement("div");
-            line.className = "step-line" + (i < currentStep ? " done" : "");
-            wrap.appendChild(line);
-          }
-          el.appendChild(wrap);
+      expField.addEventListener("click", (e) => {
+        expDropdown.classList.toggle("open");
+        expField.classList.toggle("open");
+      });
+      expDropdown.querySelectorAll(".opt").forEach((opt) => {
+        opt.addEventListener("click", (e) => {
+          e.stopPropagation();
+          expLabel.textContent = opt.textContent;
+          expDropdown
+            .querySelectorAll(".opt")
+            .forEach((o) => o.classList.remove("selected"));
+          opt.classList.add("selected");
+          expDropdown.classList.remove("open");
+          expField.classList.remove("open");
         });
-      }
-
-      // ---------- Pill groups (single-select) ----------
-      function setupPillGroup(id, onChange) {
-        const group = document.getElementById(id);
-        group.querySelectorAll(".pill").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            group.dataset.value = btn.dataset.val;
-            refreshPillGroup(id);
-            if (onChange) onChange(btn.dataset.val);
-          });
-        });
-        refreshPillGroup(id);
-      }
-      function refreshPillGroup(id) {
-        const group = document.getElementById(id);
-        const val = group.dataset.value;
-        group.querySelectorAll(".pill").forEach((btn) => {
-          btn.classList.toggle("active", btn.dataset.val === val);
-        });
-      }
-      function getVal(id) {
-        return document.getElementById(id).dataset.value;
-      }
-
-      // ---------- Perks (multi-select tags) ----------
-      function renderPerks() {
-        const group = document.getElementById("perksGroup");
-        group.innerHTML = "";
-        PERKS.forEach((p) => {
-          if (selectedPerks.includes(p)) {
-            const tag = document.createElement("span");
-            tag.className = "tag";
-            tag.innerHTML = `${p} <button onclick="togglePerk('${p.replace(/'/g, "\\'")}')">×</button>`;
-            group.appendChild(tag);
-          } else {
-            const btn = document.createElement("button");
-            btn.className = "add-pill";
-            btn.textContent = p + " +";
-            btn.onclick = () => togglePerk(p);
-            group.appendChild(btn);
-          }
-        });
-      }
-      function togglePerk(p) {
-        selectedPerks = selectedPerks.includes(p)
-          ? selectedPerks.filter((x) => x !== p)
-          : [...selectedPerks, p];
-        renderPerks();
-      }
-
-      // ---------- Additional requirements ----------
-      function renderAdditionalReqs() {
-        const group = document.getElementById("additionalReqGroup");
-        group.innerHTML = "";
-        ADD_REQS.forEach((r) => {
-          if (selectedAdditionalReqs.includes(r)) {
-            const tag = document.createElement("span");
-            tag.className = "tag";
-            tag.innerHTML = `${r} <button onclick="toggleAddReq('${r}')">×</button>`;
-            group.appendChild(tag);
-          } else {
-            const btn = document.createElement("button");
-            btn.className = "add-pill";
-            btn.textContent = r + " +";
-            btn.onclick = () => toggleAddReq(r);
-            group.appendChild(btn);
-          }
-        });
-        updateAdditionalFieldVisibility();
-      }
-      function toggleAddReq(r) {
-        selectedAdditionalReqs = selectedAdditionalReqs.includes(r)
-          ? selectedAdditionalReqs.filter((x) => x !== r)
-          : [...selectedAdditionalReqs, r];
-        renderAdditionalReqs();
-      }
-      function updateAdditionalFieldVisibility() {
-        document.getElementById("langField").style.display =
-          selectedAdditionalReqs.includes("Regional Languages")
-            ? "block"
-            : "none";
-        document.getElementById("ageField").style.display =
-          selectedAdditionalReqs.includes("Age") ? "block" : "none";
-        document.getElementById("genderField").style.display =
-          selectedAdditionalReqs.includes("Gender") ? "block" : "none";
-      }
-
-      // ---------- Languages ----------
-      function renderLangs() {
-        const group = document.getElementById("langGroup");
-        group.innerHTML = "";
-        selectedLangs.forEach((l) => {
-          const tag = document.createElement("span");
-          tag.className = "tag";
-          tag.innerHTML = `${l} <button onclick="toggleLang('${l}')">×</button>`;
-          group.appendChild(tag);
-        });
-        LANGUAGES.filter((l) => !selectedLangs.includes(l)).forEach((l) => {
-          const btn = document.createElement("button");
-          btn.className = "add-pill";
-          btn.textContent = l + " +";
-          btn.onclick = () => toggleLang(l);
-          group.appendChild(btn);
-        });
-      }
-      function toggleLang(l) {
-        selectedLangs = selectedLangs.includes(l)
-          ? selectedLangs.filter((x) => x !== l)
-          : [...selectedLangs, l];
-        renderLangs();
-      }
-
-      // ---------- Address change ----------
-      function changeAddress() {
-        const cur = document.getElementById("addressText").textContent;
-        const next = prompt("Enter address", cur);
-        if (next) document.getElementById("addressText").textContent = next;
-      }
-      function changeWalkAddress() {
-        const cur = document.getElementById("walkAddressText").textContent;
-        const next = prompt("Enter address", cur);
-        if (next) document.getElementById("walkAddressText").textContent = next;
-      }
-
-      // ---------- Salary breakup ----------
-      function fmtINR(n) {
-        return "₹" + Number(n || 0).toLocaleString("en-IN");
-      }
-      function updateSalaryBreakup() {
-        const min = document.getElementById("salaryMin").value;
-        const max = document.getElementById("salaryMax").value;
-        const inc = document.getElementById("incentive").value;
-        const payType = getVal("payTypeGroup");
-        const showIncentive = payType !== "Fixed Only";
-
-        document.getElementById("incentiveField").style.display = showIncentive
-          ? "block"
-          : "none";
-        document.getElementById("breakupIncentiveRow").style.display =
-          showIncentive ? "flex" : "none";
-
-        document.getElementById("breakupFixed").textContent =
-          `${fmtINR(min)} - ${fmtINR(max)}`;
-        document.getElementById("breakupIncentive").textContent = fmtINR(inc);
-        const total = Number(max || 0) + (showIncentive ? Number(inc || 0) : 0);
-        document.getElementById("breakupTotal").textContent =
-          `${fmtINR(min)} - ${fmtINR(total)}`;
-      }
-
-      // ---------- Step 0 -> 1 dependent text ----------
-      function updateAnywhereInfo() {
-        const val = getVal("anywhereGroup");
-        const region = document
-          .getElementById("addressText")
-          .textContent.split(",")[0];
-        document.getElementById("anywhereInfo").textContent =
-          val === "Yes"
-            ? "You will be receiving applications from anywhere in India"
-            : `You will be receiving applications from within ${region} Region`;
-      }
-      function updateExpInfo() {
-        const val = getVal("expGroup");
-        const el = document.getElementById("expInfo");
-        el.textContent =
-          val === "Any"
-            ? "Both fresher and experienced candidates will be able to apply"
-            : val === "Experienced Only"
-              ? "Only experienced candidates will be able to apply"
-              : "Only fresher candidates will be able to apply";
-      }
-
-      // ---------- Walk-in dependent behavior ----------
-      function updateWalkInVisibility() {
-        const walkIn = document.querySelector(
-          'input[name="walkIn"]:checked',
-        ).value;
-        document.getElementById("walkInFields").style.display =
-          walkIn === "Yes" ? "block" : "none";
-        const noOption = document.getElementById("contactPrefNo");
-        noOption.disabled = walkIn === "Yes";
-        document.getElementById("contactInfo").style.display =
-          walkIn === "Yes" ? "block" : "none";
-        if (walkIn === "Yes" && noOption.checked) {
-          document.querySelector(
-            'input[name="contactPref"][value="Yes, to myself"]',
-          ).checked = true;
+      });
+      document.addEventListener("click", (e) => {
+        if (!expField.contains(e.target)) {
+          expDropdown.classList.remove("open");
+          expField.classList.remove("open");
         }
-      }
+      });
 
-      // ---------- Navigation ----------
-      function showStep(i) {
-        document.querySelectorAll("[data-step]").forEach((el) => {
-          el.classList.toggle("active", Number(el.dataset.step) === i);
-        });
-        renderStepper();
-        document.getElementById("backBtn").style.visibility =
-          i === 0 ? "hidden" : "visible";
-        document.getElementById("nextBtn").style.display =
-          i === STEPS.length - 1 ? "none" : "inline-block";
-        if (i === 3) renderPreview();
-        if (i === 4) renderPublishPanel();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-      function nextStep() {
-        if (currentStep < STEPS.length - 1) {
-          currentStep++;
-          showStep(currentStep);
-        }
-      }
-      function prevStep() {
-        if (currentStep > 0) {
-          currentStep--;
-          showStep(currentStep);
-        }
-      }
-      function goToStep(i) {
-        currentStep = i;
-        showStep(currentStep);
-      }
+      document.getElementById("search-field").addEventListener("click", () => {
+        const title = document
+          .getElementById("searchTitle")
+          .value.trim()
+          .toLowerCase();
+        const loc = document
+          .getElementById("searchLoc")
+          .value.trim()
+          .toLowerCase();
+        const expText = expLabel.textContent.trim();
 
-      // ---------- AI Suggestion ----------
-      function acceptSuggestion() {
-        document.getElementById("jobTitle").value = "Admin Manager";
-        titleAccepted = true;
-        document.getElementById("aiSuggestionRow").style.display = "none";
-      }
-
-      // ---------- Preview rendering ----------
-      function row(label, value) {
-        return `<div class="p-row"><span class="k">${label}</span><span class="v">${value}</span></div>`;
-      }
-      function renderPreview() {
-        const company = document.getElementById("company").value;
-        const jobTitle = document.getElementById("jobTitle").value;
-        const jobRole = document.getElementById("jobRole").value;
-        const jobType = getVal("jobTypeGroup");
-        const nightShift = document.getElementById("nightShift").checked;
-        const workLoc = getVal("workLocGroup");
-        const address = document.getElementById("addressText").textContent;
-        const region = address.split(",")[0];
-        const anywhere = getVal("anywhereGroup");
-        const payType = getVal("payTypeGroup");
-        const min = document.getElementById("salaryMin").value;
-        const max = document.getElementById("salaryMax").value;
-        const joiningFee = getVal("joiningFeeGroup");
-
-        document.getElementById("aiOldTitle").textContent = jobTitle;
-        if (titleAccepted)
-          document.getElementById("aiSuggestionRow").style.display = "none";
-
-        let html = "";
-        html += row("Company name", company);
-        html += row("Job title", jobTitle);
-        html += row("Job role/ category", jobRole);
-        html += row(
-          "Job type",
-          `${jobType} | ${nightShift ? "Night shift" : "Day shift"}`,
-        );
-        html += row("Work type", workLoc);
-        html += row("Job location", region);
-        html += `<div class="req-box" style="color:#059669; font-weight:500;">${anywhere === "Yes" ? "You will be receiving applications from anywhere in India" : `You will be receiving applications from ${region} Region`}</div>`;
-        html += row(
-          "Monthly Salary | Pay Type",
-          `${fmtINR(min)} - ${fmtINR(max)} per month (${payType})`,
-        );
-        html += row(
-          "Additional perks",
-          selectedPerks.length ? selectedPerks.join(", ") : "None",
-        );
-        html += row("Joining Fee", joiningFee);
-        document.getElementById("previewJobDetails").innerHTML = html;
-
-        const minEdu = getVal("eduGroup");
-        const exp = getVal("expGroup");
-        const eng = getVal("englishGroup");
-        const ageMin = document.getElementById("ageMin").value;
-        const ageMax = document.getElementById("ageMax").value;
-        const gender = getVal("genderGroup");
-
-        let html2 = `<div class="req-box">👤 <b>Eligible requirements.</b> Your job will only be visible to the candidates who meet these requirements.</div>`;
-        html2 += row("Minimum Education", minEdu);
-        html2 += row("Experience Required", exp);
-        html2 += row("English", eng);
-        if (selectedAdditionalReqs.includes("Regional Languages"))
-          html2 += row(
-            "Regional languages",
-            selectedLangs.join(", ") || "None",
-          );
-        html2 += `<div class="req-box" style="margin-top:14px;">💼 <b>Preferred requirements.</b> Your job will be promoted to the candidates meeting below requirements, but others can still apply.</div>`;
-        if (selectedAdditionalReqs.includes("Age"))
-          html2 += row("Age", `${ageMin} - ${ageMax} yrs`);
-        html2 += row(
-          "Prefer applications from",
-          anywhere === "Yes" ? "Anywhere in India" : `Entire ${region} Region`,
-        );
-        if (selectedAdditionalReqs.includes("Gender"))
-          html2 += row(
-            "Gender",
-            gender === "Both" ? "Both genders allowed" : gender,
-          );
-        html2 += row("Industry", "None");
-        document.getElementById("previewRequirements").innerHTML = html2;
-
-        const walkIn = document.querySelector(
-          'input[name="walkIn"]:checked',
-        ).value;
-        const contactPref = document.querySelector(
-          'input[name="contactPref"]:checked',
-        ).value;
-        const notifyPref = document.querySelector(
-          'input[name="notifyPref"]:checked',
-        ).value;
-        let html3 = row(
-          "Interview type",
-          walkIn === "Yes" ? "Walk-in interview" : "Scheduled interview",
-        );
-        if (walkIn === "Yes") {
-          html3 += row(
-            "Address",
-            document.getElementById("walkAddressText").textContent,
-          );
-          html3 += row(
-            "Dates",
-            `${document.getElementById("startDate").value} to ${document.getElementById("endDate").value}`,
-          );
-          html3 += row(
-            "Timings",
-            `${document.getElementById("timeStart").value} - ${document.getElementById("timeEnd").value}`,
-          );
-        }
-        html3 += row("Candidate contact", contactPref);
-        html3 += row("Whatsapp alerts", notifyPref);
-        document.getElementById("previewInterviewer").innerHTML = html3;
-      }
-
-      // ---------- Publish panel ----------
-      function renderPublishPanel() {
-        const company = document.getElementById("company").value;
-        const jobTitle = document.getElementById("jobTitle").value;
-        const anywhere = getVal("anywhereGroup");
-        const region = document
-          .getElementById("addressText")
-          .textContent.split(",")[0];
-        const notifyPref = document.querySelector(
-          'input[name="notifyPref"]:checked',
-        ).value;
-
-        const panel = document.getElementById("publishPanel");
-        if (!published) {
-          panel.innerHTML = `
-      <div class="section-title">Ready to publish</div>
-      <p style="margin-top:8px;">Your job for <b>${jobTitle}</b> at <b>${company}</b> is ready. Once published, candidates in ${anywhere === "Yes" ? "India" : `the ${region} region`} will start seeing it.</p>
-      <button class="btn btn-primary" style="margin-top:20px; padding:10px 32px;" onclick="publishJob()">Publish job</button>
-    `;
-        } else {
-          panel.innerHTML = `
-      <div class="check">✓</div>
-      <div class="section-title">Job published!</div>
-      <p style="margin-top:8px;">${jobTitle} at ${company} is now live. You'll get a Whatsapp alert${notifyPref === "Yes, to myself" ? "" : " summary"} as applications come in.</p>
-    `;
-        }
-      }
-      function publishJob() {
-        published = true;
-        renderPublishPanel();
-      }
-
-      // ---------- Init ----------
-      function init() {
-        setupPillGroup("jobTypeGroup");
-        setupPillGroup("workLocGroup");
-        setupPillGroup("anywhereGroup", updateAnywhereInfo);
-        setupPillGroup("payTypeGroup", updateSalaryBreakup);
-        setupPillGroup("joiningFeeGroup");
-        setupPillGroup("eduGroup");
-        setupPillGroup("englishGroup");
-        setupPillGroup("expGroup", updateExpInfo);
-        setupPillGroup("genderGroup");
-
-        renderPerks();
-        renderAdditionalReqs();
-        renderLangs();
-        updateAnywhereInfo();
-        updateExpInfo();
-        updateSalaryBreakup();
-
-        ["salaryMin", "salaryMax", "incentive"].forEach((id) => {
-          document
-            .getElementById(id)
-            .addEventListener("input", updateSalaryBreakup);
+        const results = jobs.filter((j) => {
+          const matchTitle =
+            title === "" ||
+            j.role.toLowerCase().includes(title) ||
+            j.company.toLowerCase().includes(title);
+          const matchLoc = loc === "" || j.loc.toLowerCase().includes(loc);
+          return matchTitle && matchLoc;
         });
 
-        document
-          .querySelectorAll('input[name="walkIn"]')
-          .forEach((r) => r.addEventListener("change", updateWalkInVisibility));
-        updateWalkInVisibility();
+        openSidePanel(results, { title, loc, expText });
+      });
 
-        document
-          .getElementById("otherInstructions")
-          .addEventListener("input", (e) => {
-            document.getElementById("instrCount").textContent =
-              e.target.value.length;
-          });
+      function openSidePanel(results, criteria) {
+        const panelBody = document.getElementById("panelBody");
+        const panelSubtitle = document.getElementById("panelSubtitle");
 
-        showStep(0);
+        const bits = [];
+        if (criteria.title) bits.push(`"${criteria.title}"`);
+        if (criteria.loc) bits.push(`in ${criteria.loc}`);
+        if (criteria.expText && criteria.expText !== "Your Experience")
+          bits.push(criteria.expText);
+        panelSubtitle.textContent = bits.length
+          ? `Results for ${bits.join(" · ")}`
+          : `Jobs Here`;
+
+        panelBody.innerHTML = `     <div class="search-wraps">
+          <div class="search-bar">
+            <div class="search-field">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="7" />
+                <path d="M21 21l-4.3-4.3" />
+              </svg>
+              <input
+                type="text"
+                id="searchTitle"
+                placeholder="Search jobs by 'title'"
+              />
+            </div>
+
+            <div class="search-field select" id="expField">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <rect x="3" y="7" width="18" height="13" rx="2" />
+                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+              </svg>
+              <span id="expLabel">Your Experience</span>
+              <svg
+                class="chevron-ic"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M6 9l6 6 6-6" />
+              </svg>
+              <div class="exp-dropdown" id="expDropdown">
+                <div class="opt selected" data-val="Your Experience">
+                  Fresher
+                </div>
+                <div class="opt" data-val="Less than 1 year">
+                  Less than 1 year
+                </div>
+                <div class="opt" data-val="1 year">1 year</div>
+                <div class="opt" data-val="2 years">2 years</div>
+                <div class="opt" data-val="3 years">3 years</div>
+                <div class="opt" data-val="5+ years">5+ years</div>
+                <div class="opt" data-val="10+ years">10+ years</div>
+              </div>
+            </div>
+
+            <div class="search-field">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z" />
+                <circle cx="12" cy="9" r="2.5" />
+              </svg>
+              <input
+                type="text"
+                id="searchLoc"
+                placeholder="Search for an area or city"
+              />
+            </div>
+
+            <a href="browse-job.html"><button class="search-btn" id="searchJobsBtn">Search jobs</button></a>
+          </div>
+        </div>
+`;
+        document.getElementById("panelOverlay").classList.add("open");
+        document.getElementById("sidePanel").classList.add("open");
+        document.body.style.overflow = "hidden";
       }
-      init();
+
+      function closeSidePanel() {
+        document.getElementById("panelOverlay").classList.remove("open");
+        document.getElementById("sidePanel").classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      document
+        .getElementById("panelOverlay")
+        .addEventListener("click", closeSidePanel);
+      document
+        .getElementById("panelClose")
+        .addEventListener("click", closeSidePanel);
+
+      /* ---------- Mobile filter drawer open/close ---------- */
+      const fab = document.getElementById("filterFab");
+      const overlay = document.getElementById("overlay");
+      const drawer = document.getElementById("drawer");
+      const closeBtn = document.getElementById("drawerClose");
+      const resetBtn = document.getElementById("resetBtn");
+      const applyBtn = document.getElementById("applyBtn");
+      const filterCount = document.getElementById("filterCount");
+
+      function openDrawer() {
+        overlay.classList.add("open");
+        drawer.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeDrawer() {
+        overlay.classList.remove("open");
+        drawer.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      fab.addEventListener("click", openDrawer);
+      overlay.addEventListener("click", closeDrawer);
+      closeBtn.addEventListener("click", closeDrawer);
+
+      resetBtn.addEventListener("click", () => {
+        drawer.querySelectorAll("input[type=radio]").forEach((r) => {
+          r.checked = r.value === "all";
+        });
+        drawer.querySelectorAll("input[type=checkbox]").forEach((c) => {
+          c.checked = false;
+        });
+        drawer.querySelectorAll("input[type=range]").forEach((r) => {
+          r.value = 0;
+        });
+        updateCount();
+      });
+
+      applyBtn.addEventListener("click", () => {
+        updateCount();
+        closeDrawer();
+      });
+
+      function updateCount() {
+        let n = 0;
+        drawer.querySelectorAll("input[type=radio]:checked").forEach((r) => {
+          if (r.value !== "all") n++;
+        });
+        drawer.querySelectorAll("input[type=checkbox]:checked").forEach(() => {
+          n++;
+        });
+        drawer.querySelectorAll("input[type=range]").forEach((r) => {
+          if (Number(r.value) > 0) n++;
+        });
+        filterCount.textContent = n;
+        filterCount.classList.toggle("show", n > 0);
+      }
+      drawer.addEventListener("change", updateCount);
     </script>
   </body>
 </html>

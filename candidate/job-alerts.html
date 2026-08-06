@@ -18,639 +18,712 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
-    <link rel="stylesheet" href="../assets/css/common.css" />
     <style>
       :root {
-        --ink: #14181f;
-        --muted: #6b7280;
-        --line: #e5e7eb;
-        --panel: #ffffff;
-        --page: #f4f5f7;
-        --brand: #0f1e4d;
-        --green: #12b886;
-        --green-dark: #0ea472;
-        --green-bg: #e7f9f3;
-        --purple: #6c4ff6;
-        --purple-bg: #f2effe;
-        --danger: #e0453b;
-        --radius: 12px;
+        --bg: #f3f1f7;
+        --card: #ffffff;
+        --ink: #1a1330;
+        --sub: #665f78;
+        --brand: #5b3fae;
+        --brand-dark: #402b82;
+        --green: #0f7a5c;
+        --green-dark: #0b5e46;
+        --whatsapp: #25d366;
+        --chip-bg: #f1eef7;
+        --chip-ink: #5c5468;
+        --border: #e7e3ef;
+        --purple-soft: #f3ecff;
+        --amber: #fff6e0;
+        --primary: #1a3c6e;
+        --primary-light: #2855a0;
+        --primary-dark: #0f2447;
+        --accent: #a00000;
+        --accent-light: #d22222;
+        --white: #fff;
+        --off-white: #f8f9fc;
+        --surface: #eef2f9;
+        --border: #dde3ee;
+        --text-dark: #0d1b36;
+        --text-body: #3d4f6e;
+        --text-muted: #7a8aaa;
+        --font-display: "Sora", sans-serif;
+        --font-body: "DM Sans", sans-serif;
+        --sp-1: 0.25rem;
+        --sp-2: 0.5rem;
+        --sp-3: 0.75rem;
+        --sp-4: 1rem;
+        --sp-6: 1.5rem;
+        --sp-8: 2rem;
+        --sp-10: 2.5rem;
+        --sp-12: 3rem;
+        --sp-16: 4rem;
+        --sp-20: 5rem;
+        --sp-24: 6rem;
+        --radius-sm: 6px;
+        --radius-md: 12px;
+        --radius-lg: 20px;
+        --radius-xl: 28px;
+        --radius-full: 9999px;
+        --shadow-sm: 0 2px 8px rgba(26, 60, 110, 0.07);
+        --shadow-md: 0 6px 24px rgba(26, 60, 110, 0.12);
+        --shadow-lg: 0 16px 48px rgba(26, 60, 110, 0.18);
+        --shadow-xl: 0 28px 64px rgba(26, 60, 110, 0.22);
+        --transition-fast: 150ms ease;
+        --transition-base: 280ms ease;
+        --transition-slow: 450ms ease;
+        --container-max: 1240px;
+        --nav-height: 76px;
       }
       * {
         box-sizing: border-box;
       }
       body {
+        margin: 0;
         font-family:
-          "Inter",
+          "Segoe UI",
           system-ui,
           -apple-system,
+          Roboto,
+          Arial,
           sans-serif;
-        background: var(--page);
+        background: var(--bg);
         color: var(--ink);
-        min-height: 100vh;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
       }
 
-      .view {
-        padding: 5px;
-        margin: 5px;
-      }
-
-      .back-row {
+      /* ===== Top notice ribbon ===== */
+      .ribbon {
+        background: var(--amber);
+        border-bottom: 1px solid #f0e2b8;
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 13.5px;
+        color: #6b5a1e;
         display: flex;
         align-items: center;
-        gap: 10px;
-        margin-bottom: 18px;
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--brand);
-        cursor: pointer;
-        width: fit-content;
+        justify-content: center;
+        gap: 8px;
       }
-      .dash-grid-shortlist {
+
+      /* ===== Hero / form section ===== */
+      .hero {
+        padding: 36px 0 40px;
+        background-color: #fff;
+        border-radius: 1%;
+        margin: 2%;
+      }
+      .hero-head {
+        text-align: center;
+        max-width: 560px;
+        margin: 0 auto 30px;
+      }
+      .hero-icon {
+        width: 44px;
+        height: 44px;
+        margin: 0 auto 10px;
+      }
+      .hero-head h1 {
+        font-size: 26px;
+        margin: 0 0 8px;
+      }
+      .hero-head h1 .wa {
+        color: var(--whatsapp);
+      }
+      .hero-head p {
+        color: var(--sub);
+        font-size: 15px;
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      .hero-grid {
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
         align-items: start;
       }
-      @media (max-width: 860px) {
-        .dash-grid {
-          grid-template-columns: 1fr;
-        }
-      }
 
-      /* --- Filters panel --- */
-      .filters-panel {
-        background: var(--panel);
-        border-radius: var(--radius);
-        box-shadow:
-          0 1px 2px rgba(20, 24, 31, 0.04),
-          0 1px 12px rgba(20, 24, 31, 0.05);
-        padding: 20px;
+      .alert-form {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 26px;
+        box-shadow: 0 4px 24px rgba(30, 15, 70, 0.05);
       }
-      .filters-title {
-        font-size: 15.5px;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 16px;
-      }
-      .filter-section-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 14px;
-        font-weight: 700;
-        cursor: pointer;
-        margin-bottom: 10px;
-      }
-      .filter-check {
-        display: flex;
-        align-items: center;
-        gap: 9px;
-        font-size: 13.8px;
-        color: var(--ink);
-        padding: 6px 0;
-        cursor: pointer;
-      }
-      .filter-check input {
-        width: 16px;
-        height: 16px;
-        accent-color: var(--brand);
-        cursor: pointer;
-      }
-      .filter-check .count {
-        color: var(--muted);
-      }
-      .badge-new {
-        font-size: 10px;
-        font-weight: 700;
-        background: var(--green-bg);
-        color: var(--green-dark);
-        padding: 2px 6px;
-        border-radius: 5px;
-        margin-left: 4px;
-      }
-      .filter-divider {
-        border: none;
-        border-top: 1px solid var(--line);
-        margin: 14px 0;
-      }
-      .filter-collapsed-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 14px;
-        font-weight: 700;
-        color: #c3c6cf;
-        padding: 4px 0;
-        cursor: not-allowed;
-      }
-      .see-more-link {
-        display: block;
-        text-align: center;
-        font-size: 13.5px;
-        font-weight: 700;
-        color: var(--brand);
-        margin-top: 12px;
-        cursor: pointer;
-      }
-
-      /* --- Right column --- */
-      .dash-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 16px;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .dash-head h2 {
-        font-size: 19px;
-        font-weight: 700;
-        margin: 0;
-      }
-      .sort-select {
-        font-size: 13.5px;
-        font-weight: 600;
-        color: var(--ink);
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 7px 12px;
-        background: #fff;
-      }
-
-      .stat-tabs {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 12px;
-        margin-bottom: 18px;
-      }
-      .stat-tab {
-        background: var(--panel);
-        border: 1.5px solid var(--line);
-        border-radius: 10px;
-        padding: 14px 10px;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.15s ease;
-      }
-      .stat-tab:hover {
-        border-color: #c9cedb;
-      }
-      .stat-tab.active {
-        border-color: var(--green);
-        background: var(--green-bg);
-      }
-      .stat-tab .num {
-        font-size: 20px;
-        font-weight: 800;
-        color: var(--ink);
-      }
-      .stat-tab.active .num {
-        color: var(--green-dark);
-      }
-      .stat-tab .lbl {
-        font-size: 12.5px;
-        color: var(--muted);
-        font-weight: 600;
-        margin-top: 2px;
-      }
-      .stat-tab.active .lbl {
-        color: var(--green-dark);
-      }
-
-      .results-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 16px;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .results-count {
-        font-size: 14.5px;
-        font-weight: 700;
-      }
-      .results-actions {
-        display: flex;
-        gap: 18px;
-      }
-      .results-actions a {
-        font-size: 13.5px;
-        font-weight: 700;
-        color: var(--green-dark);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .high-match-banner {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--purple);
-        margin-bottom: 4px;
-      }
-      .high-match-sub {
-        font-size: 13px;
-        color: var(--muted);
+      .field {
         margin-bottom: 14px;
+        position: relative;
       }
-
-      .candidate-card {
-        background: var(--panel);
-        border-radius: var(--radius);
-        box-shadow:
-          0 1px 2px rgba(20, 24, 31, 0.04),
-          0 1px 12px rgba(20, 24, 31, 0.05);
-        padding: 22px 24px;
-        margin-bottom: 18px;
-      }
-      .candidate-top {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      .candidate-id {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .avatar {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        background: var(--brand);
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        font-size: 14px;
-        flex-shrink: 0;
-      }
-      .candidate-name {
-        font-size: 16px;
-        font-weight: 700;
-      }
-      .candidate-name a {
-        font-size: 13px;
-        font-weight: 700;
-        color: var(--green-dark);
-        text-decoration: none;
-        margin-left: 8px;
-      }
-      .candidate-sub {
-        font-size: 13px;
-        color: var(--muted);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 3px;
-      }
-      .candidate-sub span {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-      .match-box {
-        background: var(--purple-bg);
-        border-radius: 9px;
-        padding: 14px 16px;
-        margin: 16px 0;
-      }
-      .match-box-head {
-        font-size: 13.5px;
-        font-weight: 700;
-        color: var(--purple);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        margin-bottom: 10px;
-      }
-      .match-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 9px;
-        align-items: center;
-      }
-      .match-pill {
-        background: #fff;
-        border: 1px solid #dcd3fb;
+      .field input,
+      .field select {
+        width: 100%;
+        height: 50px;
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        padding: 0 16px;
+        font-size: 14.5px;
         color: var(--ink);
-        font-size: 13px;
-        font-weight: 600;
-        padding: 5px 12px;
-        border-radius: 999px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
+        background: #fafafd;
+        outline: none;
+        appearance: none;
+        -webkit-appearance: none;
       }
-      .match-pill svg {
-        color: var(--purple);
-        flex-shrink: 0;
+      .field.with-icon input {
+        padding-left: 44px;
       }
-      .match-more {
-        font-size: 13.5px;
-        color: var(--purple);
-        font-weight: 700;
+      .field .icon {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        color: var(--sub);
+      }
+      .field select {
         cursor: pointer;
+        color: var(--sub);
       }
-
-      .cand-detail-grid {
-        display: grid;
-        grid-template-columns: 150px 1fr;
-        row-gap: 11px;
-        font-size: 14px;
-        margin-top: 14px;
-      }
-      .cand-detail-grid dt {
-        color: var(--muted);
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .cand-detail-grid dd {
-        margin: 0;
-        color: var(--ink);
-      }
-      .cand-detail-grid dd span.sep {
-        color: var(--line);
-        margin: 0 6px;
-      }
-
-      .candidate-actions {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 18px;
-        padding-top: 16px;
-        border-top: 1px solid var(--line);
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-      .action-left {
-        display: flex;
-        gap: 10px;
-      }
-      .action-right {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-      }
-      .btn-view-number {
-        background: var(--green);
-        color: #fff;
-        border: none;
-        font-weight: 700;
-        font-size: 14px;
-        padding: 9px 18px;
-        border-radius: 9px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .btn-view-number:hover {
-        background: var(--green-dark);
-        color: #fff;
-      }
-      .btn-whatsapp {
-        width: 38px;
-        height: 38px;
-        border-radius: 9px;
-        border: 1px solid var(--green);
-        background: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--green-dark);
-      }
-      .btn-reject {
-        border: 1px solid var(--line);
-        background: #fff;
-        color: var(--danger);
-        font-weight: 700;
-        font-size: 14px;
-        padding: 9px 18px;
-        border-radius: 9px;
-        display: flex;
-        align-items: center;
-        gap: 7px;
-      }
-      .btn-reject:hover {
-        background: #fdeceb;
-      }
-      .btn-reject.done {
-        background: var(--danger);
-        color: #fff;
-        border-color: var(--danger);
-      }
-      .btn-shortlist {
-        border: 1px solid var(--line);
-        background: #fff;
-        color: var(--ink);
-        font-weight: 700;
-        font-size: 14px;
-        padding: 9px 18px;
-        border-radius: 9px;
-        display: flex;
-        align-items: center;
-        gap: 7px;
-      }
-      .btn-shortlist:hover {
-        background: #f7f7f8;
-      }
-      .btn-shortlist.done {
-        background: var(--green);
-        color: #fff;
-        border-color: var(--green);
-      }
-
-      .candidate-footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 12px;
-        font-size: 12.5px;
-        color: var(--muted);
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .add-note {
-        color: var(--brand);
-        font-weight: 700;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .toast-msg {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: var(--ink);
-        color: #fff;
-        padding: 12px 20px;
-        border-radius: 9px;
-        font-size: 14px;
-        font-weight: 600;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-        z-index: 60;
-        transform: translateY(-12px);
-        opacity: 0;
-        transition: all 0.3s ease;
+      .field .chev {
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 14px;
+        height: 14px;
+        color: var(--sub);
         pointer-events: none;
       }
-      .toast-msg.show {
-        transform: translateY(0);
-        opacity: 1;
+      .field input:focus,
+      .field select:focus {
+        border-color: var(--brand);
       }
 
-      #apply-job-section {
-        background: none !important;
-        padding: 5px !important;
-      }
-
-      @media (max-width: 640px) {
-        .stat-tabs {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .job-card-mid {
-          gap: 22px;
-        }
-        .cand-detail-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      #apply-job-section {
-        padding: 40px 15px;
-      }
-
-      /* Card */
-
-      .status-card {
-        max-width: 700px;
-        margin: auto;
-        background: #edf7f5;
-        border: 1px solid #2c8b79;
-        border-radius: 12px;
-        padding: 20px;
-      }
-
-      /* Timeline Item */
-
-      .status-item {
+      .consent {
         display: flex;
         align-items: flex-start;
-        position: relative;
-        padding-bottom: 5px;
+        gap: 8px;
+        font-size: 12.5px;
+        color: var(--sub);
+        margin: 14px 0 18px;
+      }
+      .consent input {
+        margin-top: 2px;
+        accent-color: var(--green);
       }
 
-      .status-item:last-child {
-        padding-bottom: 0;
-      }
-
-      /* Vertical Line */
-
-      .status-item::after {
-        content: "";
-        position: absolute;
-        left: 10px;
-        top: 22px;
-        width: 2px;
-        height: 100%;
-        background: #2c8b79;
-      }
-
-      .status-item:last-child::after {
-        display: none;
-      }
-
-      /* Icon */
-
-      .status-icon {
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        background: #2c8b79;
+      .btn-create {
+        width: 100%;
+        background: var(--primary-dark);
         color: #fff;
+        border: none;
+        padding: 14px;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .btn-create:hover {
+        background: var(--accent);
+      }
+
+      .why-box h3 {
+        font-size: 16.5px;
+        margin: 0 0 14px;
+      }
+      .why-list {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 26px;
+      }
+      .why-list li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        font-size: 14px;
+        color: #3a3350;
+        list-style: none;
+      }
+      .why-list li .em {
         flex-shrink: 0;
-        font-size: 12px;
-        z-index: 2;
+        font-size: 16px;
+        line-height: 1.3;
       }
 
-      /* Pending Circle */
-
-      .pending {
-        background: #edf7f5;
-        border: 2px solid #2c8b79;
+      .stats {
+        display: flex;
+        gap: 14px;
       }
-
-      /* Text */
-
-      .status-text {
-        margin-left: 20px;
+      .stat-card {
         flex: 1;
+        background: var(--purple-soft);
+        border-radius: 12px;
+        padding: 16px;
+        text-align: center;
       }
-
-      .status-text h3 {
-        color: #06154d;
+      .stat-card .num {
+        font-weight: 800;
+        font-size: 20px;
+        color: var(--brand);
+      }
+      .stat-card .lbl {
+        font-size: 12.5px;
+        color: var(--sub);
+        margin-top: 2px;
+      }
+      .stats-note {
         font-size: 12px;
-        line-height: 1.8;
+        color: var(--sub);
+        margin-top: 10px;
+        line-height: 1.5;
       }
 
-      /* Tablet */
+      /* ===== SEO content section ===== */
+      .seo {
+        background: #fff;
+        padding: 44px 0;
+        margin: 2%;
+        border-radius: 1%;
+      }
+      .seo-eyebrow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+      .seo-eyebrow img,
+      .seo-eyebrow .logo-sq {
+        width: 30px;
+        height: 30px;
+        border-radius: 8px;
+        background: var(--primary-dark);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 800;
+        font-size: 13px;
+      }
+      .seo h2.h-main {
+        font-size: 24px;
+        margin: 0 0 26px;
+        line-height: 1.3;
+        color: #241a3d;
+      }
+      .seo h3 {
+        font-size: 18px;
+        margin: 26px 0 10px;
+        color: #241a3d;
+      }
+      .seo p {
+        font-size: 14.5px;
+        line-height: 1.75;
+        color: #4a4258;
+        margin: 0 0 14px;
+      }
+
+      .faq {
+        margin-top: 8px;
+      }
+      .faq-item {
+        border-bottom: 1px solid var(--border);
+      }
+      .faq-q {
+        padding: 16px 4px;
+        display: flex;
+        align-items: center;
+        justify-content: between;
+        justify-content: space-between;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 15px;
+        color: #241a3d;
+        gap: 12px;
+      }
+      .faq-q svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        color: var(--sub);
+        transition: transform 0.2s;
+      }
+      .faq-item.open .faq-q svg {
+        transform: rotate(180deg);
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+      }
+      .faq-item.open .faq-a {
+        max-height: 200px;
+      }
+      .faq-a p {
+        padding: 0 4px 16px;
+        font-size: 14px;
+        color: #4a4258;
+      }
+
+      /* ===== Suggested job alerts ===== */
+      .suggested {
+        padding: 44px 0;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(30, 15, 70, 0.05);
+        background: #fff;
+        padding: 44px 0;
+        margin: 2%;
+        border-radius: 1%;
+      }
+      .suggested h2 {
+        text-align: center;
+        font-size: 22px;
+        margin: 0 0 26px;
+        color: #241a3d;
+      }
+      .alert-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .alert-card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px 18px;
+        border-top: 4px solid var(--primary-dark);
+      }
+      .alert-card.blue {
+        border-top-color: var(--accent);
+      }
+      .alert-card h4 {
+        margin: 0 0 4px;
+        font-size: 15.5px;
+        color: #231a3c;
+      }
+      .alert-card .pay {
+        font-size: 13.5px;
+        color: var(--sub);
+        margin-bottom: 10px;
+      }
+      .alert-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 14px;
+      }
+      .alert-tags span {
+        background: var(--chip-bg);
+        color: var(--chip-ink);
+        font-size: 11.5px;
+        padding: 5px 9px;
+        border-radius: 6px;
+      }
+      .alert-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .btn-apply-sm {
+        background: var(--primary-dark);
+        color: #fff;
+        border: none;
+        padding: 9px 18px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 13px;
+        cursor: pointer;
+      }
+      .btn-share {
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--sub);
+        padding: 9px 14px;
+        border-radius: 8px;
+        font-size: 13px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      /* ===== Category / city pill sections ===== */
+      .pill-section {
+        padding: 40px 0;
+        text-align: center;
+      }
+      .pill-section.categories {
+        background: #e2e2e2;
+      }
+      .pill-section.cities {
+        background: #e2e2e2;
+        margin-top: 10px;
+      }
+      .pill-section h2 {
+        font-size: 19px;
+        margin: 0 0 22px;
+        color: #241a3d;
+      }
+      .pill-section h2 span {
+        color: var(--accent);
+      }
+      .pill-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        max-width: 820px;
+        margin: 0 auto;
+      }
+      .pill {
+        background: #fff;
+        border: 1px solid var(--border);
+        color: #3a3350;
+        font-size: 13.5px;
+        padding: 9px 16px;
+        border-radius: 20px;
+      }
+      .pill-row.dark .pill {
+        background: var(--accent);
+        border: none;
+        color: #fff;
+      }
+      .pill.more {
+        background: transparent;
+        border: 1.5px dashed #c9c2d9;
+        color: var(--sub);
+        cursor: pointer;
+      }
+
+      /* ===== Responsive ===== */
+      @media (max-width: 860px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+        .why-box {
+          order: 2;
+        }
+        .alert-form {
+          order: 1;
+        }
+      }
+      @media (max-width: 560px) {
+        .wrap {
+          padding: 0 16px;
+        }
+        .hero {
+          padding: 26px 0 30px;
+        }
+        .hero-head h1 {
+          font-size: 21px;
+        }
+        .seo h2.h-main {
+          font-size: 20px;
+        }
+        .alert-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats {
+          flex-direction: column;
+        }
+        .pill-row {
+          gap: 8px;
+        }
+        .pill {
+          font-size: 12.5px;
+          padding: 8px 13px;
+        }
+      }
+
+      #footer {
+        background: var(--text-dark);
+        padding: var(--sp-16) 0 var(--sp-6);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: var(--sp-8);
+        margin-bottom: var(--sp-12);
+      }
+
+      .footer-brand-logo {
+        display: flex;
+        align-items: center;
+        gap: var(--sp-2);
+        margin-bottom: var(--sp-4);
+      }
+
+      .footer-brand-logo .logo-mark {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--accent)
+        );
+      }
+
+      .footer-brand-logo .logo-name {
+        color: var(--white);
+      }
+
+      .footer-brand-logo .logo-name span {
+        color: var(--accent);
+      }
+
+      .footer-desc {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.7;
+        margin-bottom: var(--sp-6);
+        max-width: 260px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: var(--sp-2);
+      }
+
+      .social-link {
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        transition: all var(--transition-base);
+        color: #fff;
+      }
+
+      .social-link:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+
+      .footer-col-title {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sp-2);
+      }
+
+      .footer-links a {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.5);
+        transition:
+          color var(--transition-fast),
+          transform var(--transition-fast);
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: var(--white);
+        transform: translateX(3px);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: var(--sp-6);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--sp-4);
+        flex-wrap: wrap;
+      }
+
+      .footer-copy {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.35);
+      }
+
+      .footer-copy a {
+        color: var(--accent);
+        transition: color var(--transition-fast);
+      }
+
+      .footer-copy a:hover {
+        color: var(--accent-light);
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        gap: var(--sp-4);
+      }
+
+      .footer-bottom-links a {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.35);
+        transition: color var(--transition-fast);
+      }
+
+      .footer-bottom-links a:hover {
+        color: var(--white);
+      }
+
+      .logo-mark {
+        width: 38px;
+        height: 38px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.1rem;
+        color: var(--white);
+      }
+
+      @media (max-width: 1024px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
 
       @media (max-width: 768px) {
-        .status-card {
-          padding: 18px;
+        .footer-grid {
+          grid-template-columns: 1fr;
         }
 
-        .status-text h3 {
-          font-size: 16px;
-        }
-      }
-
-      /* Mobile */
-
-      @media (max-width: 480px) {
-        #apply-job-section {
-          padding: 15px;
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
         }
 
-        .status-card {
-          padding: 15px;
-        }
-
-        .status-text {
-          margin-left: 15px;
-        }
-
-        .status-text h3 {
-          font-size: 15px;
-          line-height: 1.4;
-        }
-
-        .status-icon {
-          width: 18px;
-          height: 18px;
-          font-size: 10px;
-        }
-
-        .status-item::after {
-          left: 8px;
-          top: 22px;
+        .footer-bottom-links {
+          justify-content: center;
         }
       }
     </style>
@@ -792,287 +865,547 @@
         </div>
       </div>
       <main class="job-container">
-        <section id="browse-jobs">
-          <div class="job-container">
-            <div class="jobs-alert-grid">
-              <!-- card 1 -->
-              <article class="job-card">
-                <div class="job-card-header">
-                  <div class="company-logo-wrap">💳</div>
-                  <div style="flex: 1">
-                    <h3 class="job-title">Senior Frontend Engineer</h3>
-                    <div class="company-name">Stripe</div>
-                  </div>
-                </div>
-                <div class="text text-center view-job-alert"></div>
-                <div class="job-meta">
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <path
-                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                      />
-                    </svg>
-                    San Francisco, CA</span
-                  >
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    2d ago</span
-                  >
-                </div>
-                <div style="display: block">
-                  <span class="badge badge-green">Full Time</span>
-                  <span class="badge badge-blue">React</span>
-                </div>
-              </article>
-
-              <!-- card 2 -->
-              <article class="job-card">
-                <div class="job-card-header">
-                  <div class="company-logo-wrap">🏠</div>
-                  <div style="flex: 1">
-                    <h3 class="job-title">Product Designer</h3>
-                    <div class="company-name">Airbnb</div>
-                  </div>
-                </div>
-                <div class="text text-center view-job-alert"></div>
-
-                <div class="job-meta">
-                  <br />
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <path
-                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                      />
-                    </svg>
-                    Remote</span
-                  >
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    1d ago</span
-                  >
-                </div>
-                <div style="display: block">
-                  <span class="badge badge-purple">Remote</span>
-                  <span class="badge badge-blue">Figma</span>
-                </div>
-              </article>
-
-              <!-- card 3 -->
-              <article class="job-card">
-                <div class="job-card-header">
-                  <div class="company-logo-wrap">🎬</div>
-                  <div style="flex: 1">
-                    <h3 class="job-title">Data Scientist</h3>
-                    <div class="company-name">Netflix</div>
-                  </div>
-                </div>
-                <div class="text text-center view-job-alert"></div>
-
-                <div class="job-meta">
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <path
-                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                      />
-                    </svg>
-                    Los Angeles, CA</span
-                  >
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    5d ago</span
-                  >
-                </div>
-                <div style="display: block">
-                  <span class="badge badge-green">Full Time</span>
-                  <span class="badge badge-orange">Python</span>
-                </div>
-              </article>
-
-              <!-- card 4 -->
-              <article class="job-card">
-                <div class="job-card-header">
-                  <div class="company-logo-wrap">🛒</div>
-                  <div style="flex: 1">
-                    <h3 class="job-title">DevOps Engineer</h3>
-                    <div class="company-name">Shopify</div>
-                  </div>
-                </div>
-                <div class="text text-center view-job-alert"></div>
-
-                <div class="job-meta">
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <path
-                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                      />
-                    </svg>
-                    Toronto, Canada</span
-                  >
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    3d ago</span
-                  >
-                </div>
-                <div style="display: block">
-                  <span class="badge badge-green">Full Time</span>
-                  <span class="badge badge-blue">AWS</span>
-                </div>
-              </article>
-
-              <!-- card 5 -->
-              <article class="job-card">
-                <div class="job-card-header">
-                  <div class="company-logo-wrap">🎯</div>
-                  <div style="flex: 1">
-                    <h3 class="job-title">Marketing Manager</h3>
-                    <div class="company-name">HubSpot</div>
-                  </div>
-                </div>
-                <div class="text text-center view-job-alert"></div>
-
-                <div class="job-meta">
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <path
-                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                      />
-                    </svg>
-                    Boston, MA</span
-                  >
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    Today</span
-                  >
-                </div>
-                <div style="display: block">
-                  <span class="badge badge-purple">Hybrid</span>
-                  <span class="badge badge-blue">SEO</span>
-                </div>
-              </article>
-
-              <!-- card 6 -->
-              <article class="job-card">
-                <div class="job-card-header">
-                  <div class="company-logo-wrap">📝</div>
-                  <div style="flex: 1">
-                    <h3 class="job-title">Backend Engineer (Go)</h3>
-                    <div class="company-name">Notion</div>
-                  </div>
-                </div>
-                <div class="text text-center view-job-alert"></div>
-
-                <div class="job-meta">
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <path
-                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                      />
-                    </svg>
-                    New York, NY</span
-                  >
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    4d ago</span
-                  >
-                </div>
-                <div style="display: block">
-                  <span class="badge badge-green">Full Time</span>
-                  <span class="badge badge-orange">Go</span>
-                </div>
-              </article>
+        <section class="hero">
+          <div class="wrap">
+            <div class="hero-head">
+              <div class="hero-icon">📢</div>
+              <h1>
+                Get Free Job Alert via <span class="wa">WhatsApp</span> 🟢
+              </h1>
+              <p>
+                Get job alerts of your choice within 30 minutes of posting in
+                your WhatsApp with Apna job alert.
+              </p>
             </div>
+
+            <div class="hero-grid">
+              <div class="alert-form">
+                <div class="field">
+                  <input type="text" placeholder="Enter your name" />
+                </div>
+                <div class="field">
+                  <select>
+                    <option>Select city where you're looking for job</option>
+                    <option>Bhilai</option>
+                    <option>Raipur</option>
+                    <option>Bengaluru/Bangalore</option>
+                    <option>Hyderabad</option>
+                  </select>
+                  <svg
+                    class="chev"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+                <div class="field">
+                  <select>
+                    <option>Select job type</option>
+                    <option>Full Time</option>
+                    <option>Part Time</option>
+                    <option>Work from Home</option>
+                  </select>
+                  <svg
+                    class="chev"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+                <div class="field with-icon">
+                  <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.7 0 .5 5.2.5 11.6c0 2 .5 4 1.5 5.7L0 24l6.9-1.8a11.6 11.6 0 0 0 5.2 1.3c6.4 0 11.6-5.2 11.6-11.6 0-3.1-1.2-6-3.2-8.4zM12.1 21.3c-1.6 0-3.2-.4-4.6-1.2l-.3-.2-3.4.9.9-3.3-.2-.3a9.6 9.6 0 0 1-1.5-5.2C3 6.3 7 2.3 12.1 2.3c2.5 0 4.9 1 6.6 2.8a9.3 9.3 0 0 1 2.7 6.6c0 5.1-4.1 9.6-9.3 9.6z"
+                    />
+                  </svg>
+                  <input type="text" placeholder="WhatsApp Mobile Number" />
+                </div>
+
+                <label class="consent">
+                  <input type="checkbox" checked />
+                  Receive job alerts on WhatsApp
+                </label>
+
+                <button class="btn-create">Create Job alert</button>
+              </div>
+
+              <div class="why-box">
+                <h3>Why should you subscribe to a free job alert?</h3>
+                <ul class="why-list">
+                  <li>
+                    <span class="em">👍</span> Get job alert immediately on your
+                    WhatsApp
+                  </li>
+                  <li>
+                    <span class="em">🔔</span> Be updated with the latest job
+                    postings
+                  </li>
+                  <li>
+                    <span class="em">📩</span> Get notified faster than others
+                  </li>
+                  <li>
+                    <span class="em">⚙️</span> Allows you to create up to 4
+                    customized job alerts
+                  </li>
+                </ul>
+
+                <h3>Why choose apna.co for job alert?</h3>
+                <div class="stats">
+                  <div class="stat-card">
+                    <div class="num">50 lakh+</div>
+                    <div class="lbl">Jobs</div>
+                  </div>
+                  <div class="stat-card">
+                    <div class="num">5 Crore+</div>
+                    <div class="lbl">Users</div>
+                  </div>
+                </div>
+                <p class="stats-note">
+                  Get first-hand updates in more than 200+ job categories
+                  through WhatsApp with Apna job alert. Get relevant and correct
+                  information directly on WhatsApp.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SEO CONTENT ===== -->
+        <section class="seo">
+          <div class="wrap">
+            <div class="seo-eyebrow"><div class="logo-sq">H</div></div>
+            <h2 class="h-main">
+              Free Job Alerts - Get Daily Job Notifications &amp; Updates
+            </h2>
+
+            <p>
+              There is unemployment and a need for employment in India. Jobs are
+              everywhere but we don't know where they are. This is where job
+              alerts become useful — they help you know the moment a suitable
+              vacancy opens up, immediately, after the notification arrives.
+            </p>
+
+            <h3>What is a Free Job Alert?</h3>
+            <p>
+              When you sign up for the free job alert page, you'll get notified
+              about all types of job vacancies instantly on your mobile. This
+              helps you stay ahead of others by being the first candidate to
+              apply for the job and increase your chances of getting hired. It
+              also lets you stay up to date about the latest government job
+              vacancies in the sector you prefer — PSU jobs, SSC jobs, railway
+              jobs, and many more listed and updated as per the job vacancies on
+              offer.
+            </p>
+            <p>
+              You can also personalise it according to your preference like the
+              type of job, experience level, location of work, and the sector
+              you're interested in.
+            </p>
+
+            <h3>Free Job Alert 2025: What Kind of Jobs You Get Notified</h3>
+            <p>
+              Job alerts notify you about every category of job listings and
+              openings for entry-level, banking sector, railway jobs, PSU jobs,
+              IT jobs, and more, directly to your phone.
+            </p>
+            <p>
+              Free job alert 2025 notifications alert you about all the latest
+              government job posts, private jobs like Driver jobs, HR jobs, Data
+              Entry jobs, Factory Worker jobs, government job posts and so on.
+              Just also register on Apna to explore other opportunities and stay
+              updated on job trends, and jobs in your area.
+            </p>
+            <p>
+              The best part is that you can create a personalised job alert that
+              delivers jobs like the type of jobs, based on the industry, and
+              jobs in the automobile industry, along with jobs in the finance
+              sector according to your keyword and preferences.
+            </p>
+
+            <h3>Latest Job Alerts 2025 - Government &amp; Private Jobs</h3>
+            <p>
+              There are numerous free job alert apps on the internet. But, there
+              are certain apps which stand out from the rest — Apna is one of
+              the best apps to keep you updated with the latest job
+              notifications instantly. You can get valuable moving fast, and
+              being informed on time helps you land the job before others do.
+            </p>
+            <p>
+              You will also get notified with the latest job updates in
+              categories like the work from home category jobs in Bangalore,
+              jobs in Mumbai, jobs in Hyderabad, jobs in Delhi-NCR, and many
+              other listed job alerts.
+            </p>
+            <p>
+              To join more than 5 crore working professionals of government
+              press groups, receive government job alerts on WhatsApp, or
+              explore the Apna Job Search App, then you can register on Apna
+              website through the government job of your choice directly to your
+              WhatsApp.
+            </p>
+
+            <h3>FAQ's on Free Job Alert</h3>
+            <div class="faq" id="faqList">
+              <div class="faq-item open">
+                <div class="faq-q">
+                  Which App is best for free job alert?
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+                <div class="faq-a">
+                  <p>
+                    Apna app is one of the best free job alert apps to keep job
+                    seekers updated with the latest job openings across all
+                    categories. Apna notifies you every time a new job is posted
+                    in a location you prefer, keeping you a step ahead of others
+                    applying for the same job.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q">
+                  How do I log into the free job alert?
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+                <div class="faq-a">
+                  <p>
+                    To sign up with Apna free job alerts, you just need to fill
+                    in the basic details like your location, job preference, and
+                    job type. Make sure to be as specific as possible to avoid
+                    any misleading job alerts on your WhatsApp/email inbox.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q">
+                  How do I get Job alerts on my mobile?
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+                <div class="faq-a">
+                  <p>
+                    To pick job alerts on your mobile with Apna is to simply
+                    fill in your details on the free job alert page. Make sure
+                    to be as specific as possible to enable Apna to send you the
+                    filtered jobs of your choice directly to your
+                    WhatsApp/message.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-q">
+                  What kind of jobs are available at Apna?
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M6 9l6 6 6-6" />
+                  </svg>
+                </div>
+                <div class="faq-a">
+                  <p>
+                    Apna free job alert notifies you about different IT jobs,
+                    banking jobs, PSU jobs, HR jobs, Technician jobs,
+                    cook/catering jobs, Hospitality jobs, and many other
+                    industry jobs. Joining the government press group to get
+                    free job alerts directly on WhatsApp keeps you updated with
+                    all the latest government job notifications, railway jobs,
+                    banking jobs, UPSC jobs, SSC jobs, and so on.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== SUGGESTED JOB ALERTS ===== -->
+        <section class="suggested">
+          <div class="wrap">
+            <h2>Suggested job alerts for you</h2>
+            <div class="alert-grid" id="alertGrid"></div>
+          </div>
+        </section>
+
+        <!-- ===== CATEGORIES ===== -->
+        <section class="pill-section categories">
+          <div class="wrap">
+            <h2>Jobs available in <span>200+ categories</span> including</h2>
+            <div class="pill-row" id="catRow"></div>
+          </div>
+        </section>
+
+        <!-- ===== CITIES ===== -->
+        <section class="pill-section cities">
+          <div class="wrap">
+            <h2>Jobs available in <span>74 cities</span></h2>
+            <div class="pill-row dark" id="cityRow"></div>
           </div>
         </section>
       </main>
     </div>
+
+    <footer id="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand-logo">
+              <div class="logo-mark" aria-hidden="true">H</div>
+              <span class="logo-name">Hire<span>gram</span></span>
+            </div>
+            <p class="footer-desc">
+              Connecting ambitious professionals with world-class companies.
+              Your career journey starts here.
+            </p>
+            <div class="social-links" aria-label="Social media links">
+              <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+              <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+              <a href="#" class="social-link" aria-label="Facebook">f</a>
+              <a href="#" class="social-link" aria-label="Instagram">◉</a>
+            </div>
+          </div>
+          <div>
+            <h3 class="footer-col-title">For Job Seekers</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="browse-jobs.html">Browse Jobs</a></li>
+              <li><a href="index.html#categories">Job Categories</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">For Employers</h3>
+            <ul class="footer-links" role="list">
+              <li>
+                <a href="employer/login.html" target="_blank">Post a Job</a>
+              </li>
+              <li><a href="talent-search.html">Talent Search</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">Company</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">
+            © 2026 <a href="#">Hiregram</a>. All rights reserved. Built with ♥
+            for ambitious people.
+          </p>
+          <div class="footer-bottom-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="faq.html">FAQs</a>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
+      /* ---------- Suggested job alerts ---------- */
+      const alerts = [
+        {
+          role: "Field Recruiter - Last Mile",
+          company: "J-Care Consulting Pvt Ltd",
+          pay: "₹30,000 - ₹80,000",
+          tags: ["7 Openings", "10th or Below", "Min. 1 Years"],
+          color: "green",
+        },
+        {
+          role: ".Net Tech Lead",
+          company: "Databeetle Technologies",
+          pay: "₹1,00,000 - ₹1,49,999",
+          tags: ["Remote Work", "1 Openings", "Min. 5 Years"],
+          color: "blue",
+        },
+        {
+          role: "Radiologist",
+          company: "Long Health Private Limited",
+          pay: "₹75,000 - ₹1,49,999",
+          tags: ["Radiologist", "Post Graduate", "Rotational shift"],
+          color: "green",
+        },
+        {
+          role: "Marketing Manager",
+          company: "Rewind Financial",
+          pay: "₹70,000 - ₹1,49,999",
+          tags: ["1 Openings", "Diploma", "Min. 2 Years"],
+          color: "blue",
+        },
+        {
+          role: "Middleware Administrator/Lead",
+          company: "Believe Technosoft Private Limited",
+          pay: "₹1,00,000 - ₹1,49,999",
+          tags: ["10 Openings", "Post Graduate", "Min. 5 Years"],
+          color: "green",
+        },
+        {
+          role: "AI Head",
+          company: "Mango Promoters Private Limited",
+          pay: "₹50,000 - ₹1,49,999",
+          tags: ["Amtek Nagar", "1 Openings", "Min. 5 Years"],
+          color: "blue",
+        },
+        {
+          role: "Associate Director Accounts",
+          company: "M Mango",
+          pay: "₹1,20,000 - ₹1,49,999",
+          tags: ["10 Openings", "12th or Below", "Min. 10 Years"],
+          color: "green",
+        },
+        {
+          role: "Chief Growth Officer",
+          company: "Max Technologies Pvt. Ltd.",
+          pay: "₹80,000 - ₹1,49,999",
+          tags: ["1 Openings", "Graduate", "Min. 3 Years"],
+          color: "blue",
+        },
+        {
+          role: "Chief Engineer",
+          company: "Sagacious Shipping Solutions LLP",
+          pay: "₹1,00,000 - ₹1,49,999",
+          tags: ["1 Openings", "Graduate", "Min. 4 Years"],
+          color: "green",
+        },
+        {
+          role: "Storage Admin",
+          company: "Netwise Inc",
+          pay: "₹1,00,000 - ₹1,49,999",
+          tags: ["1 Openings", "Graduate", "Min. 5 Years"],
+          color: "blue",
+        },
+      ];
 
-        const cards = document.getElementsByClassName("job-card");
+      document.getElementById("alertGrid").innerHTML = alerts
+        .map(
+          (a) => `
+  <div class="alert-card ${a.color === "blue" ? "blue" : ""}">
+    <h4>${a.role}</h4>
+    <div class="pay">${a.company} · ${a.pay}</div>
+    <div class="alert-tags">${a.tags.map((t) => `<span>${t}</span>`).join("")}</div>
+    <div class="alert-actions">
+      <button class="btn-apply-sm">Apply Now</button>
+      <button class="btn-share">🔗 Share</button>
+    </div>
+  </div>
+`,
+        )
+        .join("");
 
-        for (let card of cards) {
-          card.addEventListener("click", () => {
-            window.open("view-job.html", "_blank");
-          });
-        }
+      /* ---------- Categories ---------- */
+      const categories = [
+        "Delivery Person",
+        "Marketing",
+        "Business Development",
+        "Accounts / Finance",
+        "Cook / Chef / Baker",
+        "Software / Web Developer",
+        "Driver",
+        "Human Resource",
+        "Technician",
+        "Back Office",
+        "Beautician / Hair Stylist",
+      ];
+      document.getElementById("catRow").innerHTML =
+        categories.map((c) => `<span class="pill">${c}</span>`).join("") +
+        `<span class="pill more">+ 57 more</span>`;
+
+      /* ---------- Cities ---------- */
+      const cities = [
+        "Agra",
+        "Ahmedabad",
+        "Ahmednagar",
+        "Ajmer",
+        "Aligarh",
+        "Amritsar",
+        "Asansol",
+        "Aurangabad",
+        "Bareilly",
+        "Belagavi",
+        "Bengaluru/Bangalore",
+        "Bhavnagar",
+        "Bhilai",
+        "Bhopal",
+        "Bhubaneswar",
+        "Bikaner",
+        "Chandigarh",
+        "Chennai",
+        "Coimbatore",
+        "Cuttack",
+        "Dehradun",
+        "Delhi-NCR",
+        "Dhanbad",
+        "Goa",
+        "Gorakhpur",
+        "Guntur",
+        "Guwahati",
+        "Hubli-Dharwad",
+        "Hyderabad",
+        "Indore",
+        "Jaipur",
+        "Jalandhar",
+        "Jammu",
+        "Jamshedpur",
+        "Jodhpur",
+        "Kanpur",
+        "Kochi",
+        "Kolhapur",
+        "Kolkata/Calcutta",
+        "Kota",
+        "Lucknow",
+        "Ludhiana",
+        "Madurai",
+        "Malappuram",
+        "Mangalore",
+        "Meerut",
+        "Mumbai/Bombay",
+        "Mysore/Mysuru",
+        "Nagpur",
+        "Panipat",
+        "Patna",
+        "Prayagraj/Allahabad",
+        "Puducherry",
+        "Pune",
+        "Thiruvananthapuram",
+        "Tiruchirappalli",
+        "Udaipur",
+        "Ujjain",
+        "Vadodara",
+        "Vijayawada",
+        "Visakhapatnam",
+        "Warangal",
+      ];
+      document.getElementById("cityRow").innerHTML = cities
+        .map((c) => `<span class="pill">${c}</span>`)
+        .join("");
     </script>
   </body>
 </html>

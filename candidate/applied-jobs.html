@@ -19,645 +19,665 @@
     />
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="../assets/css/common.css" />
-    <style>
-      :root {
-        --ink: #14181f;
-        --muted: #6b7280;
-        --line: #e5e7eb;
-        --panel: #ffffff;
-        --page: #f4f5f7;
-        --brand: #0f1e4d;
-        --green: #12b886;
-        --green-dark: #0ea472;
-        --green-bg: #e7f9f3;
-        --purple: #6c4ff6;
-        --purple-bg: #f2effe;
-        --danger: #e0453b;
-        --radius: 12px;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        font-family:
-          "Inter",
-          system-ui,
-          -apple-system,
-          sans-serif;
-        background: var(--page);
-        color: var(--ink);
-        min-height: 100vh;
-      }
 
-      .view {
-        padding: 5px;
-        margin: 5px;
-      }
-
-      .back-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 18px;
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--brand);
-        cursor: pointer;
-        width: fit-content;
-      }
-      .dash-grid-shortlist {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        align-items: start;
-      }
-      @media (max-width: 860px) {
-        .dash-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Filters panel --- */
-      .filters-panel {
-        background: var(--panel);
-        border-radius: var(--radius);
-        box-shadow:
-          0 1px 2px rgba(20, 24, 31, 0.04),
-          0 1px 12px rgba(20, 24, 31, 0.05);
-        padding: 20px;
-      }
-      .filters-title {
-        font-size: 15.5px;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 16px;
-      }
-      .filter-section-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 14px;
-        font-weight: 700;
-        cursor: pointer;
-        margin-bottom: 10px;
-      }
-      .filter-check {
-        display: flex;
-        align-items: center;
-        gap: 9px;
-        font-size: 13.8px;
-        color: var(--ink);
-        padding: 6px 0;
-        cursor: pointer;
-      }
-      .filter-check input {
-        width: 16px;
-        height: 16px;
-        accent-color: var(--brand);
-        cursor: pointer;
-      }
-      .filter-check .count {
-        color: var(--muted);
-      }
-      .badge-new {
-        font-size: 10px;
-        font-weight: 700;
-        background: var(--green-bg);
-        color: var(--green-dark);
-        padding: 2px 6px;
-        border-radius: 5px;
-        margin-left: 4px;
-      }
-      .filter-divider {
-        border: none;
-        border-top: 1px solid var(--line);
-        margin: 14px 0;
-      }
-      .filter-collapsed-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 14px;
-        font-weight: 700;
-        color: #c3c6cf;
-        padding: 4px 0;
-        cursor: not-allowed;
-      }
-      .see-more-link {
-        display: block;
-        text-align: center;
-        font-size: 13.5px;
-        font-weight: 700;
-        color: var(--brand);
-        margin-top: 12px;
-        cursor: pointer;
-      }
-
-      /* --- Right column --- */
-      .dash-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 16px;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .dash-head h2 {
-        font-size: 19px;
-        font-weight: 700;
-        margin: 0;
-      }
-      .sort-select {
-        font-size: 13.5px;
-        font-weight: 600;
-        color: var(--ink);
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 7px 12px;
-        background: #fff;
-      }
-
-      .stat-tabs {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 12px;
-        margin-bottom: 18px;
-      }
-      .stat-tab {
-        background: var(--panel);
-        border: 1.5px solid var(--line);
-        border-radius: 10px;
-        padding: 14px 10px;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.15s ease;
-      }
-      .stat-tab:hover {
-        border-color: #c9cedb;
-      }
-      .stat-tab.active {
-        border-color: var(--green);
-        background: var(--green-bg);
-      }
-      .stat-tab .num {
-        font-size: 20px;
-        font-weight: 800;
-        color: var(--ink);
-      }
-      .stat-tab.active .num {
-        color: var(--green-dark);
-      }
-      .stat-tab .lbl {
-        font-size: 12.5px;
-        color: var(--muted);
-        font-weight: 600;
-        margin-top: 2px;
-      }
-      .stat-tab.active .lbl {
-        color: var(--green-dark);
-      }
-
-      .results-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 16px;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .results-count {
-        font-size: 14.5px;
-        font-weight: 700;
-      }
-      .results-actions {
-        display: flex;
-        gap: 18px;
-      }
-      .results-actions a {
-        font-size: 13.5px;
-        font-weight: 700;
-        color: var(--green-dark);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .high-match-banner {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--purple);
-        margin-bottom: 4px;
-      }
-      .high-match-sub {
-        font-size: 13px;
-        color: var(--muted);
-        margin-bottom: 14px;
-      }
-
-      .candidate-card {
-        background: var(--panel);
-        border-radius: var(--radius);
-        box-shadow:
-          0 1px 2px rgba(20, 24, 31, 0.04),
-          0 1px 12px rgba(20, 24, 31, 0.05);
-        padding: 22px 24px;
-        margin-bottom: 18px;
-      }
-      .candidate-top {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      .candidate-id {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .avatar {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        background: var(--brand);
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        font-size: 14px;
-        flex-shrink: 0;
-      }
-      .candidate-name {
-        font-size: 16px;
-        font-weight: 700;
-      }
-      .candidate-name a {
-        font-size: 13px;
-        font-weight: 700;
-        color: var(--green-dark);
-        text-decoration: none;
-        margin-left: 8px;
-      }
-      .candidate-sub {
-        font-size: 13px;
-        color: var(--muted);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 3px;
-      }
-      .candidate-sub span {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-      .match-box {
-        background: var(--purple-bg);
-        border-radius: 9px;
-        padding: 14px 16px;
-        margin: 16px 0;
-      }
-      .match-box-head {
-        font-size: 13.5px;
-        font-weight: 700;
-        color: var(--purple);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        margin-bottom: 10px;
-      }
-      .match-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 9px;
-        align-items: center;
-      }
-      .match-pill {
-        background: #fff;
-        border: 1px solid #dcd3fb;
-        color: var(--ink);
-        font-size: 13px;
-        font-weight: 600;
-        padding: 5px 12px;
-        border-radius: 999px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .match-pill svg {
-        color: var(--purple);
-        flex-shrink: 0;
-      }
-      .match-more {
-        font-size: 13.5px;
-        color: var(--purple);
-        font-weight: 700;
-        cursor: pointer;
-      }
-
-      .cand-detail-grid {
-        display: grid;
-        grid-template-columns: 150px 1fr;
-        row-gap: 11px;
-        font-size: 14px;
-        margin-top: 14px;
-      }
-      .cand-detail-grid dt {
-        color: var(--muted);
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .cand-detail-grid dd {
-        margin: 0;
-        color: var(--ink);
-      }
-      .cand-detail-grid dd span.sep {
-        color: var(--line);
-        margin: 0 6px;
-      }
-
-      .candidate-actions {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 18px;
-        padding-top: 16px;
-        border-top: 1px solid var(--line);
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-      .action-left {
-        display: flex;
-        gap: 10px;
-      }
-      .action-right {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-      }
-      .btn-view-number {
-        background: var(--green);
-        color: #fff;
-        border: none;
-        font-weight: 700;
-        font-size: 14px;
-        padding: 9px 18px;
-        border-radius: 9px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .btn-view-number:hover {
-        background: var(--green-dark);
-        color: #fff;
-      }
-      .btn-whatsapp {
-        width: 38px;
-        height: 38px;
-        border-radius: 9px;
-        border: 1px solid var(--green);
-        background: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--green-dark);
-      }
-      .btn-reject {
-        border: 1px solid var(--line);
-        background: #fff;
-        color: var(--danger);
-        font-weight: 700;
-        font-size: 14px;
-        padding: 9px 18px;
-        border-radius: 9px;
-        display: flex;
-        align-items: center;
-        gap: 7px;
-      }
-      .btn-reject:hover {
-        background: #fdeceb;
-      }
-      .btn-reject.done {
-        background: var(--danger);
-        color: #fff;
-        border-color: var(--danger);
-      }
-      .btn-shortlist {
-        border: 1px solid var(--line);
-        background: #fff;
-        color: var(--ink);
-        font-weight: 700;
-        font-size: 14px;
-        padding: 9px 18px;
-        border-radius: 9px;
-        display: flex;
-        align-items: center;
-        gap: 7px;
-      }
-      .btn-shortlist:hover {
-        background: #f7f7f8;
-      }
-      .btn-shortlist.done {
-        background: var(--green);
-        color: #fff;
-        border-color: var(--green);
-      }
-
-      .candidate-footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 12px;
-        font-size: 12.5px;
-        color: var(--muted);
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .add-note {
-        color: var(--brand);
-        font-weight: 700;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .toast-msg {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: var(--ink);
-        color: #fff;
-        padding: 12px 20px;
-        border-radius: 9px;
-        font-size: 14px;
-        font-weight: 600;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-        z-index: 60;
-        transform: translateY(-12px);
-        opacity: 0;
-        transition: all 0.3s ease;
-        pointer-events: none;
-      }
-      .toast-msg.show {
-        transform: translateY(0);
-        opacity: 1;
-      }
-
-      #apply-job-section {
-        background: none !important;
-        padding: 5px !important;
-      }
-
-      @media (max-width: 640px) {
-        .stat-tabs {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .job-card-mid {
-          gap: 22px;
-        }
-        .cand-detail-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      #apply-job-section {
-        padding: 40px 15px;
-      }
-
-      /* Card */
-
-      .status-card {
-        max-width: 700px;
-        margin: auto;
-        background: #edf7f5;
-        border: 1px solid #2c8b79;
-        border-radius: 12px;
-        padding: 20px;
-      }
-
-      /* Timeline Item */
-
-      .status-item {
-        display: flex;
-        align-items: flex-start;
-        position: relative;
-        padding-bottom: 5px;
-      }
-
-      .status-item:last-child {
-        padding-bottom: 0;
-      }
-
-      /* Vertical Line */
-
-      .status-item::after {
-        content: "";
-        position: absolute;
-        left: 10px;
-        top: 22px;
-        width: 2px;
-        height: 100%;
-        background: #2c8b79;
-      }
-
-      .status-item:last-child::after {
-        display: none;
-      }
-
-      /* Icon */
-
-      .status-icon {
-        width: 22px;
-        height: 22px;
-        border-radius: 50%;
-        background: #2c8b79;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-shrink: 0;
-        font-size: 12px;
-        z-index: 2;
-      }
-
-      /* Pending Circle */
-
-      .pending {
-        background: #edf7f5;
-        border: 2px solid #2c8b79;
-      }
-
-      /* Text */
-
-      .status-text {
-        margin-left: 20px;
-        flex: 1;
-      }
-
-      .status-text h3 {
-        color: #06154d;
-        font-size: 12px;
-        line-height: 1.8;
-      }
-
-      /* Tablet */
-
-      @media (max-width: 768px) {
-        .status-card {
-          padding: 18px;
-        }
-
-        .status-text h3 {
-          font-size: 16px;
-        }
-      }
-
-      /* Mobile */
-
-      @media (max-width: 480px) {
-        #apply-job-section {
-          padding: 15px;
-        }
-
-        .status-card {
-          padding: 15px;
-        }
-
-        .status-text {
-          margin-left: 15px;
-        }
-
-        .status-text h3 {
-          font-size: 15px;
-          line-height: 1.4;
-        }
-
-        .status-icon {
-          width: 18px;
-          height: 18px;
-          font-size: 10px;
-        }
-
-        .status-item::after {
-          left: 8px;
-          top: 22px;
-        }
-      }
-    </style>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
+    <style>
+      :root {
+        --bg: #eef1f5;
+        --card-bg: #ffffff;
+        --text-dark: #171522;
+        --text-muted: #6b6b76;
+        --text-light: #8a8a94;
+        --green: #0b8a5f;
+        --green-dark: #0a7a54;
+        --green-tint: #e6f6ef;
+        --red: #e0392b;
+        --border: #e7e7ec;
+        --tab-inactive: #5c5c66;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--text-dark);
+      }
+
+      .page {
+        margin: 0 auto;
+        background: #fff;
+        min-height: auto;
+        padding: 10px;
+        border-radius: 1%;
+        margin-top: 2%;
+      }
+
+      h1.page-title {
+        font-size: 32px;
+        font-weight: 800;
+        margin: 0 0 20px;
+      }
+
+      /* ---- Tabs ---- */
+      .tab-bar {
+        background: #fff;
+        border-radius: 14px 14px 0 0;
+        display: flex;
+        gap: 32px;
+        padding: 0 20px;
+        box-shadow: 0 1px 0 var(--border);
+        margin-top: 2%;
+      }
+
+      .tab-btn {
+        background: none;
+        border: none;
+        font-size: 16px;
+        padding: 18px 2px 14px;
+        cursor: pointer;
+        color: var(--tab-inactive);
+        font-weight: 600;
+        position: relative;
+        font-family: inherit;
+      }
+
+      .tab-btn.active {
+        color: var(--text-dark);
+      }
+
+      .tab-btn.active::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 3px;
+        background: var(--green);
+        border-radius: 2px 2px 0 0;
+      }
+
+      .tab-panel {
+        background: transparent;
+        padding-top: 18px;
+      }
+
+      .tab-panel[hidden] {
+        display: none;
+      }
+
+      .applied-count {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        color: var(--text-muted);
+        margin: 0 0 14px;
+      }
+
+      .applied-count .info-icon {
+        width: 16px;
+        height: 16px;
+        border: 1.5px solid var(--text-light);
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        color: var(--text-light);
+      }
+
+      /* ---- Job card ---- */
+      .job-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        max-width: 350px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            margin: 2%;
+    
+      }
+
+      .job-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .job-logo {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border: 1px solid var(--border);
+      }
+
+      .job-logo svg {
+        width: 34px;
+        height: 34px;
+      }
+
+      .job-header-text {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .job-header-text h2 {
+        margin: 0 0 2px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .job-header-text p {
+        margin: 0;
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      .chevron {
+        color: var(--text-light);
+        font-size: 20px;
+        flex-shrink: 0;
+        text-decoration: none;
+        padding-top: 4px;
+      }
+
+      .job-meta {
+        /* margin: 16px 0 0; */
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .job-meta-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      .job-meta-row svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        color: var(--text-light);
+      }
+
+      /* ---- Status panel ---- */
+      .status-panel {
+        /* margin-top: 18px; */
+        background: var(--green-tint);
+        border-radius: 12px;
+        padding: 8px;
+      }
+
+      .status-step {
+        display: flex;
+        gap: 10px;
+        /* align-items: center; */
+      }
+
+      .status-step + .status-step {
+        margin-top: 2px;
+      }
+
+      .status-icon-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 20px;
+      }
+
+      .status-dot {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--green);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        flex-shrink: 0;
+      }
+
+      .status-dot svg {
+        width: 12px;
+        height: 12px;
+      }
+
+      .status-dot.ring {
+        background: #fff;
+        border: 2px solid var(--green);
+      }
+
+      .status-dot.ring .inner-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--green);
+      }
+
+      .status-line {
+        width: 2px;
+        height: 18px;
+        background: var(--green);
+        opacity: 0.5;
+      }
+
+      .status-label {
+        font-weight: 700;
+        font-size: 12px;
+        color: var(--text-dark);
+      }
+
+      .hr-contact {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 16px 0 16px 30px;
+      }
+
+      .hr-avatar {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: #e3d9f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .hr-avatar svg {
+        width: 24px;
+        height: 24px;
+        color: #5b3d92;
+      }
+
+      .hr-name {
+        font-weight: 700;
+        font-size: 12px;
+        margin: 0 0 2px;
+      }
+
+      .hr-sub {
+        font-size: 10px;
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .action-row {
+        display: flex;
+        gap: 10px;
+      }
+
+      .btn {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 14px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        border: none;
+        font-family: inherit;
+        transition:
+          filter 0.15s ease,
+          transform 0.15s ease;
+      }
+
+      .btn:active {
+        transform: scale(0.98);
+      }
+
+      .btn svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .btn-call {
+        background: var(--green);
+        color: #fff;
+        height: 35px;
+      }
+
+      .btn-call:hover {
+        background: var(--green-dark);
+      }
+
+      .btn-whatsapp {
+        background: #fff;
+        color: var(--green);
+        border: 1.5px solid var(--green);
+        height: 35px;
+      }
+
+      .btn-whatsapp svg {
+        color: #25d366;
+      }
+
+      .btn-whatsapp:hover {
+        background: var(--green-tint);
+      }
+
+      /* ---- Footer of card ---- */
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* margin-top: 16px; */
+        font-size: 13px;
+      }
+
+      .time-ago {
+        color: var(--text-light);
+      }
+
+      .report-link {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: var(--red);
+        text-decoration: none;
+        font-weight: 600;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: inherit;
+        font-size: 13px;
+        padding: 0;
+      }
+
+      .report-link svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      /* ---- Empty state (Interview Invites) ---- */
+      .empty-state {
+        background: #fff;
+        border-radius: 16px;
+        padding: 48px 24px;
+        text-align: center;
+        color: var(--text-muted);
+        max-width: 520px;
+      }
+
+      .empty-state svg {
+        width: 52px;
+        height: 52px;
+        color: #c9c9d3;
+        margin-bottom: 12px;
+      }
+
+      .empty-state p {
+        margin: 0;
+        font-size: 15px;
+      }
+
+      /* =========================================
+     MOBILE
+  ========================================= */
+      @media (max-width: 640px) {
+        .applied-job-container {
+          display: block !important;
+        }
+
+        .page {
+          padding: 18px 14px 40px;
+        }
+
+        h1.page-title {
+          font-size: 24px;
+          margin-bottom: 14px;
+        }
+
+        .tab-bar {
+          gap: 20px;
+          padding: 0 14px;
+          border-radius: 12px 12px 0 0;
+        }
+
+        .tab-btn {
+          font-size: 14px;
+          padding: 14px 2px 12px;
+        }
+
+        .job-card {
+          max-width: 100%;
+          padding: 16px;
+          border-radius: 14px;
+        }
+
+        .job-logo {
+          width: 44px;
+          height: 44px;
+        }
+
+        .job-logo svg {
+          width: 28px;
+          height: 28px;
+        }
+
+        .job-header-text h2 {
+          font-size: 16px;
+        }
+
+        .status-panel {
+          padding: 14px;
+        }
+
+        .hr-contact {
+          margin-left: 26px;
+        }
+
+        .action-row {
+          flex-direction: column;
+        }
+
+        .empty-state {
+          max-width: 100%;
+          padding: 36px 18px;
+        }
+      }
+
+      .applied-job-container {
+        display: flex;
+        flex-direction: row;
+      }
+
+         #footer {
+        background: var(--text-dark);
+        padding: var(--sp-16) 0 var(--sp-6);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 1fr 1fr;
+        gap: var(--sp-8);
+        margin-bottom: var(--sp-12);
+      }
+
+      .footer-brand-logo {
+        display: flex;
+        align-items: center;
+        gap: var(--sp-2);
+        margin-bottom: var(--sp-4);
+      }
+
+      .footer-brand-logo .logo-mark {
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-light),
+          var(--accent)
+        );
+      }
+
+      .footer-brand-logo .logo-name {
+        color: var(--white);
+      }
+
+      .footer-brand-logo .logo-name span {
+        color: var(--accent);
+      }
+
+      .footer-desc {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        line-height: 1.7;
+        margin-bottom: var(--sp-6);
+        max-width: 260px;
+      }
+
+      .social-links {
+        display: flex;
+        gap: var(--sp-2);
+      }
+
+      .social-link {
+        width: 38px;
+        height: 38px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.5);
+        transition: all var(--transition-base);
+        color: #fff;
+      }
+
+      .social-link:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+
+      .footer-col-title {
+        font-family: var(--font-display);
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: var(--sp-2);
+      }
+
+      .footer-links a {
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.5);
+        transition:
+          color var(--transition-fast),
+          transform var(--transition-fast);
+        display: inline-block;
+      }
+
+      .footer-links a:hover {
+        color: var(--white);
+        transform: translateX(3px);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: var(--sp-6);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--sp-4);
+        flex-wrap: wrap;
+      }
+
+      .footer-copy {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.35);
+      }
+
+      .footer-copy a {
+        color: var(--accent);
+        transition: color var(--transition-fast);
+      }
+
+      .footer-copy a:hover {
+        color: var(--accent-light);
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        gap: var(--sp-4);
+      }
+
+      .footer-bottom-links a {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.35);
+        transition: color var(--transition-fast);
+      }
+
+      .footer-bottom-links a:hover {
+        color: var(--white);
+      }
+
+      .logo-mark {
+        width: 38px;
+        height: 38px;
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-light)
+        );
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1.1rem;
+        color: var(--white);
+      }
+
+      @media (max-width: 1024px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .footer-bottom-links {
+          justify-content: center;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="topbar">
@@ -792,542 +812,471 @@
         </div>
       </div>
       <main class="job-container">
-        <section id="browse-jobs">
-          <div class="browse-job-container">
-            <div class="browse-jobs-grid">
-              <!-- card 1 -->
-              <article class="job-card">
-                <div class="job-card-header">
-                  <div class="company-logo-wrap">💳</div>
-                  <div style="flex: 1">
-                    <h3 class="job-title">Senior Frontend Engineer</h3>
-                    <div class="company-name">Stripe</div>
-                  </div>
+        <div class="page">
+          <div class="tab-bar" role="tablist">
+            <button
+              class="tab-btn active"
+              role="tab"
+              aria-selected="true"
+              data-tab="applied"
+            >
+              Applied jobs
+            </button>
+            <button
+              class="tab-btn"
+              role="tab"
+              aria-selected="false"
+              data-tab="invites"
+            >
+              Interview Invites
+            </button>
+          </div>
 
-                  <div class="text text-center view-job-details">
-                    <a href="view-job.html" target="_blank"
-                      ><button class="btn btn-job-details">View Job</button>
-                    </a>
+          <!-- Applied jobs panel -->
+          <div class="tab-panel" id="panel-applied">
+            <p class="applied-count">
+              1 applied job <span class="info-icon">i</span>
+            </p>
+            <div class="applied-job-container">
+            <div class="job-card">
+              <div class="job-header">
+                <div class="job-logo">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect
+                      x="2"
+                      y="2"
+                      width="8"
+                      height="8"
+                      rx="2"
+                      fill="#e0392b"
+                    />
+                    <rect
+                      x="14"
+                      y="2"
+                      width="8"
+                      height="8"
+                      rx="2"
+                      fill="#e0392b"
+                    />
+                    <rect
+                      x="2"
+                      y="14"
+                      width="8"
+                      height="8"
+                      rx="2"
+                      fill="#e0392b"
+                    />
+                    <rect
+                      x="14"
+                      y="14"
+                      width="8"
+                      height="8"
+                      rx="2"
+                      fill="#e0392b"
+                    />
+                    <rect
+                      x="9"
+                      y="9"
+                      width="6"
+                      height="6"
+                      rx="1.5"
+                      fill="#171522"
+                    />
+                  </svg>
+                </div>
+                <div class="job-header-text">
+                  <h2>Fresher 2024,2025 &amp; 2026</h2>
+                  <p>HDB Financial Services Limited</p>
+                </div>
+                <a class="chevron" href="#" aria-label="View details"
+                  >&#8250;</a
+                >
+              </div>
+
+              <div class="job-meta">
+                <div class="job-meta-row">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 10h.01M15 10h.01M9 14h.01M15 14h.01"
+                    />
+                  </svg>
+                  <span>Thousand Lights, Chennai</span>
+                </div>
+                <div class="job-meta-row">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="2" y="6" width="20" height="12" rx="2" />
+                    <path d="M12 10v4M8 10v4M16 10v4" />
+                  </svg>
+                  <span>&#8377; 31000 monthly *</span>
+                </div>
+              </div>
+
+              <div class="status-panel">
+                <div class="status-step">
+                  <div class="status-icon-col">
+                    <div class="status-dot">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="3"
+                      >
+                        <path d="M20 6L9 17l-5-5" />
+                      </svg>
+                    </div>
+                  </div>
+                  <span class="status-label">Job Applied</span>
+                </div>
+                <div class="status-step">
+                  <div class="status-icon-col">
+                    <div class="status-line"></div>
                   </div>
                 </div>
-                <div class="job-meta">
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
+                <div class="status-step">
+                  <div class="status-icon-col">
+                    <div class="status-dot ring">
+                      <div class="inner-dot"></div>
+                    </div>
+                  </div>
+                  <span class="status-label"
+                    >Talk to HDB Financial Services Limited's HR</span
+                  >
+                </div>
+
+                <div class="hr-contact">
+                  <div class="hr-avatar">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
                       <path
-                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                        d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.2-8 5v3h16v-3c0-2.8-3.6-5-8-5Z"
                       />
                     </svg>
-                    San Francisco, CA</span
-                  >
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    2d ago</span
-                  >
-                </div>
-                <div style="display: block">
-                  <span class="badge badge-green">Full Time</span>
-                  <span class="badge badge-blue">React</span>
-                </div>
-                <section id="apply-job-section">
-                  <div class="status-card">
-                    <!-- Step 1 -->
-                    <div class="status-item completed">
-                      <div class="status-icon">
-                        <i class="fa-solid fa-check"></i>
-                      </div>
-
-                      <div class="status-text">
-                        <h3>Job Applied</h3>
-                      </div>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="status-item">
-                      <div class="status-icon pending"></div>
-
-                      <div class="status-text">
-                        <h3>Talk to HDB Financial Services Limited's HR</h3>
-                      </div>
-                    </div>
                   </div>
-                </section>
-              </article>
-
-              <!-- card 2 -->
-              <article class="job-card">
-                <div class="job-card-header">
-                  <div class="company-logo-wrap">🏠</div>
-                  <div style="flex: 1">
-                    <h3 class="job-title">Product Designer</h3>
-                    <div class="company-name">Airbnb</div>
-                  </div>
-                  <div class="text text-center view-job-details">
-                    <a href="view-job.html" target="_blank"
-                      ><button class="btn btn-job-details">View Job</button>
-                    </a>
+                  <div>
+                    <p class="hr-name">Preethi B</p>
+                    <p class="hr-sub">
+                      Introduce yourself and know the next steps
+                    </p>
                   </div>
                 </div>
 
-                <div class="job-meta">
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
+                <div class="action-row">
+                  <button class="btn btn-call">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
                       <path
-                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                        d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z"
                       />
                     </svg>
-                    Remote</span
-                  >
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    1d ago</span
-                  >
-                </div>
-                <div style="display: block">
-                  <span class="badge badge-purple">Remote</span>
-                  <span class="badge badge-blue">Figma</span>
-                </div>
-                <section id="apply-job-section">
-                  <div class="status-card">
-                    <!-- Step 1 -->
-                    <div class="status-item completed">
-                      <div class="status-icon">
-                        <i class="fa-solid fa-check"></i>
-                      </div>
-
-                      <div class="status-text">
-                        <h3>Job Applied</h3>
-                      </div>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="status-item">
-                      <div class="status-icon pending"></div>
-
-                      <div class="status-text">
-                        <h3>Rejected</h3>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </article>
-
-              <!-- card 3 -->
-              <article class="job-card">
-                <div class="job-card-header">
-                  <div class="company-logo-wrap">🎬</div>
-                  <div style="flex: 1">
-                    <h3 class="job-title">Data Scientist</h3>
-                    <div class="company-name">Netflix</div>
-                  </div>
-                  <div class="text text-center view-job-details">
-                    <a href="view-job.html" target="_blank"
-                      ><button class="btn btn-job-details">View Job</button>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="job-meta">
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
+                    Call HR
+                  </button>
+                  <button class="btn btn-whatsapp">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
                       <path
-                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                        d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.2.2-.4.1-.1 0-.3 0-.4-.1-.1-.5-1.3-.7-1.8-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.2 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.1 1.5-.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-.9.1-1.1-.1-.1-.2-.2-.4-.3Z"
                       />
                     </svg>
-                    Los Angeles, CA</span
-                  >
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    5d ago</span
-                  >
+                    Whatsapp HR
+                  </button>
                 </div>
-                <div style="display: block">
-                  <span class="badge badge-green">Full Time</span>
-                  <span class="badge badge-orange">Python</span>
-                </div>
-                <section id="apply-job-section">
-                  <div class="status-card">
-                    <!-- Step 1 -->
-                    <div class="status-item completed">
-                      <div class="status-icon">
-                        <i class="fa-solid fa-check"></i>
-                      </div>
+              </div>
 
-                      <div class="status-text">
-                        <h3>Job Applied</h3>
-                      </div>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="status-item">
-                      <div class="status-icon pending"></div>
-
-                      <div class="status-text">
-                        <h3>Interview Scheduled</h3>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </article>
-
-              <!-- card 4 -->
-              <article class="job-card">
-                <div class="job-card-header">
-                  <div class="company-logo-wrap">🛒</div>
-                  <div style="flex: 1">
-                    <h3 class="job-title">DevOps Engineer</h3>
-                    <div class="company-name">Shopify</div>
-                  </div>
-                  <div class="text text-center view-job-details">
-                    <a href="view-job.html" target="_blank"
-                      ><button class="btn btn-job-details">View Job</button>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="job-meta">
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <path
-                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                      />
-                    </svg>
-                    Toronto, Canada</span
-                  >
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    3d ago</span
-                  >
-                </div>
-                <div style="display: block">
-                  <span class="badge badge-green">Full Time</span>
-                  <span class="badge badge-blue">AWS</span>
-                </div>
-                <section id="apply-job-section">
-                  <div class="status-card">
-                    <!-- Step 1 -->
-                    <div class="status-item completed">
-                      <div class="status-icon">
-                        <i class="fa-solid fa-check"></i>
-                      </div>
-
-                      <div class="status-text">
-                        <h3>Job Applied</h3>
-                      </div>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="status-item">
-                      <div class="status-icon pending"></div>
-
-                      <div class="status-text">
-                        <h3>Not Matched</h3>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </article>
-
-              <!-- card 5 -->
-              <article class="job-card">
-                <div class="job-card-header">
-                  <div class="company-logo-wrap">🎯</div>
-                  <div style="flex: 1">
-                    <h3 class="job-title">Marketing Manager</h3>
-                    <div class="company-name">HubSpot</div>
-                  </div>
-                  <div class="text text-center view-job-details">
-                    <a href="view-job.html" target="_blank"
-                      ><button class="btn btn-job-details">View Job</button>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="job-meta">
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <path
-                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                      />
-                    </svg>
-                    Boston, MA</span
-                  >
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    Today</span
-                  >
-                </div>
-                <div style="display: block">
-                  <span class="badge badge-purple">Hybrid</span>
-                  <span class="badge badge-blue">SEO</span>
-                </div>
-                <section id="apply-job-section">
-                  <div class="status-card">
-                    <!-- Step 1 -->
-                    <div class="status-item completed">
-                      <div class="status-icon">
-                        <i class="fa-solid fa-check"></i>
-                      </div>
-
-                      <div class="status-text">
-                        <h3>Job Applied</h3>
-                      </div>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="status-item">
-                      <div class="status-icon pending"></div>
-
-                      <div class="status-text">
-                        <h3>Walk-in</h3>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </article>
-
-              <!-- card 6 -->
-              <article class="job-card">
-                <div class="job-card-header">
-                  <div class="company-logo-wrap">📝</div>
-                  <div style="flex: 1">
-                    <h3 class="job-title">Backend Engineer (Go)</h3>
-                    <div class="company-name">Notion</div>
-                  </div>
-                  <div class="text text-center view-job-details">
-                    <a href="view-job.html" target="_blank"
-                      ><button class="btn btn-job-details">View Job</button>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="job-meta">
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <path
-                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                      />
-                    </svg>
-                    New York, NY</span
-                  >
-                  <span class="meta-item"
-                    ><svg
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      stroke-width="2"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polyline points="12 6 12 12 16 14" />
-                    </svg>
-                    4d ago</span
-                  >
-                </div>
-                <div style="display: block">
-                  <span class="badge badge-green">Full Time</span>
-                  <span class="badge badge-orange">Go</span>
-                </div>
-                <section id="apply-job-section">
-                  <div class="status-card">
-                    <!-- Step 1 -->
-                    <div class="status-item completed">
-                      <div class="status-icon">
-                        <i class="fa-solid fa-check"></i>
-                      </div>
-
-                      <div class="status-text">
-                        <h3>Job Applied</h3>
-                      </div>
-                    </div>
-
-                    <!-- Step 2 -->
-                    <div class="status-item">
-                      <div class="status-icon pending"></div>
-
-                      <div class="status-text">
-                        <h3>Seen by Recruiter</h3>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </article>
+              <div class="card-footer">
+                <span class="time-ago">1 day ago</span>
+                <button class="report-link">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2 1 21h22L12 2Zm0 5.5 6.9 12H5.1L12 7.5ZM11 10v4h2v-4h-2Zm0 5.5v2h2v-2h-2Z"
+                    />
+                  </svg>
+                  Report
+                </button>
+              </div>
             </div>
+            <div class="job-card">
+              <div class="job-header">
+                <div class="job-logo">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect
+                      x="2"
+                      y="2"
+                      width="8"
+                      height="8"
+                      rx="2"
+                      fill="#e0392b"
+                    />
+                    <rect
+                      x="14"
+                      y="2"
+                      width="8"
+                      height="8"
+                      rx="2"
+                      fill="#e0392b"
+                    />
+                    <rect
+                      x="2"
+                      y="14"
+                      width="8"
+                      height="8"
+                      rx="2"
+                      fill="#e0392b"
+                    />
+                    <rect
+                      x="14"
+                      y="14"
+                      width="8"
+                      height="8"
+                      rx="2"
+                      fill="#e0392b"
+                    />
+                    <rect
+                      x="9"
+                      y="9"
+                      width="6"
+                      height="6"
+                      rx="1.5"
+                      fill="#171522"
+                    />
+                  </svg>
+                </div>
+                <div class="job-header-text">
+                  <h2>Fresher 2024,2025 &amp; 2026</h2>
+                  <p>HDB Financial Services Limited</p>
+                </div>
+                <a class="chevron" href="#" aria-label="View details"
+                  >&#8250;</a
+                >
+              </div>
 
-            <!-- Pagination -->
-            <div class="pagination">
-              <span class="page-item active">1</span>
-              <span class="page-item">2</span>
-              <span class="page-item">3</span>
-              <span class="page-item">4</span>
-              <span class="page-item">5</span>
-              <span class="page-item">...</span>
-              <span class="page-item">12</span>
+              <div class="job-meta">
+                <div class="job-meta-row">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 10h.01M15 10h.01M9 14h.01M15 14h.01"
+                    />
+                  </svg>
+                  <span>Thousand Lights, Chennai</span>
+                </div>
+                <div class="job-meta-row">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="2" y="6" width="20" height="12" rx="2" />
+                    <path d="M12 10v4M8 10v4M16 10v4" />
+                  </svg>
+                  <span>&#8377; 31000 monthly *</span>
+                </div>
+              </div>
+
+              <div class="status-panel">
+                <div class="status-step">
+                  <div class="status-icon-col">
+                    <div class="status-dot">
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="3"
+                      >
+                        <path d="M20 6L9 17l-5-5" />
+                      </svg>
+                    </div>
+                  </div>
+                  <span class="status-label">Job Applied</span>
+                </div>
+                <div class="status-step">
+                  <div class="status-icon-col">
+                    <div class="status-line"></div>
+                  </div>
+                </div>
+                <div class="status-step">
+                  <div class="status-icon-col">
+                    <div class="status-dot ring">
+                      <div class="inner-dot"></div>
+                    </div>
+                  </div>
+                  <span class="status-label"
+                    >Talk to HDB Financial Services Limited's HR</span
+                  >
+                </div>
+
+                <div class="hr-contact">
+                  <div class="hr-avatar">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-4.4 0-8 2.2-8 5v3h16v-3c0-2.8-3.6-5-8-5Z"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="hr-name">Preethi B</p>
+                    <p class="hr-sub">
+                      Introduce yourself and know the next steps
+                    </p>
+                  </div>
+                </div>
+
+                <div class="action-row">
+                  <button class="btn btn-call">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.9 21 3 13.1 3 3.9c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8Z"
+                      />
+                    </svg>
+                    Call HR
+                  </button>
+                  <button class="btn btn-whatsapp">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path
+                        d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.7.9-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.7-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.2.2-.4.1-.1 0-.3 0-.4-.1-.1-.5-1.3-.7-1.8-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.2 1.6 2.5 4 3.5.6.2 1 .4 1.3.5.6.2 1.1.1 1.5-.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-.9.1-1.1-.1-.1-.2-.2-.4-.3Z"
+                      />
+                    </svg>
+                    Whatsapp HR
+                  </button>
+                </div>
+              </div>
+
+              <div class="card-footer">
+                <span class="time-ago">1 day ago</span>
+                <button class="report-link">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                      d="M12 2 1 21h22L12 2Zm0 5.5 6.9 12H5.1L12 7.5ZM11 10v4h2v-4h-2Zm0 5.5v2h2v-2h-2Z"
+                    />
+                  </svg>
+                  Report
+                </button>
+              </div>
+            </div>
             </div>
           </div>
-        </section>
+
+          <!-- Interview Invites panel -->
+          <div class="tab-panel" id="panel-invites" hidden>
+            <div class="empty-state">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <path d="M16 2v4M8 2v4M3 10h18" />
+              </svg>
+              <p>No interview invites yet</p>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
+
+     <footer id="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand-logo">
+              <div class="logo-mark" aria-hidden="true">H</div>
+              <span class="logo-name">Hire<span>gram</span></span>
+            </div>
+            <p class="footer-desc">
+              Connecting ambitious professionals with world-class companies.
+              Your career journey starts here.
+            </p>
+            <div class="social-links" aria-label="Social media links">
+              <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+              <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+              <a href="#" class="social-link" aria-label="Facebook">f</a>
+              <a href="#" class="social-link" aria-label="Instagram">◉</a>
+            </div>
+          </div>
+          <div>
+            <h3 class="footer-col-title">For Job Seekers</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="browse-jobs.html">Browse Jobs</a></li>
+              <li><a href="index.html#categories">Job Categories</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">For Employers</h3>
+            <ul class="footer-links" role="list">
+              <li>
+                <a href="employer/login.html" target="_blank">Post a Job</a>
+              </li>
+              <li><a href="talent-search.html">Talent Search</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">Company</h3>
+            <ul class="footer-links" role="list">
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">
+            © 2026 <a href="#">Hiregram</a>. All rights reserved. Built with ♥
+            for ambitious people.
+          </p>
+          <div class="footer-bottom-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="faq.html">FAQs</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
-      (function () {
-        const viewJobCard = document.getElementById("view-jobcard");
-        const viewDashboard = document.getElementById("view-dashboard");
-        const toast = document.getElementById("toast");
+      const tabs = document.querySelectorAll(".tab-btn");
+      const panels = {
+        applied: document.getElementById("panel-applied"),
+        invites: document.getElementById("panel-invites"),
+      };
 
-        function showToast(msg) {
-          toast.textContent = msg;
-          toast.classList.add("show");
-          setTimeout(() => toast.classList.remove("show"), 2000);
-        }
-
-        function goToDashboard() {
-          viewJobCard.classList.remove("active");
-          viewDashboard.classList.add("active");
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-        function goToJobCard() {
-          viewDashboard.classList.remove("active");
-          viewJobCard.classList.add("active");
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }
-
-        document
-          .getElementById("btnView")
-          .addEventListener("click", goToDashboard);
-        document
-          .getElementById("pendingStat")
-          .addEventListener("click", goToDashboard);
-        document
-          .getElementById("btnBackToJob")
-          .addEventListener("click", goToJobCard);
-
-        // Stat tabs
-        document.querySelectorAll(".stat-tab").forEach((tab) => {
-          tab.addEventListener("click", () => {
-            document
-              .querySelectorAll(".stat-tab")
-              .forEach((t) => t.classList.remove("active"));
-            tab.classList.add("active");
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => {
+            t.classList.remove("active");
+            t.setAttribute("aria-selected", "false");
           });
+          tab.classList.add("active");
+          tab.setAttribute("aria-selected", "true");
+
+          Object.values(panels).forEach((p) => (p.hidden = true));
+          panels[tab.dataset.tab].hidden = false;
         });
+      });
 
-        // Applied-in collapsible
-        const appliedInToggle = document.getElementById("appliedInToggle");
-        const appliedInBody = document.getElementById("appliedInBody");
-        const appliedInChevron = document.getElementById("appliedInChevron");
-        appliedInToggle.addEventListener("click", () => {
-          const open = appliedInBody.style.display === "block";
-          appliedInBody.style.display = open ? "none" : "block";
-          appliedInChevron.innerHTML = open ? "&#9660;" : "&#9650;";
-        });
+      document.querySelector(".btn-call").addEventListener("click", () => {
+        alert("Calling HR...");
+      });
 
-        // Shortlist / reject actions per candidate
-        let shortlistedCount = 0,
-          rejectedCount = 0;
-        document.querySelectorAll(".candidate-card").forEach((card) => {
-          const shortlistBtn = card.querySelector('[data-action="shortlist"]');
-          const rejectBtn = card.querySelector('[data-action="reject"]');
+      document.querySelector(".btn-whatsapp").addEventListener("click", () => {
+        alert("Opening WhatsApp chat with HR...");
+      });
 
-          shortlistBtn.addEventListener("click", () => {
-            const active = shortlistBtn.classList.toggle("done");
-            shortlistedCount += active ? 1 : -1;
-            document.getElementById("shortlistedCount").textContent =
-              shortlistedCount;
-            if (active && rejectBtn.classList.contains("done")) {
-              rejectBtn.classList.remove("done");
-              rejectedCount--;
-              document.getElementById("rejectedCount").textContent =
-                rejectedCount;
-            }
-            showToast(
-              active ? "Candidate shortlisted" : "Removed from shortlist",
-            );
-          });
-
-          rejectBtn.addEventListener("click", () => {
-            const active = rejectBtn.classList.toggle("done");
-            rejectedCount += active ? 1 : -1;
-            document.getElementById("rejectedCount").textContent =
-              rejectedCount;
-            if (active && shortlistBtn.classList.contains("done")) {
-              shortlistBtn.classList.remove("done");
-              shortlistedCount--;
-              document.getElementById("shortlistedCount").textContent =
-                shortlistedCount;
-            }
-            showToast(active ? "Candidate rejected" : "Rejection undone");
-          });
-        });
-      })();
+      document.querySelector(".report-link").addEventListener("click", () => {
+        alert("Report this job listing");
+      });
     </script>
   </body>
 </html>
