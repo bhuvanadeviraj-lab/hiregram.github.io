@@ -367,7 +367,7 @@ h4 {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: var(--sp-1);
+  /* gap: var(--sp-1); */
 }
 
 .nav-links a {
@@ -500,7 +500,7 @@ h4 {
   padding-bottom: var(--sp-20);
   position: relative;
   overflow: hidden;
-  background: radial-gradient(circle at 85% 15%, #ef2424 0%, transparent 35%), radial-gradient(circle at 15% 85%, rgba(239, 56, 36, 0.25) 0%, transparent 30%), #0F2447;
+  background: radial-gradient(circle at 85% 15%, #0F2447 0%, transparent 35%), radial-gradient(circle at 15% 85%, #0f2447 0%, transparent 30%), #0F2447;
   display: flex;
   align-items: center;
 }
@@ -593,7 +593,7 @@ h4 {
   bottom: -4px;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #ceaeab 0%, #184591 100%);
+  background: linear-gradient(90deg, #a00000 0%, #a00000 100%);
   border-radius: 2px;
 }
 
@@ -1560,6 +1560,17 @@ h4 {
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 0.07em;
+}
+
+.footer-underline {
+  content: "";
+  position: relative;
+  left: 0;
+  bottom: 5px;
+  width: 40%;
+  height: 4px;
+  background: linear-gradient(90deg, #a00000 0%, #a00000 100%);
+  border-radius: 2px;
 }
 
 .footer-links {

@@ -30,10 +30,10 @@
         --card: #ffffff;
         --ink: #1a1330;
         --sub: #6b6478;
-        --brand: #5b3fae;
-        --brand-dark: #402b82;
-        --green: #0f7a5c;
-        --green-dark: #0b5e46;
+        --brand: #0f2447;
+        --brand-dark: #0f2447;
+        --green: #0f2447;
+        --green-dark: #a00000;
         --chip-bg: #f1eef7;
         --chip-ink: #5c5468;
         --border: #e7e3ef;
@@ -97,45 +97,159 @@
         /* gap: 20px; */
       }
 
-      /* ===== Filter icon button (mobile trigger) ===== */
-      .filter-fab {
+      /* ===== Filter chip bar (mobile trigger) ===== */
+      .filter-chips {
         display: none;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 2px 2px 16px;
+        margin: 0 -2px 0;
+      }
+      .filter-chips::-webkit-scrollbar {
+        display: none;
+      }
+
+      .chip-icon {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
         background: #fff;
         border: 1px solid var(--border);
-        color: var(--ink);
-        font-weight: 600;
-        font-size: 14px;
-        padding: 10px 16px;
-        border-radius: 24px;
-        box-shadow: 0 2px 10px rgba(20, 10, 50, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         cursor: pointer;
-        margin-bottom: 16px;
+        position: relative;
+        box-shadow: 0 2px 8px rgba(20, 10, 50, 0.06);
       }
-      .filter-fab svg {
-        width: 18px;
-        height: 18px;
-        flex-shrink: 0;
+      .chip-icon svg {
+        width: 17px;
+        height: 17px;
+        color: var(--ink);
       }
-      .filter-fab .count {
+      .chip-icon .chip-icon-badge {
+        position: absolute;
+        top: -4px;
+        right: -4px;
         background: var(--brand);
         color: #fff;
         border-radius: 50%;
-        width: 18px;
-        height: 18px;
-        font-size: 11px;
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+        font-weight: 700;
         display: none;
         align-items: center;
         justify-content: center;
       }
-      .filter-fab .count.show {
+      .chip-icon .chip-icon-badge.show {
         display: flex;
+      }
+
+      .filter-chip {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        border: 1px solid var(--border);
+        background: var(--chip-bg);
+        color: #5c5468;
+        font-weight: 700;
+        font-size: 13.5px;
+        padding: 9px 14px;
+        border-radius: 24px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition:
+          background 0.15s,
+          color 0.15s,
+          border-color 0.15s;
+      }
+      .filter-chip .chevron-ic {
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
+        color: #8c849c;
+      }
+      .filter-chip .chip-badge {
+        background: #e2ddef;
+        color: var(--brand);
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: 11px;
+        font-weight: 800;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .filter-chip.active {
+        background: linear-gradient(135deg, var(--brand), #2f2255);
+        border-color: transparent;
+        color: #fff;
+      }
+      .filter-chip.active .chevron-ic {
+        color: #fff;
+      }
+      .filter-chip.active .chip-badge {
+        background: #fff;
+        color: var(--brand);
+        display: flex;
+      }
+
+      /* Remove blue tap/click highlight everywhere in drawer */
+      .drawer,
+      .drawer button,
+      .drawer input,
+      .drawer label,
+      .drawer-tab,
+      .drawer-close,
+      .btn-reset,
+      .btn-apply,
+      .chip-icon,
+      .filter-chip,
+      .radio-row {
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+      }
+
+      /* Remove click/focus background flash */
+      .drawer button:active,
+      .drawer input:active,
+      .drawer label:active,
+      .drawer-tab:active,
+      .drawer-close:active,
+      .btn-reset:active,
+      .btn-apply:active,
+      .chip-icon:active,
+      .filter-chip:active,
+      .radio-row:active {
+        outline: none;
+        box-shadow: none;
+      }
+
+      /* Radio & checkbox focus remove */
+      .drawer input[type="radio"]:focus,
+      .drawer input[type="checkbox"]:focus,
+      .drawer input[type="range"]:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+      /* Optional: keep your custom background */
+      .drawer input[type="radio"],
+      .drawer input[type="checkbox"] {
+        -webkit-tap-highlight-color: transparent;
       }
 
       /* ===== Sidebar / filter panel content ===== */
       .filters-card {
-        background: var(--card);
+        background: #fff;
         border-radius: 14px;
         padding: 18px;
         border: 1px solid var(--border);
@@ -192,6 +306,7 @@
         height: 16px;
         cursor: pointer;
       }
+
       .salary-row {
         display: flex;
         justify-content: space-between;
@@ -477,7 +592,7 @@
         padding: 4px;
       }
       .drawer-body {
-        padding: 6px 20px 12px;
+        padding: 0;
       }
       .drawer-footer {
         position: sticky;
@@ -487,6 +602,150 @@
         padding: 14px 20px;
         display: flex;
         gap: 12px;
+      }
+
+      /* ===== Filter overlay (mobile drawer) ===== */
+      .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(20, 10, 40, 0.45);
+        display: none;
+        z-index: 100;
+      }
+      .overlay.open {
+        display: block;
+      }
+      .drawer {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        border-radius: 18px 18px 0 0;
+        max-height: 85vh;
+        overflow-y: auto;
+        transform: translateY(100%);
+        transition: transform 0.28s ease;
+        z-index: 101;
+        padding: 0;
+      }
+      .drawer.open {
+        transform: translateY(0);
+      }
+      .drawer-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        background: #fff;
+      }
+      .drawer-head h3 {
+        margin: 0;
+        font-size: 17px;
+      }
+      .drawer-close {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: var(--sub);
+        line-height: 1;
+        padding: 4px;
+      }
+      .drawer-body {
+        padding: 0;
+      }
+      .drawer-footer {
+        position: sticky;
+        bottom: 0;
+        background: #fff;
+        border-top: 1px solid var(--border);
+        padding: 14px 20px;
+        display: flex;
+        gap: 12px;
+      }
+
+         .drawer-tabs {
+        flex-shrink: 0;
+        width: 128px;
+        display: flex;
+        flex-direction: column;
+        background: #faf9fc;
+        border-right: 1px solid var(--border);
+        overflow-y: auto;
+      }
+      /* ===== Drawer: left tab list, right-side filter options ===== */
+      .drawer-split {
+        display: flex;
+        min-height: 340px;
+        max-height: calc(85vh - 118px);
+      }
+     /* ===== Drawer swipeable single-tab filters (mobile) ===== */
+      .drawer-tabs {
+        display: flex;
+        overflow-x: auto;
+        gap: 4px;
+        padding: 10px 16px 0;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        background: #fff;
+        z-index: 2;
+        scrollbar-width: none;
+      }
+      .drawer-tabs::-webkit-scrollbar {
+        display: none;
+      }
+      .drawer-tab {
+        flex-shrink: 0;
+        background: none;
+        border: none;
+        padding: 10px 14px 12px;
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--sub);
+        cursor: pointer;
+        white-space: nowrap;
+        border-bottom: 2.5px solid transparent;
+        margin-bottom: -1px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .drawer-tab .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--brand);
+        display: none;
+      }
+      .drawer-tab.active {
+        color: var(--brand);
+        border-bottom-color: var(--brand);
+      }
+      .drawer-tab.has-value .dot {
+        display: inline-block;
+      }
+      .drawer-panes {
+        position: relative;
+        overflow: hidden;
+        touch-action: pan-y;
+      }
+      .drawer-pane {
+        display: none;
+        padding: 16px 20px 14px;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .drawer-pane.active {
+        display: flex;
+      }
+      .drawer-pane .pane-label {
+        font-size: 13px;
+        color: var(--sub);
       }
       .btn-reset {
         flex: 1;
@@ -508,7 +767,6 @@
         padding: 12px;
         cursor: pointer;
       }
-
       /* ===== Search bar ===== */
       .search-wrap {
         background: #fff;
@@ -993,6 +1251,47 @@
           display: block;
         }
       }
+
+         @media (max-width: 980px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+        .sidebar-desktop {
+          display: none;
+        }
+        .filter-chips {
+          display: flex;
+        }
+        .rail {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        .app-card {
+          grid-column: span 2;
+        }
+      }
+      @media (max-width: 560px) {
+        .page {
+          padding: 16px 14px 40px;
+        }
+        h1.title {
+          font-size: 20px;
+        }
+        .rail {
+          grid-template-columns: 1fr;
+        }
+        .app-card {
+          grid-column: span 1;
+        }
+        .job-meta,
+        .job-tags {
+          margin-left: 0;
+        }
+        .job-top {
+          gap: 10px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -1228,18 +1527,20 @@
         <h1 class="title mt-4">Jobs In Bhilai - 252 Verified Vacancies</h1>
 
         <!-- Mobile filter trigger -->
-        <button class="filter-fab" id="filterFab">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M4 6h16M7 12h10M10 18h4" />
-          </svg>
-          Filters
-          <span class="count" id="filterCount">0</span>
-        </button>
+        <div class="filter-chips" id="filterChips">
+          <button class="chip-icon" id="filterFab" aria-label="All filters">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M4 6h16M7 12h10M10 18h4" />
+            </svg>
+            <span class="chip-icon-badge" id="filterCount">0</span>
+          </button>
+          <!-- individual filter chips are injected by JS -->
+        </div>
 
         <div class="job-layout">
           <!-- Desktop sidebar -->
@@ -1393,60 +1694,215 @@
       /* ---------- Filter panel markup (shared, injected into desktop + drawer) ---------- */
       function filterGroupsHTML(prefix) {
         return `
-    <div class="f-group">
-      <div class="f-head" data-group>
-        <span>Date posted</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
-      </div>
-      <div class="f-body">
-        <label class="radio-row"><input type="radio" name="${prefix}date" value="all" checked> All</label>
-        <label class="radio-row"><input type="radio" name="${prefix}date" value="24h"> Last 24 hours</label>
-        <label class="radio-row"><input type="radio" name="${prefix}date" value="3d"> Last 3 days</label>
-        <label class="radio-row"><input type="radio" name="${prefix}date" value="7d"> Last 7 days</label>
-      </div>
+          <div class="f-group">
+            <div class="f-head" data-group>
+              <span>Date posted</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
+            </div>
+            <div class="f-body">
+              <label class="radio-row"><input type="radio" name="${prefix}date" value="all" checked> All</label>
+              <label class="radio-row"><input type="radio" name="${prefix}date" value="24h"> Last 24 hours</label>
+              <label class="radio-row"><input type="radio" name="${prefix}date" value="3d"> Last 3 days</label>
+              <label class="radio-row"><input type="radio" name="${prefix}date" value="7d"> Last 7 days</label>
+            </div>
+          </div>
+          <div class="f-group">
+            <div class="f-head" data-group>
+              <span>Distance</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
+            </div>
+            <div class="f-body">
+              <label class="radio-row"><input type="radio" name="${prefix}dist" value="all" checked> All</label>
+              <label class="radio-row"><input type="radio" name="${prefix}dist" value="5"> Within 5 km</label>
+              <label class="radio-row"><input type="radio" name="${prefix}dist" value="10"> Within 10 km</label>
+              <label class="radio-row"><input type="radio" name="${prefix}dist" value="20"> Within 20 km</label>
+              <label class="radio-row"><input type="radio" name="${prefix}dist" value="50"> Within 50 km</label>
+            </div>
+          </div>
+          <div class="f-group">
+            <div class="f-head" data-group>
+              <span>Salary</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
+            </div>
+            <div class="f-body">
+              <span style="font-size:13px;color:var(--sub);">Minimum monthly salary</span>
+              <input type="range" min="0" max="150000" value="0" step="5000" name="${prefix}salary">
+              <div class="salary-row"><span>0</span><span>1.5 Lakhs</span></div>
+            </div>
+          </div>
+          <div class="f-group collapsed">
+            <div class="f-head" data-group>
+              <span>Work mode</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
+            </div>
+            <div class="f-body">
+              <label class="radio-row"><input type="checkbox" name="${prefix}wm" value="office"> Work from office</label>
+              <label class="radio-row"><input type="checkbox" name="${prefix}wm" value="home"> Work from home</label>
+              <label class="radio-row"><input type="checkbox" name="${prefix}wm" value="field"> Field job</label>
+            </div>
+          </div>
+        `;
+      }
+
+      /* ---------- Mobile drawer: swipeable single-tab filter markup ---------- */
+      const drawerTabDefs = [
+        { key: "date", label: "Date posted" },
+        { key: "dist", label: "Distance" },
+        { key: "salary", label: "Salary" },
+        { key: "wm", label: "Work mode" },
+      ];
+
+      function drawerTabsHTML() {
+        const tabs = drawerTabDefs
+          .map(
+            (t, i) =>
+              `<button class="drawer-tab${i === 0 ? " active" : ""}" data-tab="${t.key}" type="button">${t.label}<span class="dot"></span></button>`,
+          )
+          .join("");
+
+        const panes = `
+    <div class="drawer-pane active" data-pane="date">
+      <h4 class="pane-title">Date posted</h4>
+      <label class="radio-row"><input type="radio" name="m_date" value="all" checked> All</label>
+      <label class="radio-row"><input type="radio" name="m_date" value="24h"> Last 24 hours</label>
+      <label class="radio-row"><input type="radio" name="m_date" value="3d"> Last 3 days</label>
+      <label class="radio-row"><input type="radio" name="m_date" value="7d"> Last 7 days</label>
     </div>
-    <div class="f-group">
-      <div class="f-head" data-group>
-        <span>Distance</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
-      </div>
-      <div class="f-body">
-        <label class="radio-row"><input type="radio" name="${prefix}dist" value="all" checked> All</label>
-        <label class="radio-row"><input type="radio" name="${prefix}dist" value="5"> Within 5 km</label>
-        <label class="radio-row"><input type="radio" name="${prefix}dist" value="10"> Within 10 km</label>
-        <label class="radio-row"><input type="radio" name="${prefix}dist" value="20"> Within 20 km</label>
-        <label class="radio-row"><input type="radio" name="${prefix}dist" value="50"> Within 50 km</label>
-      </div>
+    <div class="drawer-pane" data-pane="dist">
+      <h4 class="pane-title">Distance</h4>
+      <label class="radio-row"><input type="radio" name="m_dist" value="all" checked> All</label>
+      <label class="radio-row"><input type="radio" name="m_dist" value="5"> Within 5 km</label>
+      <label class="radio-row"><input type="radio" name="m_dist" value="10"> Within 10 km</label>
+      <label class="radio-row"><input type="radio" name="m_dist" value="20"> Within 20 km</label>
+      <label class="radio-row"><input type="radio" name="m_dist" value="50"> Within 50 km</label>
     </div>
-    <div class="f-group">
-      <div class="f-head" data-group>
-        <span>Salary</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
-      </div>
-      <div class="f-body">
-        <span style="font-size:13px;color:var(--sub);">Minimum monthly salary</span>
-        <input type="range" min="0" max="150000" value="0" step="5000" name="${prefix}salary">
-        <div class="salary-row"><span>0</span><span>1.5 Lakhs</span></div>
-      </div>
+    <div class="drawer-pane" data-pane="salary">
+      <h4 class="pane-title">Salary</h4>
+      <span class="pane-label">Minimum monthly salary</span>
+      <input type="range" min="0" max="150000" value="0" step="5000" name="m_salary">
+      <div class="salary-row"><span>0</span><span>1.5 Lakhs</span></div>
     </div>
-    <div class="f-group collapsed">
-      <div class="f-head" data-group>
-        <span>Work mode</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 15l6-6 6 6"/></svg>
-      </div>
-      <div class="f-body">
-        <label class="radio-row"><input type="checkbox" name="${prefix}wm" value="office"> Work from office</label>
-        <label class="radio-row"><input type="checkbox" name="${prefix}wm" value="home"> Work from home</label>
-        <label class="radio-row"><input type="checkbox" name="${prefix}wm" value="field"> Field job</label>
-      </div>
-    </div>
-  `;
+    <div class="drawer-pane" data-pane="wm">
+      <h4 class="pane-title">Work mode</h4>
+      <label class="radio-row"><input type="checkbox" name="m_wm" value="office"> Work from office</label>
+      <label class="radio-row"><input type="checkbox" name="m_wm" value="home"> Work from home</label>
+      <label class="radio-row"><input type="checkbox" name="m_wm" value="field"> Field job</label>
+    </div>`;
+
+        return `<div class="drawer-split">
+            <div class="drawer-tabs" id="drawerTabs">${tabs}</div>
+            <div class="drawer-panes" id="drawerPanes">${panes}</div>
+          </div>`;
       }
 
       document.getElementById("desktopFilters").innerHTML =
         filterGroupsHTML("d_");
-      document.getElementById("drawerFilters").innerHTML =
-        filterGroupsHTML("m_");
+      document.getElementById("drawerFilters").innerHTML = drawerTabsHTML();
+
+      /* Build the mobile chip bar: one pill per filter category, next to the funnel icon */
+      const filterChipsBar = document.getElementById("filterChips");
+      drawerTabDefs.forEach((t) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "filter-chip";
+        btn.dataset.tab = t.key;
+        btn.innerHTML = `<span class="chip-label">${t.label}</span><span class="chip-badge">0</span><svg class="chevron-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>`;
+        filterChipsBar.appendChild(btn);
+      });
+      filterChipsBar.addEventListener("click", (e) => {
+        const chip = e.target.closest(".filter-chip");
+        if (!chip) return;
+        openDrawer();
+        activateTab(chip.dataset.tab);
+      });
+
+      /* Tab switching (tap) */
+      const drawerTabsEl = document.getElementById("drawerTabs");
+      const drawerPanesEl = document.getElementById("drawerPanes");
+
+      function activateTab(key) {
+        drawerTabsEl
+          .querySelectorAll(".drawer-tab")
+          .forEach((b) => b.classList.toggle("active", b.dataset.tab === key));
+        drawerPanesEl
+          .querySelectorAll(".drawer-pane")
+          .forEach((p) => p.classList.toggle("active", p.dataset.pane === key));
+        const activeBtn = drawerTabsEl.querySelector(
+          `.drawer-tab[data-tab="${key}"]`,
+        );
+        if (activeBtn)
+          activeBtn.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "nearest",
+          });
+      }
+
+      drawerTabsEl.addEventListener("click", (e) => {
+        const btn = e.target.closest(".drawer-tab");
+        if (!btn) return;
+        activateTab(btn.dataset.tab);
+      });
+
+      /* Swipe left/right between tabs */
+      let touchStartX = 0,
+        touchStartY = 0,
+        swiping = false;
+      drawerPanesEl.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+          swiping = true;
+        },
+        { passive: true },
+      );
+
+      drawerPanesEl.addEventListener("touchend", (e) => {
+        if (!swiping) return;
+        swiping = false;
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        const dy = e.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy)) return;
+
+        const keys = drawerTabDefs.map((t) => t.key);
+        const activePane = drawerPanesEl.querySelector(".drawer-pane.active");
+        const idx = keys.indexOf(activePane.dataset.pane);
+        let nextIdx = dx < 0 ? idx + 1 : idx - 1;
+        nextIdx = Math.max(0, Math.min(keys.length - 1, nextIdx));
+        if (nextIdx !== idx) activateTab(keys[nextIdx]);
+      });
+
+      /* Keep drawer tab dots AND the mobile filter chips in sync with selected values */
+      function updateFilterIndicators() {
+        drawerTabDefs.forEach((t) => {
+          const pane = drawerPanesEl.querySelector(
+            `.drawer-pane[data-pane="${t.key}"]`,
+          );
+          let count = 0;
+          pane.querySelectorAll("input[type=radio]").forEach((r) => {
+            if (r.checked && r.value !== "all") count++;
+          });
+          pane.querySelectorAll("input[type=checkbox]:checked").forEach(() => {
+            count++;
+          });
+          pane.querySelectorAll("input[type=range]").forEach((r) => {
+            if (Number(r.value) > 0) count++;
+          });
+
+          const tabBtn = drawerTabsEl.querySelector(
+            `.drawer-tab[data-tab="${t.key}"]`,
+          );
+          tabBtn.classList.toggle("has-value", count > 0);
+
+          const chipBtn = filterChipsBar.querySelector(
+            `.filter-chip[data-tab="${t.key}"]`,
+          );
+          chipBtn.classList.toggle("active", count > 0);
+          chipBtn.querySelector(".chip-badge").textContent = count;
+        });
+      }
+      drawerPanesEl.addEventListener("change", updateFilterIndicators);
 
       /* Collapsible groups (works for both panels) */
       document.querySelectorAll("[data-group]").forEach((head) => {
@@ -1533,23 +1989,23 @@
 
       function jobCardHTML(j) {
         return `
-  <div class="job-card">
-    <div class="job-top">
-      <div class="job-logo">${j.logo}</div>
-      <div class="job-info">
-        <h3>${j.role}</h3>
-        <div class="company">${j.company}</div>
-      </div><a href="view-job.html">
-      <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></a>
-    </div>
-    <div class="job-meta">
-      <div class="row">📍 ${j.loc}</div>
-      <div class="row">💼 ${j.salary}</div>
-    </div>
-    <div class="job-tags">
-      ${j.tags.map((t) => `<span class="tag">${t}</span>`).join("")}
-    </div>
-  </div>`;
+        <div class="job-card">
+          <div class="job-top">
+            <div class="job-logo">${j.logo}</div>
+            <div class="job-info">
+              <h3>${j.role}</h3>
+              <div class="company">${j.company}</div>
+            </div><a href="view-job.html">
+            <svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+          </a></div>
+          <div class="job-meta">
+            <div class="row">📍 ${j.loc}</div>
+            <div class="row">💼 ${j.salary}</div>
+          </div>
+          <div class="job-tags">
+            ${j.tags.map((t) => `<span class="tag">${t}</span>`).join("")}
+          </div>
+        </div>`;
       }
 
       const jobList = document.getElementById("jobList");
@@ -1620,80 +2076,84 @@
           : `Jobs Here`;
 
         panelBody.innerHTML = `     <div class="search-wraps">
-          <div class="search-bar">
-            <div class="search-field">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <circle cx="11" cy="11" r="7" />
-                <path d="M21 21l-4.3-4.3" />
-              </svg>
-              <input
-                type="text"
-                id="searchTitle"
-                placeholder="Search jobs by 'title'"
-              />
-            </div>
+                <div class="search-bar">
+                  <div class="search-field">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="M21 21l-4.3-4.3" />
+                    </svg>
+                    <input
+                      type="text"
+                      id="searchTitle"
+                      placeholder="Search jobs by 'title'"
+                    />
+                  </div>
 
-            <div class="search-field select" id="expField">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <rect x="3" y="7" width="18" height="13" rx="2" />
-                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-              </svg>
-              <span id="expLabel">Your Experience</span>
-              <svg
-                class="chevron-ic"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M6 9l6 6 6-6" />
-              </svg>
-              <div class="exp-dropdown" id="expDropdown">
-                <div class="opt selected" data-val="Your Experience">
-                  Fresher
+                  <div class="search-field select" id="expField">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <rect x="3" y="7" width="18" height="13" rx="2" />
+                      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                    </svg>
+                    <span id="expLabel">Your Experience</span>
+                    <svg
+                      class="chevron-ic"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M6 9l6 6 6-6" />
+                    </svg>
+                    <div class="exp-dropdown" id="expDropdown">
+                      <div class="opt selected" data-val="Your Experience">
+                        Fresher
+                      </div>
+                      <div class="opt" data-val="Less than 1 year">
+                        Less than 1 year
+                      </div>
+                      <div class="opt" data-val="1 year">1 year</div>
+                      <div class="opt" data-val="2 years">2 years</div>
+                      <div class="opt" data-val="3 years">3 years</div>
+                      <div class="opt" data-val="5+ years">5+ years</div>
+                      <div class="opt" data-val="10+ years">10+ years</div>
+                    </div>
+                  </div>
+
+                  <div class="search-field">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z" />
+                      <circle cx="12" cy="9" r="2.5" />
+                    </svg>
+                    <input
+                      type="text"
+                      id="searchLoc"
+                      placeholder="Search for an area or city"
+                    />
+                  </div>
+
+                  <a href="browse-job.html"><button class="search-btn" id="searchJobsBtn">Search jobs</button></a>
                 </div>
-                <div class="opt" data-val="Less than 1 year">
-                  Less than 1 year
-                </div>
-                <div class="opt" data-val="1 year">1 year</div>
-                <div class="opt" data-val="2 years">2 years</div>
-                <div class="opt" data-val="3 years">3 years</div>
-                <div class="opt" data-val="5+ years">5+ years</div>
-                <div class="opt" data-val="10+ years">10+ years</div>
               </div>
-            </div>
+      `;
+        document.getElementById("panelOverlay").classList.add("open");
+        document.getElementById("sidePanel").classList.add("open");
+        document.body.style.overflow = "hidden";
 
-            <div class="search-field">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M12 22s7-7.5 7-13a7 7 0 1 0-14 0c0 5.5 7 13 7 13z" />
-                <circle cx="12" cy="9" r="2.5" />
-              </svg>
-              <input
-                type="text"
-                id="searchLoc"
-                placeholder="Search for an area or city"
-              />
-            </div>
-
-            <a href="browse-job.html"><button class="search-btn" id="searchJobsBtn">Search jobs</button></a>
-          </div>
-        </div>
-`;
         document.getElementById("panelOverlay").classList.add("open");
         document.getElementById("sidePanel").classList.add("open");
         document.body.style.overflow = "hidden";
@@ -1725,6 +2185,7 @@
         overlay.classList.add("open");
         drawer.classList.add("open");
         document.body.style.overflow = "hidden";
+        activateTab(drawerTabDefs[0].key);
       }
       function closeDrawer() {
         overlay.classList.remove("open");
@@ -1747,6 +2208,7 @@
           r.value = 0;
         });
         updateCount();
+        updateFilterIndicators();
       });
 
       applyBtn.addEventListener("click", () => {
