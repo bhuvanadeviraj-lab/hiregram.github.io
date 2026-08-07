@@ -59,6 +59,7 @@
         border: 1px solid var(--border);
         border-radius: var(--radius);
         box-shadow: var(--shadow);
+        margin: 1%;
       }
 
       /* ---------- LEFT COLUMN ---------- */
@@ -150,7 +151,7 @@
       .activity-card {
         padding: 14px 16px;
         display: flex;
-        align-items: center;
+        /* align-items: center; */
         gap: 12px;
       }
       .activity-icon {
@@ -181,6 +182,8 @@
       .chevron {
         color: var(--text-faint);
         font-size: 18px;
+        position: absolute;
+        right: 15px;
       }
 
       /* ---------- RIGHT COLUMN ---------- */
@@ -536,7 +539,7 @@
           display: block !important;
         }
       }
-      
+
       @media (max-width: 640px) {
         .page {
           padding: 16px 12px 50px;
@@ -963,12 +966,15 @@
             <div class="card activity-card">
               <div class="activity-icon">&#128196;</div>
               <div class="activity-text">
-                <div class="activity-title">My Applications</div>
+                <div class="activity-title">
+                  <a href="applied-jobs.html"
+                    >My Applications <span class="chevron">&#8250;</span></a
+                  >
+                </div>
                 <div class="activity-sub">
                   Check all your jobs applied and interview invites here
                 </div>
               </div>
-              <span class="chevron">&#8250;</span>
             </div>
           </aside>
 
