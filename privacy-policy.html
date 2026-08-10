@@ -44,27 +44,33 @@
             </a>
             <ul class="nav-links" role="list">
               <li class="active"><a href="index.html#home">Home</a></li>
-              <li><a href="browse-jobs.html">Jobs</a></li>
               <li class="dropdown">
-                <a href="index.html#jobs">Employer Zone</a>
+                <a href="index.html#jobs">Jobs</a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href="employer/login.html" target="_blank"
-                      >Post Job for Free</a
+                    <a href="browse-jobs.html" target="_blank"
+                      >Jobs By Category</a
+                    >
+                  </li>
+                  <li>
+                    <a href="browse-jobs.html" target="_blank"
+                      >Jobs By Location</a
+                    >
+                  </li>
+                  <li>
+                    <a href="browse-jobs.html" target="_blank"
+                      >Jobs By Qualification</a
+                    >
+                  </li>
+                  <li>
+                    <a href="browse-jobs.html" target="_blank"
+                      >Jobs By Department</a
                     >
                   </li>
                 </ul>
               </li>
-              <li class="dropdown">
-                <a href="index.html#jobs">Candidate Zone</a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="candidate/login.html" target="_blank"
-                      >Post Job for Free</a
-                    >
-                  </li>
-                </ul>
-              </li>
+              <li><a href="employer/login.html">Employer Zone</a></li>
+              <li><a href="candidate/login.html">Candidate Zone</a></li>
               <li><a href="blog.html">Blog</a></li>
               <li><a href="index.html#testimonials">Testimonials</a></li>
               <li><a href="index.html#about">About Us</a></li>
@@ -101,23 +107,24 @@
             <a href="index.html#home">Home</a>
             <a href="index.html#about">About Us</a>
             <div class="mobile-dropdown">
-              <button class="mobile-dropdown-btn">
-                Employer Zone <span>▼</span>
-              </button>
-
+              <button class="mobile-dropdown-btn">Jobs <span>▼</span></button>
               <div class="mobile-dropdown-content">
-                <a href="employer/login.html" target="_blank">Post a Job</a>
+                <a href="employer/login.html" target="_blank"
+                  >Jobs By Category</a
+                >
+                <a href="employer/login.html" target="_blank"
+                  >Jobs By Location</a
+                >
+                <a href="employer/login.html" target="_blank"
+                  >Jobs By Qualification</a
+                >
+                <a href="employer/login.html" target="_blank"
+                  >Jobs By Department</a
+                >
               </div>
             </div>
-            <div class="mobile-dropdown">
-              <button class="mobile-dropdown-btn">
-                Candidate Zone <span>▼</span>
-              </button>
-
-              <div class="mobile-dropdown-content">
-                <a href="candidate/login.html" target="_blank">Post a Job</a>
-              </div>
-            </div>
+            <a href="employer/login.html">Employer Zone</a>
+            <a href="candidate/login.html">Candidate Zone</a>
             <a href="blog.html">Blog</a>
             <a href="index.html#testimonials">Testimonials</a>
             <a href="index.html#contact">Contact Us</a>
@@ -441,10 +448,13 @@
         <div class="job-modal-btn">
           <a href="candidate/login.html" target="_blank" class="option-btn job">
             🏢
-            <p>I am Job Seeker</p>
+            <p>Job Seeker</p>
           </a>
 
-          <a href="employer/login.html" target="_blank" class="option-btn job"
+          <a
+            href="employer/login.html"
+            target="_blank"
+            class="option-btn employer-btn"
             >👤
             <p>Employer</p>
           </a>

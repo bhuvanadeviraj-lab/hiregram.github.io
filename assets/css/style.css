@@ -6520,9 +6520,15 @@ body {
 }
 
 .job {
-  background: #fff;
-  border: 1px solid #000;
   color: #000;
+  border: 2px solid #ff4d00;
+  background: linear-gradient(120deg, #ffffff, #fff3ed);
+}
+
+.employer-btn {
+  color: #000;
+  border: 2px solid #0f2447;
+  background: linear-gradient(120deg, #ffffff, #c6c6c6);
 }
 
 .mobile-dropdown {

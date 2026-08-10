@@ -574,8 +574,8 @@
     </div>
 
     <div class="layout">
-       <aside class="sidebar d-none d-lg-flex">
-        <a href="../index.html#home" class="side-link" target="_blank"
+      <aside class="sidebar d-none d-lg-flex">
+        <a href="index.html" class="side-link"
           ><i class="bi bi-house"></i> Home</a
         >
         <a href="browse-job.html" class="side-link active"
@@ -583,8 +583,7 @@
         >
         <a href="applied-jobs.html" class="side-link"
           ><i class="bi bi-cursor-fill"></i> Applied Jobs
-          </a
-        >
+        </a>
         <a href="job-alerts.html" class="side-link"
           ><i class="bi bi-bell"></i> Free Job Alert On</a
         >
@@ -624,7 +623,7 @@
             class="sidebar"
             style="height: auto; border-right: none; padding: 0"
           >
-            <a href="../index.html#home" class="side-link" target="_blank"
+            <a href="index.html" class="side-link"
               ><i class="bi bi-house"></i> Home</a
             >
             <a href="browse-job.html" class="side-link active"
@@ -632,8 +631,7 @@
             >
             <a href="applied-jobs.html" class="side-link"
               ><i class="bi bi-cursor-fill"></i> Applied Jobs
-              </a
-            >
+            </a>
             <a href="job-alerts.html" class="side-link"
               ><i class="bi bi-bell"></i> Free Job Alert On</a
             >
@@ -657,138 +655,307 @@
 
       <main>
         <section id="apply-job-section">
-      <div class="job-container">
-        <!-- Section header -->
-        <div class="section-header" data-aos="fade-up">
-          <div class="section-label">Start your application</div>
-          <h1 class="section-title">Apply for this job</h1>
-          <p class="section-subtitle">Fill out the form below. The company will get back to you within a few days.</p>
-        </div>
-
-        <!-- Apply grid -->
-        <div class="apply-grid">
-          <!-- Left: Job summary card -->
-          <div class="job-summary-card" data-aos="fade-right">
-            <div class="summary-header">
-              <div class="summary-logo">💳</div>
-              <div>
-                <div class="summary-title">Senior Frontend Engineer</div>
-                <div class="summary-company">Stripe</div>
-              </div>
+          <div class="job-container">
+            <!-- Section header -->
+            <div class="section-header" data-aos="fade-up">
+              <div class="section-label">Start your application</div>
+              <h1 class="section-title">Apply for this job</h1>
+              <p class="section-subtitle">
+                Fill out the form below. The company will get back to you within
+                a few days.
+              </p>
             </div>
 
-            <div class="summary-detail">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
-              </svg>
-              <span>San Francisco, CA (Hybrid)</span>
-            </div>
-            <div class="summary-detail">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
-                <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-              </svg>
-              <span>Posted 2 days ago · 45 applicants</span>
-            </div>
-            <div class="summary-detail">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
-                <path d="M12 2v20M2 12h20"/>
-              </svg>
-              <span>$140,000 – $180,000 / year</span>
-            </div>
-
-            <div class="summary-divider"></div>
-
-            <h4 style="margin-bottom: var(--sp-3); font-size: 1rem;">Required skills</h4>
-            <div class="summary-badge-list">
-              <span class="badge badge-blue">React</span>
-              <span class="badge badge-blue">TypeScript</span>
-              <span class="badge badge-green">Full Time</span>
-              <span class="badge badge-orange">5+ years</span>
-            </div>
-
-            <div class="summary-divider"></div>
-
-            <p style="color: var(--text-muted); font-size: 0.9rem;">
-              <strong>About Stripe</strong> — Stripe builds economic infrastructure for the internet. We’re looking for a frontend engineer to help build the next generation of payment tools.
-            </p>
-          </div>
-
-          <!-- Right: Application form -->
-          <div class="apply-form-card" data-aos="fade-left">
-            <form id="applyForm">
-              <h3 style="margin-bottom: var(--sp-6); font-size: 1.2rem;">Your information</h3>
-
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="firstName">First name *</label>
-                  <input type="text" id="firstName" placeholder="John" required>
-                </div>
-                <div class="form-group">
-                  <label for="lastName">Last name *</label>
-                  <input type="text" id="lastName" placeholder="Doe" required>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email address *</label>
-                <input type="email" id="email" placeholder="john.doe@example.com" required>
-              </div>
-
-              <div class="form-group">
-                <label for="phone">Phone number (optional)</label>
-                <input type="tel" id="phone" placeholder="+1 555 123 4567">
-              </div>
-
-              <div class="form-group">
-                <label for="resume">Resume / CV *</label>
-                <div class="file-input-wrapper">
-                  <input type="file" id="resume" accept=".pdf,.doc,.docx" required>
-                  <div class="file-input-label">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8">
-                      <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/>
-                    </svg>
-                    <span>Choose file (PDF, DOC) – max 5MB</span>
+            <!-- Apply grid -->
+            <div class="apply-grid">
+              <!-- Left: Job summary card -->
+              <div class="job-summary-card" data-aos="fade-right">
+                <div class="summary-header">
+                  <div class="summary-logo">💳</div>
+                  <div>
+                    <div class="summary-title">Senior Frontend Engineer</div>
+                    <div class="summary-company">Stripe</div>
                   </div>
                 </div>
-                <div class="form-hint">Accepted formats: .pdf, .doc, .docx</div>
+
+                <div class="summary-detail">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.8"
+                  >
+                    <path
+                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+                    />
+                  </svg>
+                  <span>San Francisco, CA (Hybrid)</span>
+                </div>
+                <div class="summary-detail">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.8"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                  <span>Posted 2 days ago · 45 applicants</span>
+                </div>
+                <div class="summary-detail">
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.8"
+                  >
+                    <path d="M12 2v20M2 12h20" />
+                  </svg>
+                  <span>$140,000 – $180,000 / year</span>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <h4 style="margin-bottom: var(--sp-3); font-size: 1rem">
+                  Required skills
+                </h4>
+                <div class="summary-badge-list">
+                  <span class="badge badge-blue">React</span>
+                  <span class="badge badge-blue">TypeScript</span>
+                  <span class="badge badge-green">Full Time</span>
+                  <span class="badge badge-orange">5+ years</span>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <p style="color: var(--text-muted); font-size: 0.9rem">
+                  <strong>About Stripe</strong> — Stripe builds economic
+                  infrastructure for the internet. We’re looking for a frontend
+                  engineer to help build the next generation of payment tools.
+                </p>
               </div>
 
-              <div class="form-group">
-                <label for="cover">Cover letter / message *</label>
-                <textarea id="cover" rows="5" placeholder="Tell the employer why you're a great fit for this role..." required></textarea>
+              <!-- Right: Application form -->
+              <div class="apply-form-card" data-aos="fade-left">
+                <form id="applyForm">
+                  <h3 style="margin-bottom: var(--sp-6); font-size: 1.2rem">
+                    Your information
+                  </h3>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="firstName">First name *</label>
+                      <input
+                        type="text"
+                        id="firstName"
+                        placeholder="John"
+                        required
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="lastName">Last name *</label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        placeholder="Doe"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email address *</label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="john.doe@example.com"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phone">Phone number (optional)</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      placeholder="+1 555 123 4567"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="resume">Resume / CV *</label>
+                    <div class="file-input-wrapper">
+                      <input
+                        type="file"
+                        id="resume"
+                        accept=".pdf,.doc,.docx"
+                        required
+                      />
+                      <div class="file-input-label">
+                        <svg
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.8"
+                        >
+                          <path
+                            d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"
+                          />
+                          <polyline points="13 2 13 9 20 9" />
+                        </svg>
+                        <span>Choose file (PDF, DOC) – max 5MB</span>
+                      </div>
+                    </div>
+                    <div class="form-hint">
+                      Accepted formats: .pdf, .doc, .docx
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="cover">Cover letter / message *</label>
+                    <textarea
+                      id="cover"
+                      rows="5"
+                      placeholder="Tell the employer why you're a great fit for this role..."
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="source"
+                      >How did you hear about this job? (optional)</label
+                    >
+                    <select id="source">
+                      <option value="">Select option</option>
+                      <option>LinkedIn</option>
+                      <option>Indeed</option>
+                      <option>Company website</option>
+                      <option>Friend referral</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+
+                  <div
+                    class="form-group"
+                    style="display: flex; align-items: center; gap: var(--sp-2)"
+                  >
+                    <input
+                      type="checkbox"
+                      id="terms"
+                      style="width: auto"
+                      required
+                    />
+                    <label
+                      for="terms"
+                      style="
+                        margin-bottom: 0;
+                        font-weight: normal;
+                        font-size: 0.9rem;
+                      "
+                      >I confirm that the information provided is accurate and I
+                      agree to the
+                      <a
+                        href="#"
+                        style="color: var(--accent); text-decoration: underline"
+                        >terms of application</a
+                      >
+                      *</label
+                    >
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    style="
+                      width: 100%;
+                      justify-content: center;
+                      padding: 1rem;
+                      margin-top: var(--sp-4);
+                    "
+                  >
+                    Submit application
+                  </button>
+
+                  <p
+                    style="
+                      text-align: center;
+                      margin-top: var(--sp-4);
+                      font-size: 0.8rem;
+                      color: var(--text-muted);
+                    "
+                  >
+                    Your data will be shared only with this employer.
+                  </p>
+                </form>
               </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
 
-              <div class="form-group">
-                <label for="source">How did you hear about this job? (optional)</label>
-                <select id="source">
-                  <option value="">Select option</option>
-                  <option>LinkedIn</option>
-                  <option>Indeed</option>
-                  <option>Company website</option>
-                  <option>Friend referral</option>
-                  <option>Other</option>
-                </select>
-              </div>
-
-              <div class="form-group" style="display: flex; align-items: center; gap: var(--sp-2);">
-                <input type="checkbox" id="terms" style="width: auto;" required>
-                <label for="terms" style="margin-bottom: 0; font-weight: normal; font-size: 0.9rem;">I confirm that the information provided is accurate and I agree to the <a href="#" style="color: var(--accent); text-decoration: underline;">terms of application</a> *</label>
-              </div>
-
-              <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 1rem; margin-top: var(--sp-4);">
-                Submit application
-              </button>
-
-              <p style="text-align: center; margin-top: var(--sp-4); font-size: 0.8rem; color: var(--text-muted);">
-                Your data will be shared only with this employer.
-              </p>
-            </form>
+    <footer id="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <div class="footer-brand-logo">
+              <div class="logo-mark" aria-hidden="true">H</div>
+              <span class="logo-name">Hire<span>gram</span></span>
+            </div>
+            <p class="footer-desc">
+              Connecting ambitious professionals with world-class companies.
+              Your career journey starts here.
+            </p>
+            <div class="social-links" aria-label="Social media links">
+              <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+              <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+              <a href="#" class="social-link" aria-label="Facebook">f</a>
+              <a href="#" class="social-link" aria-label="Instagram">◉</a>
+            </div>
+          </div>
+          <div>
+            <h3 class="footer-col-title">For Job Seekers</h3>
+            <div class="footer-underline"></div>
+            <ul class="footer-links" role="list">
+              <li><a href="browse-jobs.html">Browse Jobs</a></li>
+              <li><a href="index.html#categories">Job Categories</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">For Employers</h3>
+            <div class="footer-underline"></div>
+            <ul class="footer-links" role="list">
+              <li>
+                <a href="employer/login.html" target="_blank">Post a Job</a>
+              </li>
+              <li><a href="talent-search.html">Talent Search</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="footer-col-title">Company</h3>
+            <div class="footer-underline"></div>
+            <ul class="footer-links" role="list">
+              <li><a href="index.html#about">About Us</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="footer-copy">
+            © 2026 <a href="#">Hiregram</a>. All rights reserved. Built with ♥
+            for ambitious people.
+          </p>
+          <div class="footer-bottom-links">
+            <a href="privacy-policy.html">Privacy Policy</a>
+            <a href="terms-of-service.html">Terms of Service</a>
+            <a href="faq.html">FAQs</a>
           </div>
         </div>
       </div>
-    </section>
-      </main>
-    </div>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
       const STEPS = [

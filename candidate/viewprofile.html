@@ -29,7 +29,7 @@
         --bg: #f2f0f7;
         --card: #ffffff;
         --border: #e8e6f0;
-        --text-dark: #241f47;
+        --text-dark: #0f2447;
         --text-muted: #8b899e;
         --text-faint: #a9a7ba;
         --teal: #0a8a6c;
@@ -599,182 +599,144 @@
         }
       }
 
-      #footer {
-        background: var(--text-dark);
-        padding: var(--sp-16) 0 var(--sp-6);
-      }
-
-      .footer-grid {
-        display: grid;
-        grid-template-columns: 1.6fr 1fr 1fr 1fr;
-        gap: var(--sp-8);
-        margin-bottom: var(--sp-12);
-      }
-
-      .footer-brand-logo {
-        display: flex;
-        align-items: center;
-        gap: var(--sp-2);
-        margin-bottom: var(--sp-4);
-      }
-
-      .footer-brand-logo .logo-mark {
-        width: 36px;
-        height: 36px;
-        background: linear-gradient(
-          135deg,
-          var(--primary-light),
-          var(--accent)
-        );
-      }
-
-      .footer-brand-logo .logo-name {
-        color: var(--white);
-      }
-
-      .footer-brand-logo .logo-name span {
-        color: var(--accent);
-      }
-
-      .footer-desc {
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.5);
-        line-height: 1.7;
-        margin-bottom: var(--sp-6);
-        max-width: 260px;
-      }
-
-      .social-links {
-        display: flex;
-        gap: var(--sp-2);
-      }
-
-      .social-link {
-        width: 38px;
-        height: 38px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: var(--radius-md);
-        display: flex;
+      /* ============ Generic Add/Edit Modal ============ */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(36, 31, 71, 0.45);
+        display: none;
         align-items: center;
         justify-content: center;
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.5);
-        transition: all var(--transition-base);
-        color: #fff;
+        padding: 20px;
+        z-index: 1050;
       }
-
-      .social-link:hover {
-        background: var(--accent);
-        border-color: var(--accent);
-        color: var(--white);
-        transform: translateY(-2px);
-      }
-
-      .footer-col-title {
-        font-family: var(--font-display);
-        font-size: 0.9rem;
-        font-weight: 700;
-        color: var(--white);
-        margin-bottom: 10px;
-        text-transform: uppercase;
-        letter-spacing: 0.07em;
-      }
-
-      .footer-links {
+      .modal-overlay.open {
         display: flex;
-        flex-direction: column;
-        gap: var(--sp-2);
       }
-
-      .footer-links a {
-        font-size: 0.875rem;
-        color: rgba(255, 255, 255, 0.5);
-        transition:
-          color var(--transition-fast),
-          transform var(--transition-fast);
-        display: inline-block;
+      .pf-modal {
+        background: #fff;
+        border-radius: 16px;
+        width: 100%;
+        max-width: 520px;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 60px rgba(36, 31, 71, 0.25);
       }
-
-      .footer-links a:hover {
-        color: var(--white);
-        transform: translateX(3px);
-      }
-
-      .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: var(--sp-6);
+      .pf-modal-head {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: var(--sp-4);
-        flex-wrap: wrap;
+        padding: 18px 22px;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        background: #fff;
+        z-index: 2;
       }
-
-      .footer-copy {
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.35);
-      }
-
-      .footer-copy a {
-        color: var(--accent);
-        transition: color var(--transition-fast);
-      }
-
-      .footer-copy a:hover {
-        color: var(--accent-light);
-      }
-
-      .footer-bottom-links {
-        display: flex;
-        gap: var(--sp-4);
-      }
-
-      .footer-bottom-links a {
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.35);
-        transition: color var(--transition-fast);
-      }
-
-      .footer-bottom-links a:hover {
-        color: var(--white);
-      }
-
-      .logo-mark {
-        width: 38px;
-        height: 38px;
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary-light)
-        );
-        border-radius: var(--radius-sm);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: var(--font-display);
+      .pf-modal-head h3 {
+        margin: 0;
+        font-size: 16.5px;
         font-weight: 800;
-        font-size: 1.1rem;
-        color: var(--white);
+        color: var(--text-dark);
       }
-
-      @media (max-width: 1024px) {
-        .footer-grid {
-          grid-template-columns: 1fr 1fr;
-        }
+      .pf-modal-close {
+        background: none;
+        border: none;
+        font-size: 20px;
+        line-height: 1;
+        color: var(--text-faint);
+        cursor: pointer;
+        padding: 4px;
       }
-
-      @media (max-width: 768px) {
-        .footer-grid {
-          grid-template-columns: 1fr;
+      .pf-modal-body {
+        padding: 20px 22px 4px;
+      }
+      .pf-form-group {
+        margin-bottom: 16px;
+      }
+      .pf-form-group label {
+        display: block;
+        font-size: 12.5px;
+        font-weight: 700;
+        color: var(--text-muted);
+        margin-bottom: 6px;
+      }
+      .pf-form-group input[type="text"],
+      .pf-form-group textarea {
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 10px 12px;
+        font-size: 13.5px;
+        font-family: inherit;
+        color: var(--text-dark);
+        background: #fbfaff;
+      }
+      .pf-form-group input:focus,
+      .pf-form-group textarea:focus {
+        outline: none;
+        border-color: var(--teal-dark);
+        background: #fff;
+      }
+      .pf-form-group textarea {
+        resize: vertical;
+        min-height: 70px;
+      }
+      .pf-form-hint {
+        font-size: 11.5px;
+        color: var(--text-faint);
+        margin-top: 4px;
+      }
+      .pf-modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        padding: 16px 22px 22px;
+        position: sticky;
+        bottom: 0;
+        background: #fff;
+      }
+      .pf-btn {
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 13.5px;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .pf-btn-cancel {
+        background: var(--chip-bg);
+        color: var(--text-dark);
+      }
+      .pf-btn-cancel:hover {
+        background: #e5e3ee;
+      }
+      .pf-btn-save {
+        background: var(--teal-dark);
+        color: #fff;
+      }
+      .pf-btn-save:hover {
+        background: #054d3a;
+      }
+      @media (max-width: 600px) {
+        .pf-modal {
+          max-width: 100%;
+          border-radius: 14px;
         }
-
-        .footer-bottom {
-          flex-direction: column;
+        .pf-modal-body {
+          padding: 16px 16px 2px;
+        }
+        .pf-modal-head {
+          padding: 14px 16px;
+        }
+        .pf-modal-footer {
+          padding: 12px 16px 18px;
+          flex-direction: column-reverse;
+        }
+        .pf-modal-footer .pf-btn {
+          width: 100%;
           text-align: center;
-        }
-
-        .footer-bottom-links {
-          justify-content: center;
         }
       }
     </style>
@@ -834,7 +796,7 @@
 
     <div class="layout">
       <aside class="sidebar d-none d-lg-flex">
-        <a href="../index.html#home" class="side-link" target="_blank"
+        <a href="index.html" class="side-link"
           ><i class="bi bi-house"></i> Home</a
         >
         <a href="browse-job.html" class="side-link"
@@ -882,7 +844,7 @@
             class="sidebar"
             style="height: auto; border-right: none; padding: 0"
           >
-            <a href="../index.html#home" class="side-link" target="_blank"
+            <a href="index.html" class="side-link"
               ><i class="bi bi-house"></i> Home</a
             >
             <a href="browse-job.html" class="side-link"
@@ -983,32 +945,36 @@
             <div class="card">
               <div class="card-header">
                 <h2>Work Experience</h2>
-                <button class="link-btn">+ Add</button>
+                <button class="link-btn" id="weAddTopBtn">+ Add</button>
               </div>
 
               <div class="experience-block">
                 <div class="exp-row">
                   <div class="exp-logo">&#128188;</div>
                   <div class="exp-main">
-                    <div class="exp-title">Software Engineer</div>
-                    <div class="exp-company">Matrimonydotcom</div>
+                    <div class="exp-title" id="weTitle">Software Engineer</div>
+                    <div class="exp-company" id="weCompany">
+                      Matrimonydotcom
+                    </div>
                   </div>
-                  <button class="edit-btn">&#9998; Edit</button>
+                  <button class="edit-btn" id="weEditBtn">&#9998; Edit</button>
                 </div>
 
                 <div class="exp-sub-row">
                   <span class="exp-sub-label">Job Role</span>
-                  <span class="exp-sub-value"
+                  <span class="exp-sub-value" id="weRole"
                     >Backend Development &bull; Frontend Development</span
                   >
                 </div>
                 <div class="exp-sub-row">
                   <span class="exp-sub-label">Industry</span>
-                  <span class="exp-sub-value">Software Product</span>
+                  <span class="exp-sub-value" id="weIndustry"
+                    >Software Product</span
+                  >
                 </div>
 
-                <button class="skill-hint-row">
-                  <span
+                <button class="skill-hint-row" id="weDescBtn">
+                  <span id="weDescText"
                     >Add a description of your role and responsibilities</span
                   >
                   <span class="chevron">&#8250;</span>
@@ -1016,28 +982,34 @@
 
                 <div class="exp-sub-row">
                   <span class="exp-sub-label">Skills</span>
-                  <span class="exp-sub-value">Php developer</span>
+                  <span class="exp-sub-value" id="weSkills">Php developer</span>
                 </div>
 
-                <div class="exp-date-badge">May 2024 - Jun 2026</div>
+                <div class="exp-date-badge" id="weDuration">
+                  May 2024 - Jun 2026
+                </div>
               </div>
 
-              <button class="row-toggle">
+              <button class="row-toggle" id="weYearsBtn">
                 <span>Total Years of Experience</span>
-                <span class="chevron">&#8250;</span>
+                <span class="row-value" id="weYearsValueWrap"
+                  ><span id="weYearsValue"></span>
+                  <span class="chevron">&#8250;</span></span
+                >
               </button>
 
-              <button class="row-toggle">
+              <button class="row-toggle" id="weSalaryBtn">
                 <span>
                   Current Monthly Salary
                   <div class="row-toggle-sub">only visible to you</div>
                 </span>
                 <span class="row-value"
-                  >&#8377; 30,000 <span class="chevron">&#8250;</span></span
+                  >&#8377; <span id="weSalaryValue">30,000</span>
+                  <span class="chevron">&#8250;</span></span
                 >
               </button>
 
-              <button class="row-toggle add-row">
+              <button class="row-toggle add-row" id="weAddBottomBtn">
                 <span>+ Add</span>
                 <span class="chevron">&#8250;</span>
               </button>
@@ -1046,7 +1018,7 @@
             <div class="card">
               <div class="card-header">
                 <h2>Education</h2>
-                <button class="link-btn">+ Add</button>
+                <button class="link-btn" id="eduAddBtn">+ Add</button>
               </div>
 
               <button class="row-toggle">
@@ -1065,14 +1037,17 @@
                 <div class="edu-row">
                   <div class="edu-logo">&#127891;</div>
                   <div class="edu-main">
-                    <div class="edu-title">
+                    <div class="edu-title" id="eduTitle">
                       MCA , Mobile Application and Web Technology
                     </div>
-                    <div class="edu-sub">
+                    <div class="edu-sub" id="eduSub">
                       Arya Nadar Janaki Ammal College &bull; Post Graduate
                     </div>
-                    <div class="edu-year-badge">Batch of 2026</div>
+                    <div class="edu-year-badge" id="eduBadge">
+                      Batch of 2026
+                    </div>
                   </div>
+                  <button class="edit-btn" id="eduEditBtn">&#9998; Edit</button>
                 </div>
               </div>
             </div>
@@ -1080,9 +1055,9 @@
             <div class="card">
               <div class="card-header">
                 <h2>Skills</h2>
-                <button class="link-btn">+ Add</button>
+                <button class="link-btn" id="skillsAddBtn">+ Add</button>
               </div>
-              <div class="chip-row">
+              <div class="chip-row" id="skillsChipRow">
                 <span class="chip">Php developer</span>
               </div>
             </div>
@@ -1090,45 +1065,42 @@
             <div class="card">
               <div class="card-header">
                 <h2>Further Education Preferences</h2>
-                <button class="link-btn">+ Add</button>
+                <button class="link-btn" id="furtherEduAddBtn">+ Add</button>
               </div>
+              <div class="chip-row" id="furtherEduChipRow"></div>
             </div>
 
             <div class="card">
               <div class="card-header">
                 <h2>Certifications</h2>
-                <button class="link-btn">+ Add</button>
+                <button class="link-btn" id="certAddBtn">+ Add</button>
               </div>
-              <div class="empty-note">No certification added</div>
+              <div class="empty-note" id="certEmptyNote">
+                No certification added
+              </div>
+              <div
+                class="chip-row"
+                id="certChipRow"
+                style="display: none"
+              ></div>
             </div>
 
             <div class="card">
               <div class="card-header">
                 <h2>Languages known</h2>
-                <button class="link-btn">&#9998; Edit</button>
+                <button class="link-btn" id="langEditBtn">&#9998; Edit</button>
               </div>
-              <div class="chip-row">
+              <div class="chip-row" id="langChipRow">
                 <span class="chip">English</span>
                 <span class="chip">&#10003; Kannada</span>
               </div>
             </div>
 
-            <div class="card spoken-english-card">
-              <h2>Spoken English</h2>
-              <div class="sub-note">Only visible to HRs</div>
-              <p class="spoken-desc">
-                Sharing the required level of English speaking proficiency will
-                help you find jobs at top companies
-              </p>
-              <button class="outline-btn">&#9989; Verify now</button>
-            </div>
-
             <div class="card resume-card">
               <div class="card-header">
                 <h2>Resume</h2>
-                <button class="link-btn">&#9998; Add</button>
+                <button class="link-btn" id="resumeAddBtn">&#9998; Add</button>
               </div>
-              <div class="sub-note">Only visible to HRs</div>
 
               <div class="resume-drop">
                 <div class="upload-icon">&#8593;</div>
@@ -1137,7 +1109,21 @@
                 </div>
               </div>
 
-              <button class="outline-btn">+ Upload resume</button>
+              <button
+                type="button"
+                class="outline-btn"
+                onclick="document.getElementById('resumeUpload').click()"
+              >
+                + Upload resume
+              </button>
+
+              <input
+                type="file"
+                id="resumeUpload"
+                name="resume"
+                accept=".pdf,.doc,.docx"
+                hidden
+              />
               <div class="resume-warning">
                 &#9888; Get noticed for your applied job interest
               </div>
@@ -1145,53 +1131,45 @@
 
             <div class="section-block">
               <h2 class="section-heading">Other details</h2>
-              <div class="sub-note">Only visible to HRs</div>
 
               <div class="card">
-                <button class="row-toggle stacked">
+                <button class="row-toggle stacked" id="prefRoleBtn">
                   <span class="row-toggle-title">Preferred job title/role</span>
                   <span class="chevron">&#8250;</span>
                 </button>
-                <div class="row-toggle-desc">
+                <div class="row-toggle-desc" id="prefRoleDesc">
                   Software Architect, DevOps Engineer, Product Owner, Full Stack
                   Engineer
                 </div>
               </div>
 
               <div class="card">
-                <button class="row-toggle stacked">
+                <button class="row-toggle stacked" id="locationBtn">
                   <span class="row-toggle-title">Location</span>
                   <span class="chevron">&#8250;</span>
                 </button>
-                <div class="row-toggle-desc">
+                <div class="row-toggle-desc" id="locationDesc">
                   Add Hometown &bull; Current Location &bull; Preferred Location
                 </div>
               </div>
 
               <div class="card">
                 <div class="row-toggle-title pad">Job preference</div>
-                <div class="row-toggle-desc pad">
+                <div class="row-toggle-desc pad" id="jobPrefDesc">
                   No job preferences added. Add details to increase your chances
                   of getting a job
                 </div>
-                <button class="outline-btn">+ Add job preference</button>
+                <button class="outline-btn" id="jobPrefAddBtn">
+                  + Add job preference
+                </button>
               </div>
 
               <div class="card">
-                <div class="row-toggle-title pad">Documents &amp; assets</div>
-                <div class="row-toggle-desc pad">
-                  Adding your documents and assets will increase your visibility
-                  with employers by 28%
-                </div>
-                <button class="outline-btn">+ Add documents and assets</button>
-              </div>
-
-              <div class="card">
-                <button class="row-toggle stacked">
+                <button class="row-toggle stacked" id="basicDetailsBtn">
                   <span class="row-toggle-title">Basic details</span>
                   <span class="chevron">&#8250;</span>
                 </button>
-                <div class="row-toggle-desc">
+                <div class="row-toggle-desc" id="basicDetailsDesc">
                   Bhuvana Devi R &bull; Verify your email &bull; 8667154165
                   &bull; Female &bull; +91 Field 1698
                 </div>
@@ -1200,6 +1178,31 @@
           </section>
         </div>
       </main>
+    </div>
+
+    <!-- Generic Add/Edit Modal -->
+    <div class="modal-overlay" id="pfModalOverlay">
+      <div class="pf-modal">
+        <div class="pf-modal-head">
+          <h3 id="pfModalTitle">Add details</h3>
+          <button class="pf-modal-close" id="pfModalCloseX" type="button">
+            &times;
+          </button>
+        </div>
+        <form id="pfModalForm">
+          <div class="pf-modal-body" id="pfModalBody"></div>
+          <div class="pf-modal-footer">
+            <button
+              type="button"
+              class="pf-btn pf-btn-cancel"
+              id="pfModalCancelBtn"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="pf-btn pf-btn-save">Save</button>
+          </div>
+        </form>
+      </div>
     </div>
 
     <footer id="footer" role="contentinfo">
@@ -1223,6 +1226,7 @@
           </div>
           <div>
             <h3 class="footer-col-title">For Job Seekers</h3>
+            <div class="footer-underline"></div>
             <ul class="footer-links" role="list">
               <li><a href="browse-jobs.html">Browse Jobs</a></li>
               <li><a href="index.html#categories">Job Categories</a></li>
@@ -1230,6 +1234,7 @@
           </div>
           <div>
             <h3 class="footer-col-title">For Employers</h3>
+            <div class="footer-underline"></div>
             <ul class="footer-links" role="list">
               <li>
                 <a href="employer/login.html" target="_blank">Post a Job</a>
@@ -1239,6 +1244,7 @@
           </div>
           <div>
             <h3 class="footer-col-title">Company</h3>
+            <div class="footer-underline"></div>
             <ul class="footer-links" role="list">
               <li><a href="index.html#about">About Us</a></li>
               <li><a href="index.html#contact">Contact</a></li>
@@ -1259,7 +1265,6 @@
         </div>
       </div>
     </footer>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -1312,6 +1317,496 @@
           });
         }
       });
+    </script>
+
+    <script>
+      (function () {
+        var overlay = document.getElementById("pfModalOverlay");
+        var titleEl = document.getElementById("pfModalTitle");
+        var bodyEl = document.getElementById("pfModalBody");
+        var form = document.getElementById("pfModalForm");
+        var cancelBtn = document.getElementById("pfModalCancelBtn");
+        var closeXBtn = document.getElementById("pfModalCloseX");
+        var currentConfig = null;
+
+        function el(id) {
+          return document.getElementById(id);
+        }
+        function textOf(id) {
+          var node = el(id);
+          return node ? node.textContent.trim() : "";
+        }
+
+        function fieldHtml(f) {
+          var label = '<label for="pf_' + f.key + '">' + f.label + "</label>";
+          var input;
+          if (f.type === "textarea") {
+            input =
+              '<textarea id="pf_' +
+              f.key +
+              '" placeholder="' +
+              (f.placeholder || "") +
+              '">' +
+              (f.value || "") +
+              "</textarea>";
+          } else {
+            input =
+              '<input type="text" id="pf_' +
+              f.key +
+              '" placeholder="' +
+              (f.placeholder || "") +
+              '" value="' +
+              (f.value || "").replace(/"/g, "&quot;") +
+              '">';
+          }
+          var hint = f.hint
+            ? '<div class="pf-form-hint">' + f.hint + "</div>"
+            : "";
+          return (
+            '<div class="pf-form-group">' + label + input + hint + "</div>"
+          );
+        }
+
+        function openModal(config) {
+          currentConfig = config;
+          titleEl.textContent = config.title;
+          bodyEl.innerHTML = config.fields.map(fieldHtml).join("");
+          overlay.classList.add("open");
+        }
+
+        function closeModal() {
+          overlay.classList.remove("open");
+          currentConfig = null;
+          form.reset();
+        }
+
+        cancelBtn.addEventListener("click", closeModal);
+        closeXBtn.addEventListener("click", closeModal);
+        overlay.addEventListener("click", function (e) {
+          if (e.target === overlay) closeModal();
+        });
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!currentConfig) return;
+          var values = {};
+          currentConfig.fields.forEach(function (f) {
+            var node = el("pf_" + f.key);
+            values[f.key] = node ? node.value.trim() : "";
+          });
+          currentConfig.onSave(values);
+          closeModal();
+        });
+
+        // ---------- Section configs ----------
+
+        function bind(triggerId, configFactory) {
+          var trigger = el(triggerId);
+          if (!trigger) return;
+          trigger.addEventListener("click", function (ev) {
+            ev.preventDefault();
+            openModal(configFactory());
+          });
+        }
+
+        // Work Experience
+        function workExperienceConfig() {
+          return {
+            title: "Work Experience",
+            fields: [
+              { key: "title", label: "Designation", value: textOf("weTitle") },
+              { key: "company", label: "Company", value: textOf("weCompany") },
+              {
+                key: "role",
+                label: "Job Role",
+                value: textOf("weRole"),
+                hint: "Separate multiple roles with &bull;",
+              },
+              {
+                key: "industry",
+                label: "Industry",
+                value: textOf("weIndustry"),
+              },
+              {
+                key: "desc",
+                label: "Description",
+                type: "textarea",
+                value:
+                  el("weDescText") &&
+                  el("weDescText").textContent.indexOf("Add a description") ===
+                    -1
+                    ? textOf("weDescText")
+                    : "",
+                placeholder:
+                  "Add a description of your role and responsibilities",
+              },
+              { key: "skills", label: "Skills", value: textOf("weSkills") },
+              {
+                key: "duration",
+                label: "Duration",
+                value: textOf("weDuration"),
+                placeholder: "e.g. May 2024 - Jun 2026",
+              },
+            ],
+            onSave: function (v) {
+              if (v.title) el("weTitle").textContent = v.title;
+              if (v.company) el("weCompany").textContent = v.company;
+              if (v.role) el("weRole").textContent = v.role;
+              if (v.industry) el("weIndustry").textContent = v.industry;
+              el("weDescText").textContent = v.desc
+                ? v.desc
+                : "Add a description of your role and responsibilities";
+              if (v.skills) el("weSkills").textContent = v.skills;
+              if (v.duration) el("weDuration").textContent = v.duration;
+            },
+          };
+        }
+        bind("weAddTopBtn", workExperienceConfig);
+        bind("weAddBottomBtn", workExperienceConfig);
+        bind("weEditBtn", workExperienceConfig);
+        bind("weDescBtn", workExperienceConfig);
+
+        // Total Years of Experience
+        bind("weYearsBtn", function () {
+          return {
+            title: "Total Years of Experience",
+            fields: [
+              {
+                key: "years",
+                label: "Total years of experience",
+                value: textOf("weYearsValue"),
+                placeholder: "e.g. 2 years 3 months",
+              },
+            ],
+            onSave: function (v) {
+              el("weYearsValue").textContent = v.years;
+            },
+          };
+        });
+
+        // Current Monthly Salary
+        bind("weSalaryBtn", function () {
+          return {
+            title: "Current Monthly Salary",
+            fields: [
+              {
+                key: "salary",
+                label: "Current monthly salary (₹)",
+                value: textOf("weSalaryValue"),
+                placeholder: "e.g. 30,000",
+                hint: "Only visible to you",
+              },
+            ],
+            onSave: function (v) {
+              if (v.salary) el("weSalaryValue").textContent = v.salary;
+            },
+          };
+        });
+
+        // Education
+        function educationConfig() {
+          return {
+            title: "Education",
+            fields: [
+              {
+                key: "degree",
+                label: "Degree / Course",
+                value: textOf("eduTitle"),
+              },
+              {
+                key: "institute",
+                label: "Institute &amp; type",
+                value: textOf("eduSub"),
+                placeholder: "e.g. College name &bull; Post Graduate",
+              },
+              {
+                key: "batch",
+                label: "Batch",
+                value: textOf("eduBadge"),
+                placeholder: "e.g. Batch of 2026",
+              },
+            ],
+            onSave: function (v) {
+              if (v.degree) el("eduTitle").textContent = v.degree;
+              if (v.institute) el("eduSub").textContent = v.institute;
+              if (v.batch) el("eduBadge").textContent = v.batch;
+            },
+          };
+        }
+        bind("eduAddBtn", educationConfig);
+        bind("eduEditBtn", educationConfig);
+
+        // Skills
+        bind("skillsAddBtn", function () {
+          return {
+            title: "Add Skills",
+            fields: [
+              {
+                key: "skills",
+                label: "Skills",
+                value: "",
+                placeholder: "e.g. React, Node.js",
+                hint: "Separate multiple skills with commas.",
+              },
+            ],
+            onSave: function (v) {
+              if (!v.skills) return;
+              var row = el("skillsChipRow");
+              v.skills.split(",").forEach(function (s) {
+                s = s.trim();
+                if (!s) return;
+                var chip = document.createElement("span");
+                chip.className = "chip";
+                chip.textContent = s;
+                row.appendChild(chip);
+              });
+            },
+          };
+        });
+
+        // Further Education Preferences
+        bind("furtherEduAddBtn", function () {
+          return {
+            title: "Further Education Preferences",
+            fields: [
+              {
+                key: "pref",
+                label: "Preference",
+                value: "",
+                placeholder: "e.g. MBA, MS Abroad",
+                hint: "Separate multiple preferences with commas.",
+              },
+            ],
+            onSave: function (v) {
+              if (!v.pref) return;
+              var row = el("furtherEduChipRow");
+              v.pref.split(",").forEach(function (s) {
+                s = s.trim();
+                if (!s) return;
+                var chip = document.createElement("span");
+                chip.className = "chip";
+                chip.textContent = s;
+                row.appendChild(chip);
+              });
+            },
+          };
+        });
+
+        // Certifications
+        bind("certAddBtn", function () {
+          return {
+            title: "Add Certification",
+            fields: [
+              {
+                key: "name",
+                label: "Certification name",
+                value: "",
+                placeholder: "e.g. AWS Certified Developer",
+              },
+              {
+                key: "issuer",
+                label: "Issued by",
+                value: "",
+                placeholder: "e.g. Amazon Web Services",
+              },
+              {
+                key: "year",
+                label: "Year",
+                value: "",
+                placeholder: "e.g. 2025",
+              },
+            ],
+            onSave: function (v) {
+              if (!v.name) return;
+              el("certEmptyNote").style.display = "none";
+              var row = el("certChipRow");
+              row.style.display = "flex";
+              var chip = document.createElement("span");
+              chip.className = "chip";
+              chip.textContent =
+                v.name +
+                (v.issuer ? " • " + v.issuer : "") +
+                (v.year ? " • " + v.year : "");
+              row.appendChild(chip);
+            },
+          };
+        });
+
+        // Languages known
+        bind("langEditBtn", function () {
+          var current = Array.from(el("langChipRow").children)
+            .map(function (c) {
+              return c.textContent.replace(/^\u2713\s*/, "").trim();
+            })
+            .join(", ");
+          return {
+            title: "Languages known",
+            fields: [
+              {
+                key: "languages",
+                label: "Languages",
+                value: current,
+                placeholder: "e.g. English, Kannada, Tamil",
+                hint: "Separate multiple languages with commas.",
+              },
+            ],
+            onSave: function (v) {
+              if (!v.languages) return;
+              var row = el("langChipRow");
+              row.innerHTML = "";
+              v.languages.split(",").forEach(function (s) {
+                s = s.trim();
+                if (!s) return;
+                var chip = document.createElement("span");
+                chip.className = "chip";
+                chip.textContent = s;
+                row.appendChild(chip);
+              });
+            },
+          };
+        });
+
+        // Preferred job title/role
+        bind("prefRoleBtn", function () {
+          return {
+            title: "Preferred job title/role",
+            fields: [
+              {
+                key: "roles",
+                label: "Preferred job titles / roles",
+                type: "textarea",
+                value: textOf("prefRoleDesc"),
+                placeholder: "e.g. Software Architect, DevOps Engineer",
+                hint: "Separate multiple roles with commas.",
+              },
+            ],
+            onSave: function (v) {
+              if (v.roles) el("prefRoleDesc").textContent = v.roles;
+            },
+          };
+        });
+
+        // Location
+        bind("locationBtn", function () {
+          return {
+            title: "Location",
+            fields: [
+              {
+                key: "hometown",
+                label: "Hometown",
+                value: "",
+                placeholder: "e.g. Sivakasi, TN",
+              },
+              {
+                key: "current",
+                label: "Current Location",
+                value: "",
+                placeholder: "e.g. Chennai, TN",
+              },
+              {
+                key: "preferred",
+                label: "Preferred Location",
+                value: "",
+                placeholder: "e.g. Bengaluru, Chennai",
+              },
+            ],
+            onSave: function (v) {
+              var parts = [];
+              if (v.hometown) parts.push(v.hometown);
+              if (v.current) parts.push(v.current);
+              if (v.preferred) parts.push(v.preferred);
+              if (parts.length) {
+                el("locationDesc").textContent = parts.join(" • ");
+              }
+            },
+          };
+        });
+
+        // Job preference
+        bind("jobPrefAddBtn", function () {
+          return {
+            title: "Add Job Preference",
+            fields: [
+              {
+                key: "jobType",
+                label: "Job type",
+                value: "",
+                placeholder: "e.g. Full-time, Remote",
+              },
+              {
+                key: "salary",
+                label: "Expected salary",
+                value: "",
+                placeholder: "e.g. ₹40,000/month",
+              },
+              {
+                key: "notice",
+                label: "Notice period",
+                value: "",
+                placeholder: "e.g. 30 days",
+              },
+            ],
+            onSave: function (v) {
+              var parts = [];
+              if (v.jobType) parts.push(v.jobType);
+              if (v.salary) parts.push(v.salary);
+              if (v.notice) parts.push("Notice: " + v.notice);
+              if (parts.length) {
+                el("jobPrefDesc").textContent = parts.join(" • ");
+              }
+            },
+          };
+        });
+
+        // Basic details
+        bind("basicDetailsBtn", function () {
+          return {
+            title: "Basic details",
+            fields: [
+              { key: "name", label: "Full name", value: "Bhuvana Devi R" },
+              {
+                key: "email",
+                label: "Email",
+                value: "bhuvanadevirr@gmail.com",
+              },
+              { key: "phone", label: "Mobile number", value: "8667154165" },
+              { key: "gender", label: "Gender", value: "Female" },
+            ],
+            onSave: function (v) {
+              var parts = [];
+              if (v.name) parts.push(v.name);
+              parts.push("Verify your email");
+              if (v.phone) parts.push(v.phone);
+              if (v.gender) parts.push(v.gender);
+              el("basicDetailsDesc").textContent = parts.join(" • ");
+            },
+          };
+        });
+
+        // Resume
+        bind("resumeAddBtn", function () {
+          return {
+            title: "Add Resume",
+            fields: [
+              {
+                key: "filename",
+                label: "Resume file name",
+                value: "",
+                placeholder: "e.g. bhuvana_resume.pdf",
+                hint: "Upload pdf, doc, or docx files only. Max file size 5MB.",
+              },
+            ],
+            onSave: function (v) {
+              if (!v.filename) return;
+              var uploadText = document.querySelector(".upload-text");
+              if (uploadText) {
+                uploadText.innerHTML =
+                  "Selected: <strong>" + v.filename + "</strong>";
+              }
+            },
+          };
+        });
+      })();
     </script>
   </body>
 </html>

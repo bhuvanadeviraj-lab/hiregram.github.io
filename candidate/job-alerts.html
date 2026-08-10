@@ -548,185 +548,7 @@
         }
       }
 
-      #footer {
-        background: var(--text-dark);
-        padding: var(--sp-16) 0 var(--sp-6);
-      }
-
-      .footer-grid {
-        display: grid;
-        grid-template-columns: 1.6fr 1fr 1fr 1fr;
-        gap: var(--sp-8);
-        margin-bottom: var(--sp-12);
-      }
-
-      .footer-brand-logo {
-        display: flex;
-        align-items: center;
-        gap: var(--sp-2);
-        margin-bottom: var(--sp-4);
-      }
-
-      .footer-brand-logo .logo-mark {
-        width: 36px;
-        height: 36px;
-        background: linear-gradient(
-          135deg,
-          var(--primary-light),
-          var(--accent)
-        );
-      }
-
-      .footer-brand-logo .logo-name {
-        color: var(--white);
-      }
-
-      .footer-brand-logo .logo-name span {
-        color: var(--accent);
-      }
-
-      .footer-desc {
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.5);
-        line-height: 1.7;
-        margin-bottom: var(--sp-6);
-        max-width: 260px;
-      }
-
-      .social-links {
-        display: flex;
-        gap: var(--sp-2);
-      }
-
-      .social-link {
-        width: 38px;
-        height: 38px;
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: var(--radius-md);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.5);
-        transition: all var(--transition-base);
-        color: #fff;
-      }
-
-      .social-link:hover {
-        background: var(--accent);
-        border-color: var(--accent);
-        color: var(--white);
-        transform: translateY(-2px);
-      }
-
-      .footer-col-title {
-        font-family: var(--font-display);
-        font-size: 0.9rem;
-        font-weight: 700;
-        color: var(--white);
-        margin-bottom: 10px;
-        text-transform: uppercase;
-        letter-spacing: 0.07em;
-      }
-
-      .footer-links {
-        display: flex;
-        flex-direction: column;
-        gap: var(--sp-2);
-      }
-
-      .footer-links a {
-        font-size: 0.875rem;
-        color: rgba(255, 255, 255, 0.5);
-        transition:
-          color var(--transition-fast),
-          transform var(--transition-fast);
-        display: inline-block;
-      }
-
-      .footer-links a:hover {
-        color: var(--white);
-        transform: translateX(3px);
-      }
-
-      .footer-bottom {
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: var(--sp-6);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--sp-4);
-        flex-wrap: wrap;
-      }
-
-      .footer-copy {
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.35);
-      }
-
-      .footer-copy a {
-        color: var(--accent);
-        transition: color var(--transition-fast);
-      }
-
-      .footer-copy a:hover {
-        color: var(--accent-light);
-      }
-
-      .footer-bottom-links {
-        display: flex;
-        gap: var(--sp-4);
-      }
-
-      .footer-bottom-links a {
-        font-size: 1rem;
-        color: rgba(255, 255, 255, 0.35);
-        transition: color var(--transition-fast);
-      }
-
-      .footer-bottom-links a:hover {
-        color: var(--white);
-      }
-
-      .logo-mark {
-        width: 38px;
-        height: 38px;
-        background: linear-gradient(
-          135deg,
-          var(--primary),
-          var(--primary-light)
-        );
-        border-radius: var(--radius-sm);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family: var(--font-display);
-        font-weight: 800;
-        font-size: 1.1rem;
-        color: var(--white);
-      }
-
-      @media (max-width: 1024px) {
-        .footer-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .footer-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .footer-bottom {
-          flex-direction: column;
-          text-align: center;
-        }
-
-        .footer-bottom-links {
-          justify-content: center;
-        }
-      }
-    </style>
+     </style>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -787,7 +609,7 @@
 
     <div class="layout">
       <aside class="sidebar d-none d-lg-flex">
-        <a href="../index.html#home" class="side-link" target="_blank"
+        <a href="index.html" class="side-link"
           ><i class="bi bi-house"></i> Home</a
         >
         <a href="browse-job.html" class="side-link"
@@ -835,7 +657,7 @@
             class="sidebar"
             style="height: auto; border-right: none; padding: 0"
           >
-            <a href="../index.html#home" class="side-link" target="_blank"
+            <a href="index.html" class="side-link"
               ><i class="bi bi-house"></i> Home</a
             >
             <a href="browse-job.html" class="side-link"
@@ -1192,6 +1014,7 @@
           </div>
           <div>
             <h3 class="footer-col-title">For Job Seekers</h3>
+            <div class="footer-underline"></div>
             <ul class="footer-links" role="list">
               <li><a href="browse-jobs.html">Browse Jobs</a></li>
               <li><a href="index.html#categories">Job Categories</a></li>
@@ -1199,6 +1022,7 @@
           </div>
           <div>
             <h3 class="footer-col-title">For Employers</h3>
+            <div class="footer-underline"></div>
             <ul class="footer-links" role="list">
               <li>
                 <a href="employer/login.html" target="_blank">Post a Job</a>
@@ -1208,6 +1032,7 @@
           </div>
           <div>
             <h3 class="footer-col-title">Company</h3>
+            <div class="footer-underline"></div>
             <ul class="footer-links" role="list">
               <li><a href="index.html#about">About Us</a></li>
               <li><a href="index.html#contact">Contact</a></li>

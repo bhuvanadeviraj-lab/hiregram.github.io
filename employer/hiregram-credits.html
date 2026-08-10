@@ -1,0 +1,872 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jobs — Hiregram</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+      :root {
+        --bg: #f5f6f8;
+        --card: #ffffff;
+        --border: #e6e8ec;
+        --text: #0f2447;
+        --muted: #6b7280;
+        --blue: #0f2447;
+        --blue-dark: #0f2447;
+        --navy-grad-start: #d22222;
+        --navy-grad-end: #d22222;
+        --green-bg: #e4f8ec;
+        --green-text: #149a4d;
+        --amber-bg: #fff4de;
+        --amber-text: #b7791f;
+        --radius-lg: 16px;
+        --radius-md: 12px;
+        --radius-sm: 8px;
+        --shadow:
+          0 1px 2px rgba(15, 18, 34, 0.04), 0 1px 1px rgba(15, 18, 34, 0.03);
+      }
+
+      .credits-page {
+        width: 100%;
+        padding: 10px 19px 28px;
+      }
+
+        /* Header */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+      .header-eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: var(--navy-grad-end);
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .header h1 {
+        font-size: 26px;
+        margin: 0 0 6px;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      .header p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .header-badges {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+      .badge {
+        border: 0;
+        border-radius: 8px;
+        padding: 7px 11px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .badge-verified {
+        background: var(--green-bg);
+        color: var(--green-text);
+      }
+      .badge-refer {
+        background: var(--amber-bg);
+        color: var(--amber-text);
+      }
+
+      /* =========================
+           TOP SECTION
+        ========================= */
+
+      .top-grid {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 10px;
+      }
+
+      /* =========================
+           CREDIT SUMMARY
+        ========================= */
+
+      .credit-summary {
+        min-height: 330px;
+        border-radius: 11px;
+        padding: 13px 12px;
+        color: white;
+        background: linear-gradient(
+          110deg,
+          #0f2447 0%,
+          #0f2447 55%,
+          #1a3c6e 100%
+        );
+      }
+
+      .summary-label {
+        font-size: 12px;
+        font-weight: 800;
+        opacity: 0.9;
+        letter-spacing: 0.3px;
+      }
+
+      .credit-count {
+        font-size: 23px;
+        line-height: 1;
+        font-weight: 800;
+        margin-top: 2px;
+      }
+
+      .summary-info {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 2px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .summary-info i {
+        color: #ffcf35;
+        font-size: 12px;
+      }
+
+      .summary-actions {
+        display: flex;
+        gap: 6px;
+        margin-top: 9px;
+      }
+
+      .btn {
+        border: 0;
+        border-radius: 6px;
+        padding: 7px 12px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      .btn-light {
+        background: white;
+        color: #173d82;
+      }
+
+      .btn-dark {
+        background: rgba(255, 255, 255, 0.16);
+        color: white;
+      }
+
+      /* =========================
+           EARN CREDITS
+        ========================= */
+
+      .card {
+        background: #fff;
+        border: 1px solid #dce3ed;
+        border-radius: 11px;
+      }
+
+      .earn-card {
+        min-height: 330px;
+        padding: 12px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 16px;
+        font-weight: 800;
+        margin: 10px 0 13px;
+      }
+
+      .section-title i {
+        font-size: 16px;
+      }
+
+      .earn-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .earn-table th {
+        text-align: left;
+        color: #67758d;
+        font-size: 12px;
+        font-weight: 800;
+        padding: 0 7px 8px;
+      }
+
+      .earn-table td {
+        border-top: 1px solid #e5e9ef;
+        padding: 9px 7px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .earn-table td:nth-child(2) {
+        font-weight: 800;
+      }
+
+      .status-btn {
+        border: 0;
+        border-radius: 6px;
+        padding: 6px 10px;
+        background: #edf3ff;
+        color: #1e5de8;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .weekly {
+        display: inline-block;
+        background: #e4f8ed;
+        color: #13814e;
+        padding: 3px 6px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      /* =========================
+           SPEND CREDITS
+        ========================= */
+
+      .spend-card {
+        margin-top: 10px;
+        padding: 10px 12px 12px;
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .section-description {
+        color: #52627b;
+        font-size: 12px;
+        margin: -5px 0 14px;
+      }
+
+      .free-badge {
+        background: #e7faf1;
+        color: #09844e;
+        border-radius: 8px;
+        padding: 4px 7px;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .spend-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+
+      .spend-item {
+        min-height: 96px;
+        border: 1px solid #dce3ed;
+        border-radius: 9px;
+        padding: 16px 11px 10px;
+      }
+
+      .spend-item.full-width {
+        grid-column: 1 / -1;
+      }
+
+      .spend-item h3 {
+        margin: 0 0 5px;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .spend-item h3 i {
+        margin-right: 3px;
+      }
+
+      .spend-item p {
+        margin: 0 0 9px;
+        font-size: 12px;
+        color: #53627a;
+      }
+
+      .boost-btn {
+        border: 0;
+        background: var(--navy-grad-start);
+        color: white;
+        border-radius: 5px;
+        padding: 6px 11px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      /* =========================
+           WELCOME
+        ========================= */
+
+      .welcome-card {
+        margin-top: 10px;
+        padding: 13px 12px;
+        min-height: 105px;
+      }
+
+      .welcome-card h2 {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin: 0 0 12px;
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .welcome-card p {
+        margin: 0 0 10px;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .breadcrumb {
+        color: #53627a;
+        font-size: 10px;
+      }
+
+      /* =========================
+           TABLET
+        ========================= */
+
+      @media (max-width: 900px) {
+        .top-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .credit-summary,
+        .earn-card {
+          min-height: auto;
+        }
+
+        .credit-summary {
+          min-height: 230px;
+        }
+
+        .spend-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .spend-item.full-width {
+          grid-column: auto;
+        }
+      }
+
+      /* =========================
+           MOBILE
+        ========================= */
+
+      @media (max-width: 600px) {
+        body {
+          font-size: 11px;
+        }
+
+        .credits-page {
+          padding: 10px;
+        }
+
+        .page-header {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .header-actions {
+          padding-top: 0;
+          width: 100%;
+        }
+
+        .header-badge {
+          flex: 1;
+          text-align: center;
+        }
+
+        .header-left h1 {
+          font-size: 19px;
+        }
+
+        .header-left p {
+          font-size: 9px;
+          line-height: 1.4;
+        }
+
+        .credit-summary {
+          min-height: 200px;
+          padding: 15px;
+        }
+
+        .credit-count {
+          font-size: 25px;
+        }
+
+        .summary-info {
+          line-height: 1.4;
+        }
+
+        .earn-card {
+          padding: 10px 8px;
+          overflow-x: auto;
+        }
+
+        .section-title {
+          font-size: 20px;
+        }
+
+        .earn-table {
+          min-width: 500px;
+        }
+
+        .spend-card {
+          padding: 10px;
+        }
+
+        .section-header {
+          align-items: flex-start;
+          gap: 10px;
+        }
+
+        .spend-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .spend-item {
+          min-height: auto;
+          padding: 14px 11px;
+        }
+
+        .spend-item.full-width {
+          grid-column: auto;
+        }
+
+        .welcome-card {
+          min-height: auto;
+          padding: 14px;
+        }
+
+        .welcome-card h2 {
+          font-size: 14px;
+        }
+      }
+
+      /* =========================
+           SMALL MOBILE
+        ========================= */
+
+      @media (max-width: 380px) {
+        .header-actions {
+          flex-direction: column;
+        }
+
+        .header-badge {
+          width: 100%;
+        }
+
+        .summary-actions {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .btn {
+          width: 100%;
+        }
+
+        .section-header {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <button
+        class="hamburger-btn d-lg-none"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#sidebarOffcanvas"
+      >
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="brand">
+        <span class="hire">Hire</span><span class="gramm">gram</span>
+      </div>
+      <div class="spacer"></div>
+      <div class="dropdown">
+        <button class="avatar-btn" data-bs-toggle="dropdown">u</button>
+        <ul
+          class="dropdown-menu dropdown-menu-end p-3"
+          style="
+            min-width: 230px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+          "
+        >
+          <li class="d-flex align-items-center gap-2 mb-2">
+            <span
+              class="avatar-btn"
+              style="width: 34px; height: 34px; font-size: 13px"
+              >u</span
+            >
+            <div>
+              <div style="font-weight: 700; font-size: 14px">udhayasabari</div>
+              <div class="job-meta mb-0">7871539343</div>
+            </div>
+          </li>
+          <li><hr class="dropdown-divider" /></li>
+          <li>
+            <a
+              class="dropdown-item d-flex align-items-center gap-2 py-2"
+              href="viewprofile.html"
+              ><i class="bi bi-person"></i> View profile</a
+            >
+          </li>
+          <li>
+            <a
+              class="dropdown-item d-flex align-items-center gap-2 py-2 text-danger"
+              href="login.html"
+              ><i class="bi bi-box-arrow-right"></i> Sign out</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="layout">
+       <aside class="sidebar d-none d-lg-flex">
+        <div class="company-card">
+          <div class="company-logo"></div>
+          <div class="flex-grow-1">
+            <div class="name">HDB Financial<br />Services Limited</div>
+            <div class="type">Company</div>
+          </div>
+          <div class="chev">
+            <i class="bi bi-chevron-up d-block"></i
+            ><i class="bi bi-chevron-down d-block"></i>
+          </div>
+        </div>
+        <a href="index.html" class="side-link"
+          ><i class="bi bi-house"></i> Home</a
+        >
+        <a href="post-job.html" class="side-link"
+          ><i class="bi bi-briefcase-fill"></i> Jobs</a
+        >
+        <a href="shortlisted.html" class="side-link"
+          ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted
+          Candidates</a
+        >
+        <a href="reports.html" class="side-link"
+          ><i class="bi bi-bar-chart-fill"></i> Reports</a
+        >
+        <a href="viewprofile.html" class="side-link"
+          ><i class="bi bi-person"></i> Company Profile</a
+        >
+        <a href="hiregram-credits.html" class="side-link active"
+          ><i class="bi bi-credit-card"></i> Hiregram Credits</a
+        >
+        <a href="refer-hr.html" class="side-link"
+          ><i class="bi bi-heart"></i> Refer HR & Earn</a
+        >
+        <div class="support-card">
+          <a
+            href="https://chat.whatsapp.com/IrpmN6QtMXW0LxUlPHr9it?s=cl&p=a&ilr=4&amv=0"
+            class="d-flex gap-2 help-link"
+            ><img
+              src="../assets/images/whatsapp.png"
+              id="fixedWhatsAppIcon"
+            /><u> Help &amp; Support</u></a
+          >
+        </div>
+      </aside>
+
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="sidebarOffcanvas"
+        style="width: 280px"
+      >
+        <div class="offcanvas-header border-bottom">
+          <div class="brand">
+            <span class="hire">Hire</span><span class="gramm">gram</span>
+          </div>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div
+            class="sidebar"
+            style="height: auto; border-right: none; padding: 0"
+          >
+            <div class="company-card">
+              <div class="company-logo"></div>
+              <div class="flex-grow-1">
+                <div class="name">HDB Financial<br />Services Limited</div>
+                <div class="type">Company</div>
+              </div>
+              <div class="chev">
+                <i class="bi bi-chevron-up d-block"></i
+                ><i class="bi bi-chevron-down d-block"></i>
+              </div>
+            </div>
+            <a href="index.html" class="side-link"
+              ><i class="bi bi-house"></i> Home</a
+            >
+            <a href="post-job.html" class="side-link"
+              ><i class="bi bi-briefcase-fill"></i> Jobs</a
+            >
+            <a href="shortlisted.html" class="side-link"
+              ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted
+              Candidates</a
+            >
+            <a href="reports.html" class="side-link"
+              ><i class="bi bi-bar-chart-fill"></i> Reports</a
+            >
+            <a href="viewprofile.html" class="side-link"
+              ><i class="bi bi-person"></i> Company Profile</a
+            >
+            <a href="hiregram-credits.html" class="side-link active"
+              ><i class="bi bi-credit-card"></i> Hiregram Credits</a
+            >
+            <a href="refer-hr.html" class="side-link"
+              ><i class="bi bi-person"></i> Refer HR & Earn</a
+            >
+            <div class="support-card">
+              <a
+                href="https://chat.whatsapp.com/IrpmN6QtMXW0LxUlPHr9it?s=cl&p=a&ilr=4&amv=0"
+                class="d-flex gap-2 help-link"
+                ><img
+                  src="../assets/images/whatsapp.png"
+                  id="fixedWhatsAppIcon"
+                /><u> Help &amp; Support</u></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <main class="main">
+        <div class="credits-page">
+          <!-- HEADER -->
+
+          <div class="header">
+            <div>
+              <div class="header-eyebrow">Employer Workspace</div>
+              <h1>Refer HR &amp; Earn</h1>
+              <p>
+                Manage hiring, candidates and recruitment performance from one
+                place.
+              </p>
+            </div>
+            <div class="header-badges">
+              <span class="badge badge-verified">✓ HR Verified</span>
+              <span class="badge badge-refer"
+                ><a href="refer-hr.html">♥ Refer &amp; Earn</a></span
+              >
+            </div>
+          </div>
+
+          <!-- TOP SECTION -->
+          <div class="top-grid">
+            <!-- CREDIT SUMMARY -->
+            <div class="credit-summary">
+              <div class="summary-label">HIREGRAM CREDITS</div>
+
+              <div class="credit-count">5</div>
+
+              <div class="summary-info">
+                🎁
+                <span>
+                  Welcome Credits included. Credits unlock visibility upgrades
+                  only — job posting is always FREE.
+                </span>
+              </div>
+
+              <div class="summary-actions">
+                <button class="btn btn-light"><a href="refer-hr.html">🤝 Refer HR</a></button>
+
+                <button class="btn btn-dark">How it works</button>
+              </div>
+            </div>
+
+            <!-- EARN CREDITS -->
+            <div class="card earn-card">
+              <div class="section-title">🎁 Earn Credits</div>
+
+              <table class="earn-table">
+                <thead>
+                  <tr>
+                    <th>ACTION</th>
+                    <th>CREDITS</th>
+                    <th>STATUS</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>Refer HR → First job published</td>
+                    <td>+5</td>
+                    <td>
+                      <button class="status-btn">Refer</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Complete Company Profile</td>
+                    <td>+2</td>
+                    <td>
+                      <button class="status-btn">Earn</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Verify Company</td>
+                    <td>+3</td>
+                    <td>
+                      <button class="status-btn">Earn</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Share Job</td>
+                    <td>+1</td>
+                    <td>
+                      <button class="status-btn">Earn</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Complete Employer Profile</td>
+                    <td>+3</td>
+                    <td>
+                      <button class="status-btn">Earn</button>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>Weekly HR Activity</td>
+                    <td>+2</td>
+                    <td>
+                      <span class="weekly">Available weekly</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- SPEND CREDITS -->
+          <section class="card spend-card">
+            <div class="section-header">
+              <div>
+                <div class="section-title">🚀 Spend Credits</div>
+
+                <p class="section-description">
+                  Use credits to improve visibility. Credits never block job
+                  posting.
+                </p>
+              </div>
+
+              <span class="free-badge"> Post Jobs FREE </span>
+            </div>
+
+            <div class="spend-grid">
+              <!-- ITEM -->
+              <div class="spend-item">
+                <h3>⭐ Featured Job</h3>
+
+                <p>5 credits · 7 days</p>
+
+                <button class="boost-btn">Boost</button>
+              </div>
+
+              <!-- ITEM -->
+              <div class="spend-item">
+                <h3>🚀 Homepage Boost</h3>
+
+                <p>10 credits · 7 days</p>
+
+                <button class="boost-btn">Boost</button>
+              </div>
+
+              <!-- ITEM -->
+              <div class="spend-item">
+                <h3>🔥 Urgent Hiring</h3>
+
+                <p>8 credits · 7 days</p>
+
+                <button class="boost-btn">Boost</button>
+              </div>
+
+              <!-- ITEM -->
+              <div class="spend-item">
+                <h3>📌 Priority Listing</h3>
+
+                <p>6 credits · 7 days</p>
+
+                <button class="boost-btn">Boost</button>
+              </div>
+
+              <!-- ITEM -->
+              <div class="spend-item full-width">
+                <h3>📣 Extra Promotion</h3>
+
+                <p>12 credits · 7 days</p>
+
+                <button class="boost-btn">Boost</button>
+              </div>
+            </div>
+          </section>
+
+          <!-- WELCOME -->
+          <section class="card welcome-card">
+            <h2>🎉 Welcome to Hiregram!</h2>
+
+            <p>
+              You’ve received 5 Hiring Credits. Use them to boost your job
+              visibility — your job posts remain free forever.
+            </p>
+
+            <div class="breadcrumb">
+              Post Free → Hire → Grow Hiregram → Earn Credits → Boost Hiring
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/app.js"></script>
+    <script>
+      const cards = document.getElementsByClassName("job-main");
+
+      for (let card of cards) {
+        card.addEventListener("click", () => {
+          window.open("candidateapply.html", "_blank");
+        });
+      }
+    </script>
+  </body>
+</html>
