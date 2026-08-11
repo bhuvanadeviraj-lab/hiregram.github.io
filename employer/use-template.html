@@ -266,6 +266,408 @@
           gap: 12px;
         }
       }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      /* ========================================
+   MAIN TEMPLATE SECTION
+======================================== */
+
+      .templates-section {
+        width: 100%;
+        padding: 40px 26px 25px;
+        background: #ffffff;
+        border: 1px solid #e0e6ef;
+        border-radius: 24px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      }
+
+      /* ========================================
+   HEADER
+======================================== */
+
+      .templates-header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 25px;
+        margin-bottom: 34px;
+      }
+
+      .templates-title {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        margin: 8px 0 18px;
+        color: #0a2340;
+        font-size: 14px;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+
+      .title-icon {
+        font-size: 12px;
+        line-height: 1;
+      }
+
+      .templates-description {
+        margin: 0;
+        color: #68788f;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      /* ========================================
+   CREATE BUTTON
+======================================== */
+
+      .create-template-btn {
+        flex-shrink: 0;
+        border: 0;
+        border-radius: 12px;
+        padding: 14px 20px;
+        background: var(--blue);
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .create-template-btn:hover {
+        background: #0f2447;
+      }
+
+      /* ========================================
+   TEMPLATE GRID
+======================================== */
+
+      .template-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      /* ========================================
+   TEMPLATE CARD
+======================================== */
+
+      .template-card {
+        min-height: 276px;
+        padding: 21px 22px;
+        border: 1px solid #dce4ee;
+        border-radius: 17px;
+        background: #ffffff;
+      }
+
+      .uses-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 20px;
+        background: #edf3ff;
+        color: var(--blue-dark);
+        font-size: 10px;
+        font-weight: 700;
+      }
+
+      .template-card h3 {
+        margin: 12px 0 14px;
+        color: var(--blue);
+        font-size: 14px;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+      /* ========================================
+   ACTION BUTTONS
+======================================== */
+
+      .template-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 17px;
+      }
+
+      .template-actions button {
+        border: 0;
+        border-radius: 11px;
+        padding: 10px 15px;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      /* Use Template */
+
+      .btn-use {
+        background: var(--blue-dark);
+        color: #ffffff;
+      }
+
+      .btn-use:hover {
+        background: var(--blue-dark);
+      }
+
+      /* Edit */
+
+      .btn-edit,
+      .btn-duplicate {
+        background: #edf3ff;
+        color: var(--blue);
+      }
+
+      .btn-edit:hover,
+      .btn-duplicate:hover {
+        background: #e1eaff;
+      }
+
+      /* Delete */
+
+      .btn-delete {
+        flex-basis: auto;
+        background: #fff0f0;
+        color: var(--navy-grad-end);
+      }
+
+      .btn-delete:hover {
+        background: #ffe3e3;
+      }
+
+      /* ========================================
+   BOTTOM INFORMATION SECTION
+======================================== */
+
+      .template-info-section {
+        width: 100%;
+        margin-top: 22px;
+        padding: 48px 26px 39px;
+        background: #ffffff;
+        border: 1px solid #e0e6ef;
+        border-radius: 24px;
+      }
+
+      .template-info-section h2 {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 22px;
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .bulb-icon {
+        font-size: 27px;
+      }
+
+      .template-info-section p {
+        margin: 0;
+        color: #68788f;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.6;
+      }
+
+      /* ========================================
+   TABLET
+======================================== */
+
+      @media (max-width: 991px) {
+        .templates-section {
+          padding: 30px 20px 22px;
+        }
+
+        .templates-title {
+          font-size: 27px;
+        }
+
+        .template-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .template-card:last-child {
+          grid-column: 1 / -1;
+        }
+      }
+
+      /* ========================================
+   MOBILE
+======================================== */
+
+      @media (max-width: 767px) {
+        .templates-section {
+          padding: 24px 15px 20px;
+          border-radius: 18px;
+        }
+
+        /* Header becomes vertical */
+
+        .templates-header {
+          display: block;
+          margin-bottom: 24px;
+        }
+
+        .templates-title {
+          margin: 3px 0 12px;
+          font-size: 23px;
+        }
+
+        .title-icon {
+          font-size: 25px;
+        }
+
+        .templates-description {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
+        /* Create button full width */
+
+        .create-template-btn {
+          width: 100%;
+          margin-top: 18px;
+          padding: 13px 18px;
+          font-size: 15px;
+        }
+
+        /* Cards */
+
+        .template-grid {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        .template-card:last-child {
+          grid-column: auto;
+        }
+
+        .template-card {
+          min-height: auto;
+          padding: 18px;
+          border-radius: 15px;
+        }
+
+        .uses-badge {
+          padding: 5px 10px;
+          font-size: 12px;
+        }
+
+        .template-card h3 {
+          margin: 11px 0 10px;
+          font-size: 21px;
+        }
+
+        .template-info {
+          font-size: 14px;
+          line-height: 1.5;
+        }
+
+        /* Buttons */
+
+        .template-actions {
+          gap: 9px;
+          margin-top: 16px;
+        }
+
+        .template-actions button {
+          padding: 10px 15px;
+          font-size: 14px;
+        }
+
+        .btn-use {
+          width: 100%;
+        }
+
+        .btn-edit,
+        .btn-duplicate,
+        .btn-delete {
+          flex: 1;
+        }
+
+        /* Bottom section */
+
+        .template-info-section {
+          margin-top: 15px;
+          padding: 25px 18px;
+          border-radius: 18px;
+        }
+
+        .template-info-section h2 {
+          align-items: flex-start;
+          margin-bottom: 14px;
+          font-size: 20px;
+          line-height: 1.4;
+        }
+
+        .bulb-icon {
+          font-size: 22px;
+        }
+
+        .template-info-section p {
+          font-size: 14px;
+          line-height: 1.6;
+        }
+      }
+
+      /* ========================================
+   SMALL MOBILE
+======================================== */
+
+      @media (max-width: 480px) {
+        .templates-section {
+          padding: 20px 12px 16px;
+        }
+
+        .templates-title {
+          font-size: 21px;
+        }
+
+        .templates-description {
+          font-size: 13px;
+        }
+
+        .template-card {
+          padding: 16px;
+        }
+
+        .template-card h3 {
+          font-size: 20px;
+        }
+
+        .template-info {
+          font-size: 13px;
+        }
+
+        .template-actions {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .btn-use {
+          grid-column: 1 / -1;
+        }
+
+        .btn-edit,
+        .btn-duplicate,
+        .btn-delete {
+          width: 100%;
+        }
+
+        .template-info-section {
+          padding: 22px 16px;
+        }
+
+        .template-info-section h2 {
+          font-size: 18px;
+        }
+
+        .template-info-section p {
+          font-size: 13px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -456,67 +858,98 @@
         </div>
       </div>
       <main class="main">
-        <div class="page">
+        <section class="templates-section">
           <!-- Header -->
-          <div class="header">
+          <div class="templates-header">
             <div>
-              <div class="header-eyebrow">Employer Workspace</div>
-              <h1>Refer HR &amp; Earn</h1>
-              <p>
-                Manage hiring, candidates and recruitment performance from one
-                place.
+              <h2 class="templates-title">
+                <span class="title-icon">📋</span>
+                My Templates
+              </h2>
+
+              <p class="templates-description">
+                Create once. Reuse for repeat hiring. Change location or salary
+                before publishing.
               </p>
             </div>
-            <div class="header-badges">
-              <span class="badge badge-verified">✓ HR Verified</span>
-              <span class="badge badge-refer"
-                ><a href="refer-hr.html">♥ Refer &amp; Earn</a></span
-              >
-            </div>
+
+            <button class="create-template-btn">
+              <a href="use-template.html">+ Create Template</a>
+            </button>
           </div>
 
-          <!-- Main grid -->
-          <div class="main-grid">
-            <!-- Refer panel -->
-            <div class="panel">
-              <h2 class="refer-title">🤝 Refer HR &amp; Earn</h2>
-              <p class="refer-desc">
-                Invite a genuine HR. When they verify their employer account and
-                publish their first job, you earn <strong>5 credits</strong>.
-                Credits are used only for job visibility upgrades.
-              </p>
+          <!-- Template Cards -->
+          <div class="template-grid">
+            <!-- Card 1 -->
+            <div class="template-card">
+              <span class="uses-badge">3 USES</span>
 
-              <div class="referral-code">HIREGRAM-HR25</div>
-              <p class="referral-link">
-                Your referral link: hiregram.in/register?ref=HIREGRAM-HR25
-              </p>
+              <h3>Sales Officer</h3>
 
-              <div class="refer-actions">
-                <button class="btn btn-blue">Copy Link</button>
-                <button class="btn btn-green">Share WhatsApp</button>
+              <p class="template-info">Madurai · 0–3 Years · Full Time</p>
+
+              <div class="template-actions">
+                <button class="btn-use">
+                  <a href="post-job.html">Use Template</a>
+                </button>
+
+                <button class="btn-edit">
+                  <a href="post-job.html">Edit</a>
+                </button>
+
+                <button class="btn-duplicate">Duplicate</button>
+
+                <button class="btn-delete">Delete</button>
               </div>
             </div>
 
-            <!-- Stats panel -->
-            <div class="panel">
-              <h2 class="stats-title">Your Referral Stats</h2>
-              <div class="stats-row">
-                <div class="stat-item">
-                  <span class="stat-label">Referred</span>
-                  <span class="stat-value">3</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-label">Rewards Earned</span>
-                  <span class="stat-value">15</span>
-                </div>
-                <div class="stat-item">
-                  <span class="stat-label">Pending</span>
-                  <span class="stat-value">1</span>
-                </div>
+            <!-- Card 2 -->
+            <div class="template-card">
+              <span class="uses-badge">2 USES</span>
+
+              <h3>HR Executive</h3>
+
+              <p class="template-info">Trichy · 1–3 Years · Full Time</p>
+
+              <div class="template-actions">
+                <button class="btn-use">
+                  <a href="post-job.html">Use Template</a>
+                </button>
+
+                <button class="btn-edit">
+                  <a href="post-job.html">Edit</a>
+                </button>
+
+                <button class="btn-duplicate">Duplicate</button>
+
+                <button class="btn-delete">Delete</button>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="template-card">
+              <span class="uses-badge">1 USE</span>
+
+              <h3>Telecaller</h3>
+
+              <p class="template-info">Dindigul · 0–2 Years · Full Time</p>
+
+              <div class="template-actions">
+                <button class="btn-use">
+                  <a href="post-job.html">Use Template</a>
+                </button>
+
+                <button class="btn-edit">
+                  <a href="post-job.html">Edit</a>
+                </button>
+
+                <button class="btn-duplicate">Duplicate</button>
+
+                <button class="btn-delete">Delete</button>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

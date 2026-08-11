@@ -49,13 +49,43 @@
       .google-btn:active {
         transform: scale(0.98);
       }
+      .mobile-employer-login {
+        display: none;
+      }
+
+      @media (max-width: 767px) {
+        .mobile-employer-login {
+          display: block;
+          width: 100%;
+          position: relative;
+          z-index: 9999;
+        }
+
+        .btn-mob-login {
+          width: 100%;
+          display: block;
+          position: relative;
+          z-index: 10000;
+          pointer-events: auto;
+          cursor: pointer;
+        }
+      }
+
+      .mobile-employer-login,
+      .btn-mob-login {
+        pointer-events: auto !important;
+      }
     </style>
   </head>
   <body>
     <div class="auth-shell">
       <div class="auth-side" id="auth-side">
         <div class="brand">
-          <span class="text-white"><a href="../index.html">HIRE<span class="gramm">GRAM</span></a></span>
+          <span class="text-white"
+            ><a href="../index.html"
+              >HIRE<span class="gramm">GRAM</span></a
+            ></span
+          >
         </div>
         <div>
           <div class="headline">
@@ -80,13 +110,11 @@
             <div class="l">Daily job posts</div>
           </div>
         </div>
-       <a id="mob-login">
-          <div class="mobile-employer-login" style="display: none">
-            <button type="button" class="btn btn-mob-login w-100 mb-3">
-              Register / Login
-            </button>
-          </div>
-        </a>
+        <div id="mob-login" class="mobile-employer-login">
+          <button type="button" class="btn btn-mob-login w-100 mb-3">
+            Register / Login
+          </button>
+        </div>
       </div>
 
       <div class="auth-form-wrap" id="auth-form-wrap">
@@ -256,10 +284,12 @@
           document.getElementById("emailLoginBlock").style.display = "block";
         });
 
-      document.getElementById("mob-login").addEventListener("click", () => {
-        document.getElementById("auth-side").style.display = "none";
-        document.getElementById("auth-form-wrap").style.display = "block";
-      });
+      document
+        .getElementById("mob-login")
+        .addEventListener("click", function () {
+          document.getElementById("auth-side").style.display = "none";
+          document.getElementById("auth-form-wrap").style.display = "block";
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
