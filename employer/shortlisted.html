@@ -18,512 +18,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
-    <style>
-      :root {
-        --ink: #14181f;
-        --muted: #6b7280;
-        --line: #e5e7eb;
-        --panel: #ffffff;
-        --page: #f4f5f7;
-        --brand: #0f1e4d;
-        --green: #12b886;
-        --green-dark: #0ea472;
-        --green-bg: #e7f9f3;
-        --purple: #6c4ff6;
-        --purple-bg: #f2effe;
-        --danger: #e0453b;
-        --radius: 12px;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        font-family:
-          "Inter",
-          system-ui,
-          -apple-system,
-          sans-serif;
-        background: var(--page);
-        color: var(--ink);
-        min-height: 100vh;
-      }
-
-      .view {
-        padding: 5px;
-        margin: 5px;
-      }
-
-      .back-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 18px;
-        font-size: 14px;
-        font-weight: 700;
-        color: var(--brand);
-        cursor: pointer;
-        width: fit-content;
-      }
-      .dash-grid-shortlist {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        align-items: start;
-      }
-      @media (max-width: 860px) {
-        .dash-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Filters panel --- */
-      .filters-panel {
-        background: var(--panel);
-        border-radius: var(--radius);
-        box-shadow:
-          0 1px 2px rgba(20, 24, 31, 0.04),
-          0 1px 12px rgba(20, 24, 31, 0.05);
-        padding: 20px;
-      }
-      .filters-title {
-        font-size: 15.5px;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-bottom: 16px;
-      }
-      .filter-section-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 14px;
-        font-weight: 700;
-        cursor: pointer;
-        margin-bottom: 10px;
-      }
-      .filter-check {
-        display: flex;
-        align-items: center;
-        gap: 9px;
-        font-size: 13.8px;
-        color: var(--ink);
-        padding: 6px 0;
-        cursor: pointer;
-      }
-      .filter-check input {
-        width: 16px;
-        height: 16px;
-        accent-color: var(--brand);
-        cursor: pointer;
-      }
-      .filter-check .count {
-        color: var(--muted);
-      }
-      .badge-new {
-        font-size: 10px;
-        font-weight: 700;
-        background: var(--green-bg);
-        color: var(--green-dark);
-        padding: 2px 6px;
-        border-radius: 5px;
-        margin-left: 4px;
-      }
-      .filter-divider {
-        border: none;
-        border-top: 1px solid var(--line);
-        margin: 14px 0;
-      }
-      .filter-collapsed-row {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 14px;
-        font-weight: 700;
-        color: #c3c6cf;
-        padding: 4px 0;
-        cursor: not-allowed;
-      }
-      .see-more-link {
-        display: block;
-        text-align: center;
-        font-size: 13.5px;
-        font-weight: 700;
-        color: var(--brand);
-        margin-top: 12px;
-        cursor: pointer;
-      }
-
-      /* --- Right column --- */
-      .dash-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 16px;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .dash-head h2 {
-        font-size: 19px;
-        font-weight: 700;
-        margin: 0;
-      }
-      .sort-select {
-        font-size: 13.5px;
-        font-weight: 600;
-        color: var(--ink);
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 7px 12px;
-        background: #fff;
-      }
-
-      .stat-tabs {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 12px;
-        margin-bottom: 18px;
-      }
-      .stat-tab {
-        background: var(--panel);
-        border: 1.5px solid var(--line);
-        border-radius: 10px;
-        padding: 14px 10px;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.15s ease;
-      }
-      .stat-tab:hover {
-        border-color: #c9cedb;
-      }
-      .stat-tab.active {
-        border-color: var(--green);
-        background: var(--green-bg);
-      }
-      .stat-tab .num {
-        font-size: 20px;
-        font-weight: 800;
-        color: var(--ink);
-      }
-      .stat-tab.active .num {
-        color: var(--green-dark);
-      }
-      .stat-tab .lbl {
-        font-size: 12.5px;
-        color: var(--muted);
-        font-weight: 600;
-        margin-top: 2px;
-      }
-      .stat-tab.active .lbl {
-        color: var(--green-dark);
-      }
-
-      .results-bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 16px;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .results-count {
-        font-size: 14.5px;
-        font-weight: 700;
-      }
-      .results-actions {
-        display: flex;
-        gap: 18px;
-      }
-      .results-actions a {
-        font-size: 13.5px;
-        font-weight: 700;
-        color: var(--green-dark);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .high-match-banner {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--purple);
-        margin-bottom: 4px;
-      }
-      .high-match-sub {
-        font-size: 13px;
-        color: var(--muted);
-        margin-bottom: 14px;
-      }
-
-      .candidate-card {
-        background: var(--panel);
-        border-radius: var(--radius);
-        box-shadow:
-          0 1px 2px rgba(20, 24, 31, 0.04),
-          0 1px 12px rgba(20, 24, 31, 0.05);
-        padding: 22px 24px;
-        margin-bottom: 18px;
-      }
-      .candidate-top {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      .candidate-id {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .avatar {
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        background: var(--brand);
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: 700;
-        font-size: 14px;
-        flex-shrink: 0;
-      }
-      .candidate-name {
-        font-size: 16px;
-        font-weight: 700;
-      }
-      .candidate-name a {
-        font-size: 13px;
-        font-weight: 700;
-        color: var(--green-dark);
-        text-decoration: none;
-        margin-left: 8px;
-      }
-      .candidate-sub {
-        font-size: 13px;
-        color: var(--muted);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 3px;
-      }
-      .candidate-sub span {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-      }
-      .match-box {
-        background: var(--purple-bg);
-        border-radius: 9px;
-        padding: 14px 16px;
-        margin: 16px 0;
-      }
-      .match-box-head {
-        font-size: 13.5px;
-        font-weight: 700;
-        color: var(--purple);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        margin-bottom: 10px;
-      }
-      .match-pills {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 9px;
-        align-items: center;
-      }
-      .match-pill {
-        background: #fff;
-        border: 1px solid #dcd3fb;
-        color: var(--ink);
-        font-size: 13px;
-        font-weight: 600;
-        padding: 5px 12px;
-        border-radius: 999px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .match-pill svg {
-        color: var(--purple);
-        flex-shrink: 0;
-      }
-      .match-more {
-        font-size: 13.5px;
-        color: var(--purple);
-        font-weight: 700;
-        cursor: pointer;
-      }
-
-      .cand-detail-grid {
-        display: grid;
-        grid-template-columns: 150px 1fr;
-        row-gap: 11px;
-        font-size: 14px;
-        margin-top: 14px;
-      }
-      .cand-detail-grid dt {
-        color: var(--muted);
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .cand-detail-grid dd {
-        margin: 0;
-        color: var(--ink);
-      }
-      .cand-detail-grid dd span.sep {
-        color: var(--line);
-        margin: 0 6px;
-      }
-
-      .candidate-actions {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 18px;
-        padding-top: 16px;
-        border-top: 1px solid var(--line);
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-      .action-left {
-        display: flex;
-        gap: 10px;
-      }
-      .action-right {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-      }
-      .btn-view-number {
-        background: var(--green);
-        color: #fff;
-        border: none;
-        font-weight: 700;
-        font-size: 14px;
-        padding: 9px 18px;
-        border-radius: 9px;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .btn-view-number:hover {
-        background: var(--green-dark);
-        color: #fff;
-      }
-      .btn-whatsapp {
-        width: 38px;
-        height: 38px;
-        border-radius: 9px;
-        border: 1px solid var(--green);
-        background: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--green-dark);
-      }
-      .btn-reject {
-        border: 1px solid var(--line);
-        background: #fff;
-        color: var(--danger);
-        font-weight: 700;
-        font-size: 14px;
-        padding: 9px 18px;
-        border-radius: 9px;
-        display: flex;
-        align-items: center;
-        gap: 7px;
-      }
-      .btn-reject:hover {
-        background: #fdeceb;
-      }
-      .btn-reject.done {
-        background: var(--danger);
-        color: #fff;
-        border-color: var(--danger);
-      }
-      .btn-shortlist {
-        border: 1px solid var(--line);
-        background: #fff;
-        color: var(--ink);
-        font-weight: 700;
-        font-size: 14px;
-        padding: 9px 18px;
-        border-radius: 9px;
-        display: flex;
-        align-items: center;
-        gap: 7px;
-      }
-      .btn-shortlist:hover {
-        background: #f7f7f8;
-      }
-      .btn-shortlist.done {
-        background: var(--green);
-        color: #fff;
-        border-color: var(--green);
-      }
-
-      .candidate-footer {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 12px;
-        font-size: 12.5px;
-        color: var(--muted);
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .add-note {
-        color: var(--brand);
-        font-weight: 700;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-      }
-
-      .toast-msg {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: var(--ink);
-        color: #fff;
-        padding: 12px 20px;
-        border-radius: 9px;
-        font-size: 14px;
-        font-weight: 600;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-        z-index: 60;
-        transform: translateY(-12px);
-        opacity: 0;
-        transition: all 0.3s ease;
-        pointer-events: none;
-      }
-      .toast-msg.show {
-        transform: translateY(0);
-        opacity: 1;
-      }
-
-      @media (max-width: 640px) {
-        .stat-tabs {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .job-card-mid {
-          gap: 22px;
-        }
-        .cand-detail-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
   </head>
   <body>
     <div class="topbar">
@@ -535,27 +29,20 @@
         <i class="bi bi-list"></i>
       </button>
       <div class="brand">
-        <span class="hire"><a href="../index.html">Hire<span class="gramm">gram</span></a></span>
+        <span class="hire"
+          ><a href="../index.html">Hire<span class="gramm">gram</span></a></span
+        >
       </div>
       <div class="spacer"></div>
       <div class="dropdown">
         <button class="avatar-btn" data-bs-toggle="dropdown">u</button>
         <ul
-          class="dropdown-menu dropdown-menu-end p-3"
-          style="
-            min-width: 230px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-          "
+          class="dropdown-menu dropdown-menu-end p-3 u-minw-230px_radius-12px_border-1px-solid-border"
         >
           <li class="d-flex align-items-center gap-2 mb-2">
-            <span
-              class="avatar-btn"
-              style="width: 34px; height: 34px; font-size: 13px"
-              >u</span
-            >
+            <span class="avatar-btn u-w-34px_h-34px_fs-13px">u</span>
             <div>
-              <div style="font-weight: 700; font-size: 14px">udhayasabari</div>
+              <div class="u-fw-700_fs-14px">udhayasabari</div>
               <div class="job-meta mb-0">7871539343</div>
             </div>
           </li>
@@ -579,7 +66,7 @@
     </div>
 
     <div class="layout">
-    <aside class="sidebar d-none d-lg-flex">
+      <aside class="sidebar d-none d-lg-flex">
         <div class="company-card">
           <div class="company-logo"></div>
           <div class="flex-grow-1">
@@ -591,13 +78,13 @@
             ><i class="bi bi-chevron-down d-block"></i>
           </div>
         </div>
-        <a href="index.html" class="side-link active"
+        <a href="index.html" class="side-link"
           ><i class="bi bi-house"></i> Home</a
         >
         <a href="post-job.html" class="side-link"
           ><i class="bi bi-briefcase-fill"></i> Jobs</a
         >
-        <a href="shortlisted.html" class="side-link"
+        <a href="shortlisted.html" class="side-link active"
           ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted
           Candidates</a
         >
@@ -633,10 +120,9 @@
       </aside>
 
       <div
-        class="offcanvas offcanvas-start"
+        class="offcanvas offcanvas-start u-w-280px"
         tabindex="-1"
         id="sidebarOffcanvas"
-        style="width: 280px"
       >
         <div class="offcanvas-header border-bottom">
           <div class="brand">
@@ -653,10 +139,7 @@
           ></button>
         </div>
         <div class="offcanvas-body">
-          <div
-            class="sidebar"
-            style="height: auto; border-right: none; padding: 0"
-          >
+          <div class="sidebar u-h-auto_br-none_p-0">
             <div class="company-card">
               <div class="company-logo"></div>
               <div class="flex-grow-1">
@@ -668,13 +151,13 @@
                 ><i class="bi bi-chevron-down d-block"></i>
               </div>
             </div>
-            <a href="index.html" class="side-link active"
+            <a href="index.html" class="side-link"
               ><i class="bi bi-house"></i> Home</a
             >
             <a href="post-job.html" class="side-link"
               ><i class="bi bi-briefcase-fill"></i> Jobs</a
             >
-            <a href="shortlisted.html" class="side-link"
+            <a href="shortlisted.html" class="side-link active"
               ><i class="bi bi-file-earmark-person-fill"></i> Shortlisted
               Candidates</a
             >
@@ -711,98 +194,101 @@
         </div>
       </div>
 
-      <div class="view" id="view-dashboard">
-        <div class="dash-grid-shortlist">
-          <!-- Candidate results -->
-          <div>
-            <!-- Candidate 1: high match -->
-            <div class="candidate-card" data-candidate="1">
-              <div class="candidate-top">
-                <div class="candidate-id">
-                  <div class="avatar">SA</div>
-                  <div>
-                    <div class="candidate-name">
-                      Sangeetha Alagan <a href="#">View full profile ›</a>
-                    </div>
-                    <div class="candidate-sub">
-                      <span>F, 28 yr</span> · <span>3yrs 6mos</span> ·
-                      <span>Not disclosed</span> ·
-                      <span>&#128205; Vadipatti, Madurai, TN</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <dl class="cand-detail-grid">
-                <dt>&#128188; Current / Latest</dt>
-                <dd>
-                  Sales Executive at Hdb Financial Services Limited · May 2024 -
-                  Oct 2025 | Role: Retail Banking, Digital Banking, Mortgage
-                  Sales, Corporate Banking | Industry: Lending/Loan
-                </dd>
-                <dt>&#127891; Education</dt>
-                <dd>
-                  B.Sc, Chemistry <span class="sep">|</span> Thiruvalluvar Arts
-                  and Science College <span class="sep">|</span> 2018 - 2018
-                </dd>
-                <dt>&#127942; Skills</dt>
-                <dd>
-                  Business Loans <span class="sep">|</span> Personal Loans
-                  <span class="sep">|</span> Two-Wheeler Loans
-                </dd>
-                <dt>&#127760; Language</dt>
-                <dd>
-                  English (Basic) <span class="sep">|</span> Tamil
-                  <span class="sep">|</span> Hindi
-                </dd>
-              </dl>
-            </div>
-
-            <!-- Candidate 2: regular -->
-            <div class="candidate-card" data-candidate="2">
-              <div class="candidate-top">
-                <div class="candidate-id">
-                  <div class="avatar" style="background: #374151">RK</div>
-                  <div>
-                    <div class="candidate-name">
-                      Ramkumar K <a href="#">View full profile ›</a>
-                    </div>
-                    <div class="candidate-sub">
-                      <span>M, 31 yr</span> · <span>5yrs 2mos</span> ·
-                      <span>₹28,000 / month</span> ·
-                      <span>&#128205; Anna Nagar, Madurai, TN</span>
+      <main class="main">
+        <div id="view-dashboard">
+          <div class="dash-grid-shortlist">
+            <!-- Candidate results -->
+            <div>
+              <!-- Candidate 1: high match -->
+              <div class="candidate-card" data-candidate="1">
+                <div class="candidate-top">
+                  <div class="candidate-id">
+                    <div class="avatar">SA</div>
+                    <div>
+                      <div class="candidate-name">
+                        Sangeetha Alagan <a href="viewprofile.html">View full profile ›</a>
+                      </div>
+                      <div class="candidate-sub">
+                        <span>F, 28 yr</span> · <span>3yrs 6mos</span> ·
+                        <span>Not disclosed</span> ·
+                        <span>&#128205; Vadipatti, Madurai, TN</span>
+                      </div>
                     </div>
                   </div>
                 </div>
+
+                <dl class="cand-detail-grid">
+                  <dt>&#128188; Current / Latest</dt>
+                  <dd>
+                    Sales Executive at Hdb Financial Services Limited · May 2024
+                    - Oct 2025 | Role: Retail Banking, Digital Banking, Mortgage
+                    Sales, Corporate Banking | Industry: Lending/Loan
+                  </dd>
+                  <dt>&#127891; Education</dt>
+                  <dd>
+                    B.Sc, Chemistry <span class="sep">|</span> Thiruvalluvar
+                    Arts and Science College <span class="sep">|</span> 2018 -
+                    2018
+                  </dd>
+                  <dt>&#127942; Skills</dt>
+                  <dd>
+                    Business Loans <span class="sep">|</span> Personal Loans
+                    <span class="sep">|</span> Two-Wheeler Loans
+                  </dd>
+                  <dt>&#127760; Language</dt>
+                  <dd>
+                    English (Basic) <span class="sep">|</span> Tamil
+                    <span class="sep">|</span> Hindi
+                  </dd>
+                </dl>
               </div>
 
-              <dl class="cand-detail-grid" style="margin-top: 16px">
-                <dt>&#128188; Current / Latest</dt>
-                <dd>
-                  Relationship Manager at Axis Bank · Jan 2022 - Present | Role:
-                  Banking Sales, Loan Sales | Industry: Banking
-                </dd>
-                <dt>&#127891; Education</dt>
-                <dd>
-                  B.Com <span class="sep">|</span> Madurai Kamaraj University
-                  <span class="sep">|</span> 2015 - 2018
-                </dd>
-                <dt>&#127942; Skills</dt>
-                <dd>
-                  Home Loans <span class="sep">|</span> Cross-selling
-                  <span class="sep">|</span> Team Handling
-                </dd>
-                <dt>&#127760; Language</dt>
-                <dd>English (Fluent) <span class="sep">|</span> Tamil</dd>
-              </dl>
+              <!-- Candidate 2: regular -->
+              <div class="candidate-card" data-candidate="2">
+                <div class="candidate-top">
+                  <div class="candidate-id">
+                    <div class="avatar u-bg-374151">RK</div>
+                    <div>
+                      <div class="candidate-name">
+                        Ramkumar K <a href="viewprofile.html">View full profile ›</a>
+                      </div>
+                      <div class="candidate-sub">
+                        <span>M, 31 yr</span> · <span>5yrs 2mos</span> ·
+                        <span>₹28,000 / month</span> ·
+                        <span>&#128205; Anna Nagar, Madurai, TN</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-              <div class="candidate-footer">
-                <span>Applied 3 days ago | Active 1 day ago</span>
+                <dl class="cand-detail-grid u-mt-16px">
+                  <dt>&#128188; Current / Latest</dt>
+                  <dd>
+                    Relationship Manager at Axis Bank · Jan 2022 - Present |
+                    Role: Banking Sales, Loan Sales | Industry: Banking
+                  </dd>
+                  <dt>&#127891; Education</dt>
+                  <dd>
+                    B.Com <span class="sep">|</span> Madurai Kamaraj University
+                    <span class="sep">|</span> 2015 - 2018
+                  </dd>
+                  <dt>&#127942; Skills</dt>
+                  <dd>
+                    Home Loans <span class="sep">|</span> Cross-selling
+                    <span class="sep">|</span> Team Handling
+                  </dd>
+                  <dt>&#127760; Language</dt>
+                  <dd>English (Fluent) <span class="sep">|</span> Tamil</dd>
+                </dl>
+
+                <div class="candidate-footer">
+                  <span>Applied 3 days ago | Active 1 day ago</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
 
     <div class="toast-msg" id="toast">Saved</div>

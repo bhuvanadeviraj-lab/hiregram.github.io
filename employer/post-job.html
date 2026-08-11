@@ -18,499 +18,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
-    <style>
-      :root {
-        --green: #16a34a;
-        --green-dark: #1a3c6e;
-        --text: #0f2447;
-        --muted: #94a3b8;
-        --border: #cbd5e1;
-        --bg: #f8fafc;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
-          sans-serif;
-        background: var(--bg);
-        color: var(--text);
-      }
-      .page {
-        max-width: auto;
-        margin: 24px auto;
-        padding: 0 16px;
-      }
-      .card {
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 12px;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-      }
-      .header {
-        padding: 16px 24px;
-        border-bottom: 1px solid #f1f5f9;
-        font-size: 18px;
-        font-weight: 600;
-      }
-      .stepper {
-        display: flex;
-        align-items: flex-start;
-        padding: 20px 24px 8px;
-        overflow-x: auto;
-      }
-      .step {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 6px;
-        flex-shrink: 0;
-      }
-      .step-circle {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        display: grid;
-        place-items: center;
-        font-size: 12px;
-        font-weight: 600;
-        border: 1px solid var(--border);
-        background: #fff;
-        color: var(--muted);
-      }
-      .step-circle.done {
-        background: var(--green);
-        border-color: var(--green);
-        color: #fff;
-      }
-      .step-circle.active {
-        background: #0f172a;
-        border-color: #0f172a;
-        color: #fff;
-      }
-      .step-label {
-        font-size: 11px;
-        font-weight: 500;
-        color: var(--muted);
-        white-space: nowrap;
-      }
-      .step-label.active {
-        color: #0f172a;
-      }
-      .step-line {
-        height: 1px;
-        background: #e2e8f0;
-        flex: 1;
-        margin: 13px 6px 0;
-        min-width: 24px;
-      }
-      .step-line.done {
-        background: var(--green);
-      }
-
-      .body {
-        padding: 8px 24px 24px;
-      }
-
-      .section-title {
-        font-size: 16px;
-        font-weight: 600;
-        margin-bottom: 2px;
-      }
-      .section-hint {
-        font-size: 13px;
-        color: var(--muted);
-        margin-bottom: 18px;
-      }
-      .required-note {
-        color: #f87171;
-        margin-left: 8px;
-      }
-
-      .divider {
-        border-top: 1px solid #f1f5f9;
-        margin: 22px 0 18px;
-      }
-
-      .field {
-        margin-bottom: 18px;
-      }
-      .field label {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 13px;
-        font-weight: 500;
-        margin-bottom: 6px;
-      }
-      .field .req {
-        color: #ef4444;
-      }
-      .field .info-dot {
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: #e2e8f0;
-        color: #64748b;
-        font-size: 9px;
-        display: grid;
-        place-items: center;
-      }
-      .field .subnote {
-        font-size: 11px;
-        color: var(--muted);
-        margin-top: 4px;
-      }
-
-      input[type="text"],
-      input[type="date"],
-      input[type="number"],
-      select,
-      textarea {
-        width: 100%;
-        padding: 8px 12px;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        font-size: 13px;
-        color: var(--text);
-        font-family: inherit;
-        outline: none;
-      }
-      input:focus,
-      select:focus,
-      textarea:focus {
-        border-color: var(--green);
-        box-shadow: 0 0 0 1px var(--green);
-      }
-      textarea {
-        resize: vertical;
-      }
-
-      .row-2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-      }
-      .range-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .range-row span {
-        font-size: 12px;
-        color: var(--muted);
-      }
-
-      .pill-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .pill {
-        border: 1px solid var(--border);
-        background: #fff;
-        color: #475569;
-        border-radius: 999px;
-        padding: 6px 16px;
-        font-size: 13px;
-        font-weight: 500;
-        cursor: pointer;
-      }
-      .pill.small {
-        padding: 4px 12px;
-        font-size: 12px;
-      }
-      .pill.active {
-        background: var(--text);
-        border-color: var(--text);
-        color: #fff;
-      }
-
-      .tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        border: 1px solid var(--green);
-        background: #ecfdf5;
-        color: var(--green-dark);
-        border-radius: 999px;
-        padding: 5px 12px;
-        font-size: 13px;
-        font-weight: 500;
-      }
-      .tag button {
-        border: none;
-        background: transparent;
-        color: var(--green-dark);
-        cursor: pointer;
-        font-size: 13px;
-        line-height: 1;
-        padding: 0;
-      }
-      .add-pill {
-        border: 1px dashed var(--border);
-        background: #fff;
-        color: #64748b;
-        border-radius: 999px;
-        padding: 5px 12px;
-        font-size: 13px;
-        cursor: pointer;
-      }
-
-      .addr-box {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border: 1px solid var(--border);
-        border-radius: 6px;
-        padding: 8px 12px;
-        font-size: 13px;
-      }
-      .link-btn {
-        background: none;
-        border: none;
-        color: var(--green);
-        font-weight: 500;
-        font-size: 12px;
-        cursor: pointer;
-        padding: 0;
-      }
-
-      .info-box {
-        background: #f0f9ff;
-        border-radius: 6px;
-        padding: 8px 12px;
-        font-size: 12px;
-        color: #475569;
-        margin-top: 8px;
-      }
-      .info-box.violet {
-        background: #f5f3ff;
-      }
-      .amber-box {
-        background: #fffbeb;
-        border-radius: 6px;
-        padding: 12px 16px;
-        margin-bottom: 18px;
-      }
-      .amber-box .brow {
-        display: flex;
-        justify-content: space-between;
-        font-size: 12px;
-        color: #64748b;
-        margin-bottom: 4px;
-      }
-      .amber-box .brow.total {
-        border-top: 1px solid #fde68a;
-        padding-top: 8px;
-        margin-top: 6px;
-        font-weight: 600;
-        color: #334155;
-      }
-
-      .checkbox-row {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        color: #475569;
-        margin-bottom: 18px;
-      }
-      .radio-col {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .radio-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-        color: #334155;
-      }
-
-      .nav-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid #f1f5f9;
-        padding-top: 18px;
-        margin-top: 24px;
-      }
-      .btn {
-        border-radius: 6px;
-        padding: 9px 24px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        border: none;
-      }
-      .btn-primary {
-        background: var(--green);
-        color: #fff;
-      }
-      .btn-primary:hover {
-        background: var(--green-dark);
-      }
-      .btn-outline {
-        background: #fff;
-        border: 1px solid var(--border);
-        color: #475569;
-      }
-      .btn-outline:hidden {
-        visibility: hidden;
-      }
-
-      .preview-section {
-        border: 1px solid #e2e8f0;
-        border-radius: 8px;
-        margin-bottom: 14px;
-      }
-      .preview-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 16px;
-        font-size: 14px;
-        font-weight: 600;
-      }
-      .preview-head .actions {
-        display: flex;
-        gap: 10px;
-      }
-      .preview-head button {
-        border: none;
-        background: none;
-        cursor: pointer;
-        color: #94a3b8;
-        font-size: 14px;
-      }
-      .preview-body {
-        border-top: 1px solid #f1f5f9;
-        padding: 12px 16px;
-      }
-      .p-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 12px;
-        margin-bottom: 8px;
-        font-size: 13px;
-        flex-wrap: wrap;
-      }
-      .p-row .k {
-        color: #fb923c;
-        font-size: 12px;
-        flex: 1 1 40%;
-      }
-      .p-row .v {
-        font-weight: 500;
-        color: #1e293b;
-        text-align: right;
-        flex: 1 1 55%;
-      }
-      .req-box {
-        background: #f0f9ff;
-        border-radius: 6px;
-        padding: 8px 12px;
-        font-size: 12px;
-        color: #475569;
-        margin-bottom: 12px;
-      }
-
-      .ai-box {
-        background: #fffbeb;
-        border-radius: 6px;
-        padding: 12px 16px;
-        margin-bottom: 16px;
-      }
-      .ai-box-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 13px;
-        color: #334155;
-        margin-bottom: 8px;
-      }
-      .ai-badge {
-        background: #0f172a;
-        color: #fff;
-        border-radius: 999px;
-        padding: 4px 12px;
-        font-size: 11px;
-        font-weight: 600;
-        white-space: nowrap;
-        margin-left: 8px;
-      }
-      .ai-suggestion-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #fff;
-        border-radius: 6px;
-        padding: 10px 14px;
-      }
-      .ai-suggestion-row .txt {
-        font-size: 13px;
-      }
-      .ai-suggestion-row .arrow {
-        color: #94a3b8;
-      }
-      .ai-suggestion-row .new {
-        color: #7c3aed;
-        font-weight: 600;
-      }
-      .btn-update {
-        border: 1px solid var(--green);
-        color: var(--green);
-        background: #fff;
-        border-radius: 6px;
-        padding: 5px 16px;
-        font-size: 12px;
-        font-weight: 600;
-        cursor: pointer;
-      }
-      .ai-note {
-        font-size: 11px;
-        color: var(--muted);
-        margin-top: 6px;
-      }
-
-      .publish-panel {
-        text-align: center;
-        padding: 40px 10px;
-      }
-      .publish-panel .check {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background: #dcfce7;
-        color: var(--green);
-        display: grid;
-        place-items: center;
-        font-size: 22px;
-        margin: 0 auto 14px;
-      }
-      .publish-panel h3 {
-        margin: 0 0 8px;
-        font-size: 15px;
-      }
-      .publish-panel p {
-        max-width: 380px;
-        margin: 0 auto;
-        font-size: 13px;
-        color: #64748b;
-      }
-
-      [data-step] {
-        display: none;
-      }
-      [data-step].active {
-        display: block;
-      }
-    </style>
-  </head>
+</head>
   <body>
     <div class="topbar">
       <button
@@ -529,21 +37,15 @@
       <div class="dropdown">
         <button class="avatar-btn" data-bs-toggle="dropdown">u</button>
         <ul
-          class="dropdown-menu dropdown-menu-end p-3"
-          style="
-            min-width: 230px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-          "
+          class="dropdown-menu dropdown-menu-end p-3 u-minw-230px_radius-12px_border-1px-solid-border"
         >
           <li class="d-flex align-items-center gap-2 mb-2">
             <span
-              class="avatar-btn"
-              style="width: 34px; height: 34px; font-size: 13px"
+              class="avatar-btn u-w-34px_h-34px_fs-13px"
               >u</span
             >
             <div>
-              <div style="font-weight: 700; font-size: 14px">udhayasabari</div>
+              <div class="u-fw-700_fs-14px">udhayasabari</div>
               <div class="job-meta mb-0">7871539343</div>
             </div>
           </li>
@@ -579,10 +81,10 @@
             ><i class="bi bi-chevron-down d-block"></i>
           </div>
         </div>
-        <a href="index.html" class="side-link active"
+        <a href="index.html" class="side-link"
           ><i class="bi bi-house"></i> Home</a
         >
-        <a href="post-job.html" class="side-link"
+        <a href="post-job.html" class="side-link active"
           ><i class="bi bi-briefcase-fill"></i> Jobs</a
         >
         <a href="shortlisted.html" class="side-link"
@@ -621,10 +123,9 @@
       </aside>
 
       <div
-        class="offcanvas offcanvas-start"
+        class="offcanvas offcanvas-start u-w-280px"
         tabindex="-1"
         id="sidebarOffcanvas"
-        style="width: 280px"
       >
         <div class="offcanvas-header border-bottom">
           <div class="brand">
@@ -642,8 +143,7 @@
         </div>
         <div class="offcanvas-body">
           <div
-            class="sidebar"
-            style="height: auto; border-right: none; padding: 0"
+            class="sidebar u-h-auto_br-none_p-0"
           >
             <div class="company-card">
               <div class="company-logo"></div>
@@ -656,10 +156,10 @@
                 ><i class="bi bi-chevron-down d-block"></i>
               </div>
             </div>
-            <a href="index.html" class="side-link active"
+            <a href="index.html" class="side-link"
               ><i class="bi bi-house"></i> Home</a
             >
-            <a href="post-job.html" class="side-link"
+            <a href="post-job.html" class="side-link active"
               ><i class="bi bi-briefcase-fill"></i> Jobs</a
             >
             <a href="shortlisted.html" class="side-link"
@@ -768,17 +268,17 @@
                       Both (Full-Time and Part-Time)
                     </button>
                   </div>
-                  <label class="checkbox-row" style="margin-top: 12px">
+                  <label class="checkbox-row u-mt-12px">
                     <input type="checkbox" id="nightShift" /> This is a night
                     shift job
                   </label>
                 </div>
 
                 <div class="divider"></div>
-                <div class="section-title" style="font-size: 14px">
+                <div class="section-title u-fs-14px">
                   Location
                 </div>
-                <div class="section-hint" style="margin-bottom: 14px">
+                <div class="section-hint u-mb-14px">
                   Let candidates know where they will be working from.
                 </div>
 
@@ -809,7 +309,7 @@
                       Change
                     </button>
                   </div>
-                  <button class="link-btn" style="margin-top: 6px">
+                  <button class="link-btn u-mt-6px">
                     + Add Floor / Plot no. / Shop no. (optional)
                   </button>
                 </div>
@@ -831,10 +331,10 @@
                 </div>
 
                 <div class="divider"></div>
-                <div class="section-title" style="font-size: 14px">
+                <div class="section-title u-fs-14px">
                   Compensation
                 </div>
-                <div class="section-hint" style="margin-bottom: 14px">
+                <div class="section-hint u-mb-14px">
                   Job postings with right salary &amp; incentives will help you
                   find the right candidates.
                 </div>
@@ -882,13 +382,7 @@
                 </div>
 
                 <div class="amber-box">
-                  <div
-                    style="
-                      font-size: 12px;
-                      font-weight: 600;
-                      color: #475569;
-                      margin-bottom: 6px;
-                    "
+                  <div class="u-fs-12px_fw-600_text-475569_mb-6px"
                   >
                     Salary breakup shown to candidates
                   </div>
@@ -909,7 +403,7 @@
                 <div class="field">
                   <label>Do you offer any additional perks?</label>
                   <div class="pill-group" id="perksGroup"></div>
-                  <button class="link-btn" style="margin-top: 8px">
+                  <button class="link-btn u-mt-8px">
                     + Add other perks
                   </button>
                 </div>
@@ -987,18 +481,17 @@
                 </div>
 
                 <div class="divider"></div>
-                <div class="section-title" style="font-size: 14px">
+                <div class="section-title u-fs-14px">
                   Additional Requirements (Optional)
                 </div>
-                <div class="section-hint" style="margin-bottom: 14px">
+                <div class="section-hint u-mb-14px">
                   Add additional requirements so that we can help you find the
                   right candidates.
                 </div>
 
                 <div
-                  class="field"
+                  class="field u-d-flex_wrap-wrap_gap-8px"
                   id="additionalReqGroup"
-                  style="display: flex; flex-wrap: wrap; gap: 8px"
                 ></div>
 
                 <div class="field" id="langField">
@@ -1026,10 +519,10 @@
                 </div>
 
                 <div class="divider"></div>
-                <div class="section-title" style="font-size: 14px">
+                <div class="section-title u-fs-14px">
                   Job Description
                 </div>
-                <div class="section-hint" style="margin-bottom: 14px">
+                <div class="section-hint u-mb-14px">
                   Describe the responsibilities of this job and other specific
                   requirements here.
                 </div>
@@ -1053,7 +546,7 @@
                     >Is this a walk-in interview?
                     <span class="req">*</span></label
                   >
-                  <div class="radio-col" style="flex-direction: row; gap: 24px">
+                  <div class="radio-col u-flexdir-row_gap-24px">
                     <label class="radio-item"
                       ><input type="radio" name="walkIn" value="Yes" checked />
                       Yes</label
@@ -1078,7 +571,7 @@
                         Change
                       </button>
                     </div>
-                    <button class="link-btn" style="margin-top: 6px">
+                    <button class="link-btn u-mt-6px">
                       + Add Floor / Plot no. / Shop no. (optional)
                     </button>
                   </div>
@@ -1100,8 +593,7 @@
                     <input type="checkbox" id="excludeDays" /> Don't include
                     <a
                       href="#"
-                      onclick="return false;"
-                      style="color: var(--green); font-weight: 500"
+                      onclick="return false;" class="u-text-green_fw-500"
                       >All Saturdays &amp; Sundays</a
                     >
                   </label>
@@ -1131,17 +623,17 @@
                       maxlength="300"
                       placeholder="e.g. Bring ID card, CV/Resume etc."
                     ></textarea>
-                    <div class="subnote" style="text-align: right">
+                    <div class="subnote u-ta-right">
                       <span id="instrCount">0</span>/300
                     </div>
                   </div>
                 </div>
 
                 <div class="divider"></div>
-                <div class="section-title" style="font-size: 14px">
+                <div class="section-title u-fs-14px">
                   Communication Preferences
                 </div>
-                <div class="field" style="margin-top: 14px">
+                <div class="field u-mt-14px">
                   <label
                     >Do you want candidates to contact you via Call / Whatsapp
                     after they apply? <span class="req">*</span></label
@@ -1180,10 +672,10 @@
                 </div>
 
                 <div class="divider"></div>
-                <div class="section-title" style="font-size: 14px">
+                <div class="section-title u-fs-14px">
                   Notification Preferences
                 </div>
-                <div class="field" style="margin-top: 14px">
+                <div class="field u-mt-14px">
                   <label
                     >Every time you receive a candidate application, do you want
                     🟢 Whatsapp Alerts from Apna?
@@ -1273,10 +765,9 @@
               <div data-step="4">
                 <div class="publish-panel" id="publishPanel">
                   <div class="section-title">Ready to publish</div>
-                  <p style="margin-top: 8px" id="publishBlurb"></p>
+                  <p class="u-mt-8px" id="publishBlurb"></p>
                   <button
-                    class="btn btn-primary"
-                    style="margin-top: 20px; padding: 10px 32px"
+                    class="btn btn-primary u-mt-20px_p-10px-32px"
                     onclick="publishJob()"
                   >
                     Publish job
@@ -1656,7 +1147,7 @@
         );
         html += row("Work type", workLoc);
         html += row("Job location", region);
-        html += `<div class="req-box" style="color:#059669; font-weight:500;">${anywhere === "Yes" ? "You will be receiving applications from anywhere in India" : `You will be receiving applications from ${region} Region`}</div>`;
+        html += `<div class="req-box u-text-059669_fw-500">${anywhere === "Yes" ? "You will be receiving applications from anywhere in India" : `You will be receiving applications from ${region} Region`}</div>`;
         html += row(
           "Monthly Salary | Pay Type",
           `${fmtINR(min)} - ${fmtINR(max)} per month (${payType})`,
@@ -1684,7 +1175,7 @@
             "Regional languages",
             selectedLangs.join(", ") || "None",
           );
-        html2 += `<div class="req-box" style="margin-top:14px;">💼 <b>Preferred requirements.</b> Your job will be promoted to the candidates meeting below requirements, but others can still apply.</div>`;
+        html2 += `<div class="req-box u-mt-14px-2">💼 <b>Preferred requirements.</b> Your job will be promoted to the candidates meeting below requirements, but others can still apply.</div>`;
         if (selectedAdditionalReqs.includes("Age"))
           html2 += row("Age", `${ageMin} - ${ageMax} yrs`);
         html2 += row(
@@ -1747,14 +1238,14 @@
         if (!published) {
           panel.innerHTML = `
       <div class="section-title">Ready to publish</div>
-      <p style="margin-top:8px;">Your job for <b>${jobTitle}</b> at <b>${company}</b> is ready. Once published, candidates in ${anywhere === "Yes" ? "India" : `the ${region} region`} will start seeing it.</p>
-      <button class="btn btn-primary" style="margin-top:20px; padding:10px 32px;" onclick="publishJob()">Publish job</button>
+      <p class="u-mt-8px-2">Your job for <b>${jobTitle}</b> at <b>${company}</b> is ready. Once published, candidates in ${anywhere === "Yes" ? "India" : `the ${region} region`} will start seeing it.</p>
+      <button class="btn btn-primary u-mt-20px_p-10px-32px-2" onclick="publishJob()">Publish job</button>
     `;
         } else {
           panel.innerHTML = `
       <div class="check">✓</div>
       <div class="section-title">Job published!</div>
-      <p style="margin-top:8px;">${jobTitle} at ${company} is now live. You'll get a Whatsapp alert${notifyPref === "Yes, to myself" ? "" : " summary"} as applications come in.</p>
+      <p class="u-mt-8px-2">${jobTitle} at ${company} is now live. You'll get a Whatsapp alert${notifyPref === "Yes, to myself" ? "" : " summary"} as applications come in.</p>
     `;
         }
       }

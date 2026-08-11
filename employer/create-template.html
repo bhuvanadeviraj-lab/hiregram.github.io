@@ -18,343 +18,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
-    <style>
-      :root {
-        --bg: #f5f6f8;
-        --card: #ffffff;
-        --border: #e6e8ec;
-        --text: #0f2447;
-        --muted: #6b7280;
-        --blue: #0f2447;
-        --blue-dark: #0f2447;
-        --navy-grad-start: #d22222;
-        --navy-grad-end: #d22222;
-        --green-bg: #e4f8ec;
-        --green-text: #149a4d;
-        --amber-bg: #fff4de;
-        --amber-text: #b7791f;
-        --radius-lg: 16px;
-        --radius-md: 12px;
-        --radius-sm: 8px;
-        --shadow:
-          0 1px 2px rgba(15, 18, 34, 0.04), 0 1px 1px rgba(15, 18, 34, 0.03);
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        font-family:
-          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-          Arial, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        -webkit-font-smoothing: antialiased;
-      }
-
-      .page {
-        max-width: 1760px;
-        margin: 0 auto;
-        padding: 28px 32px 60px;
-      }
-      /* =========================================
-   POST NEW JOB
-========================================= */
-
-      .post-job-section {
-        width: 100%;
-        padding: 42px 26px 25px;
-        background: #ffffff;
-        border: 1px solid #e0e6ef;
-        border-radius: 24px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-      }
-
-      /* =========================================
-   HEADER
-========================================= */
-
-      .post-job-header {
-        margin: 5px 0 27px;
-      }
-
-      .post-job-header h2 {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        margin: 0 0 20px;
-        color: #09233f;
-        font-size: 20px;
-        line-height: 1.2;
-        font-weight: 700;
-      }
-
-      .post-job-header p {
-        margin: 0;
-        color: #68788f;
-        font-size: 12px;
-        font-weight: 600;
-        line-height: 1.5;
-      }
-
-      /* =========================================
-   FORM GRID
-========================================= */
-
-      .form-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        column-gap: 20px;
-        row-gap: 20px;
-      }
-
-      /* =========================================
-   FORM GROUP
-========================================= */
-
-      .form-group {
-        width: 100%;
-      }
-
-      .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        color: #071f3b;
-        font-size: 12px;
-        font-weight: 700;
-      }
-
-      /* =========================================
-   INPUT / SELECT
-========================================= */
-
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
-        width: 100%;
-        border: 1px solid #d6e0ec;
-        border-radius: 11px;
-        outline: none;
-        background: #ffffff;
-        color: #111111;
-        font-family: inherit;
-        font-size: 12px;
-        font-weight: 600;
-        transition:
-          border-color 0.2s ease,
-          box-shadow 0.2s ease;
-      }
-
-      .form-group input,
-      .form-group select {
-        height: 53px;
-        padding: 0 15px;
-      }
-
-      .form-group input::placeholder,
-      .form-group textarea::placeholder {
-        color: #68788f;
-        opacity: 1;
-      }
-
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
-        border-color: #2863e9;
-        box-shadow: 0 0 0 3px rgba(40, 99, 233, 0.08);
-      }
-
-      /* =========================================
-   SELECT
-========================================= */
-
-      .form-group select {
-        appearance: auto;
-        cursor: pointer;
-      }
-
-      /* =========================================
-   DESCRIPTION
-========================================= */
-
-      .description-group {
-        margin-top: 27px;
-      }
-
-      .form-group textarea {
-        display: block;
-        height: 100px;
-        padding: 14px 15px;
-        resize: vertical;
-        line-height: 1.5;
-      }
-
-      /* =========================================
-   PUBLISH BUTTON
-========================================= */
-
-      .publish-job-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 143px;
-        height: 48px;
-        margin-top: 18px;
-        padding: 0 19px;
-        border: 0;
-        border-radius: 11px;
-        background: #2863e9;
-        color: #ffffff;
-        font-family: inherit;
-        font-size: 12px;
-        font-weight: 700;
-        cursor: pointer;
-        transition:
-          background 0.2s ease,
-          transform 0.1s ease;
-      }
-
-      .publish-job-btn:hover {
-        background: #1e55d2;
-      }
-
-      .publish-job-btn:active {
-        transform: scale(0.98);
-      }
-
-      /* =========================================
-   TABLET
-========================================= */
-
-      @media (max-width: 991px) {
-        .post-job-section {
-          padding: 32px 20px 22px;
-        }
-
-        .post-job-header h2 {
-          font-size: 14px;
-        }
-
-        .form-grid {
-          grid-template-columns: repeat(2, 1fr);
-          row-gap: 28px;
-        }
-
-        .description-group {
-          margin-top: 25px;
-        }
-      }
-
-      /* =========================================
-   MOBILE
-========================================= */
-
-      @media (max-width: 767px) {
-        .post-job-section {
-          padding: 25px 15px 20px;
-          border-radius: 18px;
-        }
-
-        /* Header */
-
-        .post-job-header {
-          margin: 2px 0 24px;
-        }
-
-        .post-job-header h2 {
-          margin-bottom: 12px;
-          font-size: 14px;
-        }
-
-        .post-job-header p {
-          font-size: 12px;
-          line-height: 1.5;
-        }
-
-        /* Form */
-
-        .form-grid {
-          grid-template-columns: 1fr;
-          gap: 18px;
-        }
-
-        /* Labels */
-
-        .form-group label {
-          margin-bottom: 7px;
-          font-size: 14px;
-        }
-
-        /* Inputs */
-
-        .form-group input,
-        .form-group select {
-          height: 48px;
-          padding: 0 13px;
-          border-radius: 9px;
-          font-size: 12px;
-        }
-
-        /* Description */
-
-        .description-group {
-          margin-top: 18px;
-        }
-
-        .form-group textarea {
-          min-height: 160px;
-          height: 160px;
-          padding: 12px 13px;
-          border-radius: 9px;
-          font-size: 12px;
-        }
-
-        /* Button */
-
-        .publish-job-btn {
-          width: 100%;
-          height: 48px;
-          margin-top: 15px;
-          font-size: 12px;
-        }
-      }
-
-      /* =========================================
-   SMALL MOBILE
-========================================= */
-
-      @media (max-width: 480px) {
-        .post-job-section {
-          padding: 20px 12px 16px;
-        }
-
-        .post-job-header h2 {
-          font-size: 14px;
-        }
-
-        .post-job-header p {
-          font-size: 12px;
-        }
-
-        .form-grid {
-          gap: 16px;
-        }
-
-        .form-group input,
-        .form-group select {
-          height: 46px;
-          font-size: 12px;
-        }
-
-        .form-group textarea {
-          min-height: 140px;
-          height: 140px;
-          font-size: 12px;
-        }
-      }
-    </style>
-  </head>
+</head>
   <body>
     <div class="topbar">
       <button
@@ -373,21 +37,15 @@
       <div class="dropdown">
         <button class="avatar-btn" data-bs-toggle="dropdown">u</button>
         <ul
-          class="dropdown-menu dropdown-menu-end p-3"
-          style="
-            min-width: 230px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-          "
+          class="dropdown-menu dropdown-menu-end p-3 u-minw-230px_radius-12px_border-1px-solid-border"
         >
           <li class="d-flex align-items-center gap-2 mb-2">
             <span
-              class="avatar-btn"
-              style="width: 34px; height: 34px; font-size: 13px"
+              class="avatar-btn u-w-34px_h-34px_fs-13px"
               >u</span
             >
             <div>
-              <div style="font-weight: 700; font-size: 14px">udhayasabari</div>
+              <div class="u-fw-700_fs-14px">udhayasabari</div>
               <div class="job-meta mb-0">7871539343</div>
             </div>
           </li>
@@ -465,10 +123,9 @@
       </aside>
 
       <div
-        class="offcanvas offcanvas-start"
+        class="offcanvas offcanvas-start u-w-280px"
         tabindex="-1"
         id="sidebarOffcanvas"
-        style="width: 280px"
       >
         <div class="offcanvas-header border-bottom">
           <div class="brand">
@@ -486,8 +143,7 @@
         </div>
         <div class="offcanvas-body">
           <div
-            class="sidebar"
-            style="height: auto; border-right: none; padding: 0"
+            class="sidebar u-h-auto_br-none_p-0"
           >
             <div class="company-card">
               <div class="company-logo"></div>

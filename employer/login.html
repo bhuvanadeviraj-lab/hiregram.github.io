@@ -18,65 +18,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
-    <style>
-      .google-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        padding: 12px 20px;
-        width: 100%;
-        background: #fff;
-        border: 1px solid #dadce0;
-        border-radius: 10px;
-        color: #3c4043;
-        font-size: 15px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
-      .google-btn img {
-        width: 20px;
-        height: 20px;
-      }
-
-      .google-btn:hover {
-        background: #f8f9fa;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .google-btn:active {
-        transform: scale(0.98);
-      }
-      .mobile-employer-login {
-        display: none;
-      }
-
-      @media (max-width: 767px) {
-        .mobile-employer-login {
-          display: block;
-          width: 100%;
-          position: relative;
-          z-index: 9999;
-        }
-
-        .btn-mob-login {
-          width: 100%;
-          display: block;
-          position: relative;
-          z-index: 10000;
-          pointer-events: auto;
-          cursor: pointer;
-        }
-      }
-
-      .mobile-employer-login,
-      .btn-mob-login {
-        pointer-events: auto !important;
-      }
-    </style>
-  </head>
+</head>
   <body>
     <div class="auth-shell">
       <div class="auth-side" id="auth-side">
@@ -127,20 +69,13 @@
               <label class="form-label">Email Address</label>
               <div class="input-group">
                 <span
-                  class="input-group-text"
-                  style="
-                    border-radius: 9px 0 0 9px;
-                    background: #fff;
-                    border-color: var(--border);
-                    color: var(--muted);
-                  "
+                  class="input-group-text u-radius-9px-0-0-9px_bg-fff_bordercolor-border_text-muted"
                   >📧</span
                 >
                 <input
                   type="email"
-                  class="form-control"
+                  class="form-control u-radius-0-9px-9px-0"
                   placeholder="example@gmail.com"
-                  style="border-radius: 0 9px 9px 0"
                 />
               </div>
             </div>
@@ -152,51 +87,37 @@
               Send OTP
             </button>
 
-            <div class="mb-3" style="display: none" id="mobileBlock">
+            <div class="mb-3 u-d-none" id="mobileBlock">
               <label class="form-label">Mobile number</label>
               <div class="input-group">
                 <span
-                  class="input-group-text"
-                  style="
-                    border-radius: 9px 0 0 9px;
-                    background: #fff;
-                    border-color: var(--border);
-                    color: var(--muted);
-                  "
+                  class="input-group-text u-radius-9px-0-0-9px_bg-fff_bordercolor-border_text-muted"
                   >+91</span
                 >
                 <input
                   type="tel"
-                  class="form-control"
+                  class="form-control u-radius-0-9px-9px-0"
                   placeholder="98765 43210"
-                  style="border-radius: 0 9px 9px 0"
                 />
               </div>
             </div>
 
-            <div class="mb-3" style="display: none" id="passwordBlock">
+            <div class="mb-3 u-d-none" id="passwordBlock">
               <label class="form-label">password</label>
               <div class="input-group">
                 <span
-                  class="input-group-text"
-                  style="
-                    border-radius: 9px 0 0 9px;
-                    background: #fff;
-                    border-color: var(--border);
-                    color: var(--muted);
-                  "
+                  class="input-group-text u-radius-9px-0-0-9px_bg-fff_bordercolor-border_text-muted"
                   >🔓</span
                 >
                 <input
                   type="password"
-                  class="form-control"
+                  class="form-control u-radius-0-9px-9px-0"
                   placeholder="Password"
-                  style="border-radius: 0 9px 9px 0"
                 />
               </div>
             </div>
 
-            <div id="otpBlock" style="display: none">
+            <div id="otpBlock" class="u-d-none">
               <label class="form-label">Enter OTP</label>
               <div class="otp-inputs mb-2">
                 <input type="text" inputmode="numeric" maxlength="1" />
@@ -206,7 +127,7 @@
               </div>
               <div class="job-meta mb-3">
                 Didn't get the code?
-                <a href="#" style="color: var(--teal-dk); font-weight: 600"
+                <a href="#" class="u-text-teal-dk_fw-600"
                   >Resend</a
                 >
               </div>
@@ -215,7 +136,7 @@
               >
             </div>
 
-            <div id="emailLoginBlock" style="display: none">
+            <div id="emailLoginBlock" class="u-d-none">
               <a href="index.html" class="btn btn-teal w-100">Login</a>
             </div>
           </form>
@@ -249,19 +170,18 @@
           <div class="text-center mt-4 small mb-4">
             New to Hiregram?
             <a
-              href="register.html"
-              style="color: var(--teal-dk); font-weight: 700"
+              href="register.html" class="u-text-teal-dk_fw-700"
               >Create an account</a
             >
           </div>
 
           <span class="mt-4">
             By clicking continue, you agree to the hiregram
-            <a href="#" style="color: rgb(26, 182, 221)"
+            <a href="#" class="u-text-rgb-26-182-221"
               ><u><b>Terms of service</b></u></a
             >
             &
-            <a href="#" style="color: rgb(26, 182, 221)"
+            <a href="#" class="u-text-rgb-26-182-221"
               ><u><b>Privacy Policy</b></u></a
             >
           </span>

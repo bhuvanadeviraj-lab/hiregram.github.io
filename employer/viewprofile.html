@@ -18,96 +18,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
-    <style>
-      body {
-        background: #f5f5f5;
-      }
-
-      .profile-card {
-        background: #fff;
-        border-radius: 12px;
-        padding: 25px 25px;
-        margin: 20px 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      }
-
-      .profile-title {
-        font-size: 25px;
-        font-weight: 700;
-        color: #1f2d3d;
-        margin-bottom: 25px;
-      }
-
-      .section-title {
-        font-size: 20px;
-        font-weight: 700;
-        color: #0f2c5c;
-        margin-bottom: 25px;
-      }
-
-      label {
-        font-weight: 600;
-        color: #0f2c5c;
-        margin-bottom: 8px;
-      }
-
-      .form-control {
-        border-radius: 4px;
-        background: #f8f8f8;
-      }
-
-      .btn-edit {
-        background: #0f2c5c;
-        color: #fff;
-        padding: 10px 28px;
-        font-weight: 600;
-      }
-
-      .btn-edit:hover {
-        background: #d22222;
-        color: #fff;
-      }
-
-      .btn-verify {
-        height: 50px;
-        width: 100%;
-      }
-
-      .verify-text {
-        font-weight: 600;
-        margin-bottom: 8px;
-      }
-
-      .verify-text span {
-        color: #d22222;
-      }
-
-      .section-space {
-        margin-top: 15px;
-      }
-
-      @media (max-width: 768px) {
-        .profile-card {
-          padding: 20px;
-        }
-
-        .profile-title {
-          font-size: 30px;
-        }
-
-        .section-title {
-          font-size: 24px;
-        }
-
-        .top-btn {
-          text-align: left !important;
-        }
-
-        .profile-card {
-          margin: 15px auto;
-        }
-      }
-    </style>
   </head>
 
   <body>
@@ -128,21 +38,12 @@
       <div class="dropdown">
         <button class="avatar-btn" data-bs-toggle="dropdown">u</button>
         <ul
-          class="dropdown-menu dropdown-menu-end p-3"
-          style="
-            min-width: 230px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-          "
+          class="dropdown-menu dropdown-menu-end p-3 u-minw-230px_radius-12px_border-1px-solid-border"
         >
           <li class="d-flex align-items-center gap-2 mb-2">
-            <span
-              class="avatar-btn"
-              style="width: 34px; height: 34px; font-size: 13px"
-              >u</span
-            >
+            <span class="avatar-btn u-w-34px_h-34px_fs-13px">u</span>
             <div>
-              <div style="font-weight: 700; font-size: 14px">udhayasabari</div>
+              <div class="u-fw-700_fs-14px">udhayasabari</div>
               <div class="job-meta mb-0">7871539343</div>
             </div>
           </li>
@@ -180,7 +81,7 @@
             ><i class="bi bi-chevron-down d-block"></i>
           </div>
         </div>
-        <a href="index.html" class="side-link active"
+        <a href="index.html" class="side-link"
           ><i class="bi bi-house"></i> Home</a
         >
         <a href="post-job.html" class="side-link"
@@ -193,7 +94,7 @@
         <a href="job-performance.html" class="side-link"
           ><i class="bi bi-bar-chart"></i> Job Performance</a
         >
-        <a href="viewprofile.html" class="side-link"
+        <a href="viewprofile.html" class="side-link active"
           ><i class="bi bi-person"></i> Company Profile</a
         >
         <a href="use-template.html" class="side-link"
@@ -222,10 +123,9 @@
       </aside>
 
       <div
-        class="offcanvas offcanvas-start"
+        class="offcanvas offcanvas-start u-w-280px"
         tabindex="-1"
         id="sidebarOffcanvas"
-        style="width: 280px"
       >
         <div class="offcanvas-header border-bottom">
           <div class="brand">
@@ -242,10 +142,7 @@
           ></button>
         </div>
         <div class="offcanvas-body">
-          <div
-            class="sidebar"
-            style="height: auto; border-right: none; padding: 0"
-          >
+          <div class="sidebar u-h-auto_br-none_p-0">
             <div class="company-card">
               <div class="company-logo"></div>
               <div class="flex-grow-1">
@@ -257,7 +154,7 @@
                 ><i class="bi bi-chevron-down d-block"></i>
               </div>
             </div>
-            <a href="index.html" class="side-link active"
+            <a href="index.html" class="side-link"
               ><i class="bi bi-house"></i> Home</a
             >
             <a href="post-job.html" class="side-link"
@@ -270,7 +167,7 @@
             <a href="job-performance.html" class="side-link"
               ><i class="bi bi-bar-chart"></i> Job Performance</a
             >
-            <a href="viewprofile.html" class="side-link"
+            <a href="viewprofile.html" class="side-link active"
               ><i class="bi bi-person"></i> Company Profile</a
             >
             <a href="use-template.html" class="side-link"
@@ -301,322 +198,319 @@
       </div>
 
       <main class="main">
-        <div class="container">
-          <div class="profile-card">
-            <!-- Header -->
-            <div class="row align-items-center">
-              <div class="col-md-8">
-                <h2 class="profile-title">Edit Profile Details</h2>
+        <div class="profile-card">
+          <!-- Header -->
+          <div class="row align-items-center">
+            <div class="col-md-8">
+              <h2 class="profile-title">Edit Profile Details</h2>
+            </div>
+            <div class="col-md-4 text-md-end top-btn">
+              <button class="btn btn-edit">Edit</button>
+            </div>
+          </div>
+
+          <!-- Basic Details -->
+          <br />
+          <h4 class="section-title">Company Information</h4>
+          <hr />
+          <div class="row">
+            <!-- Left -->
+            <div class="col-lg-5">
+              <div class="mb-3">
+                <label>Company name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="HDB Financial Services"
+                  readonly
+                />
               </div>
-              <div class="col-md-4 text-md-end top-btn">
-                <button class="btn btn-edit">Edit</button>
+            </div>
+            <div class="col-lg-4">
+              <div class="mb-3">
+                <label>Industry / Business Type</label>
+                <select id="industry" class="form-control">
+                  <option value="">Select industry</option>
+                  <option>IT / Software</option>
+                  <option>Manufacturing</option>
+                  <option>Banking / Finance / NBFC</option>
+                  <option>Healthcare</option>
+                  <option>Retail / E-commerce</option>
+                  <option>Education</option>
+                  <option>Construction / Real Estate</option>
+                  <option>Logistics / Transport</option>
+                  <option>BPO / KPO</option>
+                  <option>Other</option>
+                </select>
               </div>
             </div>
 
-            <!-- Basic Details -->
-            <br />
-            <h4 class="section-title">Company Information</h4>
-            <hr />
-            <div class="row">
-              <!-- Left -->
-              <div class="col-lg-5">
-                <div class="mb-3">
-                  <label>Company name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="HDB Financial Services"
-                    readonly
-                  />
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Industry / Business Type</label>
-                  <select id="industry" class="form-control">
-                    <option value="">Select industry</option>
-                    <option>IT / Software</option>
-                    <option>Manufacturing</option>
-                    <option>Banking / Finance / NBFC</option>
-                    <option>Healthcare</option>
-                    <option>Retail / E-commerce</option>
-                    <option>Education</option>
-                    <option>Construction / Real Estate</option>
-                    <option>Logistics / Transport</option>
-                    <option>BPO / KPO</option>
-                    <option>Other</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="col-lg-3">
-                <div class="mb-3">
-                  <label>Company Size</label>
-                  <select id="size" class="form-control">
-                    <option value="">Select Company Size</option>
-                    <option>1 - 10</option>
-                    <option>11 - 50</option>
-                    <option>51 - 200</option>
-                    <option>201 - 500</option>
-                    <option>500+</option>
-                  </select>
-                </div>
+            <div class="col-lg-3">
+              <div class="mb-3">
+                <label>Company Size</label>
+                <select id="size" class="form-control">
+                  <option value="">Select Company Size</option>
+                  <option>1 - 10</option>
+                  <option>11 - 50</option>
+                  <option>51 - 200</option>
+                  <option>201 - 500</option>
+                  <option>500+</option>
+                </select>
               </div>
             </div>
+          </div>
 
-            <div class="row">
-              <!-- Left -->
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label>Company Website</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="hr@hdb.com"
-                    readonly
-                  />
-                </div>
+          <div class="row">
+            <!-- Left -->
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label>Company Website</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="hr@hdb.com"
+                  readonly
+                />
               </div>
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label>Company Description</label>
-                  <textarea type="text" class="form-control" readonly>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label>Company Description</label>
+                <textarea type="text" class="form-control" readonly>
 Xyz</textarea
-                  >
-                </div>
+                >
+              </div>
+            </div>
+          </div>
+
+          <br />
+          <h4 class="section-title">Contact Person Details</h4>
+          <hr />
+          <div class="row">
+            <!-- Left -->
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label>Full name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="udhayasabari"
+                  readonly
+                />
               </div>
             </div>
 
-            <br />
-            <h4 class="section-title">Contact Person Details</h4>
-            <hr />
-            <div class="row">
-              <!-- Left -->
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label>Full name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="udhayasabari"
-                    readonly
-                  />
-                </div>
-              </div>
+            <!-- Right -->
+            <div class="col-lg-6">
+              <label class="verify-text">
+                Official email ID:
+                <span>Not Verified</span>
+              </label>
 
-              <!-- Right -->
-              <div class="col-lg-6">
-                <label class="verify-text">
-                  Official email ID:
-                  <span>Not Verified</span>
-                </label>
-
-                <div class="row">
-                  <div class="col-md-9 mb-3">
-                    <input
-                      type="email"
-                      class="form-control"
-                      value="udhayasabari.r@hdbfs.com"
-                      readonly
-                    />
-                  </div>
-
-                  <div class="col-md-3 mb-3">
-                    <button class="btn btn-outline-secondary btn-verify">
-                      Verify
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Mobile Number</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="7871539343"
-                    readonly
-                  />
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Designation</label>
-                  <input type="text" class="form-control" value="HR" readonly />
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Alternate Mobile Number</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="9837653892"
-                    readonly
-                  />
-                </div>
-              </div>
-            </div>
-            <br />
-            <h4 class="section-title">Company Address</h4>
-            <hr />
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label>Address Line</label>
-                  <textarea type="text" class="form-control" readonly>
-12/2, Car Street</textarea
-                  >
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="mb-3">
-                  <label>City</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="Madurai"
-                    readonly
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>State</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="Tamilnadu"
-                    readonly
-                  />
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Pincode</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="625134"
-                    readonly
-                  />
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Country</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="India"
-                    readonly
-                  />
-                </div>
-              </div>
-            </div>
-            <br />
-            <h4 class="section-title">Hiring Requirements</h4>
-            <hr />
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Are you registering as?</label>
-                  <select id="size" class="form-control">
-                    <option>Employer</option>
-                    <option>HR</option>
-                    <option>Recruitment Agency</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Hiring Frequency</label>
-                  <select id="size" class="form-control">
-                    <option>One Time Hiring</option>
-                    <option>Regular Hiring</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="mb-3">
-                  <label>Expected Number Of Openings</label>
-                  <select id="size" class="form-control">
-                    <option>1-5</option>
-                    <option>6-20</option>
-                    <option>21-50</option>
-                    <option>50+</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <br />
-            <h4 class="section-title">Hiring Support</h4>
-            <hr />
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="mb-3">
-                  <span
-                    ><label
-                      >Do you need Hiregram Support for hiring
-                      candidates?</label
-                    >
-                    <input type="radio" /><label>&nbsp;Yes</label>
-                    <input type="radio" /><label>&nbsp;No</label>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <br />
-            <h4 class="section-title">Verification</h4>
-            <hr />
-            <!-- GST -->
-            <div class="section-space">
               <div class="row">
-                <div class="col-lg-4">
-                  <div class="mb-3">
-                    <label>GST / ISD-GST No.</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      value="27AABCH8761M1Z1"
-                      readonly
-                    />
-                  </div>
+                <div class="col-md-9 mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    value="udhayasabari.r@hdbfs.com"
+                    readonly
+                  />
                 </div>
-                <div class="col-lg-4">
-                  <div class="mb-3">
-                    <label>CIN / Company Registration Number</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      value="27AABCH8761M1Z1"
-                      readonly
-                    />
-                  </div>
-                </div>
-                <div class="col-lg-4">
-                  <div class="mb-3">
-                    <label>LinkedIn Company Profile</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      value="https://linkedin.com"
-                      readonly
-                    />
-                  </div>
+
+                <div class="col-md-3 mb-3">
+                  <button class="btn btn-outline-secondary btn-verify">
+                    Verify
+                  </button>
                 </div>
               </div>
             </div>
-            <div class="row">
-              <div class="col-lg-9"></div>
-              <div class="col-lg-3 d-flex justify-content-end">
-                <button class="btn btn-danger btn-lg">Submit</button>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="mb-3">
+                <label>Mobile Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="7871539343"
+                  readonly
+                />
               </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="mb-3">
+                <label>Designation</label>
+                <input type="text" class="form-control" value="HR" readonly />
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="mb-3">
+                <label>Alternate Mobile Number</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="9837653892"
+                  readonly
+                />
+              </div>
+            </div>
+          </div>
+          <br />
+          <h4 class="section-title">Company Address</h4>
+          <hr />
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label>Address Line</label>
+                <textarea type="text" class="form-control" readonly>
+12/2, Car Street</textarea
+                >
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label>City</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="Madurai"
+                  readonly
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="mb-3">
+                <label>State</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="Tamilnadu"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="mb-3">
+                <label>Pincode</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="625134"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="mb-3">
+                <label>Country</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  value="India"
+                  readonly
+                />
+              </div>
+            </div>
+          </div>
+          <br />
+          <h4 class="section-title">Hiring Requirements</h4>
+          <hr />
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="mb-3">
+                <label>Are you registering as?</label>
+                <select id="size" class="form-control">
+                  <option>Employer</option>
+                  <option>HR</option>
+                  <option>Recruitment Agency</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="mb-3">
+                <label>Hiring Frequency</label>
+                <select id="size" class="form-control">
+                  <option>One Time Hiring</option>
+                  <option>Regular Hiring</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="mb-3">
+                <label>Expected Number Of Openings</label>
+                <select id="size" class="form-control">
+                  <option>1-5</option>
+                  <option>6-20</option>
+                  <option>21-50</option>
+                  <option>50+</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <br />
+          <h4 class="section-title">Hiring Support</h4>
+          <hr />
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="mb-3">
+                <span
+                  ><label
+                    >Do you need Hiregram Support for hiring candidates?</label
+                  >
+                  <input type="radio" /><label>&nbsp;Yes</label>
+                  <input type="radio" /><label>&nbsp;No</label>
+                </span>
+              </div>
+            </div>
+          </div>
+          <br />
+          <h4 class="section-title">Verification</h4>
+          <hr />
+          <!-- GST -->
+          <div class="section-space">
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label>GST / ISD-GST No.</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="27AABCH8761M1Z1"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label>CIN / Company Registration Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="27AABCH8761M1Z1"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="mb-3">
+                  <label>LinkedIn Company Profile</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    value="https://linkedin.com"
+                    readonly
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-9"></div>
+            <div class="col-lg-3 d-flex justify-content-end">
+              <button class="btn btn-danger btn-lg">Submit</button>
             </div>
           </div>
         </div>

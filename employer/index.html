@@ -18,472 +18,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="assets/style.css" />
-    <style>
-      :root {
-        --bg: #f5f6f8;
-        --card: #ffffff;
-        --border: #e6e8ec;
-        --text: #0f2447;
-        --muted: #6b7280;
-        --blue: #0f2447;
-        --blue-dark: #0f2447;
-        --navy-grad-start: #0f2447;
-        --navy-grad-end: #0f2447;
-        --green-bg: #e4f8ec;
-        --green-text: #149a4d;
-        --red-text: #a00000;
-        --amber-bg: #fff4de;
-        --amber-text: #b7791f;
-        --radius-lg: 16px;
-        --radius-md: 12px;
-        --radius-sm: 8px;
-        --shadow:
-          0 1px 2px rgba(15, 18, 34, 0.04), 0 1px 1px rgba(15, 18, 34, 0.03);
-      }
-
-      .page {
-        max-width: 1560px;
-        margin: 0 auto;
-        padding: 28px 32px 60px;
-      }
-
-      /* Header */
-      .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        gap: 16px;
-        margin-bottom: 24px;
-      }
-      .header-eyebrow {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        color: var(--red-text);
-        text-transform: uppercase;
-        margin-bottom: 6px;
-      }
-      .header h1 {
-        font-size: 26px;
-        margin: 0 0 6px;
-        font-weight: 800;
-        letter-spacing: -0.01em;
-      }
-      .header p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px;
-      }
-      .header-badges {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        align-items: flex-start;
-      }
-      .badge {
-        border: 0;
-        border-radius: 8px;
-        padding: 7px 11px;
-        font-size: 12px;
-        font-weight: 700;
-      }
-      .badge-verified {
-        background: var(--green-bg);
-        color: var(--green-text);
-      }
-      .badge-refer {
-        background: var(--amber-bg);
-        color: var(--amber-text);
-      }
-
-      /* Stat cards */
-      .stat-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 16px;
-        margin-bottom: 16px;
-      }
-      .stat-card {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
-        padding: 20px;
-        box-shadow: var(--shadow);
-      }
-      .stat-icon {
-        width: 36px;
-        height: 36px;
-        border-radius: 10px;
-        background: #eef0ff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 14px;
-        font-size: 16px;
-      }
-      .stat-value {
-        font-size: 26px;
-        font-weight: 800;
-        line-height: 1;
-        margin-bottom: 6px;
-      }
-      .stat-label {
-        font-size: 13px;
-        color: var(--muted);
-      }
-
-      /* Middle row: snapshot + rewards */
-      .mid-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        gap: 16px;
-        margin-bottom: 16px;
-        align-items: stretch;
-      }
-
-      .panel {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
-        padding: 22px;
-        box-shadow: var(--shadow);
-      }
-      .panel-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 4px;
-        gap: 12px;
-      }
-      .panel-head h2 {
-        font-size: 17px;
-        margin: 0 0 4px;
-        font-weight: 800;
-      }
-      .panel-sub {
-        font-size: 12.5px;
-        color: var(--muted);
-        margin: 0;
-      }
-      .link-btn {
-        border: none;
-        color: var(--blue);
-        font-weight: 700;
-        font-size: 13px;
-        cursor: pointer;
-        padding: 10px;
-        white-space: nowrap;
-      }
-
-      table.snapshot {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 14px;
-        font-size: 13.5px;
-      }
-      table.snapshot th {
-        text-align: left;
-        font-size: 11px;
-        letter-spacing: 0.04em;
-        color: var(--muted);
-        text-transform: uppercase;
-        font-weight: 700;
-        padding-bottom: 10px;
-        border-bottom: 1px solid var(--border);
-      }
-      table.snapshot td {
-        padding: 13px 0;
-        border-bottom: 1px solid var(--border);
-        font-weight: 600;
-      }
-      table.snapshot tr:last-child td {
-        border-bottom: none;
-      }
-      table.snapshot td:first-child {
-        color: var(--text);
-        font-weight: 700;
-      }
-      .pill-change {
-        background: var(--green-bg);
-        color: var(--green-text);
-        font-weight: 700;
-        font-size: 12px;
-        padding: 3px 9px;
-        border-radius: 999px;
-        display: inline-block;
-      }
-
-      /* Rewards panel */
-      .rewards {
-        background: linear-gradient(
-          135deg,
-          var(--navy-grad-start),
-          var(--navy-grad-end)
-        );
-        color: #fff;
-        border: none;
-        display: flex;
-        flex-direction: column;
-      }
-      .rewards .panel-sub {
-        color: rgba(255, 255, 255, 0.75);
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        font-weight: 700;
-        font-size: 11px;
-      }
-      .rewards-value {
-        font-size: 38px;
-        font-weight: 800;
-        margin: 10px 0 8px;
-      }
-      .rewards-desc {
-        font-size: 13.5px;
-        color: rgba(255, 255, 255, 0.85);
-        line-height: 1.5;
-        margin: 0 0 20px;
-        flex-grow: 1;
-      }
-      .rewards-actions {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-      .btn {
-        border: none;
-        border-radius: var(--radius-sm);
-        padding: 10px 16px;
-        font-size: 13px;
-        font-weight: 700;
-        cursor: pointer;
-      }
-      .btn-white {
-        background: #fff;
-        color: var(--blue-dark);
-      }
-      .btn-outline-light {
-        background: rgba(255, 255, 255, 0.12);
-        color: #fff;
-        border: 1px solid rgba(255, 255, 255, 0.35);
-      }
-      .btn-blue {
-        background: var(--blue);
-        color: #fff;
-      }
-      .btn-blue-soft {
-        background: #e9edff;
-        color: var(--blue);
-      }
-      .btn-blue:hover {
-        border: 1px solid var(--blue);
-        color: var(--blue);
-        background-color: #fff;
-      }
-      .btn-amber-soft {
-        background: var(--amber-bg);
-        color: var(--amber-text);
-      }
-
-      /* Recent jobs */
-      .jobs-panel {
-        background: var(--card);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-lg);
-        padding: 22px;
-        box-shadow: var(--shadow);
-      }
-      .jobs-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 12px;
-        margin-bottom: 18px;
-      }
-      .jobs-head h2 {
-        font-size: 17px;
-        margin: 0 0 4px;
-        font-weight: 800;
-      }
-      .jobs-head p {
-        margin: 0;
-        font-size: 12.5px;
-        color: var(--muted);
-      }
-
-      .job-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-      }
-      .job-card {
-        border: 1px solid var(--border);
-        border-radius: var(--radius-md);
-        padding: 18px;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-      }
-      .status-tag {
-        display: inline-block;
-        font-size: 10.5px;
-        font-weight: 800;
-        letter-spacing: 0.04em;
-        text-transform: uppercase;
-        padding: 3px 9px;
-        border-radius: 5px;
-        margin-bottom: 10px;
-        width: fit-content;
-      }
-      .status-active {
-        background: var(--green-bg);
-        color: var(--green-text);
-      }
-      .status-expiring {
-        background: var(--amber-bg);
-        color: var(--amber-text);
-      }
-
-      .job-title {
-        font-size: 15.5px;
-        font-weight: 800;
-        margin: 0 0 4px;
-      }
-      .job-meta {
-        font-size: 13px;
-        color: var(--muted);
-        margin: 0 0 12px;
-      }
-      .job-stats {
-        font-size: 12.5px;
-        color: var(--muted);
-        margin: 0 0 16px;
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-      .job-actions {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        margin-top: auto;
-      }
-      .job-actions .btn {
-        padding: 8px 14px;
-        font-size: 12.5px;
-      }
-
-      /* WhatsApp tool card */
-      .wa-card {
-        grid-column: 1 / 2;
-        border: 1px solid var(--border);
-        border-radius: var(--radius-md);
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        background: #fff;
-      }
-      .wa-icon {
-        width: 34px;
-        height: 34px;
-        border-radius: 9px;
-        background: #eef0ff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 14px;
-        font-size: 15px;
-      }
-      .wa-card h3 {
-        font-size: 15.5px;
-        margin: 0 0 6px;
-        font-weight: 800;
-      }
-      .wa-card p {
-        font-size: 13px;
-        color: var(--muted);
-        margin: 0 0 18px;
-        line-height: 1.5;
-      }
-
-      .jobs-bottom {
-        margin-top: 16px;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-      }
-
-      /* ===================== RESPONSIVE ===================== */
-
-      @media (max-width: 1100px) {
-        .stat-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .mid-grid {
-          grid-template-columns: 1fr;
-        }
-        .job-grid {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .jobs-bottom {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (max-width: 680px) {
-        .page {
-          padding: 18px 16px 40px;
-        }
-        .header {
-          flex-direction: column;
-        }
-        .header h1 {
-          font-size: 21px;
-        }
-        .stat-grid {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 12px;
-        }
-        .stat-card {
-          padding: 16px;
-        }
-        .stat-value {
-          font-size: 22px;
-        }
-        .job-grid {
-          grid-template-columns: 1fr;
-        }
-        .jobs-bottom {
-          grid-template-columns: 1fr;
-        }
-        .panel,
-        .jobs-panel {
-          padding: 18px;
-        }
-        table.snapshot {
-          font-size: 12.5px;
-        }
-        .rewards-value {
-          font-size: 32px;
-        }
-        .badge {
-          font-size: 11.5px;
-          padding: 6px 12px;
-        }
-      }
-
-      @media (max-width: 420px) {
-        .stat-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .btn-white:hover {
-        border: 1px solid rgba(255, 255, 255, 0.35);
-      }
-    </style>
-  </head>
+</head>
   <body>
     <div class="topbar">
       <button
@@ -502,21 +37,15 @@
       <div class="dropdown">
         <button class="avatar-btn" data-bs-toggle="dropdown">u</button>
         <ul
-          class="dropdown-menu dropdown-menu-end p-3"
-          style="
-            min-width: 230px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-          "
+          class="dropdown-menu dropdown-menu-end p-3 u-minw-230px_radius-12px_border-1px-solid-border"
         >
           <li class="d-flex align-items-center gap-2 mb-2">
             <span
-              class="avatar-btn"
-              style="width: 34px; height: 34px; font-size: 13px"
+              class="avatar-btn u-w-34px_h-34px_fs-13px"
               >u</span
             >
             <div>
-              <div style="font-weight: 700; font-size: 14px">udhayasabari</div>
+              <div class="u-fw-700_fs-14px">udhayasabari</div>
               <div class="job-meta mb-0">7871539343</div>
             </div>
           </li>
@@ -594,10 +123,9 @@
       </aside>
 
       <div
-        class="offcanvas offcanvas-start"
+        class="offcanvas offcanvas-start u-w-280px"
         tabindex="-1"
         id="sidebarOffcanvas"
-        style="width: 280px"
       >
         <div class="offcanvas-header border-bottom">
           <div class="brand">
@@ -615,8 +143,7 @@
         </div>
         <div class="offcanvas-body">
           <div
-            class="sidebar"
-            style="height: auto; border-right: none; padding: 0"
+            class="sidebar u-h-auto_br-none_p-0"
           >
             <div class="company-card">
               <div class="company-logo"></div>
@@ -699,8 +226,7 @@
             <div class="col-6 col-lg-3">
               <div class="stat-card">
                 <div
-                  class="stat-icon"
-                  style="background: var(--mint-bg); color: var(--teal-dk)"
+                  class="stat-icon u-bg-mint-bg_text-teal-dk"
                 >
                   <i class="bi bi-briefcase-fill"></i>
                 </div>
@@ -711,8 +237,7 @@
             <div class="col-6 col-lg-3">
               <div class="stat-card">
                 <div
-                  class="stat-icon"
-                  style="background: var(--amber-bg); color: var(--amber-text)"
+                  class="stat-icon u-bg-amber-bg_text-amber-text"
                 >
                   <i class="bi bi-file-earmark-person-fill"></i>
                 </div>
@@ -723,8 +248,7 @@
             <div class="col-6 col-lg-3">
               <div class="stat-card">
                 <div
-                  class="stat-icon"
-                  style="background: #e9f1fb; color: #2d6fb0"
+                  class="stat-icon u-bg-e9f1fb_text-2d6fb0"
                 >
                   <i class="bi bi-people-fill"></i>
                 </div>
@@ -735,8 +259,7 @@
             <div class="col-6 col-lg-3">
               <div class="stat-card">
                 <div
-                  class="stat-icon"
-                  style="background: #fbeaea; color: #b2483a"
+                  class="stat-icon u-bg-fbeaea_text-b2483a"
                 >
                   <i class="bi bi-hourglass-split"></i>
                 </div>

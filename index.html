@@ -30,17 +30,164 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Courgette&family=Noto+Serif+Vithkuqi:wght@500&family=Quicksand:wght@300&family=Satisfy&family=Shadows+Into+Light&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap");
-      @import url("https://fonts.googleapis.com/css2?family=Chonburi&display=swap");
+      #latest-jobs {
+        padding: var(--sp-20) 0;
+        background: linear-gradient(
+          160deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        position: relative;
+        overflow: hidden;
+        /* margin-top: 70px; */
+      }
+
+      #latest-jobs::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.06) 1px,
+          transparent 1px
+        );
+        background-size: 30px 30px;
+      }
+
+      #latest-jobs .section-title {
+        color: var(--white);
+      }
+
+      #latest-jobs .section-subtitle {
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      #latest-jobs .section-label {
+        background: rgba(249, 22, 22, 0.2);
+        color: #fd7474;
+      }
+
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: var(--sp-6);
+        position: relative;
+        z-index: 1;
+      }
+
+      .step-card {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: var(--radius-lg);
+        padding: var(--sp-8) var(--sp-6);
+        text-align: center;
+        transition:
+          background var(--transition-base),
+          transform var(--transition-base);
+      }
+
+      .step-card:hover {
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateY(-4px);
+      }
+
+      .step-number {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        background: var(--accent);
+        border-radius: var(--radius-md);
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 1rem;
+        color: var(--white);
+        margin: 0 auto var(--sp-4);
+      }
+
+      .step-icon {
+        font-size: 2.2rem;
+        margin-bottom: var(--sp-3);
+      }
+
+      .step-title {
+        font-family: var(--font-display);
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: var(--sp-2);
+      }
+
+      .step-desc {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.6;
+      }
+      .latestjobsection .company-name {
+        font-size: 0.85rem;
+        color: var(--white);
+        font-weight: 500;
+      }
+
+      .latestjobsection .job-meta {
+        display: flex;
+        align-items: center;
+        gap: var(--sp-2);
+        flex-wrap: wrap;
+      }
+
+      .latestjobsection .meta-item {
+        display: flex;
+        align-items: center;
+        gap: var(--sp-1);
+        font-size: 0.8rem;
+        color: var(--white);
+      }
+
+      .latestjobsection .badge-green,
+      .badge-blue {
+        background-color: var(--white);
+      }
+
+      .latestjobsection .job-salary {
+        font-family: var(--font-display);
+        font-weight: 700;
+        color: var(--white);
+        font-size: 0.95rem;
+      }
+
+      .latestjobsection .job-salary span {
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: 0.78rem;
+        color: var(--white);
+      }
+
+      .latestjobsection .apply-btn {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        padding: 0.45rem 1.1rem;
+        border-radius: var(--radius-full);
+        border: 1.5px solid var(--white);
+        transition: all var(--transition-base);
+        background: #ffff;
+      }
+
+      .latestjobsection .company-name {
+        font-weight: bold !important;
+      }
+
+      .latestjobsection .job-title {
+        font-style: italic !important;
+      }
 
       #latest-jobs .latestjobsection ul {
         margin: 0;
         padding: 0;
         list-style: none;
       }
-
       #latest-jobs .latestjobsection {
         position: relative;
         width: calc(min(47rem, 90%));
@@ -51,14 +198,12 @@
         flex-direction: column;
         justify-content: center;
       }
-
       #latest-jobs .latestjobsection h2 {
         letter-spacing: 0.8px;
         font-weight: 700;
         font-size: 2.6rem;
         line-height: 1.2;
       }
-
       #latest-jobs .latestjobsection p {
         font-size: 0.9rem;
         max-width: 680px;
@@ -66,16 +211,13 @@
         margin-inline: auto;
         margin-top: 10px;
       }
-
       .swiper-container {
         position: relative;
       }
-
       .swiper {
         width: 100%;
         padding: 60px 0 95px 0;
       }
-
       .swiper-slide {
         width: 10rem;
         height: 22rem;
@@ -86,7 +228,6 @@
         border-radius: 12px;
         box-shadow: -1px 5px 15px #0000001f;
       }
-
       .swiper-slide h3 {
         color: #fff;
         font-size: 12px;
@@ -95,13 +236,11 @@
         letter-spacing: 0.8px;
         position: relative;
       }
-
       .swiper-slide p {
         color: #fff;
         line-height: 1.6;
         font-size: 0.8rem;
       }
-
       .swiper-slide .slide-content {
         position: absolute;
         top: 45%;
@@ -109,7 +248,6 @@
         transform: translate(-50%, -45%);
         width: 90%;
       }
-
       .swiper-slide .author {
         grid-template-columns: 1fr;
         justify-items: center;
@@ -119,7 +257,6 @@
         display: none;
         opacity: 0;
       }
-
       .swiper-slide .author span {
         color: #111;
         display: block;
@@ -127,7 +264,6 @@
         font-weight: 600;
         font-size: 0.9rem;
       }
-
       .swiper-slide .author img {
         width: 60px;
         height: 60px;
@@ -135,83 +271,67 @@
         border-radius: 50%;
         border: 3.5px solid white;
       }
-
       .swiper-slide .author ul {
         display: flex;
         align-items: center;
       }
-
       .swiper-slide .author ul li svg {
         width: 20px;
         color: orange;
       }
-
       .swiper-slide-active .author {
         display: grid;
         opacity: 1;
       }
-
       .swiper-slide--one {
-        background: #0575e6;
-        background: -webkit-linear-gradient(to bottom, #021b79, #0575e6);
-        background: linear-gradient(to bottom, #021b79, #0575e6);
+        background: #0559e6;
+        background: -webkit-linear-gradient(to bottom, #022f79, #0559e6);
+        background: linear-gradient(to bottom, #022f79, #0559e6);
       }
-
       .swiper-slide--one h3 {
         font-family: "Cormorant Garamond", serif;
         font-weight: 600;
       }
-
       .swiper-slide--two {
-        background: #23074d;
-        background: -webkit-linear-gradient(to bottom, #cc5333, #23074d);
-        background: linear-gradient(to bottom, #cc5333, #23074d);
+        background: #07214d;
+        background: -webkit-linear-gradient(to bottom, #cc3333, #07214d);
+        background: linear-gradient(to bottom, #cc3333, #07214d);
       }
-
       .swiper-slide--two h3 {
         font-family: "Quicksand", sans-serif;
       }
-
       .swiper-slide--three {
-        background: #159957;
+        background: #154699;
       }
-
       .swiper-slide--three h3 {
         font-family: "Satisfy", cursive;
         font-weight: 300;
       }
-
       .swiper-slide--four {
-        background: #b06ab3;
+        background: #b36a6a;
       }
-
       .swiper-slide--four h3 {
         font-family: "Courgette", cursive;
         font-weight: 300;
       }
-
       .swiper-slide--five {
-        background: #093028;
-        background: -webkit-linear-gradient(to bottom, #237a57, #093028);
-        background: linear-gradient(to bottom, #237a57, #093028);
+        background: #091830;
+        background: -webkit-linear-gradient(to bottom, #23447a, #091830);
+        background: linear-gradient(to bottom, #23447a, #091830);
       }
-
       .swiper-slide--five h3 {
         font-family: "Noto Serif Vithkuqi", serif;
         font-weight: 300;
       }
-
       .swiper-slide--six {
-        background: #b9f;
-        background: -webkit-linear-gradient(to bottom, #b9f, #3b2421);
-        background: linear-gradient(to bottom, #b9f, #3b2421);
+        background: #99bfff;
+        background: -webkit-linear-gradient(to bottom, #99bfff, #3b2121);
+        background: linear-gradient(to bottom, #99bfff, #3b2121);
       }
-
       .swiper-slide--six h3 {
         font-family: "Chonburi", cursive;
         font-weight: 400;
       }
-
       .swiper-button-prev {
         background: white;
         border-radius: 50%;
@@ -221,16 +341,13 @@
         height: 50px;
         box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.17);
       }
-
       .swiper-button-prev::after {
         font-size: 1.4rem;
         content: "";
       }
-
       .swiper-button-prev svg {
         width: 25px;
       }
-
       .swiper-button-next {
         background: white;
         border-radius: 50%;
@@ -240,60 +357,48 @@
         height: 50px;
         box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.17);
       }
-
       .swiper-button-next::after {
         font-size: 1.4rem;
         content: "";
       }
-
       .swiper-button-next svg {
         width: 25px;
       }
-
       .swiper-button-prev,
       .swiper-button-next {
         display: none;
       }
-
       @media screen and (max-width: 300px) {
         .latestjobsection {
           width: 100%;
           padding: 30px 0;
           overflow: hidden;
         }
-
         .swiper-container {
           width: 100%;
           overflow: hidden;
         }
-
         .swiper {
           width: 100%;
           padding: 35px 0 80px;
         }
-
         .swiper-wrapper {
           align-items: center;
         }
-
         .swiper-slide {
           width: 200px !important;
           height: 300px;
           border-radius: 12px;
         }
-
         .swiper-slide .slide-content {
           width: 88%;
         }
-
         .swiper-slide h3 {
           font-size: 20px;
         }
-
         .swiper-slide p {
           font-size: 12px;
         }
-
         .swiper-button-prev,
         .swiper-button-next {
           display: none !important;
@@ -332,22 +437,22 @@
                 <a href="index.html#jobs">Jobs</a>
                 <ul class="dropdown-menu">
                   <li>
-                    <a href="browse-jobs.html" target="_blank"
+                    <a href="browse-jobs.html"
                       >Jobs By Category</a
                     >
                   </li>
                   <li>
-                    <a href="browse-jobs.html" target="_blank"
+                    <a href="browse-jobs.html"
                       >Jobs By Location</a
                     >
                   </li>
                   <li>
-                    <a href="browse-jobs.html" target="_blank"
+                    <a href="browse-jobs.html"
                       >Jobs By Qualification</a
                     >
                   </li>
                   <li>
-                    <a href="browse-jobs.html" target="_blank"
+                    <a href="browse-jobs.html"
                       >Jobs By Department</a
                     >
                   </li>
@@ -393,16 +498,16 @@
             <div class="mobile-dropdown">
               <button class="mobile-dropdown-btn">Jobs <span>▼</span></button>
               <div class="mobile-dropdown-content">
-                <a href="employer/login.html" target="_blank"
+                <a href="browse-jobs.html"
                   >Jobs By Category</a
                 >
-                <a href="employer/login.html" target="_blank"
+                <a href="browse-jobs.html"
                   >Jobs By Location</a
                 >
-                <a href="employer/login.html" target="_blank"
+                <a href="browse-jobs.html"
                   >Jobs By Qualification</a
                 >
-                <a href="employer/login.html" target="_blank"
+                <a href="browse-jobs.html"
                   >Jobs By Department</a
                 >
               </div>
@@ -412,7 +517,7 @@
             <a href="blog.html">Blog</a>
             <a href="index.html#testimonials">Testimonials</a>
             <a href="index.html#contact">Contact Us</a>
-            <!-- <a class="btn btn-primary" href="browse-jobs.html" target="_blank"
+            <!-- <a class="btn btn-primary" href="browse-jobs.html"
               >Browse a Job</a
             > -->
           </nav>
@@ -451,7 +556,7 @@
             industry. Your next chapter starts here.
           </p>
 
-          <a href="browse-jobs.html" style="cursor: pointer">
+          <a href="browse-jobs.html" class="u-cursor-pointer">
             <div
               class="search-box"
               data-aos="fade-up"
@@ -883,7 +988,7 @@
 
           <div class="jobadv-container">
             <div class="jobadv-card jobadvorange">
-              <a href="browse-jobs.html" target="_blank">
+              <a href="browse-jobs.html">
                 <span class="jobadvtag">TRENDING AT #1</span>
                 <h2>Jobs for Freshers</h2>
                 <h3>Jobs for Freshers</h3>
@@ -893,7 +998,7 @@
             </div>
 
             <div class="jobadv-card jobadvpurple">
-              <a href="browse-jobs.html" target="_blank">
+              <a href="browse-jobs.html">
                 <span class="jobadvtag">TRENDING AT #2</span>
                 <h2>Work From Home Jobs</h2>
                 <h3>Work From Home Jobs</h3>
@@ -908,7 +1013,7 @@
             </div>
 
             <div class="jobadv-card jobadvgreen">
-              <a href="browse-jobs.html" target="_blank">
+              <a href="browse-jobs.html">
                 <span class="jobadvtag">TRENDING AT #3</span>
                 <h2>Full Time Jobs</h2>
                 <h3>Full Time Jobs</h3>
@@ -923,7 +1028,7 @@
             </div>
 
             <div class="jobadv-card jobadvblue">
-              <a href="browse-jobs.html" target="_blank">
+              <a href="browse-jobs.html">
                 <span class="jobadvtag">TRENDING AT #4</span>
                 <h2>Part Time Jobs</h2>
                 <h3>Part Time Jobs</h3>
@@ -960,7 +1065,7 @@
           <div class="jobs-grid" id="jobs-grid">
             <article class="job-card" data-aos="fade-up" data-aos-delay="0">
               <div class="job-card-header">
-                <div style="flex: 1">
+                <div class="u-flex-1">
                   <h3 class="job-title">Senior Frontend Engineer</h3>
                   <div class="company-name">Stripe Inc.</div>
                 </div>
@@ -997,14 +1102,7 @@
                   3 days ago
                 </span>
               </div>
-              <div
-                style="
-                  display: flex;
-                  gap: 0.5rem;
-                  flex-wrap: wrap;
-                  margin-bottom: 1rem;
-                "
-              >
+              <div class="badge-row">
                 <span class="badge badge-green">Full Time</span>
                 <span class="badge badge-blue">React</span>
                 <span class="badge badge-blue">TypeScript</span>
@@ -1017,7 +1115,7 @@
 
             <article class="job-card" data-aos="fade-up" data-aos-delay="80">
               <div class="job-card-header">
-                <div style="flex: 1">
+                <div class="u-flex-1">
                   <h3 class="job-title">Product Design Lead</h3>
                   <div class="company-name">Airbnb</div>
                 </div>
@@ -1054,14 +1152,7 @@
                   1 day ago
                 </span>
               </div>
-              <div
-                style="
-                  display: flex;
-                  gap: 0.5rem;
-                  flex-wrap: wrap;
-                  margin-bottom: 1rem;
-                "
-              >
+              <div class="badge-row">
                 <span class="badge badge-purple">Remote</span>
                 <span class="badge badge-blue">Figma</span>
                 <span class="badge badge-blue">UX Research</span>
@@ -1074,7 +1165,7 @@
 
             <article class="job-card" data-aos="fade-up" data-aos-delay="160">
               <div class="job-card-header">
-                <div style="flex: 1">
+                <div class="u-flex-1">
                   <h3 class="job-title">Data Science Manager</h3>
                   <div class="company-name">Netflix</div>
                 </div>
@@ -1111,14 +1202,7 @@
                   5 days ago
                 </span>
               </div>
-              <div
-                style="
-                  display: flex;
-                  gap: 0.5rem;
-                  flex-wrap: wrap;
-                  margin-bottom: 1rem;
-                "
-              >
+              <div class="badge-row">
                 <span class="badge badge-green">Full Time</span>
                 <span class="badge badge-orange">Python</span>
                 <span class="badge badge-blue">ML</span>
@@ -1131,7 +1215,7 @@
 
             <article class="job-card" data-aos="fade-up" data-aos-delay="0">
               <div class="job-card-header">
-                <div style="flex: 1">
+                <div class="u-flex-1">
                   <h3 class="job-title">DevOps Engineer</h3>
                   <div class="company-name">Shopify</div>
                 </div>
@@ -1168,14 +1252,7 @@
                   2 days ago
                 </span>
               </div>
-              <div
-                style="
-                  display: flex;
-                  gap: 0.5rem;
-                  flex-wrap: wrap;
-                  margin-bottom: 1rem;
-                "
-              >
+              <div class="badge-row">
                 <span class="badge badge-green">Full Time</span>
                 <span class="badge badge-blue">Kubernetes</span>
                 <span class="badge badge-blue">AWS</span>
@@ -1188,7 +1265,7 @@
 
             <article class="job-card" data-aos="fade-up" data-aos-delay="80">
               <div class="job-card-header">
-                <div style="flex: 1">
+                <div class="u-flex-1">
                   <h3 class="job-title">Marketing Strategist</h3>
                   <div class="company-name">HubSpot</div>
                 </div>
@@ -1225,14 +1302,7 @@
                   Today
                 </span>
               </div>
-              <div
-                style="
-                  display: flex;
-                  gap: 0.5rem;
-                  flex-wrap: wrap;
-                  margin-bottom: 1rem;
-                "
-              >
+              <div class="badge-row">
                 <span class="badge badge-purple">Hybrid</span>
                 <span class="badge badge-blue">SEO</span>
                 <span class="badge badge-blue">Analytics</span>
@@ -1245,7 +1315,7 @@
 
             <article class="job-card" data-aos="fade-up" data-aos-delay="160">
               <div class="job-card-header">
-                <div style="flex: 1">
+                <div class="u-flex-1">
                   <h3 class="job-title">Backend Engineer (Go)</h3>
                   <div class="company-name">Notion</div>
                 </div>
@@ -1282,14 +1352,7 @@
                   4 days ago
                 </span>
               </div>
-              <div
-                style="
-                  display: flex;
-                  gap: 0.5rem;
-                  flex-wrap: wrap;
-                  margin-bottom: 1rem;
-                "
-              >
+              <div class="badge-row">
                 <span class="badge badge-green">Full Time</span>
                 <span class="badge badge-orange">Go</span>
                 <span class="badge badge-blue">PostgreSQL</span>
@@ -1380,17 +1443,10 @@
             >
               <div class="about-card-main">
                 <div class="about-emoji">🚀</div>
-                <h3
-                  style="
-                    font-family: var(--font-display);
-                    color: #fff;
-                    font-size: 1.3rem;
-                    margin-bottom: 0.5rem;
-                  "
-                >
+                <h3 class="u-swiper-title">
                   Connecting Talent with Opportunity
                 </h3>
-                <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.9rem">
+                <p class="u-text-muted-white">
                   Since 2019, Hiregram has helped millions of professionals find
                   their perfect role.
                 </p>
@@ -1465,7 +1521,7 @@
                 </div>
               </div>
 
-              <div style="margin-top: 2rem">
+              <div class="u-mt-2rem">
                 <a class="btn btn-primary" href="browse-jobs.html"
                   >Explore Jobs →</a
                 >
@@ -1499,7 +1555,7 @@
                     <div class="slide-content">
                       <article data-aos="fade-up" data-aos-delay="0">
                         <div class="job-card-header">
-                          <div style="flex: 1">
+                          <div class="u-flex-1">
                             <div class="company-name">Stripe Inc.</div>
                             <h3 class="job-title">Senior Frontend Engineer</h3>
                           </div>
@@ -1539,14 +1595,7 @@
                             3 days ago
                           </span>
                         </div>
-                        <div
-                          style="
-                            display: flex;
-                            gap: 0.5rem;
-                            flex-wrap: wrap;
-                            margin-bottom: 1rem;
-                          "
-                        >
+                        <div class="badge-row">
                           <span class="badge badge-green">Full Time</span>
                           <span class="badge badge-blue">React</span>
                           <span class="badge badge-blue">TypeScript</span>
@@ -1566,7 +1615,7 @@
                     <div class="slide-content">
                       <article data-aos="fade-up" data-aos-delay="80">
                         <div class="job-card-header">
-                          <div style="flex: 1">
+                          <div class="u-flex-1">
                             <div class="company-name">Airbnb</div>
                             <h3 class="job-title">Product Design Lead</h3>
                           </div>
@@ -1593,7 +1642,6 @@
                             </svg>
                             Remote (Global) <br />
                           </span>
-                          <br />
                           <span class="meta-item">
                             <svg
                               fill="none"
@@ -1607,14 +1655,7 @@
                             1 day ago
                           </span>
                         </div>
-                        <div
-                          style="
-                            display: flex;
-                            gap: 0.5rem;
-                            flex-wrap: wrap;
-                            margin-bottom: 1rem;
-                          "
-                        >
+                        <div class="badge-row">
                           <span class="badge badge-purple">Remote</span>
                           <span class="badge badge-blue">Figma</span>
                           <span class="badge badge-blue">UX Research</span>
@@ -1634,7 +1675,7 @@
                     <div class="slide-content">
                       <article data-aos="fade-up" data-aos-delay="160">
                         <div class="job-card-header">
-                          <div style="flex: 1">
+                          <div class="u-flex-1">
                             <div class="company-name">Netflix</div>
                             <h3 class="job-title">Data Science Manager</h3>
                           </div>
@@ -1674,14 +1715,7 @@
                             5 days ago
                           </span>
                         </div>
-                        <div
-                          style="
-                            display: flex;
-                            gap: 0.5rem;
-                            flex-wrap: wrap;
-                            margin-bottom: 1rem;
-                          "
-                        >
+                        <div class="badge-row">
                           <span class="badge badge-green">Full Time</span>
                           <span class="badge badge-orange">Python</span>
                           <span class="badge badge-blue">ML</span>
@@ -1701,7 +1735,7 @@
                     <div class="slide-content">
                       <article data-aos="fade-up" data-aos-delay="160">
                         <div class="job-card-header">
-                          <div style="flex: 1">
+                          <div class="u-flex-1">
                             <div class="company-name">Netflix</div>
                             <h3 class="job-title">Data Science Manager</h3>
                           </div>
@@ -1741,14 +1775,7 @@
                             5 days ago
                           </span>
                         </div>
-                        <div
-                          style="
-                            display: flex;
-                            gap: 0.5rem;
-                            flex-wrap: wrap;
-                            margin-bottom: 1rem;
-                          "
-                        >
+                        <div class="badge-row">
                           <span class="badge badge-green">Full Time</span>
                           <span class="badge badge-orange">Python</span>
                           <span class="badge badge-blue">ML</span>
@@ -1768,7 +1795,7 @@
                     <div class="slide-content">
                       <article data-aos="fade-up" data-aos-delay="0">
                         <div class="job-card-header">
-                          <div style="flex: 1">
+                          <div class="u-flex-1">
                             <div class="company-name">Shopify</div>
                             <h3 class="job-title">DevOps Engineer</h3>
                           </div>
@@ -1808,14 +1835,7 @@
                             2 days ago
                           </span>
                         </div>
-                        <div
-                          style="
-                            display: flex;
-                            gap: 0.5rem;
-                            flex-wrap: wrap;
-                            margin-bottom: 1rem;
-                          "
-                        >
+                        <div class="badge-row">
                           <span class="badge badge-green">Full Time</span>
                           <span class="badge badge-blue">Kubernetes</span>
                           <span class="badge badge-blue">AWS</span>
@@ -1835,7 +1855,7 @@
                     <div class="slide-content">
                       <article data-aos="fade-up" data-aos-delay="80">
                         <div class="job-card-header">
-                          <div style="flex: 1">
+                          <div class="u-flex-1">
                             <div class="company-name">HubSpot</div>
                             <h3 class="job-title">Marketing Strategist</h3>
                           </div>
@@ -1875,14 +1895,7 @@
                             Today
                           </span>
                         </div>
-                        <div
-                          style="
-                            display: flex;
-                            gap: 0.5rem;
-                            flex-wrap: wrap;
-                            margin-bottom: 1rem;
-                          "
-                        >
+                        <div class="badge-row">
                           <span class="badge badge-purple">Hybrid</span>
                           <span class="badge badge-blue">SEO</span>
                           <span class="badge badge-blue">Analytics</span>
@@ -2099,7 +2112,7 @@
                 today.
               </p>
               <div class="cta-buttons">
-                <a href="browse-jobs.html" class="btn btn-accent"
+                <a href="browse-jobs.html" class="btn btn-browse-accent"
                   >Browse All Jobs</a
                 >
                 <!-- <a href="index.html#categories" class="btn btn-outline-white"
@@ -2341,11 +2354,7 @@
                     required
                   ></textarea>
                 </div>
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  style="width: 100%; justify-content: center; padding: 1rem"
-                >
+                <button type="submit" class="btn btn-primary u-w-100-center-p4">
                   Send Message →
                 </button>
               </form>
@@ -2394,7 +2403,7 @@
                 <a href="employer/login.html" target="_blank">Post a Job</a>
               </li>
             </ul>
-            <div style="margin-top: 8%">
+            <div class="u-mt-8pct">
               <h3 class="footer-col-title">For Candidate</h3>
               <div class="footer-underline"></div>
               <ul class="footer-links" role="list">
