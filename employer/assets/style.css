@@ -749,7 +749,7 @@ a {
   padding: 52px 48px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: normal;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
@@ -928,7 +928,7 @@ a {
   .auth-side {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: normal;
     line-height: 40px;
   }
 
@@ -977,7 +977,7 @@ a {
   }
 
   .auth-side {
-    line-height: 25px;
+    line-height: 30px;
   }
 
   .auth-shell {
