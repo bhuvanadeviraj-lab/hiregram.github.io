@@ -965,7 +965,7 @@ a {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 780px) and (min-width: 280px) {
 
   .auth-card {
     max-width: none;
@@ -977,7 +977,7 @@ a {
   }
 
   .auth-side {
-    line-height: 30px;
+    line-height: 25px;
   }
 
   .auth-shell {
@@ -3686,8 +3686,8 @@ textarea {
   align-items: start;
 }
 
-.panel {
-  background: var(--card);
+.home-panel {
+  /* background: var(--card); */
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 28px;
@@ -3972,6 +3972,7 @@ textarea {
   color: #ffffff;
   border-radius: 9px;
   padding: 9px 16px;
+  font-size:14px;
 }
 
 .btn-use:hover {
@@ -3987,6 +3988,7 @@ textarea {
 .btn-duplicate {
   background: #edf4ff;
   color: var(--blue);
+  font-size:14px;
 }
 
 .btn-edit:hover,
@@ -4067,7 +4069,7 @@ textarea {
 /* ========================================
    MOBILE
 ======================================== */
-@media (max-width: 767px) {
+@media (max-width: 767px) and (min-width: 280px) {
   .templates-section {
     padding: 24px 15px 20px;
     border-radius: 18px;
@@ -4107,7 +4109,7 @@ textarea {
   .template-grid {
     grid-template-columns: 1fr;
     gap: 14px;
-    margin-top: 15%;
+    margin-top: 25%;
   }
 
   .template-card:last-child {
@@ -4147,7 +4149,7 @@ textarea {
   }
 
   .btn-use {
-    width: 100%;
+    /* width: 100%; */
   }
 
   .btn-edits,
@@ -4986,6 +4988,7 @@ label {
   font-weight: 600;
   border-radius: 9px;
   padding: 9px 16px;
+  font-size:14px;
 }
 
 .btn-edits:hover {
@@ -5043,8 +5046,8 @@ label {
   --panel: #ffffff;
   --page: #f4f5f7;
   --brand: #0f264d;
-  --green: #1250b8;
-  --green-dark: #0e46a4;
+  --green: #0f264d;
+  --green-dark: #0f264d;
   --green-bg: #e7eef9;
   --purple: #4f8ef6;
   --purple-bg: #eff5fe;
@@ -5084,13 +5087,13 @@ label {
 }
 
 /* ============ JOB CARD (view 1) ============ */
-.job-card {
+.home-job-card {
   background: var(--panel);
   border-radius: var(--radius);
   box-shadow: 0 1px 2px rgba(20, 24, 31, .04), 0 1px 12px rgba(20, 24, 31, .05);
   padding: 22px 26px;
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: space-between;
   flex-wrap: wrap;
   row-gap: 16px;

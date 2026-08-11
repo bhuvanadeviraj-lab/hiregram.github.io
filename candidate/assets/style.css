@@ -1149,7 +1149,7 @@ a {
   }
 
   .auth-side {
-    line-height: 30px;
+    line-height: 20px;
   }
 
   .auth-shell {
@@ -3391,7 +3391,7 @@ body.page-browse-job .btn-outline {
 
 
 body.page-browse-job .track-card {
-  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 8%, white), color-mix(in srgb, var(--primary) 8%, white));
+  background: #fff;
   border-radius: 14px;
   padding: 20px;
 }
@@ -3449,7 +3449,7 @@ body.page-browse-job .btn-green {
 
 
 body.page-browse-job .app-card {
-  background: linear-gradient(180deg, color-mix(in srgb, var(--primary) 8%, white), color-mix(in srgb, var(--primary) 8%, white));
+  background: #fff;
   border-radius: 14px;
   padding: 22px;
   position: relative;
